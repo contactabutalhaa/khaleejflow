@@ -1,0 +1,1549 @@
+﻿window.KF_INITIAL_SEED = {
+    "media":  [
+                  {
+                      "fileSize":  "248 KB",
+                      "id":  "med-1",
+                      "uploadedAt":  "2026-11-12",
+                      "webpSavings":  "38%",
+                      "title":  "MyPay Card and LuLu Money Mobile Remittance",
+                      "url":  "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "filename":  "mypay-lulu-money-transfer.jpg",
+                      "alt":  "UAE worker sending funds home using MyPay card and LuLu Money app",
+                      "description":  "High resolution illustration of mobile banking and LuLu Money transfer interface.",
+                      "dimensions":  "1200 x 800",
+                      "mimeType":  "image/jpeg",
+                      "caption":  "Mobile remittance corridors via WPS-compliant salary cards in the UAE",
+                      "webpConverted":  true
+                  },
+                  {
+                      "fileSize":  "312 KB",
+                      "id":  "med-2",
+                      "uploadedAt":  "2026-11-12",
+                      "webpSavings":  "41%",
+                      "title":  "Al Ain Oasis and Jebel Hafeet Climate",
+                      "url":  "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "filename":  "al-ain-oasis-weather.jpg",
+                      "alt":  "Al Ain Oasis greenery with clear blue skies and desert background",
+                      "description":  "Scenic landscape of Al Ain garden city.",
+                      "dimensions":  "1200 x 800",
+                      "mimeType":  "image/jpeg",
+                      "caption":  "Al Ain microclimate and seasonal temperatures",
+                      "webpConverted":  true
+                  },
+                  {
+                      "fileSize":  "420 KB",
+                      "id":  "med-3",
+                      "uploadedAt":  "2026-11-10",
+                      "webpSavings":  "36%",
+                      "title":  "Dubai Metro Red Line Interchange",
+                      "url":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "filename":  "dubai-metro-station-terminal.jpg",
+                      "alt":  "Modern Dubai Metro elevated train moving past Sheikh Zayed Road skyline",
+                      "description":  "Iconic view of Dubai public transit infrastructure.",
+                      "dimensions":  "1920 x 1080",
+                      "mimeType":  "image/jpeg",
+                      "caption":  "Dubai RTA public transit network connecting major commercial hubs",
+                      "webpConverted":  true
+                  },
+                  {
+                      "fileSize":  "290 KB",
+                      "id":  "med-4",
+                      "uploadedAt":  "2026-11-04",
+                      "webpSavings":  "45%",
+                      "title":  "UAE Highway Traffic Safety and Patrol",
+                      "url":  "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "filename":  "traffic-fine-check-police-car.jpg",
+                      "alt":  "Luxury sports vehicle driving on UAE highway under evening city lights",
+                      "description":  "Automotive safety and motorist regulations in the Emirates.",
+                      "dimensions":  "1200 x 800",
+                      "mimeType":  "image/jpeg",
+                      "caption":  "Electronic radar and traffic fine verification in Dubai and Abu Dhabi",
+                      "webpConverted":  true
+                  }
+              ],
+    "redirects":  [
+                      {
+                          "id":  "red-1",
+                          "source":  "/mypay",
+                          "createdAt":  "2026-10-01",
+                          "type":  301,
+                          "hits":  1420,
+                          "target":  "/how-to-send-money-home-using-mypay-card-and-lulu-money/",
+                          "status":  "active"
+                      },
+                      {
+                          "id":  "red-2",
+                          "source":  "/nol-balance",
+                          "createdAt":  "2026-10-05",
+                          "type":  301,
+                          "hits":  980,
+                          "target":  "/online-balance-enquiry-uae/",
+                          "status":  "active"
+                      },
+                      {
+                          "id":  "red-3",
+                          "source":  "/dubai-fines",
+                          "createdAt":  "2026-10-12",
+                          "type":  301,
+                          "hits":  2150,
+                          "target":  "/dubai-traffic-fine-check-by-plate-number/",
+                          "status":  "active"
+                      },
+                      {
+                          "id":  "red-4",
+                          "source":  "/parks/al-wathba",
+                          "createdAt":  "2026-11-01",
+                          "type":  302,
+                          "hits":  310,
+                          "target":  "/al-wathba-park-abu-dhabi/",
+                          "status":  "active"
+                      }
+                  ],
+    "technicalSEO":  {
+                         "crawlErrors404":  [
+                                                {
+                                                    "resolved":  false,
+                                                    "hits":  42,
+                                                    "url":  "/old-salary-check",
+                                                    "referrer":  "google.ae",
+                                                    "firstDetected":  "2026-11-02"
+                                                },
+                                                {
+                                                    "resolved":  false,
+                                                    "hits":  28,
+                                                    "url":  "/dxb-metro-fares-2024",
+                                                    "referrer":  "bing.com",
+                                                    "firstDetected":  "2026-11-05"
+                                                },
+                                                {
+                                                    "resolved":  false,
+                                                    "hits":  19,
+                                                    "url":  "/ajman-parking-sms-code",
+                                                    "referrer":  "direct",
+                                                    "firstDetected":  "2026-11-10"
+                                                }
+                                            ],
+                         "coreWebVitals":  {
+                                               "cls":  {
+                                                           "status":  "Good",
+                                                           "target":  "\u003c 0.1",
+                                                           "value":  "0.02"
+                                                       },
+                                               "inp":  {
+                                                           "status":  "Good",
+                                                           "target":  "\u003c 200ms",
+                                                           "value":  "62ms"
+                                                       },
+                                               "ttfb":  {
+                                                            "status":  "Good",
+                                                            "target":  "\u003c 800ms",
+                                                            "value":  "180ms"
+                                                        },
+                                               "lcp":  {
+                                                           "status":  "Good",
+                                                           "target":  "\u003c 2.5s",
+                                                           "value":  "1.8s"
+                                                       },
+                                               "fid":  {
+                                                           "status":  "Good",
+                                                           "target":  "\u003c 100ms",
+                                                           "value":  "38ms"
+                                                       }
+                                           },
+                         "sitemaps":  [
+                                          {
+                                              "name":  "sitemap.xml",
+                                              "entries":  5,
+                                              "lastModified":  "2026-11-17",
+                                              "type":  "Index",
+                                              "url":  "https://khaleejflow.com/sitemap.xml",
+                                              "status":  "200 OK"
+                                          },
+                                          {
+                                              "name":  "sitemap-posts.xml",
+                                              "entries":  20,
+                                              "lastModified":  "2026-11-17",
+                                              "type":  "Posts",
+                                              "url":  "https://khaleejflow.com/sitemap-posts.xml",
+                                              "status":  "200 OK"
+                                          },
+                                          {
+                                              "name":  "sitemap-categories.xml",
+                                              "entries":  12,
+                                              "lastModified":  "2026-11-17",
+                                              "type":  "Categories",
+                                              "url":  "https://khaleejflow.com/sitemap-categories.xml",
+                                              "status":  "200 OK"
+                                          },
+                                          {
+                                              "name":  "sitemap-pages.xml",
+                                              "entries":  11,
+                                              "lastModified":  "2026-11-17",
+                                              "type":  "Pages",
+                                              "url":  "https://khaleejflow.com/sitemap-pages.xml",
+                                              "status":  "200 OK"
+                                          },
+                                          {
+                                              "name":  "sitemap-images.xml",
+                                              "entries":  24,
+                                              "lastModified":  "2026-11-17",
+                                              "type":  "Images",
+                                              "url":  "https://khaleejflow.com/sitemap-images.xml",
+                                              "status":  "200 OK"
+                                          }
+                                      ],
+                         "robotsTxt":  "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nDisallow: /*?search=\n\nSitemap: https://khaleejflow.com/sitemap.xml\nSitemap: https://khaleejflow.com/sitemap-posts.xml\nSitemap: https://khaleejflow.com/sitemap-images.xml"
+                     },
+    "users":  [
+                  {
+                      "id":  "usr-1",
+                      "avatar":  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "role":  "super_admin",
+                      "name":  "Mustafa Al-Khalidi",
+                      "postsCount":  14,
+                      "registeredDate":  "2025-01-10",
+                      "status":  "active",
+                      "lastLogin":  "2026-11-17 14:15 GST",
+                      "email":  "admin@khaleejflow.ae"
+                  },
+                  {
+                      "id":  "usr-2",
+                      "avatar":  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "role":  "administrator",
+                      "name":  "Fatima Al-Zahra",
+                      "postsCount":  8,
+                      "registeredDate":  "2025-03-12",
+                      "status":  "active",
+                      "lastLogin":  "2026-11-17 11:30 GST",
+                      "email":  "fatima@khaleejflow.ae"
+                  },
+                  {
+                      "id":  "usr-3",
+                      "avatar":  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "role":  "editor",
+                      "name":  "Tariq Al-Mansoor",
+                      "postsCount":  48,
+                      "registeredDate":  "2025-02-15",
+                      "status":  "active",
+                      "lastLogin":  "2026-11-16 18:20 GST",
+                      "email":  "tariq@khaleejflow.ae"
+                  },
+                  {
+                      "id":  "usr-4",
+                      "avatar":  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "role":  "author",
+                      "name":  "Reem Al-Ghamdi",
+                      "postsCount":  62,
+                      "registeredDate":  "2025-04-01",
+                      "status":  "active",
+                      "lastLogin":  "2026-11-17 09:45 GST",
+                      "email":  "reem@khaleejflow.ae"
+                  },
+                  {
+                      "id":  "usr-5",
+                      "avatar":  "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "role":  "contributor",
+                      "name":  "Zaid Al-Bader",
+                      "postsCount":  3,
+                      "registeredDate":  "2025-06-20",
+                      "status":  "active",
+                      "lastLogin":  "2026-11-15 16:10 GST",
+                      "email":  "zaid@khaleejflow.ae"
+                  }
+              ],
+    "tags":  [
+                 {
+                     "count":  4,
+                     "name":  "MyPay Card",
+                     "id":  "mypay",
+                     "slug":  "mypay-card"
+                 },
+                 {
+                     "count":  3,
+                     "name":  "LuLu Money",
+                     "id":  "lulu-money",
+                     "slug":  "lulu-money"
+                 },
+                 {
+                     "count":  5,
+                     "name":  "Wages Protection System",
+                     "id":  "wps",
+                     "slug":  "wages-protection-system"
+                 },
+                 {
+                     "count":  4,
+                     "name":  "NOL Card",
+                     "id":  "nol-card",
+                     "slug":  "nol-card"
+                 },
+                 {
+                     "count":  5,
+                     "name":  "Dubai Metro",
+                     "id":  "dubai-metro",
+                     "slug":  "dubai-metro"
+                 },
+                 {
+                     "count":  4,
+                     "name":  "Traffic Fines",
+                     "id":  "traffic-fines",
+                     "slug":  "traffic-fines"
+                 },
+                 {
+                     "count":  3,
+                     "name":  "TAMM Abu Dhabi",
+                     "id":  "tamm",
+                     "slug":  "tamm-abu-dhabi"
+                 },
+                 {
+                     "count":  3,
+                     "name":  "Ratibi FAB",
+                     "id":  "ratibi",
+                     "slug":  "ratibi-fab"
+                 },
+                 {
+                     "count":  4,
+                     "name":  "Public Parks",
+                     "id":  "parks",
+                     "slug":  "public-parks"
+                 },
+                 {
+                     "count":  3,
+                     "name":  "Postal Codes",
+                     "id":  "postal-codes",
+                     "slug":  "postal-codes"
+                 },
+                 {
+                     "count":  2,
+                     "name":  "Prayer Times",
+                     "id":  "prayer-times",
+                     "slug":  "prayer-times"
+                 },
+                 {
+                     "count":  2,
+                     "name":  "Business Bay",
+                     "id":  "business-bay",
+                     "slug":  "business-bay"
+                 }
+             ],
+    "comments":  [
+                     {
+                         "id":  "com-1",
+                         "createdAt":  "2026-11-13 10:24 GST",
+                         "reply":  "Glad this guide helped you Mohammed! Let us know if you need assistance with exchange rate alerts.",
+                         "authorEmail":  "m.imran@gmail.com",
+                         "postId":  1,
+                         "authorName":  "Mohammed Imran",
+                         "status":  "approved",
+                         "content":  "Very helpful guide! I linked my MyPay card yesterday and received the money in Pakistan within 20 minutes.",
+                         "authorIp":  "94.200.12.84",
+                         "postTitle":  "How to Send Money Home Using MyPay Card and LuLu Money"
+                     },
+                     {
+                         "id":  "com-2",
+                         "createdAt":  "2026-11-14 15:18 GST",
+                         "reply":  "Yes Arthur! You can link your Ratibi card into Payit or FAB Mobile by biometric fingerprint for instant balance checks.",
+                         "authorEmail":  "arthur.s@outlook.com",
+                         "postId":  3,
+                         "authorName":  "Arthur Santos",
+                         "status":  "approved",
+                         "content":  "Can I check my Ratibi FAB balance through the FAB mobile app without entering my card number every time?",
+                         "authorIp":  "86.96.241.11",
+                         "postTitle":  "UAE Online Salary \u0026 Balance Enquiry: Complete WPS Guide"
+                     },
+                     {
+                         "id":  "com-3",
+                         "createdAt":  "2026-11-15 02:40 GST",
+                         "reply":  "",
+                         "authorEmail":  "promo@crypto-invest-fast.biz",
+                         "postId":  2,
+                         "authorName":  "Spam Bot 3000",
+                         "status":  "spam",
+                         "content":  "Buy cheap crypto tokens today and get 500% bonus guaranteed click here!",
+                         "authorIp":  "185.220.101.5",
+                         "postTitle":  "Al Ain Weather \u0026 Climate Guide"
+                     },
+                     {
+                         "id":  "com-4",
+                         "createdAt":  "2026-11-16 08:35 GST",
+                         "reply":  "",
+                         "authorEmail":  "sara.kabbani@yahoo.com",
+                         "postId":  4,
+                         "authorName":  "Sara Kabbani",
+                         "status":  "pending",
+                         "content":  "Does dnata offer airport transit ground handling internships for UAE fresh graduates?",
+                         "authorIp":  "94.200.55.90",
+                         "postTitle":  "dnata Careers UAE: Recruitment Process \u0026 Salary Expectations"
+                     }
+                 ],
+    "authors":  [
+                    {
+                        "role":  "Senior Writer",
+                        "id":  "tariq-al-mansoor",
+                        "articlesCount":  48,
+                        "avatar":  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200\u0026auto=format\u0026fit=crop\u0026q=80",
+                        "bureau":  "Dubai Bureau",
+                        "bio":  "12+ years documenting UAE master communities, residential tower handovers, and public transit connectivity across Dubai and Abu Dhabi.",
+                        "name":  "Tariq Al-Mansoor",
+                        "social":  {
+                                       "linkedin":  "tariq-al-mansoor",
+                                       "twitter":  "@tariq_dxb"
+                                   },
+                        "title":  "Senior Property \u0026 Urban Infrastructure Writer",
+                        "specialties":  [
+                                            "Dubai Real Estate",
+                                            "Metro Stations",
+                                            "Area Guides",
+                                            "Business Bay"
+                                        ],
+                        "email":  "tariq.mansoor@khaleejflow.ae"
+                    },
+                    {
+                        "role":  "Lead Financial Reporter",
+                        "id":  "reem-al-ghamdi",
+                        "articlesCount":  62,
+                        "avatar":  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200\u0026auto=format\u0026fit=crop\u0026q=80",
+                        "bureau":  "Riyadh \u0026 Abu Dhabi Bureaus",
+                        "bio":  "Specializes in UAE banking systems, digital payroll platforms, salary cards (Ratibi, FAB, MyPay), and regional financial regulations.",
+                        "name":  "Reem Al-Ghamdi",
+                        "social":  {
+                                       "linkedin":  "reem-al-ghamdi",
+                                       "twitter":  "@reem_finance"
+                                   },
+                        "title":  "Gulf Economy \u0026 Financial Services Reporter",
+                        "specialties":  [
+                                            "Salary Cards",
+                                            "Finance",
+                                            "Banking",
+                                            "Saudi Arabia",
+                                            "Corporate Tax"
+                                        ],
+                        "email":  "reem.ghamdi@khaleejflow.ae"
+                    },
+                    {
+                        "role":  "Urban Correspondent",
+                        "id":  "faisal-al-hashimi",
+                        "articlesCount":  37,
+                        "avatar":  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200\u0026auto=format\u0026fit=crop\u0026q=80",
+                        "bureau":  "Abu Dhabi \u0026 Sharjah Bureaus",
+                        "bio":  "Focuses on municipal transit networks, RTA bus lines, SMS parking schemes, and community green spaces across the Northern Emirates.",
+                        "name":  "Faisal Al-Hashimi",
+                        "social":  {
+                                       "linkedin":  "faisal-al-hashimi",
+                                       "twitter":  "@faisal_transit"
+                                   },
+                        "title":  "Public Transit \u0026 City Parks Correspondent",
+                        "specialties":  [
+                                            "Bus Stations",
+                                            "Parking Guides",
+                                            "Sharjah",
+                                            "Abu Dhabi Parks",
+                                            "Ajman"
+                                        ],
+                        "email":  "faisal.hashimi@khaleejflow.ae"
+                    },
+                    {
+                        "role":  "Senior Analyst",
+                        "id":  "layla-al-nuaimi",
+                        "articlesCount":  29,
+                        "avatar":  "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200\u0026auto=format\u0026fit=crop\u0026q=80",
+                        "bureau":  "Dubai Media City Bureau",
+                        "bio":  "Clinical researcher providing medically verified reports on GCC healthcare options, medical exams, licensing, and consumer welfare.",
+                        "name":  "Dr. Layla Al-Nuaimi",
+                        "social":  {
+                                       "linkedin":  "dr-layla-al-nuaimi",
+                                       "twitter":  "@drlayla_uae"
+                                   },
+                        "title":  "Health Policy \u0026 Consumer Affairs Analyst",
+                        "specialties":  [
+                                            "Healthcare",
+                                            "Medical Licensing",
+                                            "Automotive",
+                                            "Consumer Advice"
+                                        ],
+                        "email":  "layla.nuaimi@khaleejflow.ae"
+                    }
+                ],
+    "activityLogs":  [
+                         {
+                             "id":  "log-1",
+                             "object":  "Website General Settings",
+                             "timestamp":  "2026-11-17 13:45 GST",
+                             "action":  "UPDATE_SETTINGS",
+                             "ip":  "192.168.1.1",
+                             "user":  "Mustafa Al-Khalidi"
+                         },
+                         {
+                             "id":  "log-2",
+                             "object":  "How to Send Money Home Using MyPay Card",
+                             "timestamp":  "2026-11-16 11:20 GST",
+                             "action":  "PUBLISH_POST",
+                             "ip":  "94.200.12.84",
+                             "user":  "Reem Al-Ghamdi"
+                         },
+                         {
+                             "id":  "log-3",
+                             "object":  "Dubai Metro Stations Hub Page",
+                             "timestamp":  "2026-11-15 16:50 GST",
+                             "action":  "UPDATE_SEO",
+                             "ip":  "86.96.241.11",
+                             "user":  "Tariq Al-Mansoor"
+                         },
+                         {
+                             "id":  "log-4",
+                             "object":  "Comment by Mohammed Imran",
+                             "timestamp":  "2026-11-14 10:30 GST",
+                             "action":  "APPROVE_COMMENT",
+                             "ip":  "192.168.1.5",
+                             "user":  "Fatima Al-Zahra"
+                         },
+                         {
+                             "id":  "log-5",
+                             "object":  "XML Sitemap Index",
+                             "timestamp":  "2026-11-13 09:15 GST",
+                             "action":  "GENERATE_SITEMAP",
+                             "ip":  "192.168.1.1",
+                             "user":  "Mustafa Al-Khalidi"
+                         }
+                     ],
+    "categories":  [
+                       {
+                           "id":  "finance",
+                           "name":  "Finance",
+                           "count":  4,
+                           "description":  "WPS salary cards, payroll systems, banking, and remittances across the UAE and GCC",
+                           "seoDesc":  "Verified step-by-step guides on UAE Wages Protection System, MyPay cards, Ratibi FAB balance enquiry, and LuLu Money.",
+                           "slug":  "finance",
+                           "seoTitle":  "UAE Finance, WPS Salary Cards \u0026 Banking Guides | Khaleej Flow"
+                       },
+                       {
+                           "id":  "transportation",
+                           "name":  "Transportation",
+                           "count":  4,
+                           "description":  "Comprehensive public transit guides, RTA metro lines, intercity buses, and parking",
+                           "seoDesc":  "Routes, operating hours, ticket fares, and NOL card balance checks across Dubai, Sharjah, and Abu Dhabi.",
+                           "slug":  "transportation",
+                           "seoTitle":  "UAE Public Transportation, Dubai Metro \u0026 Bus Station Guides"
+                       },
+                       {
+                           "id":  "metro-stations",
+                           "count":  3,
+                           "name":  "Metro Stations",
+                           "seoDesc":  "Complete directory of Dubai Metro Red \u0026 Green line stations with facilities, interchange guides, and fares.",
+                           "description":  "Dubai Metro Red and Green line station directories, transfer points, and train timetables",
+                           "parentId":  "transportation",
+                           "slug":  "metro-stations",
+                           "seoTitle":  "Dubai Metro Stations Directory \u0026 Timetables | Khaleej Flow"
+                       },
+                       {
+                           "id":  "bus-stations",
+                           "count":  3,
+                           "name":  "Bus Stations",
+                           "seoDesc":  "Terminal amenities, departure schedules, inter-emirate bus routes, and Nol payment rules.",
+                           "description":  "Intercity and municipal bus terminals across Dubai, Abu Dhabi, Sharjah, and Al Ain",
+                           "parentId":  "transportation",
+                           "slug":  "bus-stations",
+                           "seoTitle":  "UAE Bus Stations \u0026 Intercity Transit Routes | Khaleej Flow"
+                       },
+                       {
+                           "id":  "automotive",
+                           "name":  "Automotive",
+                           "count":  3,
+                           "description":  "Traffic fine checks, driver licence renewals, vehicle testing, and road safety regulations",
+                           "seoDesc":  "Check Dubai, Sharjah \u0026 Abu Dhabi traffic fines by plate number, renew driver licences via TAMM, and vehicle testing tips.",
+                           "slug":  "automotive",
+                           "seoTitle":  "UAE Automotive Guides, Traffic Fines \u0026 Licence Renewal"
+                       },
+                       {
+                           "id":  "real-estate",
+                           "name":  "Real Estate",
+                           "count":  3,
+                           "description":  "Commercial developments, residential communities, and property investments in the Gulf",
+                           "seoDesc":  "In-depth building profiles, freehold areas, rental regulations, and commercial office towers across Dubai and Abu Dhabi.",
+                           "slug":  "real-estate",
+                           "seoTitle":  "UAE Real Estate \u0026 Commercial Property Guides | Khaleej Flow"
+                       },
+                       {
+                           "id":  "dubai",
+                           "name":  "Dubai",
+                           "count":  5,
+                           "description":  "Neighborhood guides, community living, parks, postal codes, and municipal services in Dubai",
+                           "seoDesc":  "Area guides for Al Mankhool, Business Bay, JLT, Zabeel Park, postal codes, and Dubai living essentials.",
+                           "slug":  "dubai",
+                           "seoTitle":  "Dubai City \u0026 Community Living Guides | Khaleej Flow"
+                       },
+                       {
+                           "id":  "abu-dhabi",
+                           "name":  "Abu Dhabi",
+                           "count":  4,
+                           "description":  "Capital emirate public parks, TAMM services, municipal centers, and residential hubs",
+                           "seoDesc":  "Guides to Al Wathba Park, Delma Park, TAMM government portal, driving licenses, and Abu Dhabi airport transit.",
+                           "slug":  "abu-dhabi",
+                           "seoTitle":  "Abu Dhabi Living, Parks \u0026 Municipal Services | Khaleej Flow"
+                       },
+                       {
+                           "id":  "sharjah",
+                           "name":  "Sharjah",
+                           "count":  3,
+                           "description":  "Industrial districts, prayer times, postal codes, and municipal transit in Sharjah",
+                           "seoDesc":  "Industrial Area 2, Al Sajaa logistics hub, Sharjah postal codes, prayer times, and municipal services.",
+                           "slug":  "sharjah",
+                           "seoTitle":  "Sharjah Emirates Guides \u0026 Industrial Zones | Khaleej Flow"
+                       },
+                       {
+                           "id":  "ajman",
+                           "name":  "Ajman",
+                           "count":  2,
+                           "description":  "Parking SMS 5188, NOC letters, driving schools, and community services in Ajman",
+                           "seoDesc":  "How to pay Ajman parking via SMS 5188, obtain driving license NOC letters, and local services.",
+                           "slug":  "ajman",
+                           "seoTitle":  "Ajman Municipal Guides \u0026 Parking Services | Khaleej Flow"
+                       },
+                       {
+                           "id":  "technology",
+                           "name":  "Technology",
+                           "count":  2,
+                           "description":  "Telecom packages, 5G networks, IT certifications, and digital apps in the UAE",
+                           "seoDesc":  "Etisalat and du mobile packages, 53GB national day data activations, and digital governance tools.",
+                           "slug":  "technology",
+                           "seoTitle":  "Gulf Tech, Telecom Offers \u0026 Digital Services | Khaleej Flow"
+                       },
+                       {
+                           "id":  "lifestyle",
+                           "name":  "Lifestyle",
+                           "count":  3,
+                           "description":  "Health, skincare, event emcees, dining, and family entertainment in the Emirates",
+                           "seoDesc":  "Healthcare clinics, cardiovascular wellness, skincare routines in UAE climate, and family entertainment.",
+                           "slug":  "lifestyle",
+                           "seoTitle":  "Khaleej Lifestyle, Health \u0026 Living Insights | Khaleej Flow"
+                       }
+                   ],
+    "settings":  {
+                     "footerCode":  "\u003c!-- Footer tracking scripts --\u003e",
+                     "moderateComments":  true,
+                     "timezone":  "Asia/Dubai (GST, UTC+4)",
+                     "siteUrl":  "https://khaleejflow.com",
+                     "organizationName":  "Khaleej Flow Digital Media Network FZ-LLC",
+                     "defaultSeoTitle":  "Khaleej Flow — Gulf News, UAE Utilities, Transit Hubs \u0026 Living Insights",
+                     "siteName":  "Khaleej Flow",
+                     "perPage":  10,
+                     "enableComments":  true,
+                     "adminEmail":  "editorial@khaleejflow.ae",
+                     "headerCode":  "\u003c!-- Khaleej Flow Analytics \u0026 Meta --\u003e",
+                     "tagline":  "The Gulf\u0027s Leading News, Utilities, Transit \u0026 Lifestyle Journal",
+                     "faviconUrl":  "/favicon.ico",
+                     "contactPhone":  "+971 4 429 8800",
+                     "twitterHandle":  "@KhaleejFlow",
+                     "logoUrl":  "/logo.svg",
+                     "organizationAddress":  "Boutique Villa 04, Dubai Media City, PO Box 502840, Dubai, UAE",
+                     "defaultMetaDescription":  "Khaleej Flow is the premier digital utility portal providing verified guides on UAE salary cards, Dubai Metro, traffic fines, driving license renewal, and real estate.",
+                     "enableUserRegistration":  false,
+                     "defaultOgImage":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200\u0026auto=format\u0026fit=crop\u0026q=80"
+                 },
+    "posts":  [
+                  {
+                      "views":  48200,
+                      "id":  1,
+                      "updatedAt":  "2026-11-14 16:30 GST",
+                      "template":  "standard",
+                      "title":  "How to Send Money Home Using MyPay Card and LuLu Money: Step-by-Step UAE Guide",
+                      "content":  "\u003ch2\u003e1. Overview of MyPay Card \u0026 LuLu Money\u003c/h2\u003e\u003cp\u003eFor hundreds of thousands of expatriate workers across Dubai, Abu Dhabi, and Sharjah, the MyPay salary card issued under the UAE Wages Protection System (WPS) provides a secure, digital payroll method. By linking your MyPay card directly to the LuLu Money remittance app, sending money home to India, Pakistan, the Philippines, Bangladesh, or Egypt is straightforward and cost-effective.\u003c/p\u003e\u003ch2\u003e2. Requirements to Transfer Funds\u003c/h2\u003e\u003cul\u003e\u003cli\u003eActive MyPay Card with valid 16-digit card number and PIN\u003c/li\u003e\u003cli\u003eRegistered UAE mobile number linked to your card for OTP verification\u003c/li\u003e\u003cli\u003eValid Emirates ID registered on the LuLu Money app\u003c/li\u003e\u003cli\u003eBeneficiary bank account details or cash pickup recipient information\u003c/li\u003e\u003c/ul\u003e\u003ch2\u003e3. Step-by-Step Mobile Transfer Process\u003c/h2\u003e\u003cp\u003eDownload the official LuLu Money app from Google Play Store or Apple App Store. Register your account using UAE Pass or your Emirates ID. Navigate to \u0027Add Debit/Payroll Card\u0027 and input your MyPay 16-digit card number. Verify with the one-time password (OTP) sent to your mobile. Enter beneficiary details and confirm transfer.\u003c/p\u003e\u003cdiv class=\u0027callout-box info\u0027\u003e\u003cstrong\u003ePro Tip:\u003c/strong\u003e Always verify real-time exchange rates before confirming payments, as mid-market rates fluctuate during banking hours.\u003c/div\u003e\u003ch2\u003e4. Frequently Asked Questions\u003c/h2\u003e\u003cdiv class=\u0027faq-item\u0027\u003e\u003ch3\u003eWhat is the minimum transfer amount?\u003c/h3\u003e\u003cp\u003eThe minimum remittance threshold via LuLu Money is AED 100.\u003c/p\u003e\u003c/div\u003e\u003cdiv class=\u0027faq-item\u0027\u003e\u003ch3\u003eAre transfers instant?\u003c/h3\u003e\u003cp\u003eDirect bank deposits to major corridors like India (IMPS) and Philippines are processed in under 15 minutes.\u003c/p\u003e\u003c/div\u003e",
+                      "readingTime":  "5 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           3,
+                                           41,
+                                           48
+                                       ],
+                      "tags":  [
+                                   "MyPay Card",
+                                   "LuLu Money",
+                                   "Wages Protection System",
+                                   "Remittance"
+                               ],
+                      "publishedAt":  "2026-11-12 11:15 GST",
+                      "excerpt":  "Learn how UAE workers can seamlessly link their MyPay salary card with the LuLu Money app to transfer funds home quickly with low exchange fees.",
+                      "categories":  [
+                                         "Finance",
+                                         "Technology"
+                                     ],
+                      "authorId":  "reem-al-ghamdi",
+                      "author":  "Reem Al-Ghamdi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "UAE worker sending funds home using MyPay card and LuLu Money app",
+                      "slug":  "how-to-send-money-home-using-mypay-card-and-lulu-money",
+                      "category":  "Finance",
+                      "seo":  {
+                                  "metaDescription":  "Step-by-step verified guide for UAE workers to link MyPay WPS salary cards with LuLu Money app for instant international transfers with low fees.",
+                                  "canonicalUrl":  "https://khaleejflow.com/how-to-send-money-home-using-mypay-card-and-lulu-money/",
+                                  "ogDescription":  "Learn how UAE workers can seamlessly link MyPay salary cards with LuLu Money for instant remittances.",
+                                  "focusKeyword":  "MyPay card LuLu Money",
+                                  "metaTitle":  "Send Money Home with MyPay Card \u0026 LuLu Money: Step-by-Step UAE Guide",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "send money home UAE",
+                                                            "WPS salary card",
+                                                            "LuLu Exchange transfer"
+                                                        ],
+                                  "ogTitle":  "Send Money Home with MyPay Card \u0026 LuLu Money: Step-by-Step UAE Guide",
+                                  "score":  92,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  19400,
+                      "id":  2,
+                      "updatedAt":  "2026-11-13 14:10 GST",
+                      "template":  "standard",
+                      "title":  "Al Ain Weather, Seasonal Temperatures \u0026 Best Visiting Months",
+                      "content":  "\u003ch2\u003e1. Al Ain Climate Characteristics\u003c/h2\u003e\u003cp\u003eKnown affectionately as the \u0027Garden City of the Gulf\u0027, Al Ain experiences a distinct inland desert climate that differs noticeably from coastal Dubai and Abu Dhabi. Located roughly 140 kilometers inland, the city enjoys significantly lower relative humidity throughout the summer months.\u003c/p\u003e\u003ch2\u003e2. Seasonal Temperature Breakdown\u003c/h2\u003e\u003cp\u003eWinter (November through March) brings crisp pleasant weather with daily highs averaging 24°C to 28°C and cool night temperatures dipping to 12°C. Summer temperatures can reach 46°C, but the dry air makes shade much more comfortable than coastal zones.\u003c/p\u003e\u003ch2\u003e3. Visiting Jebel Hafeet\u003c/h2\u003e\u003cp\u003eRising 1,249 meters above sea level, Jebel Hafeet provides panoramic views over the desert and is typically 5°C to 7°C cooler than downtown Al Ain.\u003c/p\u003e",
+                      "readingTime":  "4 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           8,
+                                           9,
+                                           10
+                                       ],
+                      "tags":  [
+                                   "Al Ain",
+                                   "Oasis",
+                                   "Jebel Hafeet",
+                                   "Climate"
+                               ],
+                      "publishedAt":  "2026-11-12 09:32 GST",
+                      "excerpt":  "Complete meteorological guide to Al Ain\u0027s dry oasis climate, desert night cooling, Jebel Hafeet mountain breeze, and prime winter months.",
+                      "categories":  [
+                                         "Abu Dhabi",
+                                         "Lifestyle"
+                                     ],
+                      "authorId":  "faisal-al-hashimi",
+                      "author":  "Faisal Al-Hashimi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Al Ain Oasis greenery with clear blue skies and desert background",
+                      "slug":  "al-ain-weather",
+                      "category":  "Abu Dhabi",
+                      "seo":  {
+                                  "metaDescription":  "Explore Al Ain\u0027s inland climate, average monthly temperatures, Jebel Hafeet mountain weather, and the best visiting months.",
+                                  "canonicalUrl":  "https://khaleejflow.com/al-ain-weather/",
+                                  "ogDescription":  "Complete guide to Al Ain\u0027s dry oasis climate, winter visiting months, and Jebel Hafeet temperatures.",
+                                  "focusKeyword":  "Al Ain weather",
+                                  "metaTitle":  "Al Ain Weather \u0026 Climate Guide: Best Months \u0026 Temperatures",
+                                  "enableFaqSchema":  false,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Al Ain climate",
+                                                            "Jebel Hafeet temperature",
+                                                            "Al Ain visiting season"
+                                                        ],
+                                  "ogTitle":  "Al Ain Weather \u0026 Climate Guide: Best Months \u0026 Temperatures",
+                                  "score":  88,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  34700,
+                      "id":  3,
+                      "updatedAt":  "2026-11-15 10:20 GST",
+                      "template":  "standard",
+                      "title":  "UAE Online Salary \u0026 Balance Enquiry: Complete WPS, MyPay \u0026 Ratibi Portal Guide",
+                      "content":  "\u003ch2\u003e1. Introduction to Digital Salary Checking\u003c/h2\u003e\u003cp\u003eUnder the Ministry of Human Resources and Emiratisation (MoHRE) regulations, all private sector companies must disburse wages via WPS. Employees holding payroll debit cards such as First Abu Dhabi Bank (FAB) Ratibi, MyPay, or Al Ansari PayPlus can verify account balances online.\u003c/p\u003e\u003ch2\u003e2. Checking FAB Ratibi Balance Online\u003c/h2\u003e\u003cp\u003eVisit the official FAB Prepaid Card portal. Input your last 2 digits of your card number followed by your 16-digit card number. Complete the CAPTCHA and view your real-time balance and last 10 transactions.\u003c/p\u003e",
+                      "readingTime":  "6 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           1,
+                                           41,
+                                           48
+                                       ],
+                      "tags":  [
+                                   "Wages Protection System",
+                                   "Ratibi FAB",
+                                   "MyPay Card",
+                                   "Balance Enquiry"
+                               ],
+                      "publishedAt":  "2026-11-12 09:27 GST",
+                      "excerpt":  "Step-by-step instructions on checking your wages, payroll card balance, and ATM transaction history without branch queues in the UAE.",
+                      "categories":  [
+                                         "Finance"
+                                     ],
+                      "authorId":  "reem-al-ghamdi",
+                      "author":  "Reem Al-Ghamdi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Smartphone displaying digital banking balance enquiry application",
+                      "slug":  "online-balance-enquiry-uae",
+                      "category":  "Finance",
+                      "seo":  {
+                                  "metaDescription":  "Check your UAE payroll and WPS salary card balance online. Step-by-step instructions for FAB Ratibi, MyPay, and Al Ansari cards.",
+                                  "canonicalUrl":  "https://khaleejflow.com/online-balance-enquiry-uae/",
+                                  "ogDescription":  "Check your UAE payroll and WPS salary card balance online quickly.",
+                                  "focusKeyword":  "online balance enquiry UAE",
+                                  "metaTitle":  "UAE Online Salary \u0026 Balance Enquiry: WPS \u0026 Ratibi Guide",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Ratibi salary check",
+                                                            "WPS salary card balance",
+                                                            "FAB prepaid balance"
+                                                        ],
+                                  "ogTitle":  "UAE Online Salary \u0026 Balance Enquiry: WPS \u0026 Ratibi Guide",
+                                  "score":  94,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  28900,
+                      "id":  4,
+                      "updatedAt":  "2026-11-14 08:45 GST",
+                      "template":  "standard",
+                      "title":  "dnata Careers UAE: Recruitment Process, Airport Ground Handling \u0026 Salary Expectations",
+                      "content":  "\u003ch2\u003e1. Overview of dnata Opportunities\u003c/h2\u003e\u003cp\u003ePart of the prestigious Emirates Group, dnata is one of the world\u0027s largest combined air services providers. Based at Dubai International Airport (DXB) and Al Maktoum International (DWC), dnata regularly recruits talent for ground operations, cargo logistics, flight catering, and travel agency roles.\u003c/p\u003e\u003ch2\u003e2. Application Process via Emirates Group Careers\u003c/h2\u003e\u003cp\u003eAll authentic job openings are listed on the official Emirates Group Careers portal. Candidates should create a candidate profile, upload an updated CV with Emirates ID details, and complete behavioral assessments.\u003c/p\u003e",
+                      "readingTime":  "7 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           19,
+                                           41
+                                       ],
+                      "tags":  [
+                                   "dnata",
+                                   "Emirates Group",
+                                   "Airport Careers",
+                                   "Dubai Jobs"
+                               ],
+                      "publishedAt":  "2026-11-12 09:23 GST",
+                      "excerpt":  "A comprehensive roadmap to securing employment at dnata, covering entry qualifications, cargo operations, passenger services, and benefits.",
+                      "categories":  [
+                                         "Lifestyle",
+                                         "Technology"
+                                     ],
+                      "authorId":  "layla-al-nuaimi",
+                      "author":  "Dr. Layla Al-Nuaimi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Commercial airplane preparing for departure at Dubai International Airport",
+                      "slug":  "dnata-careers-uae",
+                      "category":  "Lifestyle",
+                      "seo":  {
+                                  "metaDescription":  "Detailed guide to applying for dnata careers in the UAE. Airport ground handling, passenger services, cargo, qualifications, and salary perks.",
+                                  "canonicalUrl":  "https://khaleejflow.com/dnata-careers-uae/",
+                                  "ogDescription":  "How to land a career at dnata UAE: application steps, roles, and benefits.",
+                                  "focusKeyword":  "dnata careers UAE",
+                                  "metaTitle":  "dnata Careers UAE: Jobs, Airport Ground Handling \u0026 Hiring",
+                                  "enableFaqSchema":  false,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "dnata ground handling jobs",
+                                                            "Dubai airport careers",
+                                                            "Emirates Group recruitment"
+                                                        ],
+                                  "ogTitle":  "dnata Careers UAE: Jobs, Airport Ground Handling \u0026 Hiring",
+                                  "score":  86,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  15300,
+                      "id":  5,
+                      "updatedAt":  "2026-11-13 11:20 GST",
+                      "template":  "standard",
+                      "title":  "ICAD II Abu Dhabi: Industrial City Infrastructure, Warehousing \u0026 Business Setup",
+                      "content":  "\u003ch2\u003e1. Strategic Importance of ICAD II\u003c/h2\u003e\u003cp\u003eIndustrial City of Abu Dhabi II (ICAD II), managed under KEZAD Group, spans prime industrial land in Musaffah. It serves heavy manufacturing, engineering, chemical, and building materials sectors with direct access to Mussafah Channel and Musaffah Port.\u003c/p\u003e",
+                      "readingTime":  "5 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           7,
+                                           16
+                                       ],
+                      "tags":  [
+                                   "ICAD",
+                                   "Abu Dhabi",
+                                   "Industrial Zone",
+                                   "Warehousing"
+                               ],
+                      "publishedAt":  "2026-11-12 09:14 GST",
+                      "excerpt":  "Explore the commercial capabilities of Industrial City of Abu Dhabi II (ICAD II) in Musaffah: leasing rates, logistics corridors, and trade perks.",
+                      "categories":  [
+                                         "Abu Dhabi",
+                                         "Real Estate"
+                                     ],
+                      "authorId":  "tariq-al-mansoor",
+                      "author":  "Tariq Al-Mansoor",
+                      "featuredImage":  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Modern industrial warehouse and logistics park in Abu Dhabi ICAD",
+                      "slug":  "icad-ii-abu-dhabi",
+                      "category":  "Abu Dhabi",
+                      "seo":  {
+                                  "metaDescription":  "Explore Industrial City of Abu Dhabi II (ICAD II): warehousing facilities, logistics corridors, leasing terms, and business setup procedures.",
+                                  "canonicalUrl":  "https://khaleejflow.com/icad-ii-abu-dhabi/",
+                                  "ogDescription":  "Complete guide to ICAD II Abu Dhabi industrial zone and setup.",
+                                  "focusKeyword":  "ICAD II Abu Dhabi",
+                                  "metaTitle":  "ICAD II Abu Dhabi: Industrial Infrastructure \u0026 Setup Guide",
+                                  "enableFaqSchema":  false,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Musaffah industrial city",
+                                                            "KEZAD Group warehouses",
+                                                            "Abu Dhabi industrial licensing"
+                                                        ],
+                                  "ogTitle":  "ICAD II Abu Dhabi: Industrial Infrastructure \u0026 Setup Guide",
+                                  "score":  90,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  23600,
+                      "id":  6,
+                      "updatedAt":  "2026-11-14 12:00 GST",
+                      "template":  "standard",
+                      "title":  "Al Mankhool Dubai: Neighborhood Living Guide, Rent Prices, Parks \u0026 Metro Access",
+                      "content":  "\u003ch2\u003e1. Location \u0026 Community Profile\u003c/h2\u003e\u003cp\u003eAl Mankhool is situated in the cultural heart of Bur Dubai, bordered by Al Karama, Al Hudaiba, and Al Jafiliya. Highly prized by families and working professionals for its peaceful residential streets and proximity to the ADCB and Burjuman Metro Stations.\u003c/p\u003e",
+                      "readingTime":  "6 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           15,
+                                           22,
+                                           26
+                                       ],
+                      "tags":  [
+                                   "Al Mankhool",
+                                   "Bur Dubai",
+                                   "ADCB Metro",
+                                   "Rent Prices"
+                               ],
+                      "publishedAt":  "2026-11-12 09:08 GST",
+                      "excerpt":  "Discover Al Mankhool in Bur Dubai: one of Dubai\u0027s most walkable and family-friendly residential neighborhoods with top schools and metro links.",
+                      "categories":  [
+                                         "Dubai",
+                                         "Real Estate"
+                                     ],
+                      "authorId":  "tariq-al-mansoor",
+                      "author":  "Tariq Al-Mansoor",
+                      "featuredImage":  "https://images.unsplash.com/photo-1546412414-e1885259563a?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Al Mankhool Bur Dubai residential street with mature green trees and apartments",
+                      "slug":  "al-mankhool-dubai",
+                      "category":  "Dubai",
+                      "seo":  {
+                                  "metaDescription":  "Comprehensive neighborhood profile of Al Mankhool in Bur Dubai: apartment rental prices, family parks, schools, and metro connections.",
+                                  "canonicalUrl":  "https://khaleejflow.com/al-mankhool-dubai/",
+                                  "ogDescription":  "Discover why Al Mankhool is one of Dubai\u0027s favorite family communities.",
+                                  "focusKeyword":  "Al Mankhool Dubai",
+                                  "metaTitle":  "Al Mankhool Dubai Area Guide: Rent, Schools \u0026 Metro Access",
+                                  "enableFaqSchema":  false,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1546412414-e1885259563a?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Al Mankhool rent prices",
+                                                            "Bur Dubai living guide",
+                                                            "ADCB metro station apartments"
+                                                        ],
+                                  "ogTitle":  "Al Mankhool Dubai Area Guide: Rent, Schools \u0026 Metro Access",
+                                  "score":  91,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  56100,
+                      "id":  17,
+                      "updatedAt":  "2026-11-15 14:10 GST",
+                      "template":  "standard",
+                      "title":  "NOL Card Balance Check Online in Dubai: Instant RTA Website \u0026 App Guide",
+                      "content":  "\u003ch2\u003e1. Importance of Keeping Sufficient NOL Balance\u003c/h2\u003e\u003cp\u003eIn Dubai, your NOL smart card is required for the Metro, public buses, water buses, Dubai Tram, and paid parking zones. A minimum balance of AED 7.50 is legally required to check into any Metro gate.\u003c/p\u003e\u003ch2\u003e2. Instant Online Balance Check via RTA Website\u003c/h2\u003e\u003cp\u003eVisit rta.ae, click on Check Nol Card Balance, enter your 10-digit Nol Tag ID printed on the back of your card, and click search to view your current balance instantly.\u003c/p\u003e",
+                      "readingTime":  "4 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           12,
+                                           23,
+                                           35
+                                       ],
+                      "tags":  [
+                                   "NOL Card",
+                                   "Dubai Metro",
+                                   "RTA Dubai",
+                                   "Bus Stations"
+                               ],
+                      "publishedAt":  "2026-11-09 12:55 GST",
+                      "excerpt":  "Learn how to instantly check your Dubai RTA NOL card balance and transaction history using the RTA website, NOL Pay mobile app, and SMS.",
+                      "categories":  [
+                                         "Transportation",
+                                         "Metro Stations"
+                                     ],
+                      "authorId":  "faisal-al-hashimi",
+                      "author":  "Faisal Al-Hashimi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Modern Dubai Metro train moving along elevated tracks above city highway",
+                      "slug":  "nol-card-balance-dubai",
+                      "category":  "Transportation",
+                      "seo":  {
+                                  "metaDescription":  "Step-by-step verified guide to checking your Dubai NOL card balance online via the RTA portal, NOL Pay app, and SMS.",
+                                  "canonicalUrl":  "https://khaleejflow.com/nol-card-balance-dubai/",
+                                  "ogDescription":  "Check your Dubai Metro NOL card balance in 30 seconds online.",
+                                  "focusKeyword":  "NOL card balance check",
+                                  "metaTitle":  "NOL Card Balance Check Online in Dubai: RTA Portal \u0026 App Guide",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "check NOL balance online",
+                                                            "Dubai RTA NOL balance",
+                                                            "NOL pay app"
+                                                        ],
+                                  "ogTitle":  "NOL Card Balance Check Online in Dubai: RTA Portal \u0026 App Guide",
+                                  "score":  96,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  42800,
+                      "id":  27,
+                      "updatedAt":  "2026-11-12 18:20 GST",
+                      "template":  "standard",
+                      "title":  "Sharjah Traffic Fines Check \u0026 50% Discount Scheme: EVG \u0026 Police Portal Guide",
+                      "content":  "\u003ch2\u003e1. How to Check Sharjah Traffic Violations\u003c/h2\u003e\u003cp\u003eSharjah Police provides multiple electronic channels to inspect road violations, speed radar citations, and impoundment records: the Sharjah Police smart app, Emirates Vehicle Gate (EVG), and MOI UAE portal.\u003c/p\u003e",
+                      "readingTime":  "5 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           28,
+                                           30
+                                       ],
+                      "tags":  [
+                                   "Traffic Fines",
+                                   "Sharjah Police",
+                                   "EVG",
+                                   "Speed Radar"
+                               ],
+                      "publishedAt":  "2026-11-04 07:01 GST",
+                      "excerpt":  "Step-by-step instructions on checking Sharjah traffic fines online by plate number, traffic code (TCF), and applying for early payment discount schemes.",
+                      "categories":  [
+                                         "Automotive",
+                                         "Sharjah"
+                                     ],
+                      "authorId":  "layla-al-nuaimi",
+                      "author":  "Dr. Layla Al-Nuaimi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Luxury sports vehicle driving on UAE highway under city lights",
+                      "slug":  "sharjah-traffic-fines",
+                      "category":  "Automotive",
+                      "seo":  {
+                                  "metaDescription":  "Check and pay Sharjah traffic fines online. Learn how to verify violations by plate number and unlock seasonal 50% discount schemes.",
+                                  "canonicalUrl":  "https://khaleejflow.com/sharjah-traffic-fines/",
+                                  "ogDescription":  "Check and pay Sharjah traffic fines online with ease.",
+                                  "focusKeyword":  "Sharjah traffic fines",
+                                  "metaTitle":  "Sharjah Traffic Fines Check: Plate Number \u0026 EVG Guide",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "check Sharjah fines by plate",
+                                                            "Sharjah police traffic discount",
+                                                            "EVG Sharjah violations"
+                                                        ],
+                                  "ogTitle":  "Sharjah Traffic Fines Check: Plate Number \u0026 EVG Guide",
+                                  "score":  93,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  31200,
+                      "id":  28,
+                      "updatedAt":  "2026-11-11 11:30 GST",
+                      "template":  "standard",
+                      "title":  "Driving Licence Renewal Abu Dhabi: TAMM Portal Steps, Eye Test \u0026 Fees",
+                      "content":  "\u003ch2\u003e1. Renewal Eligibility \u0026 Grace Period\u003c/h2\u003e\u003cp\u003eAbu Dhabi driving licenses can be renewed within 6 months prior to expiry. Motorists benefit from a 30-day grace period following expiration before monthly late fines of AED 10 are levied.\u003c/p\u003e",
+                      "readingTime":  "6 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           27,
+                                           30
+                                       ],
+                      "tags":  [
+                                   "Driving License",
+                                   "TAMM Abu Dhabi",
+                                   "Eye Test",
+                                   "Licence Renewal"
+                               ],
+                      "publishedAt":  "2026-11-04 06:54 GST",
+                      "excerpt":  "A complete walkthrough for renewing your Abu Dhabi driving licence via TAMM portal or Abu Dhabi Police app, including accredited optical centers.",
+                      "categories":  [
+                                         "Automotive",
+                                         "Abu Dhabi"
+                                     ],
+                      "authorId":  "layla-al-nuaimi",
+                      "author":  "Dr. Layla Al-Nuaimi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Driver holding vehicle steering wheel while driving along modern coastal road",
+                      "slug":  "driving-licence-renewal-abu-dhabi",
+                      "category":  "Automotive",
+                      "seo":  {
+                                  "metaDescription":  "Step-by-step guide to renewing your Abu Dhabi driving licence online via TAMM. Eye test accredited centers, fees, and digital license issuance.",
+                                  "canonicalUrl":  "https://khaleejflow.com/driving-licence-renewal-abu-dhabi/",
+                                  "ogDescription":  "Renew your Abu Dhabi driving licence in minutes through TAMM.",
+                                  "focusKeyword":  "driving licence renewal Abu Dhabi",
+                                  "metaTitle":  "Driving Licence Renewal Abu Dhabi: TAMM Portal Steps \u0026 Fees",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "TAMM licence renewal",
+                                                            "Abu Dhabi eye test centers",
+                                                            "driving license fees Abu Dhabi"
+                                                        ],
+                                  "ogTitle":  "Driving Licence Renewal Abu Dhabi: TAMM Portal Steps \u0026 Fees",
+                                  "score":  95,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  64900,
+                      "id":  30,
+                      "updatedAt":  "2026-11-13 15:40 GST",
+                      "template":  "standard",
+                      "title":  "Dubai Traffic Fine Check by Plate Number: RTA, Dubai Police \u0026 EVG Methods",
+                      "content":  "\u003ch2\u003e1. Official Ways to Check Dubai Fines\u003c/h2\u003e\u003cp\u003eDrivers in Dubai can verify road fines within seconds using three trusted portals: the Dubai Police website/app, RTA portal, and Emirates Vehicle Gate (EVG).\u003c/p\u003e",
+                      "readingTime":  "5 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           27,
+                                           28
+                                       ],
+                      "tags":  [
+                                   "Traffic Fines",
+                                   "Dubai Police",
+                                   "RTA Dubai",
+                                   "EVG"
+                               ],
+                      "publishedAt":  "2026-11-02 17:46 GST",
+                      "excerpt":  "Learn how to instantly check Dubai traffic violations by license plate, traffic code, or driving licence number across official digital portals.",
+                      "categories":  [
+                                         "Automotive",
+                                         "Dubai"
+                                     ],
+                      "authorId":  "layla-al-nuaimi",
+                      "author":  "Dr. Layla Al-Nuaimi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1541348263662-e0c8de4259ba?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "High angle perspective of luxury Dubai traffic flowing on Sheikh Zayed Road",
+                      "slug":  "dubai-traffic-fine-check-by-plate-number",
+                      "category":  "Automotive",
+                      "seo":  {
+                                  "metaDescription":  "Step-by-step instructions to check Dubai traffic fines by plate number, traffic file number (TCF), or driving licence across official portals.",
+                                  "canonicalUrl":  "https://khaleejflow.com/dubai-traffic-fine-check-by-plate-number/",
+                                  "ogDescription":  "Check Dubai traffic violations and speed camera fines instantly.",
+                                  "focusKeyword":  "Dubai traffic fine check by plate number",
+                                  "metaTitle":  "Dubai Traffic Fine Check by Plate Number: Official RTA \u0026 Police Guide",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1541348263662-e0c8de4259ba?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Dubai police fine inquiry",
+                                                            "RTA fine inquiry by plate",
+                                                            "check traffic fines Dubai"
+                                                        ],
+                                  "ogTitle":  "Dubai Traffic Fine Check by Plate Number: Official RTA \u0026 Police Guide",
+                                  "score":  97,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  38500,
+                      "id":  37,
+                      "updatedAt":  "2026-11-10 16:15 GST",
+                      "template":  "standard",
+                      "title":  "Ajman Parking SMS 5188: Complete Format Guide, Zones \u0026 Free Timings",
+                      "content":  "\u003ch2\u003e1. How Ajman SMS Parking Works\u003c/h2\u003e\u003cp\u003eAjman Municipality operates paid parking in commercial and residential districts. Drivers can pay fees via SMS to shortcode 5188 using Etisalat, du, or Virgin Mobile numbers.\u003c/p\u003e\u003ch2\u003e2. Standard SMS Syntax\u003c/h2\u003e\u003cp\u003eSend text in this format: \u003ccode\u003e[Plate Source] [Plate Code] [Plate Number]\u003c/code\u003e. Example for Dubai private plate: \u003ccode\u003eDXB B 12345\u003c/code\u003e. For 2 hours, add 2 at the end.\u003c/p\u003e",
+                      "readingTime":  "4 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           17,
+                                           30
+                                       ],
+                      "tags":  [
+                                   "Ajman Parking",
+                                   "SMS 5188",
+                                   "Ajman Municipality",
+                                   "Parking Timings"
+                               ],
+                      "publishedAt":  "2026-10-30 11:43 GST",
+                      "excerpt":  "Send SMS to 5188 to pay parking fees in Ajman. Complete guide to message syntax for Dubai, Sharjah, Abu Dhabi, and other emirate plate codes.",
+                      "categories":  [
+                                         "Ajman",
+                                         "Transportation"
+                                     ],
+                      "authorId":  "faisal-al-hashimi",
+                      "author":  "Faisal Al-Hashimi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Designated municipal parking bays along a clean city street in Ajman",
+                      "slug":  "ajman-parking-sms",
+                      "category":  "Ajman",
+                      "seo":  {
+                                  "metaDescription":  "Step-by-step guide to paying Ajman parking via SMS 5188. Formats for all UAE emirates plates, hourly rates, and free parking periods.",
+                                  "canonicalUrl":  "https://khaleejflow.com/ajman-parking-sms/",
+                                  "ogDescription":  "Pay your Ajman parking in seconds via SMS 5188.",
+                                  "focusKeyword":  "Ajman parking SMS",
+                                  "metaTitle":  "Ajman Parking SMS 5188: Complete Message Format \u0026 Timings",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Ajman SMS 5188",
+                                                            "Ajman parking format",
+                                                            "Ajman parking free timings"
+                                                        ],
+                                  "ogTitle":  "Ajman Parking SMS 5188: Complete Message Format \u0026 Timings",
+                                  "score":  92,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  41700,
+                      "id":  41,
+                      "updatedAt":  "2026-11-14 09:20 GST",
+                      "template":  "standard",
+                      "title":  "How to Apply for MyPay \u0027My Card\u0027 in the UAE: Eligibility, Documents \u0026 Activation",
+                      "content":  "\u003ch2\u003e1. What is MyPay Card?\u003c/h2\u003e\u003cp\u003eMyPay is an electronic payroll payment card approved by the Central Bank of the UAE and MoHRE to facilitate salary disbursement for workers without traditional bank accounts.\u003c/p\u003e",
+                      "readingTime":  "5 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           1,
+                                           3,
+                                           48
+                                       ],
+                      "tags":  [
+                                   "MyPay Card",
+                                   "Wages Protection System",
+                                   "Salary Cards",
+                                   "Payroll"
+                               ],
+                      "publishedAt":  "2026-10-30 11:13 GST",
+                      "excerpt":  "A step-by-step guide for employers and workers on obtaining a MyPay salary card under UAE MoHRE WPS compliance regulations.",
+                      "categories":  [
+                                         "Finance"
+                                     ],
+                      "authorId":  "reem-al-ghamdi",
+                      "author":  "Reem Al-Ghamdi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1556742049-0a67e5572293?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Hand holding a sleek contactless chip payroll debit card",
+                      "slug":  "how-to-apply-for-mypay-my-card-in-uae",
+                      "category":  "Finance",
+                      "seo":  {
+                                  "metaDescription":  "Learn how employers and workers can apply for a MyPay payroll card in the UAE under MoHRE Wages Protection System rules.",
+                                  "canonicalUrl":  "https://khaleejflow.com/how-to-apply-for-mypay-my-card-in-uae/",
+                                  "ogDescription":  "Complete guide to obtaining and activating your MyPay WPS card.",
+                                  "focusKeyword":  "apply for MyPay card UAE",
+                                  "metaTitle":  "How to Apply for MyPay Card in UAE: Eligibility \u0026 Steps",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1556742049-0a67e5572293?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "MyPay eligibility",
+                                                            "WPS payroll card activation",
+                                                            "MyPay my card application"
+                                                        ],
+                                  "ogTitle":  "How to Apply for MyPay Card in UAE: Eligibility \u0026 Steps",
+                                  "score":  93,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  52300,
+                      "id":  48,
+                      "updatedAt":  "2026-11-13 17:00 GST",
+                      "template":  "standard",
+                      "title":  "Ratibi Salary Check UAE: Step-by-Step FAB Portal Balance Enquiry",
+                      "content":  "\u003ch2\u003e1. Overview of FAB Ratibi Card\u003c/h2\u003e\u003cp\u003eIssued by First Abu Dhabi Bank (FAB), Ratibi is one of the UAE\u0027s most widely used WPS payroll cards. It allows cardholders to withdraw cash from ATMs and pay at retail outlets without monthly account maintenance fees.\u003c/p\u003e",
+                      "readingTime":  "4 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           1,
+                                           3,
+                                           41
+                                       ],
+                      "tags":  [
+                                   "Ratibi FAB",
+                                   "Salary Cards",
+                                   "Balance Enquiry",
+                                   "Wages Protection System"
+                               ],
+                      "publishedAt":  "2026-10-28 08:22 GST",
+                      "excerpt":  "Step-by-step guide to checking your FAB Ratibi prepaid card balance online using your card number and last digits on the official First Abu Dhabi Bank portal.",
+                      "categories":  [
+                                         "Finance"
+                                     ],
+                      "authorId":  "reem-al-ghamdi",
+                      "author":  "Reem Al-Ghamdi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Financial digital display showing currency rates and card transaction summary",
+                      "slug":  "ratibi-salary-check-uae",
+                      "category":  "Finance",
+                      "seo":  {
+                                  "metaDescription":  "Check your FAB Ratibi payroll card balance online in seconds. Official First Abu Dhabi Bank portal guide with no login required.",
+                                  "canonicalUrl":  "https://khaleejflow.com/ratibi-salary-check-uae/",
+                                  "ogDescription":  "Check your Ratibi salary balance online quickly.",
+                                  "focusKeyword":  "Ratibi salary check UAE",
+                                  "metaTitle":  "Ratibi Salary Check UAE: Step-by-Step FAB Balance Enquiry",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "check FAB Ratibi balance",
+                                                            "Ratibi prepaid card inquiry",
+                                                            "Ratibi ATM balance"
+                                                        ],
+                                  "ogTitle":  "Ratibi Salary Check UAE: Step-by-Step FAB Balance Enquiry",
+                                  "score":  96,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  18700,
+                      "id":  55,
+                      "updatedAt":  "2026-11-10 14:00 GST",
+                      "template":  "standard",
+                      "title":  "Clayton Residency Business Bay: Building Review, Floor Plans, Rent \u0026 Amenities",
+                      "content":  "\u003ch2\u003e1. Clayton Residency Overview\u003c/h2\u003e\u003cp\u003eDeveloped by Deyaar, Clayton Residency is a 19-storey residential tower in Business Bay overlooking the Dubai Water Canal and Downtown skyline. It offers studios, 1-bed, and 2-bed apartments with rooftop pools and gymnasium.\u003c/p\u003e",
+                      "readingTime":  "6 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           58,
+                                           62
+                                       ],
+                      "tags":  [
+                                   "Business Bay",
+                                   "Clayton Residency",
+                                   "Dubai Canal",
+                                   "Rent Prices"
+                               ],
+                      "publishedAt":  "2026-10-26 08:35 GST",
+                      "excerpt":  "An honest architectural and residential appraisal of Clayton Residency in Business Bay: service charges, Dubai Canal proximity, and ROI.",
+                      "categories":  [
+                                         "Real Estate",
+                                         "Dubai"
+                                     ],
+                      "authorId":  "tariq-al-mansoor",
+                      "author":  "Tariq Al-Mansoor",
+                      "featuredImage":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Business Bay waterfront towers reflecting in Dubai Water Canal",
+                      "slug":  "clayton-residency-business-bay-dubai",
+                      "category":  "Real Estate",
+                      "seo":  {
+                                  "metaDescription":  "Complete resident and investor guide to Clayton Residency in Business Bay Dubai: apartment floor plans, rental yield, and canal views.",
+                                  "canonicalUrl":  "https://khaleejflow.com/clayton-residency-business-bay-dubai/",
+                                  "ogDescription":  "Comprehensive review of Clayton Residency in Business Bay.",
+                                  "focusKeyword":  "Clayton Residency Business Bay",
+                                  "metaTitle":  "Clayton Residency Business Bay: Review, Rent \u0026 Amenities",
+                                  "enableFaqSchema":  false,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Clayton residency rent",
+                                                            "Business Bay apartment review",
+                                                            "Clayton residency floor plans"
+                                                        ],
+                                  "ogTitle":  "Clayton Residency Business Bay: Review, Rent \u0026 Amenities",
+                                  "score":  89,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  27400,
+                      "id":  73,
+                      "updatedAt":  "2026-11-09 11:15 GST",
+                      "template":  "spotlight",
+                      "title":  "Saadiyat Beach Residences Abu Dhabi: Community Profile, Rental Yields \u0026 Beach Access",
+                      "content":  "\u003ch2\u003e1. Island Living on Saadiyat\u003c/h2\u003e\u003cp\u003eDeveloped by Aldar Properties, Saadiyat Beach Residences comprises 495 premium apartments across six residential communities nestled adjacent to the Saadiyat Beach Golf Club and turquoise Arabian Gulf waters.\u003c/p\u003e",
+                      "readingTime":  "7 min read",
+                      "status":  "published",
+                      "relatedPosts":  [
+                                           5,
+                                           55
+                                       ],
+                      "tags":  [
+                                   "Saadiyat Island",
+                                   "Luxury Property",
+                                   "Abu Dhabi Beach",
+                                   "Aldar"
+                               ],
+                      "publishedAt":  "2026-10-14 10:43 GST",
+                      "excerpt":  "Inside Abu Dhabi\u0027s premier coastal luxury enclave on Saadiyat Island: low-rise Mediterranean architecture, private dune boardwalks, and rental yields.",
+                      "categories":  [
+                                         "Real Estate",
+                                         "Abu Dhabi"
+                                     ],
+                      "authorId":  "tariq-al-mansoor",
+                      "author":  "Tariq Al-Mansoor",
+                      "featuredImage":  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Pristine white sand beach and turquoise Arabian Gulf water on Saadiyat Island",
+                      "slug":  "saadiyat-beach-residences-abu-dhabi",
+                      "category":  "Real Estate",
+                      "seo":  {
+                                  "metaDescription":  "Explore luxury beachfront living at Saadiyat Beach Residences Abu Dhabi: apartment layouts, rental prices, golf club access, and investment returns.",
+                                  "canonicalUrl":  "https://khaleejflow.com/saadiyat-beach-residences-abu-dhabi/",
+                                  "ogDescription":  "Experience luxury coastal living on Saadiyat Island Abu Dhabi.",
+                                  "focusKeyword":  "Saadiyat Beach Residences Abu Dhabi",
+                                  "metaTitle":  "Saadiyat Beach Residences Abu Dhabi: Living Guide \u0026 Prices",
+                                  "enableFaqSchema":  false,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Saadiyat Island property",
+                                                            "Aldar beach residences",
+                                                            "Saadiyat rental yields"
+                                                        ],
+                                  "ogTitle":  "Saadiyat Beach Residences Abu Dhabi: Living Guide \u0026 Prices",
+                                  "score":  94,
+                                  "robotsFollow":  true
+                              }
+                  },
+                  {
+                      "views":  0,
+                      "id":  99,
+                      "updatedAt":  "2026-11-17 11:20 GST",
+                      "template":  "standard",
+                      "title":  "UAE Corporate Tax 2026: Complete Filing Guide for Small \u0026 Medium Enterprises",
+                      "content":  "\u003ch2\u003e1. Overview of Federal Corporate Tax\u003c/h2\u003e\u003cp\u003eThe UAE Federal Decree-Law No. 47 of 2022 sets a headline 9% corporate tax on taxable profits exceeding AED 375,000. All businesses registered in mainland and free zones must complete EmaraTax registration.\u003c/p\u003e",
+                      "readingTime":  "6 min read",
+                      "status":  "draft",
+                      "relatedPosts":  [
+                                           1,
+                                           3
+                                       ],
+                      "tags":  [
+                                   "Corporate Tax",
+                                   "Federal Tax Authority",
+                                   "Free Zones",
+                                   "SME"
+                               ],
+                      "publishedAt":  null,
+                      "excerpt":  "A detailed breakdown of the 9% UAE corporate tax threshold, Free Zone Qualifying Income rules, and EmaraTax filing deadlines.",
+                      "categories":  [
+                                         "Finance",
+                                         "Technology"
+                                     ],
+                      "authorId":  "reem-al-ghamdi",
+                      "author":  "Reem Al-Ghamdi",
+                      "featuredImage":  "https://images.unsplash.com/photo-1450133064473-71024230f91b?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Business financial documents and calculator on corporate executive desk",
+                      "slug":  "draft-post-uae-corporate-tax-guide",
+                      "category":  "Finance",
+                      "seo":  {
+                                  "metaDescription":  "Complete guide to filing UAE corporate tax in 2026 via EmaraTax. 9% rate thresholds, Free Zone qualifying income, and small business relief.",
+                                  "canonicalUrl":  "https://khaleejflow.com/draft-post-uae-corporate-tax-guide/",
+                                  "ogDescription":  "SME guide to UAE corporate tax.",
+                                  "focusKeyword":  "UAE corporate tax 2026",
+                                  "metaTitle":  "UAE Corporate Tax 2026: SME Filing \u0026 Exemption Guide",
+                                  "enableFaqSchema":  false,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  false,
+                                  "ogImage":  "https://images.unsplash.com/photo-1450133064473-71024230f91b?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "EmaraTax filing deadline",
+                                                            "free zone qualifying income",
+                                                            "small business relief UAE"
+                                                        ],
+                                  "ogTitle":  "UAE Corporate Tax 2026: SME Filing \u0026 Exemption Guide",
+                                  "score":  84,
+                                  "robotsFollow":  false
+                              }
+                  },
+                  {
+                      "views":  0,
+                      "id":  100,
+                      "updatedAt":  "2026-11-16 15:45 GST",
+                      "template":  "standard",
+                      "title":  "Dubai Metro Blue Line 2026: Stations, Routes, Opening Date \u0026 Property Impact",
+                      "content":  "\u003ch2\u003e1. Blue Line Route \u0026 Stations\u003c/h2\u003e\u003cp\u003eThe 30-km route features 14 stations (9 elevated, 5 underground) linking existing Red and Green lines with fast-growing eastern communities.\u003c/p\u003e",
+                      "readingTime":  "5 min read",
+                      "status":  "scheduled",
+                      "relatedPosts":  [
+                                           17,
+                                           30
+                                       ],
+                      "tags":  [
+                                   "Dubai Metro",
+                                   "Blue Line",
+                                   "RTA Dubai",
+                                   "Real Estate"
+                               ],
+                      "publishedAt":  "2026-11-25 10:00 GST",
+                      "excerpt":  "All details on RTA\u0027s 30-kilometer Dubai Metro Blue Line project connecting Dubai Creek Harbour, Dubai Silicon Oasis, and Academic City.",
+                      "categories":  [
+                                         "Metro Stations",
+                                         "Transportation"
+                                     ],
+                      "authorId":  "tariq-al-mansoor",
+                      "author":  "Tariq Al-Mansoor",
+                      "featuredImage":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800\u0026auto=format\u0026fit=crop\u0026q=80",
+                      "imageAlt":  "Futuristic elevated metro track curving through new urban development",
+                      "slug":  "scheduled-post-dubai-metro-blue-line",
+                      "category":  "Metro Stations",
+                      "seo":  {
+                                  "metaDescription":  "Explore the new Dubai Metro Blue Line project: 14 stations, route map, interchanges, and commercial property price impacts.",
+                                  "canonicalUrl":  "https://khaleejflow.com/scheduled-post-dubai-metro-blue-line/",
+                                  "ogDescription":  "All you need to know about the new Dubai Metro Blue Line.",
+                                  "focusKeyword":  "Dubai Metro Blue Line",
+                                  "metaTitle":  "Dubai Metro Blue Line: Stations, Map \u0026 Opening Date",
+                                  "enableFaqSchema":  true,
+                                  "customJsonLd":  "",
+                                  "twitterCard":  "summary_large_image",
+                                  "robotsIndex":  true,
+                                  "ogImage":  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200\u0026auto=format\u0026fit=crop\u0026q=80",
+                                  "schemaType":  "Article",
+                                  "secondaryKeywords":  [
+                                                            "Blue Line stations",
+                                                            "Dubai Creek Harbour metro",
+                                                            "RTA Blue Line map"
+                                                        ],
+                                  "ogTitle":  "Dubai Metro Blue Line: Stations, Map \u0026 Opening Date",
+                                  "score":  95,
+                                  "robotsFollow":  true
+                              }
+                  }
+              ]
+};

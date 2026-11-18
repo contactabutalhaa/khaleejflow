@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* Typography & Root Variables */
+:root {
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-emerald-primary: #059669;
+  --color-emerald-dark: #064e3b;
+  --color-gold: #d97706;
+  --color-navy: #0f172a;
+}
+
+body {
+  font-family: var(--font-body);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.018em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* KhaleejFlow Card Hover Effects */
+.kf-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.kf-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+.dark .kf-card:hover {
+  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.4), 0 4px 12px -2px rgba(5, 150, 105, 0.15);
+}
+
+.kf-img-wrap {
+  overflow: hidden;
+}
+
+.kf-img-zoom {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kf-card:hover .kf-img-zoom {
+  transform: scale(1.05);
+}
+
+/* Gradient Hero Overlay */
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.45) 40%, rgba(15, 23, 42, 0.94) 100%);
+}
+
+/* Marquee Breaking News */
+@keyframes khaleejMarquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.khaleej-ticker {
+  display: flex;
+  width: max-content;
+  animation: khaleejMarquee 35s linear infinite;
+}
+
+.khaleej-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Live Pulse Indicator */
+@keyframes khaleejPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.18); }
+}
+
+.pulse-gulf {
+  animation: khaleejPulse 1.8s infinite ease-in-out;
+}
+
+/* Reading Progress Bar */
+#reading-progress {
+  transition: width 0.1s ease-out;
+}
+
+/* Table of Contents Styling */
+.toc-link {
+  transition: all 0.15s ease-in-out;
+}
+
+.toc-link:hover {
+  color: #059669;
+  padding-left: 4px;
+}
+
+/* Dropdown Menus (uaeboom.com style) */
+.nav-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  pointer-events: none;
+}
+
+.group:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Hide scrollbars cleanly */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Category Badges */
+.badge-featured {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+.dark .badge-featured {
+  background-color: rgba(185, 28, 28, 0.2);
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+.badge-realestate {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+}
+.dark .badge-realestate {
+  background-color: rgba(29, 78, 216, 0.2);
+  color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.badge-business {
+  background-color: #d1fae5;
+  color: #047857;
+  border: 1px solid #6ee7b7;
+}
+.dark .badge-business {
+  background-color: rgba(4, 120, 87, 0.2);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.badge-travel {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fcd34d;
+}
+.dark .badge-travel {
+  background-color: rgba(180, 83, 9, 0.2);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.badge-lifestyle {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+  border: 1px solid #d8b4fe;
+}
+.dark .badge-lifestyle {
+  background-color: rgba(126, 34, 206, 0.2);
+  color: #c084fc;
+  border-color: rgba(192, 132, 252, 0.3);
+}
+
+
+
+/* Article Page Typography */
+.article-prose {
+  font-size: 1.075rem;
+  line-height: 1.85;
+}
+
+.article-prose h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.article-prose h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+}
+
+.article-prose p {
+  margin-bottom: 1.25rem;
+}
+
+.article-prose blockquote {
+  border-left: 4px solid #059669;
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+}
