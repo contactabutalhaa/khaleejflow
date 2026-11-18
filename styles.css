@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
-/* Typography & Root Variables */
+/* Typography & Root Variables - Crisp Modern Light Mode */
 :root {
   --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-emerald-primary: #059669;
-  --color-emerald-dark: #064e3b;
+  --color-emerald-dark: #047857;
   --color-gold: #d97706;
   --color-navy: #0f172a;
 }
 
 body {
   font-family: var(--font-body);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: #f8fafc;
+  color: #1e293b;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -24,7 +25,7 @@ h1, h2, h3, h4, h5, .font-display {
   letter-spacing: -0.018em;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Clean Slate Light */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
@@ -34,39 +35,33 @@ h1, h2, h3, h4, h5, .font-display {
   background: #f1f5f9;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: #0f172a;
-}
-
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #334155;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #059669;
 }
 
-/* KhaleejFlow Card Hover Effects */
+/* KhaleejFlow Light Mode Cards */
 .kf-card {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .kf-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-}
-
-.dark .kf-card:hover {
-  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.4), 0 4px 12px -2px rgba(5, 150, 105, 0.15);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
 }
 
 .kf-img-wrap {
   overflow: hidden;
+  border-top-left-radius: 0.95rem;
+  border-top-right-radius: 0.95rem;
 }
 
 .kf-img-zoom {
@@ -77,9 +72,9 @@ h1, h2, h3, h4, h5, .font-display {
   transform: scale(1.05);
 }
 
-/* Gradient Hero Overlay */
+/* Hero Overlay for High Contrast Text */
 .hero-gradient {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.45) 40%, rgba(15, 23, 42, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.35) 40%, rgba(15, 23, 42, 0.92) 100%);
 }
 
 /* Marquee Breaking News */
@@ -91,7 +86,7 @@ h1, h2, h3, h4, h5, .font-display {
 .khaleej-ticker {
   display: flex;
   width: max-content;
-  animation: khaleejMarquee 35s linear infinite;
+  animation: khaleejMarquee 38s linear infinite;
 }
 
 .khaleej-ticker:hover {
@@ -119,11 +114,11 @@ h1, h2, h3, h4, h5, .font-display {
 }
 
 .toc-link:hover {
-  color: #059669;
+  color: #047857;
   padding-left: 4px;
 }
 
-/* Dropdown Menus (uaeboom.com style) */
+/* Smooth Light Mode Dropdowns */
 .nav-dropdown {
   opacity: 0;
   visibility: hidden;
@@ -148,94 +143,69 @@ h1, h2, h3, h4, h5, .font-display {
   scrollbar-width: none;
 }
 
-/* Category Badges */
+/* Crisp Category Badges (Light Mode) */
 .badge-featured {
-  background-color: #fee2e2;
+  background-color: #fef2f2;
   color: #b91c1c;
-  border: 1px solid #fca5a5;
-}
-.dark .badge-featured {
-  background-color: rgba(185, 28, 28, 0.2);
-  color: #f87171;
-  border-color: rgba(248, 113, 113, 0.3);
+  border: 1px solid #fecaca;
 }
 
 .badge-realestate {
-  background-color: #dbeafe;
+  background-color: #eff6ff;
   color: #1d4ed8;
-  border: 1px solid #93c5fd;
-}
-.dark .badge-realestate {
-  background-color: rgba(29, 78, 216, 0.2);
-  color: #60a5fa;
-  border-color: rgba(96, 165, 250, 0.3);
+  border: 1px solid #bfdbfe;
 }
 
 .badge-business {
-  background-color: #d1fae5;
+  background-color: #ecfdf5;
   color: #047857;
-  border: 1px solid #6ee7b7;
-}
-.dark .badge-business {
-  background-color: rgba(4, 120, 87, 0.2);
-  color: #34d399;
-  border-color: rgba(52, 211, 153, 0.3);
+  border: 1px solid #a7f3d0;
 }
 
 .badge-travel {
-  background-color: #fef3c7;
+  background-color: #fffbeb;
   color: #b45309;
-  border: 1px solid #fcd34d;
-}
-.dark .badge-travel {
-  background-color: rgba(180, 83, 9, 0.2);
-  color: #fbbf24;
-  border-color: rgba(251, 191, 36, 0.3);
+  border: 1px solid #fde68a;
 }
 
 .badge-lifestyle {
-  background-color: #f3e8ff;
+  background-color: #faf5ff;
   color: #7e22ce;
-  border: 1px solid #d8b4fe;
-}
-.dark .badge-lifestyle {
-  background-color: rgba(126, 34, 206, 0.2);
-  color: #c084fc;
-  border-color: rgba(192, 132, 252, 0.3);
+  border: 1px solid #e9d5ff;
 }
 
-
-
-/* Article Page Typography */
-.article-prose {
-  font-size: 1.075rem;
-  line-height: 1.85;
+.badge-tech {
+  background-color: #f0fdfa;
+  color: #0f766e;
+  border: 1px solid #99f6e4;
 }
 
+/* In-depth Article Styling */
 .article-prose h2 {
-  font-size: 1.65rem;
-  font-weight: 800;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 5rem;
 }
 
 .article-prose h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
   font-family: var(--font-display);
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 5rem;
 }
 
 .article-prose p {
+  color: #334155;
+  line-height: 1.8;
   margin-bottom: 1.25rem;
+  font-size: 1.05rem;
 }
 
-.article-prose blockquote {
-  border-left: 4px solid #059669;
-  padding-left: 1.25rem;
-  margin: 1.75rem 0;
-  font-style: italic;
+.article-prose ul {
+  margin-bottom: 1.5rem;
 }

@@ -51,71 +51,75 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-[#f8fafc] text-slate-800 dark:bg-[#0b1120] dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-600 selection:text-white transition-colors duration-200">
-
-  <!-- HEADER PLACEHOLDER -->
-      <!-- =========================================================
-       KHALEEJFLOW HEADER & NAVIGATION (7 Parent Silos & 28 Subcategories)
+<body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col antialiased selection:bg-emerald-600 selection:text-white">
+  <!-- =========================================================
+       KHALEEJFLOW LIGHT-MODE HEADER & NAVIGATION (5 Logical Groupings, 28 Flat Categories)
        ========================================================= -->
 
-  <!-- 1. TOP UTILITY BAR (Live Telemetry & Markets) -->
-  <div class="bg-slate-900 dark:bg-black text-xs font-mono py-2 px-4 sm:px-6 lg:px-8 text-slate-400">
+  <!-- 1. TOP LIVE TICKER & MARKETS (Light Mode: Slate-100 / Crisp White) -->
+  <div class="bg-slate-900 text-xs font-mono py-2 px-4 sm:px-6 lg:px-8 text-slate-300 border-b border-slate-800">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <!-- Left: live cities -->
+      <!-- Left: GCC Live Cities -->
       <div class="flex items-center divide-x divide-slate-700 gap-0">
         <span class="inline-flex items-center gap-1.5 pr-4 font-bold text-emerald-400">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-gulf"></span>LIVE
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-gulf"></span>LIVE GCC
         </span>
-        <span class="px-3.5 hidden sm:inline">🇦🇪 Dubai <strong class="text-white">28°C</strong></span>
-        <span class="px-3.5 hidden md:inline">🇸🇦 Riyadh <strong class="text-white">26°C</strong></span>
-        <span class="px-3.5 hidden lg:inline">🇶🇦 Doha <strong class="text-white">27°C</strong></span>
-        <span class="px-3.5 hidden lg:inline">🇰🇼 Kuwait <strong class="text-white">30°C</strong></span>
+        <span class="px-3 hidden sm:inline">🇦🇪 Dubai <strong class="text-white">28°C</strong></span>
+        <span class="px-3 hidden md:inline">🇸🇦 Riyadh <strong class="text-white">26°C</strong></span>
+        <span class="px-3 hidden lg:inline">🇶🇦 Doha <strong class="text-white">27°C</strong></span>
+        <span class="px-3 hidden lg:inline">🇰🇼 Kuwait <strong class="text-white">30°C</strong></span>
+        <span class="px-3 hidden xl:inline">🇧🇭 Manama <strong class="text-white">27°C</strong></span>
+        <span class="px-3 hidden xl:inline">🇴🇲 Muscat <strong class="text-white">29°C</strong></span>
       </div>
-      <!-- Center: markets -->
-      <div class="hidden xl:flex items-center gap-4">
+      <!-- Center/Right: GCC Sovereign Economic Indicators -->
+      <div class="hidden xl:flex items-center gap-4 text-[11px]">
         <span>Brent <strong class="text-emerald-400">$82.40 ▲</strong></span>
+        <span class="text-slate-600">|</span>
+        <span>Tadawul <strong class="text-emerald-400">+0.62%</strong></span>
+        <span class="text-slate-600">|</span>
+        <span>DFM <strong class="text-emerald-400">+0.48%</strong></span>
         <span class="text-slate-600">|</span>
         <span>AED/USD <strong class="text-white">3.6725</strong></span>
         <span class="text-slate-600">|</span>
-        <span>DFM <strong class="text-emerald-400">+0.48%</strong></span>
+        <span>SAR/USD <strong class="text-white">3.7500</strong></span>
         <span class="text-slate-600">|</span>
         <span>Gold <strong class="text-amber-400">AED 299/g</strong></span>
       </div>
     </div>
   </div>
 
-  <!-- 2. BREAKING NEWS TICKER -->
-  <div class="bg-emerald-700 dark:bg-emerald-900 overflow-hidden py-1.5">
+  <!-- 2. BREAKING NEWS TICKER (Emerald Accent Banner) -->
+  <div class="bg-emerald-700 text-white overflow-hidden py-1.5 shadow-inner">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
       <div class="flex-shrink-0 flex items-center gap-2 pr-3 border-r border-emerald-500">
-        <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
         <span class="text-[11px] font-black uppercase tracking-widest text-white font-display">Breaking</span>
       </div>
       <div class="overflow-hidden whitespace-nowrap flex-1">
-        <div class="khaleej-ticker text-xs text-emerald-100 font-medium">
-          <span class="mx-8">🇦🇪 UAE Real Estate Surges in Prime Districts with High Investor Yields</span>
-          <span class="text-emerald-400 mx-2">◆</span>
-          <span class="mx-8">📜 10-Year UAE Golden Visa: Key Eligibility &amp; Real Estate Criteria Updated</span>
-          <span class="text-emerald-400 mx-2">◆</span>
-          <span class="mx-8">🚇 Dubai Metro Blue Line 30km Expansion Connects Key Growth Corridors</span>
-          <span class="text-emerald-400 mx-2">◆</span>
-          <span class="mx-8">🤖 UAE Advances Sovereign AI Leadership with Open-Source Falcon LLM Series</span>
-          <span class="text-emerald-400 mx-2">◆</span>
-          <span class="mx-8">🚗 Dubai Salik Introduces Smart Dynamic Pricing Across Major Gantry Hubs</span>
+        <div class="khaleej-ticker text-xs text-emerald-50 font-medium">
+          <span class="mx-8">🌍 Unified GCC Grand Tours Tourist Visa launches across all 6 member nations</span>
+          <span class="text-emerald-300 mx-2">◆</span>
+          <span class="mx-8">🚆 2,177km Trans-Gulf Railway breaks ground connecting Kuwait, Saudi Arabia, Bahrain, Qatar, UAE & Oman</span>
+          <span class="text-emerald-300 mx-2">◆</span>
+          <span class="mx-8">🤖 Riyadh LEAP & Dubai AI Campus mobilize $100B sovereign generative AI infrastructure</span>
+          <span class="text-emerald-300 mx-2">◆</span>
+          <span class="mx-8">🏙️ NEOM THE LINE & Lusail City pioneer net-zero urbanism in extreme desert climates</span>
+          <span class="text-emerald-300 mx-2">◆</span>
+          <span class="mx-8">💼 GCC Free Zones expand cross-border corporate incentives and zero personal income tax benefits</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 3. MAIN BRAND HEADER with 7 Parent Silos Navigation -->
-  <header class="sticky top-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md shadow-md shadow-slate-200/50 dark:shadow-slate-900/60 border-b border-slate-100 dark:border-slate-800">
+  <!-- 3. MAIN BRAND HEADER (Crisp Light Mode: White Background, Light-Gray Border) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 gap-3">
 
         <!-- Logo -->
         <a href="./" class="flex items-center gap-2.5 group flex-shrink-0">
-          <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-0.5 shadow-md shadow-emerald-600/20 group-hover:shadow-emerald-500/40 transition-all">
-            <div class="w-full h-full bg-white dark:bg-slate-950 rounded-[10px] flex items-center justify-center">
+          <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 p-0.5 shadow-md shadow-emerald-700/20 group-hover:shadow-emerald-600/40 transition-all">
+            <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
               <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
                 <path d="M7 6V26" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
                 <path d="M7 16L19 6C23 10 23 16 19 20L7 16Z" fill="#059669" opacity="0.95"/>
@@ -126,389 +130,316 @@
           </div>
           <div>
             <div class="flex items-baseline gap-0.5">
-              <span class="font-display text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-none">Khaleej</span>
-              <span class="font-display text-2xl font-black tracking-tight text-emerald-600 dark:text-emerald-400 leading-none">Flow</span>
+              <span class="font-display text-2xl font-black tracking-tight text-slate-900 leading-none">Khaleej</span>
+              <span class="font-display text-2xl font-black tracking-tight text-emerald-600 leading-none">Flow</span>
               <span class="w-1.5 h-1.5 rounded-full bg-amber-400 ml-0.5 mb-1 flex-shrink-0"></span>
             </div>
-            <span class="text-[8px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 font-display block -mt-0.5">
+            <span class="text-[8px] font-bold uppercase tracking-[0.2em] text-slate-500 font-display block -mt-0.5">
               GULF MEDIA &amp; INSIGHTS
             </span>
           </div>
         </a>
 
-        <!-- Desktop Navigation Bar (7 Parent Silos with Dropdowns) -->
+        <!-- Desktop Navigation Bar (5 Logical Groupings: Business, Expat Life, Tech, Lifestyle, Travel) -->
         <nav id="uaeboom-nav" class="hidden xl:flex items-center h-full">
-          <ul class="flex items-center h-full font-display text-[13px] font-semibold text-slate-700 dark:text-slate-300">
+          <ul class="flex items-center h-full font-display text-[13px] font-semibold text-slate-700 space-x-1">
 
             <!-- Home -->
             <li class="h-full flex items-center">
-              <a href="./" class="nav-category-btn px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-bold">
+              <a href="./" class="nav-category-btn px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap text-emerald-700 font-bold">
                 Home
               </a>
             </li>
 
-            
-      <!-- Business & Finance -->
-      <li class="relative group h-full flex items-center">
-        <a href="category?cat=Business%20%26%20Finance" class="px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700 dark:text-slate-300">
-          <span>Business & Finance</span>
-          <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
-        <div class="nav-dropdown absolute top-full left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-2xl shadow-slate-900/10 dark:shadow-black/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-50">
-          <div class="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Business & Finance Hub</span>
-            <a href="category?cat=Business%20%26%20Finance" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">View All &rarr;</a>
-          </div>
-          <div class="space-y-0.5">
-            
-      <a href="category?cat=Business%20%26%20Startups" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Business & Startups</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Company formation, free zones, trade licenses, V...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Real%20Estate%20%26%20Property" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Real Estate & Property</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Dubai & Abu Dhabi property trends, luxury develo...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Personal%20Finance%20%26%20Wealth" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Personal Finance & Wealth</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Banking, savings, investment portfolios, tax opt...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Crypto%20%26%20Web3" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Crypto & Web3</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">VARA regulations, Bitcoin, digital assets, block...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Markets%20%26%20Economy" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Markets & Economy</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">DFM, ADX, oil markets, GCC economic trends, trad...</div>
-        </div>
-      </a>
-    
-          </div>
-        </div>
-      </li>
-    
+            <!-- 1. BUSINESS (5 Categories) -->
+            <li class="relative group h-full flex items-center">
+              <button type="button" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700">
+                <span>Business</span>
+                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="nav-dropdown absolute top-full left-0 w-80 bg-white shadow-xl rounded-2xl border border-slate-200 p-2 z-50">
+                <div class="px-3 py-2 mb-1 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-xl">
+                  <span class="text-[10px] font-black uppercase tracking-wider text-slate-500">Business &amp; Finance Taxonomies</span>
+                  <a href="category/business-and-startups" class="text-[10px] text-emerald-700 font-bold hover:underline">Explore &rarr;</a>
+                </div>
+                <div class="space-y-0.5">
+                  <a href="category/business-and-startups" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">💼</span>
+                    <div>
+                      <div class="font-bold leading-snug">Business &amp; Startups</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Company formation, SME growth, VC funding, regional free zones</div>
+                    </div>
+                  </a>
+                  <a href="category/real-estate-and-property" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🏢</span>
+                    <div>
+                      <div class="font-bold leading-snug">Real Estate &amp; Property</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Residential towers, commercial assets, yields in Dubai &amp; Riyadh</div>
+                    </div>
+                  </a>
+                  <a href="category/personal-finance-and-wealth" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">💰</span>
+                    <div>
+                      <div class="font-bold leading-snug">Personal Finance &amp; Wealth</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Banking, wealth preservation, offshore accounts, tax optimization</div>
+                    </div>
+                  </a>
+                  <a href="category/crypto-and-web3" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🪙</span>
+                    <div>
+                      <div class="font-bold leading-snug">Crypto &amp; Web3</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Blockchain networks, VARA &amp; ADGM regulations, digital assets</div>
+                    </div>
+                  </a>
+                  <a href="category/markets-and-economy" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">📈</span>
+                    <div>
+                      <div class="font-bold leading-snug">Markets &amp; Economy</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Bourses (DFM, Tadawul, QSE), trade corridors, oil benchmarks</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
 
-      <!-- Expat Life & Legal -->
-      <li class="relative group h-full flex items-center">
-        <a href="category?cat=Expat%20Life%20%26%20Legal" class="px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700 dark:text-slate-300">
-          <span>Expat Life & Legal</span>
-          <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
-        <div class="nav-dropdown absolute top-full left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-2xl shadow-slate-900/10 dark:shadow-black/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-50">
-          <div class="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Expat Life & Legal Hub</span>
-            <a href="category?cat=Expat%20Life%20%26%20Legal" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">View All &rarr;</a>
-          </div>
-          <div class="space-y-0.5">
-            
-      <a href="category?cat=Visas%20%26%20Immigration" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Visas & Immigration</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Golden Visa, Green Visa, freelance permits, fami...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Labor%20Law%20%26%20Employment" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Labor Law & Employment</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">MOHRE contracts, end-of-service gratuity, notice...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Relocation%20%26%20Setup" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Relocation & Setup</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Moving to UAE, Emirates ID, EJARI tenancy contra...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Living%20Guides" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Living Guides</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Day-to-day expat lifestyle, civic rules, cultura...</div>
-        </div>
-      </a>
-    
-          </div>
-        </div>
-      </li>
-    
+            <!-- 2. EXPAT LIFE (6 Categories) -->
+            <li class="relative group h-full flex items-center">
+              <button type="button" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700">
+                <span>Expat Life</span>
+                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="nav-dropdown absolute top-full left-0 w-80 bg-white shadow-xl rounded-2xl border border-slate-200 p-2 z-50">
+                <div class="px-3 py-2 mb-1 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-xl">
+                  <span class="text-[10px] font-black uppercase tracking-wider text-slate-500">Expat Mobility &amp; Living</span>
+                  <a href="category/visas-and-immigration" class="text-[10px] text-emerald-700 font-bold hover:underline">Explore &rarr;</a>
+                </div>
+                <div class="space-y-0.5">
+                  <a href="category/visas-and-immigration" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">📜</span>
+                    <div>
+                      <div class="font-bold leading-snug">Visas &amp; Immigration</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">GCC Grand Tours, Golden Visas, Iqama rules, sponsorship</div>
+                    </div>
+                  </a>
+                  <a href="category/labor-law-and-employment" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">⚖️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Labor Law &amp; Employment</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">MOHRE contracts, gratuity calculators, notice periods</div>
+                    </div>
+                  </a>
+                  <a href="category/relocation-and-setup" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">📦</span>
+                    <div>
+                      <div class="font-bold leading-snug">Relocation &amp; Setup</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Cost of living, Emirates ID, Saudi Iqama, banking onboarding</div>
+                    </div>
+                  </a>
+                  <a href="category/living-guides" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🧭</span>
+                    <div>
+                      <div class="font-bold leading-snug">Living Guides</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Day-to-day expat lifestyle, utilities, cultural etiquette</div>
+                    </div>
+                  </a>
+                  <a href="category/health-and-wellness" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🩺</span>
+                    <div>
+                      <div class="font-bold leading-snug">Health &amp; Wellness</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Mandatory health insurance, hospitals, wellness hubs</div>
+                    </div>
+                  </a>
+                  <a href="category/education-and-schools" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🎓</span>
+                    <div>
+                      <div class="font-bold leading-snug">Education &amp; Schools</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">KHDA school ratings, IB &amp; British curricula, universities</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
 
-      <!-- Transport & Mobility -->
-      <li class="relative group h-full flex items-center">
-        <a href="category?cat=Transport%20%26%20Mobility" class="px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700 dark:text-slate-300">
-          <span>Transport & Mobility</span>
-          <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
-        <div class="nav-dropdown absolute top-full left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-2xl shadow-slate-900/10 dark:shadow-black/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-50">
-          <div class="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Transport & Mobility Hub</span>
-            <a href="category?cat=Transport%20%26%20Mobility" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">View All &rarr;</a>
-          </div>
-          <div class="space-y-0.5">
-            
-      <a href="category?cat=Public%20Transport" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Public Transport</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Dubai Metro, RTA intercity buses, NOL card syste...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Driving%20%26%20Tolls" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Driving & Tolls</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Salik smart gates, Darb tolls, parking zones, li...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Aviation%20%26%20Travel" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Aviation & Travel</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Emirates, Etihad, flydubai, airport hubs, smart ...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Automotive" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Automotive</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Car buying, vehicle registration, EV charging ne...</div>
-        </div>
-      </a>
-    
-          </div>
-        </div>
-      </li>
-    
+            <!-- 3. TECH (3 Categories) -->
+            <li class="relative group h-full flex items-center">
+              <button type="button" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700">
+                <span>Tech</span>
+                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="nav-dropdown absolute top-full left-0 w-80 bg-white shadow-xl rounded-2xl border border-slate-200 p-2 z-50">
+                <div class="px-3 py-2 mb-1 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-xl">
+                  <span class="text-[10px] font-black uppercase tracking-wider text-slate-500">Innovation &amp; Future Tech</span>
+                  <a href="category/artificial-intelligence" class="text-[10px] text-emerald-700 font-bold hover:underline">Explore &rarr;</a>
+                </div>
+                <div class="space-y-0.5">
+                  <a href="category/artificial-intelligence" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🤖</span>
+                    <div>
+                      <div class="font-bold leading-snug">Artificial Intelligence</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Falcon LLM, sovereign AI supercomputing, LEAP initiatives</div>
+                    </div>
+                  </a>
+                  <a href="category/smart-cities" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🏙️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Smart Cities</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">NEOM THE LINE, Masdar ecocity, Lusail IoT, autonomous eVTOL</div>
+                    </div>
+                  </a>
+                  <a href="category/gadgets-and-reviews" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">📱</span>
+                    <div>
+                      <div class="font-bold leading-snug">Gadgets &amp; Reviews</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Flagship hardware reviews, smart home automation, gear</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
 
-      <!-- Lifestyle & Entertainment -->
-      <li class="relative group h-full flex items-center">
-        <a href="category?cat=Lifestyle%20%26%20Entertainment" class="px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700 dark:text-slate-300">
-          <span>Lifestyle & Entertainment</span>
-          <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
-        <div class="nav-dropdown absolute top-full left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-2xl shadow-slate-900/10 dark:shadow-black/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-50">
-          <div class="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Lifestyle & Entertainment Hub</span>
-            <a href="category?cat=Lifestyle%20%26%20Entertainment" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">View All &rarr;</a>
-          </div>
-          <div class="space-y-0.5">
-            
-      <a href="category?cat=Food%20%26%20Dining" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Food & Dining</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Michelin-starred restaurants, culinary hotspots,...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Events%20%26%20Festivals" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Events & Festivals</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Dubai Shopping Festival, cultural expos, concert...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Arts%20Culture%20%26%20Heritage" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Arts Culture & Heritage</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Louvre Abu Dhabi, Al Fahidi, Sharjah Biennale, c...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Luxury%20Living" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Luxury Living</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Ultra-prime residences, superyachts, private avi...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Shopping%20%26%20Retail" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Shopping & Retail</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Dubai Mall, luxury boutiques, souks, retail prom...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Gaming%20%26%20Esports" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Gaming & Esports</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Gaming tournaments, esports arenas, Dubai Progra...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Sports" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Sports</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">F1 Abu Dhabi GP, Dubai World Cup, golf champions...</div>
-        </div>
-      </a>
-    
-          </div>
-        </div>
-      </li>
-    
+            <!-- 4. LIFESTYLE (7 Categories) -->
+            <li class="relative group h-full flex items-center">
+              <button type="button" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700">
+                <span>Lifestyle</span>
+                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="nav-dropdown absolute top-full left-0 w-80 bg-white shadow-xl rounded-2xl border border-slate-200 p-2 z-50">
+                <div class="px-3 py-2 mb-1 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-xl">
+                  <span class="text-[10px] font-black uppercase tracking-wider text-slate-500">Culture, Dining &amp; Leisure</span>
+                  <a href="category/luxury-living" class="text-[10px] text-emerald-700 font-bold hover:underline">Explore &rarr;</a>
+                </div>
+                <div class="space-y-0.5 max-h-96 overflow-y-auto">
+                  <a href="category/food-and-dining" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🍽️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Food &amp; Dining</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Michelin Guide stars, regional culinary destinations, cafes</div>
+                    </div>
+                  </a>
+                  <a href="category/events-and-festivals" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🎪</span>
+                    <div>
+                      <div class="font-bold leading-snug">Events &amp; Festivals</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Riyadh Season, Dubai Shopping Festival, summits</div>
+                    </div>
+                  </a>
+                  <a href="category/arts-culture-and-heritage" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🎨</span>
+                    <div>
+                      <div class="font-bold leading-snug">Arts Culture &amp; Heritage</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Louvre Abu Dhabi, AlUla arts, Sharjah Biennial, museums</div>
+                    </div>
+                  </a>
+                  <a href="category/luxury-living" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">✨</span>
+                    <div>
+                      <div class="font-bold leading-snug">Luxury Living</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">High-end architecture, private yachts, horology, penthouses</div>
+                    </div>
+                  </a>
+                  <a href="category/shopping-and-retail" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🛍️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Shopping &amp; Retail</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Dubai Mall, luxury avenues, historic souks, retail promotions</div>
+                    </div>
+                  </a>
+                  <a href="category/gaming-and-esports" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🎮</span>
+                    <div>
+                      <div class="font-bold leading-snug">Gaming &amp; Esports</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Esports World Cup Riyadh, gaming hubs, tournament coverage</div>
+                    </div>
+                  </a>
+                  <a href="category/sports" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">⚽</span>
+                    <div>
+                      <div class="font-bold leading-snug">Sports</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">F1 Abu Dhabi &amp; Jeddah, Saudi Pro League, tennis, golf</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
 
-      <!-- Tech & Innovation -->
-      <li class="relative group h-full flex items-center">
-        <a href="category?cat=Tech%20%26%20Innovation" class="px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700 dark:text-slate-300">
-          <span>Tech & Innovation</span>
-          <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
-        <div class="nav-dropdown absolute top-full left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-2xl shadow-slate-900/10 dark:shadow-black/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-50">
-          <div class="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Tech & Innovation Hub</span>
-            <a href="category?cat=Tech%20%26%20Innovation" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">View All &rarr;</a>
-          </div>
-          <div class="space-y-0.5">
-            
-      <a href="category?cat=Artificial%20Intelligence" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Artificial Intelligence</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Falcon LLM, UAE AI Ministry, enterprise GenAI ad...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Smart%20Cities" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Smart Cities</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Autonomous mobility, flying taxis, 5.5G connecti...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Gadgets%20%26%20Reviews" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Gadgets & Reviews</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Smartphones, wearables, laptops, home automation...</div>
-        </div>
-      </a>
-    
-          </div>
-        </div>
-      </li>
-    
-
-      <!-- Travel & Tourism -->
-      <li class="relative group h-full flex items-center">
-        <a href="category?cat=Travel%20%26%20Tourism" class="px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700 dark:text-slate-300">
-          <span>Travel & Tourism</span>
-          <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
-        <div class="nav-dropdown absolute top-full left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-2xl shadow-slate-900/10 dark:shadow-black/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-50">
-          <div class="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Travel & Tourism Hub</span>
-            <a href="category?cat=Travel%20%26%20Tourism" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">View All &rarr;</a>
-          </div>
-          <div class="space-y-0.5">
-            
-      <a href="category?cat=Staycations%20%26%20Hotels" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Staycations & Hotels</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Desert glamping, private pool villas, 5-star bea...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Tourist%20Attractions" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Tourist Attractions</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Burj Khalifa, Sheikh Zayed Grand Mosque, Museum ...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=GCC%20Travel" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">GCC Travel</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Visa-free GCC tourism, AlUla, Salalah, Doha city...</div>
-        </div>
-      </a>
-    
-          </div>
-        </div>
-      </li>
-    
-
-      <!-- Health & Education -->
-      <li class="relative group h-full flex items-center">
-        <a href="category?cat=Health%20%26%20Education" class="px-2.5 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700 dark:text-slate-300">
-          <span>Health & Education</span>
-          <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
-        <div class="nav-dropdown absolute top-full left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-2xl shadow-slate-900/10 dark:shadow-black/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-50">
-          <div class="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Health & Education Hub</span>
-            <a href="category?cat=Health%20%26%20Education" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">View All &rarr;</a>
-          </div>
-          <div class="space-y-0.5">
-            
-      <a href="category?cat=Health%20%26%20Wellness" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Health & Wellness</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">Mandatory health insurance, private hospitals, p...</div>
-        </div>
-      </a>
-    
-      <a href="category?cat=Education%20%26%20Schools" class="flex items-start gap-2.5 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg font-medium transition-colors group/item">
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 group-hover/item:bg-emerald-500 mt-1.5 flex-shrink-0 transition-colors"></span>
-        <div>
-          <div class="font-bold leading-snug">Education & Schools</div>
-          <div class="text-[10px] text-slate-400 font-normal line-clamp-1">KHDA inspection ratings, British/IB curriculum g...</div>
-        </div>
-      </a>
-    
-          </div>
-        </div>
-      </li>
-    
+            <!-- 5. TRAVEL (7 Categories) -->
+            <li class="relative group h-full flex items-center">
+              <button type="button" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap flex items-center gap-1 font-semibold text-[13px] text-slate-700">
+                <span>Travel</span>
+                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="nav-dropdown absolute top-full left-0 w-80 bg-white shadow-xl rounded-2xl border border-slate-200 p-2 z-50">
+                <div class="px-3 py-2 mb-1 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-xl">
+                  <span class="text-[10px] font-black uppercase tracking-wider text-slate-500">Transit, Roads &amp; Destinations</span>
+                  <a href="category/gcc-travel" class="text-[10px] text-emerald-700 font-bold hover:underline">Explore &rarr;</a>
+                </div>
+                <div class="space-y-0.5 max-h-96 overflow-y-auto">
+                  <a href="category/public-transport" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🚆</span>
+                    <div>
+                      <div class="font-bold leading-snug">Public Transport</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">GCC Railway, Dubai Metro, Riyadh Metro, intercity buses</div>
+                    </div>
+                  </a>
+                  <a href="category/driving-and-tolls" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🛣️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Driving &amp; Tolls</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Salik toll gates, Darb, King Fahd Causeway, license exchange</div>
+                    </div>
+                  </a>
+                  <a href="category/aviation-and-travel" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">✈️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Aviation &amp; Travel</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Emirates, Qatar Airways, Saudia, airport guides &amp; routes</div>
+                    </div>
+                  </a>
+                  <a href="category/automotive" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🚗</span>
+                    <div>
+                      <div class="font-bold leading-snug">Automotive</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">EV infrastructure, desert 4x4 vehicles, car registration</div>
+                    </div>
+                  </a>
+                  <a href="category/staycations-and-hotels" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🏖️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Staycations &amp; Hotels</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Desert resorts, luxury coastal retreats, boutique hotels</div>
+                    </div>
+                  </a>
+                  <a href="category/tourist-attractions" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🏛️</span>
+                    <div>
+                      <div class="font-bold leading-snug">Tourist Attractions</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Burj Khalifa, AlUla Hegra, Souq Waqif, Musandam fjords</div>
+                    </div>
+                  </a>
+                  <a href="category/gcc-travel" class="flex items-start gap-2.5 px-3 py-2 text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg font-medium transition-colors group/item">
+                    <span class="text-base">🌍</span>
+                    <div>
+                      <div class="font-bold leading-snug">GCC Travel</div>
+                      <div class="text-[10px] text-slate-500 font-normal line-clamp-1">Cross-border itineraries, regional weekend trips, border passes</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
 
           </ul>
         </nav>
 
-        <!-- Right Quick Actions -->
-        <div class="flex items-center gap-2">
-          <!-- Quick Search Trigger -->
-          <a href="./#main-feed-section" class="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Search Guides">
+        <!-- Right Quick Actions: Search & Admin Link -->
+        <div class="flex items-center gap-2.5">
+          <a href="./#main-feed-section" class="p-2 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" title="Search Guides">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </a>
+          <a href="admin" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors">
+            <span>⚡ CMS</span>
+          </a>
           <!-- Mobile Menu Button -->
-          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle navigation">
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors" aria-label="Toggle navigation">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
         </div>
@@ -517,411 +448,75 @@
     </div>
 
     <!-- Mobile Drawer Navigation -->
-    <div id="mobile-nav-drawer" class="hidden xl:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-4 space-y-3 max-h-[80vh] overflow-y-auto">
-      <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-        <a href="./" class="font-bold text-emerald-600 text-sm">Home</a>
-        <a href="admin" class="text-xs text-slate-500 hover:text-emerald-600">Admin Portal</a>
+    <div id="mobile-nav-drawer" class="hidden xl:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-3 max-h-[80vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+        <a href="./" class="font-bold text-emerald-700 text-sm">Home</a>
+        <a href="admin" class="text-xs text-slate-600 hover:text-emerald-700 font-bold">Admin Portal &rarr;</a>
       </div>
-      <div class="space-y-2">
-        
-      <div class="border-b border-slate-100 dark:border-slate-800/60 pb-2">
-        <a href="category?cat=Business%20%26%20Finance" class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between py-1">
-          <span>💼 Business & Finance</span>
-          <span class="text-[10px] text-emerald-600 font-normal">Explore &rarr;</span>
-        </a>
-        <div class="pl-4 pt-1 space-y-0.5">
-          
-      <a href="category?cat=Business%20%26%20Startups" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Business & Startups
-      </a>
-    
-      <a href="category?cat=Real%20Estate%20%26%20Property" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Real Estate & Property
-      </a>
-    
-      <a href="category?cat=Personal%20Finance%20%26%20Wealth" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Personal Finance & Wealth
-      </a>
-    
-      <a href="category?cat=Crypto%20%26%20Web3" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Crypto & Web3
-      </a>
-    
-      <a href="category?cat=Markets%20%26%20Economy" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Markets & Economy
-      </a>
-    
+      <div class="space-y-3">
+        <!-- Business -->
+        <div class="border-b border-slate-100 pb-2">
+          <div class="font-bold text-xs uppercase tracking-wider text-slate-900 mb-1">💼 Business</div>
+          <div class="grid grid-cols-1 gap-1 text-xs">
+            <a href="category/business-and-startups" class="py-1 text-slate-600 hover:text-emerald-700">• Business &amp; Startups</a>
+            <a href="category/real-estate-and-property" class="py-1 text-slate-600 hover:text-emerald-700">• Real Estate &amp; Property</a>
+            <a href="category/personal-finance-and-wealth" class="py-1 text-slate-600 hover:text-emerald-700">• Personal Finance &amp; Wealth</a>
+            <a href="category/crypto-and-web3" class="py-1 text-slate-600 hover:text-emerald-700">• Crypto &amp; Web3</a>
+            <a href="category/markets-and-economy" class="py-1 text-slate-600 hover:text-emerald-700">• Markets &amp; Economy</a>
+          </div>
         </div>
-      </div>
-    
-
-      <div class="border-b border-slate-100 dark:border-slate-800/60 pb-2">
-        <a href="category?cat=Expat%20Life%20%26%20Legal" class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between py-1">
-          <span>📜 Expat Life & Legal</span>
-          <span class="text-[10px] text-emerald-600 font-normal">Explore &rarr;</span>
-        </a>
-        <div class="pl-4 pt-1 space-y-0.5">
-          
-      <a href="category?cat=Visas%20%26%20Immigration" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Visas & Immigration
-      </a>
-    
-      <a href="category?cat=Labor%20Law%20%26%20Employment" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Labor Law & Employment
-      </a>
-    
-      <a href="category?cat=Relocation%20%26%20Setup" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Relocation & Setup
-      </a>
-    
-      <a href="category?cat=Living%20Guides" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Living Guides
-      </a>
-    
+        <!-- Expat Life -->
+        <div class="border-b border-slate-100 pb-2">
+          <div class="font-bold text-xs uppercase tracking-wider text-slate-900 mb-1">📜 Expat Life</div>
+          <div class="grid grid-cols-1 gap-1 text-xs">
+            <a href="category/visas-and-immigration" class="py-1 text-slate-600 hover:text-emerald-700">• Visas &amp; Immigration</a>
+            <a href="category/labor-law-and-employment" class="py-1 text-slate-600 hover:text-emerald-700">• Labor Law &amp; Employment</a>
+            <a href="category/relocation-and-setup" class="py-1 text-slate-600 hover:text-emerald-700">• Relocation &amp; Setup</a>
+            <a href="category/living-guides" class="py-1 text-slate-600 hover:text-emerald-700">• Living Guides</a>
+            <a href="category/health-and-wellness" class="py-1 text-slate-600 hover:text-emerald-700">• Health &amp; Wellness</a>
+            <a href="category/education-and-schools" class="py-1 text-slate-600 hover:text-emerald-700">• Education &amp; Schools</a>
+          </div>
         </div>
-      </div>
-    
-
-      <div class="border-b border-slate-100 dark:border-slate-800/60 pb-2">
-        <a href="category?cat=Transport%20%26%20Mobility" class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between py-1">
-          <span>🚇 Transport & Mobility</span>
-          <span class="text-[10px] text-emerald-600 font-normal">Explore &rarr;</span>
-        </a>
-        <div class="pl-4 pt-1 space-y-0.5">
-          
-      <a href="category?cat=Public%20Transport" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Public Transport
-      </a>
-    
-      <a href="category?cat=Driving%20%26%20Tolls" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Driving & Tolls
-      </a>
-    
-      <a href="category?cat=Aviation%20%26%20Travel" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Aviation & Travel
-      </a>
-    
-      <a href="category?cat=Automotive" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Automotive
-      </a>
-    
+        <!-- Tech -->
+        <div class="border-b border-slate-100 pb-2">
+          <div class="font-bold text-xs uppercase tracking-wider text-slate-900 mb-1">🤖 Tech</div>
+          <div class="grid grid-cols-1 gap-1 text-xs">
+            <a href="category/artificial-intelligence" class="py-1 text-slate-600 hover:text-emerald-700">• Artificial Intelligence</a>
+            <a href="category/smart-cities" class="py-1 text-slate-600 hover:text-emerald-700">• Smart Cities</a>
+            <a href="category/gadgets-and-reviews" class="py-1 text-slate-600 hover:text-emerald-700">• Gadgets &amp; Reviews</a>
+          </div>
         </div>
-      </div>
-    
-
-      <div class="border-b border-slate-100 dark:border-slate-800/60 pb-2">
-        <a href="category?cat=Lifestyle%20%26%20Entertainment" class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between py-1">
-          <span>✨ Lifestyle & Entertainment</span>
-          <span class="text-[10px] text-emerald-600 font-normal">Explore &rarr;</span>
-        </a>
-        <div class="pl-4 pt-1 space-y-0.5">
-          
-      <a href="category?cat=Food%20%26%20Dining" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Food & Dining
-      </a>
-    
-      <a href="category?cat=Events%20%26%20Festivals" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Events & Festivals
-      </a>
-    
-      <a href="category?cat=Arts%20Culture%20%26%20Heritage" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Arts Culture & Heritage
-      </a>
-    
-      <a href="category?cat=Luxury%20Living" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Luxury Living
-      </a>
-    
-      <a href="category?cat=Shopping%20%26%20Retail" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Shopping & Retail
-      </a>
-    
-      <a href="category?cat=Gaming%20%26%20Esports" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Gaming & Esports
-      </a>
-    
-      <a href="category?cat=Sports" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Sports
-      </a>
-    
+        <!-- Lifestyle -->
+        <div class="border-b border-slate-100 pb-2">
+          <div class="font-bold text-xs uppercase tracking-wider text-slate-900 mb-1">✨ Lifestyle</div>
+          <div class="grid grid-cols-1 gap-1 text-xs">
+            <a href="category/food-and-dining" class="py-1 text-slate-600 hover:text-emerald-700">• Food &amp; Dining</a>
+            <a href="category/events-and-festivals" class="py-1 text-slate-600 hover:text-emerald-700">• Events &amp; Festivals</a>
+            <a href="category/arts-culture-and-heritage" class="py-1 text-slate-600 hover:text-emerald-700">• Arts Culture &amp; Heritage</a>
+            <a href="category/luxury-living" class="py-1 text-slate-600 hover:text-emerald-700">• Luxury Living</a>
+            <a href="category/shopping-and-retail" class="py-1 text-slate-600 hover:text-emerald-700">• Shopping &amp; Retail</a>
+            <a href="category/gaming-and-esports" class="py-1 text-slate-600 hover:text-emerald-700">• Gaming &amp; Esports</a>
+            <a href="category/sports" class="py-1 text-slate-600 hover:text-emerald-700">• Sports</a>
+          </div>
         </div>
-      </div>
-    
-
-      <div class="border-b border-slate-100 dark:border-slate-800/60 pb-2">
-        <a href="category?cat=Tech%20%26%20Innovation" class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between py-1">
-          <span>🤖 Tech & Innovation</span>
-          <span class="text-[10px] text-emerald-600 font-normal">Explore &rarr;</span>
-        </a>
-        <div class="pl-4 pt-1 space-y-0.5">
-          
-      <a href="category?cat=Artificial%20Intelligence" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Artificial Intelligence
-      </a>
-    
-      <a href="category?cat=Smart%20Cities" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Smart Cities
-      </a>
-    
-      <a href="category?cat=Gadgets%20%26%20Reviews" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Gadgets & Reviews
-      </a>
-    
+        <!-- Travel -->
+        <div class="border-b border-slate-100 pb-2">
+          <div class="font-bold text-xs uppercase tracking-wider text-slate-900 mb-1">🏖️ Travel</div>
+          <div class="grid grid-cols-1 gap-1 text-xs">
+            <a href="category/public-transport" class="py-1 text-slate-600 hover:text-emerald-700">• Public Transport</a>
+            <a href="category/driving-and-tolls" class="py-1 text-slate-600 hover:text-emerald-700">• Driving &amp; Tolls</a>
+            <a href="category/aviation-and-travel" class="py-1 text-slate-600 hover:text-emerald-700">• Aviation &amp; Travel</a>
+            <a href="category/automotive" class="py-1 text-slate-600 hover:text-emerald-700">• Automotive</a>
+            <a href="category/staycations-and-hotels" class="py-1 text-slate-600 hover:text-emerald-700">• Staycations &amp; Hotels</a>
+            <a href="category/tourist-attractions" class="py-1 text-slate-600 hover:text-emerald-700">• Tourist Attractions</a>
+            <a href="category/gcc-travel" class="py-1 text-slate-600 hover:text-emerald-700">• GCC Travel</a>
+          </div>
         </div>
-      </div>
-    
-
-      <div class="border-b border-slate-100 dark:border-slate-800/60 pb-2">
-        <a href="category?cat=Travel%20%26%20Tourism" class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between py-1">
-          <span>🏖️ Travel & Tourism</span>
-          <span class="text-[10px] text-emerald-600 font-normal">Explore &rarr;</span>
-        </a>
-        <div class="pl-4 pt-1 space-y-0.5">
-          
-      <a href="category?cat=Staycations%20%26%20Hotels" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Staycations & Hotels
-      </a>
-    
-      <a href="category?cat=Tourist%20Attractions" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Tourist Attractions
-      </a>
-    
-      <a href="category?cat=GCC%20Travel" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • GCC Travel
-      </a>
-    
-        </div>
-      </div>
-    
-
-      <div class="border-b border-slate-100 dark:border-slate-800/60 pb-2">
-        <a href="category?cat=Health%20%26%20Education" class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between py-1">
-          <span>🎓 Health & Education</span>
-          <span class="text-[10px] text-emerald-600 font-normal">Explore &rarr;</span>
-        </a>
-        <div class="pl-4 pt-1 space-y-0.5">
-          
-      <a href="category?cat=Health%20%26%20Wellness" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Health & Wellness
-      </a>
-    
-      <a href="category?cat=Education%20%26%20Schools" class="block py-1.5 px-3 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-        • Education & Schools
-      </a>
-    
-        </div>
-      </div>
-    
       </div>
     </div>
   </header>
 
-  <!-- MOBILE NAVIGATION DRAWER & OVERLAY (Exact same categories as uaeboom.com) -->
-  <div id="mobile-menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 bottom-0 w-80 max-w-[88vw] bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col overflow-y-auto">
-    <!-- Drawer Header -->
-    <div class="flex items-center justify-between px-5 py-4 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-r from-emerald-600 to-teal-600">
-      <a href="./" class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center">
-          <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none"><path d="M7 6V26" stroke="white" stroke-width="3" stroke-linecap="round"/><path d="M7 16L19 6C23 10 23 16 19 20L7 16Z" fill="white" opacity="0.8"/></svg>
-        </div>
-        <span class="font-display font-black text-lg text-white">KhaleejFlow</span>
-      </a>
-      <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg bg-white/20 text-white hover:bg-white/30">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <!-- Search in drawer -->
-    <div class="px-5 py-3 border-b border-slate-100 dark:border-slate-800">
-      <div class="relative">
-        <svg class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <input type="text" oninput="if(event.key==='Enter'||this.value.length>2){searchQuery=this.value;renderFeedArticles();toggleMobileMenu();}" placeholder="Search guides..." class="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-sans"/>
-      </div>
-    </div>
-    <!-- Drawer nav items -->
-    <nav class="flex-1 overflow-y-auto px-5 py-4 font-display text-sm font-semibold space-y-0.5">
-      <a href="./" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-black flex items-center gap-2">
-        <span class="text-base">🏠</span> Home
-      </a>
-      
-      <!-- Cities -->
-      <div class="pt-3 pb-1 flex items-center justify-between px-3">
-        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Cities</span>
-        <a href="cities" class="text-[10px] text-emerald-600 font-bold hover:underline">Hub &rarr;</a>
-      </div>
-      <a href="category?cat=Abu+Dhabi" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
-        Abu Dhabi
-      </a>
-      <a href="category?cat=Ajman" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
-        Ajman
-      </a>
-      <a href="category?cat=Dubai" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
-        Dubai
-      </a>
-      <a href="category?cat=Sharjah" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
-        Sharjah
-      </a>
-      <a href="cities" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
-        All 7 Emirates &rarr;
-      </a>
-
-      <!-- Transportation -->
-      <div class="pt-3 pb-1 flex items-center justify-between px-3">
-        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Transportation</span>
-        <a href="transportation" class="text-[10px] text-blue-600 font-bold hover:underline">Hub &rarr;</a>
-      </div>
-      <a href="category?cat=Bus+Stations" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>🚌</span> Bus Stations
-      </a>
-      <a href="category?cat=Metro+Stations" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>🚆</span> Metro Stations
-      </a>
-      <a href="transportation" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>🅿️</span> Parking Guides
-      </a>
-
-      <!-- Business -->
-      <div class="pt-3 pb-1 flex items-center justify-between px-3">
-        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Business</span>
-        <a href="business" class="text-[10px] text-amber-600 font-bold hover:underline">Hub &rarr;</a>
-      </div>
-      <a href="category?cat=Real+Estate" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>🏢</span> Real Estate
-      </a>
-      <a href="business" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>📈</span> Property Investment
-      </a>
-
-      <!-- Finance -->
-      <div class="pt-3 pb-1 flex items-center justify-between px-3">
-        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Finance</span>
-        <a href="finance" class="text-[10px] text-emerald-600 font-bold hover:underline">Hub &rarr;</a>
-      </div>
-      <a href="category?cat=Finance" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>💳</span> Salary Cards &amp; WPS
-      </a>
-      <a href="finance" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>🔍</span> Balance Enquiry
-      </a>
-
-      <!-- Lifestyle -->
-      <div class="pt-3 pb-1 flex items-center justify-between px-3">
-        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Lifestyle</span>
-        <a href="lifestyle" class="text-[10px] text-purple-600 font-bold hover:underline">Hub &rarr;</a>
-      </div>
-      <a href="category?cat=Automotive" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>🚗</span> Automotive &amp; Fines
-      </a>
-      <a href="category?cat=Technology" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
-        <span>📱</span> Technology &amp; Telecom
-      </a>
-
-      <!-- Essential Pages -->
-      <div class="pt-4 pb-1 border-t border-slate-100 dark:border-slate-800">
-        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 px-3">Company &amp; Legal</span>
-      </div>
-      <a href="contact" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">📩 Contact Us</a>
-      <a href="disclaimer" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">⚖️ Disclaimer</a>
-      <a href="privacy-policy" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">🔒 Privacy Policy</a>
-      <a href="write-for-us" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">✍️ Write For Us</a>
-    </nav>
-    <div class="px-5 py-4 border-t border-slate-100 dark:border-slate-800">
-      <p class="text-xs text-slate-400 font-display">KhaleejFlow Media © 2026</p>
-    </div>
-  </aside>
-
-  <!-- =========================================================
-       ADMIN LOGIN MODAL (Anti-Gravity Glassmorphism)
-       ========================================================= -->
-  <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden transition-opacity">
-    <div class="relative w-full max-w-md rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-7 shadow-2xl space-y-6">
-      
-      <!-- Close Button -->
-      <button onclick="closeLoginModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-white p-1 rounded-full">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-
-      <!-- Modal Header -->
-      <div class="text-center space-y-2">
-        <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 p-0.5 shadow-lg shadow-emerald-500/20">
-          <div class="w-full h-full bg-white dark:bg-slate-950 rounded-[14px] flex items-center justify-center font-display font-black text-emerald-600 text-xl">
-            K
-          </div>
-        </div>
-        <h3 class="font-display font-black text-xl text-slate-900 dark:text-white tracking-tight">
-          KhaleejFlow Admin Portal
-        </h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400">
-          Enter authorized credentials to access the editorial suite &amp; SEO engine.
-        </p>
-      </div>
-
-      <!-- Quick Credentials Pill for user -->
-      <div class="p-3.5 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-500/20 space-y-1">
-        <div class="flex items-center justify-between text-[11px] font-mono">
-          <span class="text-emerald-700 dark:text-emerald-400 font-bold">Authorized Password:</span>
-          <button type="button" onclick="autoFillCredentials()" class="text-[10px] font-bold text-emerald-600 underline hover:text-emerald-500">
-            Auto-fill credentials
-          </button>
-        </div>
-        <p class="font-mono text-xs text-slate-800 dark:text-slate-200 select-all font-bold break-all">
-          KhaleejFlow#2026!SecureAdmin
-        </p>
-      </div>
-
-      <!-- Login Form -->
-      <form id="portal-login-form" onsubmit="handlePortalLogin(event)" class="space-y-4">
-        <div>
-          <label class="block text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
-            Admin Email
-          </label>
-          <input
-            type="email"
-            id="portal-email"
-            value="admin@khaleejflow.com"
-            required
-            class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-sans focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          />
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <label class="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-              Strong Password
-            </label>
-          </div>
-          <div class="relative">
-            <input
-              type="password"
-              id="portal-password"
-              placeholder="Enter strong admin password..."
-              required
-              class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500 pr-10"
-            />
-            <button
-              type="button"
-              onclick="togglePasswordVisibility()"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-white text-xs"
-            >
-              👁️
-            </button>
-          </div>
-        </div>
-
-        <div id="portal-login-error" class="hidden p-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/50 border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-xs font-medium"></div>
-
-        <button
-          type="submit"
-          class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-display font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/25 transition-all"
-        >
-          Authenticate &amp; Enter Dashboard
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- MAIN CATEGORY HUB -->
-  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+<main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
     
     <!-- Breadcrumb -->
     <nav class="flex items-center space-x-2 text-xs font-mono text-slate-500 mb-6">
@@ -957,9 +552,9 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       
       <div class="lg:col-span-8">
-        <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-200 dark:border-slate-800">
+        <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-200 ">
           <div>
-            <h2 id="current-filter-heading" class="font-display font-extrabold text-lg text-slate-900 dark:text-white">
+            <h2 id="current-filter-heading" class="font-display font-extrabold text-lg text-slate-900 ">
               All Lifestyle &amp; Motorist Guides
             </h2>
             <p id="article-count-label" class="text-xs text-slate-500 font-sans mt-0.5">Verified daily life services</p>
@@ -973,15 +568,15 @@
       </div>
 
       <aside class="lg:col-span-4 space-y-6 sticky top-24">
-        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
-          <h3 class="font-display text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
+        <div class="rounded-2xl border border-slate-200  bg-white  p-6 shadow-sm">
+          <h3 class="font-display text-sm font-bold text-slate-900  uppercase tracking-wider mb-4 pb-2 border-b border-slate-100 ">
             Popular Topics
           </h3>
           <div id="featured-topics-container" class="flex flex-wrap gap-2"></div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
-          <h3 class="font-display text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
+        <div class="rounded-2xl border border-slate-200  bg-white  p-6 shadow-sm">
+          <h3 class="font-display text-sm font-bold text-slate-900  uppercase tracking-wider mb-4 pb-2 border-b border-slate-100 ">
             Trending in Lifestyle
           </h3>
           <div id="trending-articles-list" class="space-y-1"></div>
@@ -996,17 +591,19 @@
   <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 max-w-sm w-full pointer-events-none"></div>
 
     <!-- FOOTER (Universal across all pages) -->
-  <footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-16">
+  
+  <!-- FOOTER (Universal Light Mode across all pages) -->
+  <footer class="mt-20 border-t border-slate-200 bg-white text-slate-600 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Top Brand & Columns Row -->
-      <div class="pb-12 border-b border-slate-100 dark:border-slate-800/80 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
+      <div class="pb-12 border-b border-slate-200 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Brand Description (4 cols) -->
         <div class="lg:col-span-4 space-y-4">
           <a href="./" class="flex items-center gap-2.5 group">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-0.5 shadow-md shadow-emerald-600/20">
-              <div class="w-full h-full bg-white dark:bg-slate-950 rounded-[10px] flex items-center justify-center">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 p-0.5 shadow-md shadow-emerald-700/20">
+              <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
                 <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
                   <path d="M7 6V26" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
                   <path d="M7 16L19 6C23 10 23 16 19 20L7 16Z" fill="#059669" opacity="0.95"/>
@@ -1017,65 +614,65 @@
             </div>
             <div>
               <div class="flex items-baseline gap-0.5">
-                <span class="font-display text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-none">Khaleej</span>
-                <span class="font-display text-2xl font-black tracking-tight text-emerald-600 dark:text-emerald-400 leading-none">Flow</span>
+                <span class="font-display text-2xl font-black tracking-tight text-slate-900 leading-none">Khaleej</span>
+                <span class="font-display text-2xl font-black tracking-tight text-emerald-600 leading-none">Flow</span>
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400 ml-0.5 mb-1"></span>
               </div>
-              <span class="text-[8.5px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 font-display block -mt-0.5">
+              <span class="text-[8.5px] font-bold uppercase tracking-[0.2em] text-slate-500 font-display block -mt-0.5">
                 GULF MEDIA &amp; INSIGHTS
               </span>
             </div>
           </a>
-          <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400 max-w-sm font-sans">
-            KhaleejFlow is the Gulf's authoritative digital journal and utility guide covering Business, Golden Visas, Public Transit, AI Innovation, Real Estate, and Expat Life across Dubai, Abu Dhabi, Saudi Arabia, and the GCC.
+          <p class="text-xs leading-relaxed text-slate-600 max-w-sm font-sans">
+            KhaleejFlow is the Gulf Cooperation Council's premier independent digital magazine and intelligence portal covering unified tourism, trans-regional railway networks, artificial intelligence corridors, sovereign wealth, and expatriate mobility across Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman.
           </p>
-          <div class="flex items-center space-x-3 text-xs font-mono text-emerald-700 dark:text-emerald-400">
+          <div class="flex items-center space-x-3 text-xs font-mono text-emerald-700">
             <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-gulf"></span>
-            <span>Bureaus in Dubai Media City • Abu Dhabi ADGM • Riyadh KAFD</span>
+            <span>GCC Bureaus: Riyadh KAFD • Dubai DIFC • Doha Lusail</span>
           </div>
         </div>
 
         <!-- Popular Categories Column 1 (3 cols) -->
         <div class="lg:col-span-3 space-y-3">
-          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white">
-            Popular Categories
+          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900">
+            Popular Taxonomies
           </h4>
           <ul class="space-y-2 text-xs font-medium">
-            <li><a href="category?cat=Visas+%26+Immigration" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>📜</span> Visas &amp; Immigration</a></li>
-            <li><a href="category?cat=Real+Estate+%26+Property" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🏢</span> Real Estate &amp; Property</a></li>
-            <li><a href="category?cat=Public+Transport" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🚇</span> Public Transport</a></li>
-            <li><a href="category?cat=Artificial+Intelligence" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🤖</span> Artificial Intelligence</a></li>
-            <li><a href="category?cat=Business+%26+Startups" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>💼</span> Business &amp; Startups</a></li>
-            <li><a href="category?cat=Driving+%26+Tolls" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🚗</span> Driving &amp; Tolls (Salik)</a></li>
+            <li><a href="category/visas-and-immigration" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>📜</span> Visas &amp; Immigration</a></li>
+            <li><a href="category/real-estate-and-property" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🏢</span> Real Estate &amp; Property</a></li>
+            <li><a href="category/aviation-and-travel" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>✈️</span> Aviation &amp; Travel</a></li>
+            <li><a href="category/artificial-intelligence" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🤖</span> Artificial Intelligence</a></li>
+            <li><a href="category/public-transport" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🚆</span> Public Transport</a></li>
+            <li><a href="category/business-and-startups" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>💼</span> Business &amp; Startups</a></li>
           </ul>
         </div>
 
         <!-- Popular Categories Column 2 (3 cols) -->
         <div class="lg:col-span-3 space-y-3">
-          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white">
-            Lifestyle, Travel &amp; Tech
+          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900">
+            GCC Growth &amp; Living
           </h4>
           <ul class="space-y-2 text-xs font-medium">
-            <li><a href="category?cat=Staycations+%26+Hotels" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🏖️</span> Staycations &amp; Hotels</a></li>
-            <li><a href="category?cat=Food+%26+Dining" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🍽️</span> Food &amp; Dining</a></li>
-            <li><a href="category?cat=Smart+Cities" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🏙️</span> Smart Cities &amp; Mobility</a></li>
-            <li><a href="category?cat=Personal+Finance+%26+Wealth" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>💰</span> Personal Finance &amp; Wealth</a></li>
-            <li><a href="category?cat=Labor+Law+%26+Employment" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>⚖️</span> Labor Law &amp; Employment</a></li>
-            <li><a href="category?cat=Education+%26+Schools" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🎓</span> Education &amp; Schools</a></li>
+            <li><a href="category/gcc-travel" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🌍</span> GCC Travel &amp; Road Trips</a></li>
+            <li><a href="category/smart-cities" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🏙️</span> Smart Cities &amp; Megaprojects</a></li>
+            <li><a href="category/personal-finance-and-wealth" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>💰</span> Personal Finance &amp; Wealth</a></li>
+            <li><a href="category/labor-law-and-employment" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>⚖️</span> Labor Law &amp; Employment</a></li>
+            <li><a href="category/staycations-and-hotels" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🏖️</span> Staycations &amp; Hotels</a></li>
+            <li><a href="category/luxury-living" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>✨</span> Luxury Living</a></li>
           </ul>
         </div>
 
         <!-- Essential Pages & Portal (2 cols) -->
         <div class="lg:col-span-2 space-y-3">
-          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white">
+          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900">
             Essential Links
           </h4>
           <ul class="space-y-2 text-xs font-medium">
-            <li><a href="contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>📩</span> Contact Us</a></li>
-            <li><a href="disclaimer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>⚖️</span> Disclaimer</a></li>
-            <li><a href="privacy-policy" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🔒</span> Privacy Policy</a></li>
-            <li><a href="write-for-us" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>✍️</span> Write For Us</a></li>
-            <li><a href="admin" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5 font-bold text-slate-800 dark:text-slate-200"><span>⚡</span> Admin CMS</a></li>
+            <li><a href="contact" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>📩</span> Contact Us</a></li>
+            <li><a href="disclaimer" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>⚖️</span> Disclaimer</a></li>
+            <li><a href="privacy-policy" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🔒</span> Privacy Policy</a></li>
+            <li><a href="write-for-us" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>✍️</span> Write For Us</a></li>
+            <li><a href="admin" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 font-bold text-slate-800"><span>⚡</span> Admin CMS</a></li>
           </ul>
         </div>
 
@@ -1084,17 +681,19 @@
       <!-- Bottom Bar -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-sans gap-4">
         <div>
-          &copy; 2026 KhaleejFlow Digital Media Network. All rights reserved.
+          &copy; 2026 KhaleejFlow Media Network. All rights reserved. Registered across GCC media authorities.
         </div>
         <div class="flex items-center space-x-6">
-          <span class="font-mono text-emerald-600 font-semibold">Gulf Standard Time (GST, UTC+4)</span>
-          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-emerald-700 dark:text-emerald-400 font-bold hover:underline flex items-center gap-1">
+          <span class="font-mono text-emerald-700 font-semibold">Gulf Standard Time (GST, UTC+4)</span>
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-emerald-700 font-bold hover:underline flex items-center gap-1">
             Back to Top &uarr;
           </button>
         </div>
       </div>
     </div>
   </footer>
+
+
 
   <script src="app.js"></script>
   <script>
@@ -1129,7 +728,7 @@
       countLabel.textContent = `Showing ${filtered.length} verified guides`;
 
       grid.innerHTML = filtered.map(a => `
-        <article class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md kf-card cursor-pointer flex flex-col justify-between transition-all" onclick="goToArticle(${a.id})">
+        <article class="group rounded-2xl overflow-hidden border border-slate-200  bg-white  shadow-sm hover:shadow-md kf-card cursor-pointer flex flex-col justify-between transition-all" onclick="goToArticle(${a.id})">
           <div>
             <div class="relative h-44 w-full kf-img-wrap overflow-hidden">
               <img src="${a.imageUrl}" alt="${a.title}" class="w-full h-full object-cover kf-img-zoom" loading="lazy" />
@@ -1141,13 +740,13 @@
             </div>
             <div class="p-5">
               <span class="text-[11px] text-slate-400 font-mono block mb-1.5">${a.date} • ${a.readTime}</span>
-              <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-purple-600 transition-colors line-clamp-2 leading-snug mb-2">
+              <h3 class="text-base font-bold text-slate-900  group-hover:text-purple-600 transition-colors line-clamp-2 leading-snug mb-2">
                 ${a.title}
               </h3>
               <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${a.excerpt}</p>
             </div>
           </div>
-          <div class="px-5 pb-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
+          <div class="px-5 pb-4 pt-3 border-t border-slate-100  flex items-center justify-between text-xs">
             <span class="text-slate-400 font-mono">${a.views} motorists &amp; readers</span>
             <span class="text-purple-600 font-bold">Read Guide &rarr;</span>
           </div>

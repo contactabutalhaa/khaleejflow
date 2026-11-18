@@ -1,1191 +1,496 @@
 /**
  * KhaleejFlow - Gulf Media & Insights Engine
- * Complete 7-Parent-Silo Architecture & 28 Categories
+ * Light-Mode 28 Primary Flat Categories & GCC Sovereign Journalism
  */
 
-// 1. SILOS & CATEGORIES REGISTRY
-const categorySilos = [
-  {
-    "name": "Business & Finance",
-    "slug": "business-finance",
-    "icon": "💼",
-    "description": "UAE investments, commercial real estate, corporate law, wealth strategies and market analysis.",
-    "categories": [
-      {
-        "name": "Business & Startups",
-        "slug": "business-startups",
-        "description": "Company formation, free zones, trade licenses, VC funding & SME growth in the Gulf."
-      },
-      {
-        "name": "Real Estate & Property",
-        "slug": "real-estate-property",
-        "description": "Dubai & Abu Dhabi property trends, luxury developments, off-plan projects & rental yields."
-      },
-      {
-        "name": "Personal Finance & Wealth",
-        "slug": "personal-finance-wealth",
-        "description": "Banking, savings, investment portfolios, tax optimization & expat wealth planning."
-      },
-      {
-        "name": "Crypto & Web3",
-        "slug": "crypto-web3",
-        "description": "VARA regulations, Bitcoin, digital assets, blockchain hubs & Web3 innovation in UAE."
-      },
-      {
-        "name": "Markets & Economy",
-        "slug": "markets-economy",
-        "description": "DFM, ADX, oil markets, GCC economic trends, trade corridors & inflation data."
-      }
-    ]
-  },
-  {
-    "name": "Expat Life & Legal",
-    "slug": "expat-life-legal",
-    "icon": "📜",
-    "description": "Essential UAE legal frameworks, residency visas, labor laws and relocation guidance.",
-    "categories": [
-      {
-        "name": "Visas & Immigration",
-        "slug": "visas-immigration",
-        "description": "Golden Visa, Green Visa, freelance permits, family sponsorship & residency renewals."
-      },
-      {
-        "name": "Labor Law & Employment",
-        "slug": "labor-law-employment",
-        "description": "MOHRE contracts, end-of-service gratuity, notice periods, labor claims & workplace rights."
-      },
-      {
-        "name": "Relocation & Setup",
-        "slug": "relocation-setup",
-        "description": "Moving to UAE, Emirates ID, EJARI tenancy contracts, utility connections & cost of living."
-      },
-      {
-        "name": "Living Guides",
-        "slug": "living-guides",
-        "description": "Day-to-day expat lifestyle, civic rules, cultural etiquette & community standards."
-      }
-    ]
-  },
-  {
-    "name": "Transport & Mobility",
-    "slug": "transport-mobility",
-    "icon": "🚇",
-    "description": "Public transit networks, smart driving regulations, aviation links and automotive guides.",
-    "categories": [
-      {
-        "name": "Public Transport",
-        "slug": "public-transport",
-        "description": "Dubai Metro, RTA intercity buses, NOL card systems, Abu Dhabi transit & future rail."
-      },
-      {
-        "name": "Driving & Tolls",
-        "slug": "driving-tolls",
-        "description": "Salik smart gates, Darb tolls, parking zones, license renewal & traffic fine checks."
-      },
-      {
-        "name": "Aviation & Travel",
-        "slug": "aviation-travel",
-        "description": "Emirates, Etihad, flydubai, airport hubs, smart gates & Gulf flight connections."
-      },
-      {
-        "name": "Automotive",
-        "slug": "automotive",
-        "description": "Car buying, vehicle registration, EV charging networks, insurance & testing centers."
-      }
-    ]
-  },
-  {
-    "name": "Lifestyle & Entertainment",
-    "slug": "lifestyle-entertainment",
-    "icon": "✨",
-    "description": "Fine dining, premier cultural festivals, heritage districts, luxury shopping and sports.",
-    "categories": [
-      {
-        "name": "Food & Dining",
-        "slug": "food-dining",
-        "description": "Michelin-starred restaurants, culinary hotspots, cafes & Emirati cuisine guides."
-      },
-      {
-        "name": "Events & Festivals",
-        "slug": "events-festivals",
-        "description": "Dubai Shopping Festival, cultural expos, concerts, global conferences & seasonal fairs."
-      },
-      {
-        "name": "Arts Culture & Heritage",
-        "slug": "arts-culture-heritage",
-        "description": "Louvre Abu Dhabi, Al Fahidi, Sharjah Biennale, calligraphy & Gulf historical landmarks."
-      },
-      {
-        "name": "Luxury Living",
-        "slug": "luxury-living",
-        "description": "Ultra-prime residences, superyachts, private aviation & haute horlogerie in the GCC."
-      },
-      {
-        "name": "Shopping & Retail",
-        "slug": "shopping-retail",
-        "description": "Dubai Mall, luxury boutiques, souks, retail promotions & tax-free shopping guides."
-      },
-      {
-        "name": "Gaming & Esports",
-        "slug": "gaming-esports",
-        "description": "Gaming tournaments, esports arenas, Dubai Program for Gaming 2033 & creator hubs."
-      },
-      {
-        "name": "Sports",
-        "slug": "sports",
-        "description": "F1 Abu Dhabi GP, Dubai World Cup, golf championships, padel & fitness communities."
-      }
-    ]
-  },
-  {
-    "name": "Tech & Innovation",
-    "slug": "tech-innovation",
-    "icon": "🤖",
-    "description": "Sovereign artificial intelligence, autonomous smart city ecosystems and consumer tech reviews.",
-    "categories": [
-      {
-        "name": "Artificial Intelligence",
-        "slug": "artificial-intelligence",
-        "description": "Falcon LLM, UAE AI Ministry, enterprise GenAI adoption & cloud supercomputing."
-      },
-      {
-        "name": "Smart Cities",
-        "slug": "smart-cities",
-        "description": "Autonomous mobility, flying taxis, 5.5G connectivity, IoT grids & paperless government."
-      },
-      {
-        "name": "Gadgets & Reviews",
-        "slug": "gadgets-reviews",
-        "description": "Smartphones, wearables, laptops, home automation & tech hardware in the UAE market."
-      }
-    ]
-  },
-  {
-    "name": "Travel & Tourism",
-    "slug": "travel-tourism",
-    "icon": "🏖️",
-    "description": "Desert staycations, luxury hotel retreats, iconic sights and regional GCC exploration.",
-    "categories": [
-      {
-        "name": "Staycations & Hotels",
-        "slug": "staycations-hotels",
-        "description": "Desert glamping, private pool villas, 5-star beachfront resorts & weekend escapes."
-      },
-      {
-        "name": "Tourist Attractions",
-        "slug": "tourist-attractions",
-        "description": "Burj Khalifa, Sheikh Zayed Grand Mosque, Museum of the Future & hidden gem itineraries."
-      },
-      {
-        "name": "GCC Travel",
-        "slug": "gcc-travel",
-        "description": "Visa-free GCC tourism, AlUla, Salalah, Doha city breaks & cross-border road trips."
-      }
-    ]
-  },
-  {
-    "name": "Health & Education",
-    "slug": "health-education",
-    "icon": "🎓",
-    "description": "Healthcare insurance mandates, medical wellness, KHDA school ratings and universities.",
-    "categories": [
-      {
-        "name": "Health & Wellness",
-        "slug": "health-wellness",
-        "description": "Mandatory health insurance, private hospitals, preventive wellness, spas & clinics."
-      },
-      {
-        "name": "Education & Schools",
-        "slug": "education-schools",
-        "description": "KHDA inspection ratings, British/IB curriculum guides, tuition fees & universities."
-      }
-    ]
-  }
-];
-const flattenedCategories = [
+// 1. 28 PRIMARY FLAT CATEGORIES
+const categoriesData = [
   {
     "id": 1,
     "name": "Business & Startups",
-    "slug": "business-startups",
-    "silo": "Business & Finance",
-    "siloSlug": "business-finance",
+    "description": "Company formation, SME growth, venture capital funding, startup incubators and regional free zones.",
     "icon": "💼",
-    "description": "Company formation, free zones, trade licenses, VC funding & SME growth in the Gulf.",
-    "postCount": 1
+    "slug": "business-and-startups",
+    "group": "Business"
   },
   {
     "id": 2,
     "name": "Real Estate & Property",
-    "slug": "real-estate-property",
-    "silo": "Business & Finance",
-    "siloSlug": "business-finance",
-    "icon": "💼",
-    "description": "Dubai & Abu Dhabi property trends, luxury developments, off-plan projects & rental yields.",
-    "postCount": 1
+    "description": "Residential towers, commercial assets, off-plan projects, luxury waterfronts and rental yields across the GCC.",
+    "icon": "🏢",
+    "slug": "real-estate-and-property",
+    "group": "Business"
   },
   {
     "id": 3,
     "name": "Personal Finance & Wealth",
-    "slug": "personal-finance-wealth",
-    "silo": "Business & Finance",
-    "siloSlug": "business-finance",
-    "icon": "💼",
-    "description": "Banking, savings, investment portfolios, tax optimization & expat wealth planning.",
-    "postCount": 1
+    "description": "Banking, cross-border investments, wealth preservation, tax optimization, retirement planning and savings.",
+    "icon": "💰",
+    "slug": "personal-finance-and-wealth",
+    "group": "Business"
   },
   {
     "id": 4,
     "name": "Crypto & Web3",
-    "slug": "crypto-web3",
-    "silo": "Business & Finance",
-    "siloSlug": "business-finance",
-    "icon": "💼",
-    "description": "VARA regulations, Bitcoin, digital assets, blockchain hubs & Web3 innovation in UAE.",
-    "postCount": 0
+    "description": "Blockchain networks, virtual asset regulations (VARA/ADGM), institutional crypto and digital finance.",
+    "icon": "🪙",
+    "slug": "crypto-and-web3",
+    "group": "Business"
   },
   {
     "id": 5,
     "name": "Markets & Economy",
-    "slug": "markets-economy",
-    "silo": "Business & Finance",
-    "siloSlug": "business-finance",
-    "icon": "💼",
-    "description": "DFM, ADX, oil markets, GCC economic trends, trade corridors & inflation data.",
-    "postCount": 0
+    "description": "Gulf stock bourses (DFM, ADX, Tadawul, QSE), trade corridors, macroeconomics, oil prices and inflation data.",
+    "icon": "📈",
+    "slug": "markets-and-economy",
+    "group": "Business"
   },
   {
     "id": 6,
     "name": "Visas & Immigration",
-    "slug": "visas-immigration",
-    "silo": "Expat Life & Legal",
-    "siloSlug": "expat-life-legal",
+    "description": "GCC Grand Tours visa, national Golden Visas, green permits, family sponsorship, Iqama rules and citizenship pathways.",
     "icon": "📜",
-    "description": "Golden Visa, Green Visa, freelance permits, family sponsorship & residency renewals.",
-    "postCount": 1
+    "slug": "visas-and-immigration",
+    "group": "Expat Life"
   },
   {
     "id": 7,
     "name": "Labor Law & Employment",
-    "slug": "labor-law-employment",
-    "silo": "Expat Life & Legal",
-    "siloSlug": "expat-life-legal",
-    "icon": "📜",
-    "description": "MOHRE contracts, end-of-service gratuity, notice periods, labor claims & workplace rights.",
-    "postCount": 1
+    "description": "MOHRE frameworks, end-of-service gratuity calculations, labor contracts, notice periods and workplace protections.",
+    "icon": "⚖️",
+    "slug": "labor-law-and-employment",
+    "group": "Expat Life"
   },
   {
     "id": 8,
     "name": "Relocation & Setup",
-    "slug": "relocation-setup",
-    "silo": "Expat Life & Legal",
-    "siloSlug": "expat-life-legal",
-    "icon": "📜",
-    "description": "Moving to UAE, Emirates ID, EJARI tenancy contracts, utility connections & cost of living.",
-    "postCount": 1
+    "description": "Expat relocation checklists, national identity cards, residential tenancy contracts, utility setups and moving guides.",
+    "icon": "📦",
+    "slug": "relocation-and-setup",
+    "group": "Expat Life"
   },
   {
     "id": 9,
     "name": "Living Guides",
+    "description": "Daily life in Gulf metropolises, civic rules, cultural etiquette, community living and cost-of-living breakdowns.",
+    "icon": "🧭",
     "slug": "living-guides",
-    "silo": "Expat Life & Legal",
-    "siloSlug": "expat-life-legal",
-    "icon": "📜",
-    "description": "Day-to-day expat lifestyle, civic rules, cultural etiquette & community standards.",
-    "postCount": 0
+    "group": "Expat Life"
   },
   {
     "id": 10,
-    "name": "Public Transport",
-    "slug": "public-transport",
-    "silo": "Transport & Mobility",
-    "siloSlug": "transport-mobility",
-    "icon": "🚇",
-    "description": "Dubai Metro, RTA intercity buses, NOL card systems, Abu Dhabi transit & future rail.",
-    "postCount": 1
+    "name": "Health & Wellness",
+    "description": "Mandatory health insurance regulations, world-class hospitals, preventive wellness, spas and mental health.",
+    "icon": "🏥",
+    "slug": "health-and-wellness",
+    "group": "Expat Life"
   },
   {
     "id": 11,
-    "name": "Driving & Tolls",
-    "slug": "driving-tolls",
-    "silo": "Transport & Mobility",
-    "siloSlug": "transport-mobility",
-    "icon": "🚇",
-    "description": "Salik smart gates, Darb tolls, parking zones, license renewal & traffic fine checks.",
-    "postCount": 1
+    "name": "Education & Schools",
+    "description": "School inspection ratings, British, IB, American & CBSE curriculums, school admissions and premier universities.",
+    "icon": "🎓",
+    "slug": "education-and-schools",
+    "group": "Expat Life"
   },
   {
     "id": 12,
-    "name": "Aviation & Travel",
-    "slug": "aviation-travel",
-    "silo": "Transport & Mobility",
-    "siloSlug": "transport-mobility",
-    "icon": "🚇",
-    "description": "Emirates, Etihad, flydubai, airport hubs, smart gates & Gulf flight connections.",
-    "postCount": 0
+    "name": "Artificial Intelligence",
+    "description": "Sovereign AI models, national AI ministries, generative computing, enterprise machine learning and cloud centers.",
+    "icon": "🤖",
+    "slug": "artificial-intelligence",
+    "group": "Tech"
   },
   {
     "id": 13,
-    "name": "Automotive",
-    "slug": "automotive",
-    "silo": "Transport & Mobility",
-    "siloSlug": "transport-mobility",
-    "icon": "🚇",
-    "description": "Car buying, vehicle registration, EV charging networks, insurance & testing centers.",
-    "postCount": 1
+    "name": "Smart Cities",
+    "description": "NEOM, Masdar City, Lusail, autonomous flying taxis, 5.5G networks, IoT grids and digital twin architecture.",
+    "icon": "🌆",
+    "slug": "smart-cities",
+    "group": "Tech"
   },
   {
     "id": 14,
-    "name": "Food & Dining",
-    "slug": "food-dining",
-    "silo": "Lifestyle & Entertainment",
-    "siloSlug": "lifestyle-entertainment",
-    "icon": "✨",
-    "description": "Michelin-starred restaurants, culinary hotspots, cafes & Emirati cuisine guides.",
-    "postCount": 1
+    "name": "Gadgets & Reviews",
+    "description": "Consumer electronics, smartphones, wearable health monitors, laptops, drones and smart home automation.",
+    "icon": "📱",
+    "slug": "gadgets-and-reviews",
+    "group": "Tech"
   },
   {
     "id": 15,
-    "name": "Events & Festivals",
-    "slug": "events-festivals",
-    "silo": "Lifestyle & Entertainment",
-    "siloSlug": "lifestyle-entertainment",
-    "icon": "✨",
-    "description": "Dubai Shopping Festival, cultural expos, concerts, global conferences & seasonal fairs.",
-    "postCount": 0
+    "name": "Food & Dining",
+    "description": "Michelin Guide culinary reviews, Emirati and Khaleeji specialties, celebrity chef establishments and cafes.",
+    "icon": "🍽️",
+    "slug": "food-and-dining",
+    "group": "Lifestyle"
   },
   {
     "id": 16,
-    "name": "Arts Culture & Heritage",
-    "slug": "arts-culture-heritage",
-    "silo": "Lifestyle & Entertainment",
-    "siloSlug": "lifestyle-entertainment",
-    "icon": "✨",
-    "description": "Louvre Abu Dhabi, Al Fahidi, Sharjah Biennale, calligraphy & Gulf historical landmarks.",
-    "postCount": 1
+    "name": "Events & Festivals",
+    "description": "Riyadh Season, Dubai Shopping Festival, Bahrain Grand Prix, Doha Cultural Festival and global summits.",
+    "icon": "🎉",
+    "slug": "events-and-festivals",
+    "group": "Lifestyle"
   },
   {
     "id": 17,
-    "name": "Luxury Living",
-    "slug": "luxury-living",
-    "silo": "Lifestyle & Entertainment",
-    "siloSlug": "lifestyle-entertainment",
-    "icon": "✨",
-    "description": "Ultra-prime residences, superyachts, private aviation & haute horlogerie in the GCC.",
-    "postCount": 0
+    "name": "Arts Culture & Heritage",
+    "description": "Louvre Abu Dhabi, Museum of Islamic Art, AlUla arts, calligraphy biennales and historic architectural districts.",
+    "icon": "🏛️",
+    "slug": "arts-culture-and-heritage",
+    "group": "Lifestyle"
   },
   {
     "id": 18,
-    "name": "Shopping & Retail",
-    "slug": "shopping-retail",
-    "silo": "Lifestyle & Entertainment",
-    "siloSlug": "lifestyle-entertainment",
+    "name": "Luxury Living",
+    "description": "Ultra-prime mansions, private aviation, luxury superyachts, haute horlogerie and bespoke concierge services.",
     "icon": "✨",
-    "description": "Dubai Mall, luxury boutiques, souks, retail promotions & tax-free shopping guides.",
-    "postCount": 1
+    "slug": "luxury-living",
+    "group": "Lifestyle"
   },
   {
     "id": 19,
-    "name": "Gaming & Esports",
-    "slug": "gaming-esports",
-    "silo": "Lifestyle & Entertainment",
-    "siloSlug": "lifestyle-entertainment",
-    "icon": "✨",
-    "description": "Gaming tournaments, esports arenas, Dubai Program for Gaming 2033 & creator hubs.",
-    "postCount": 0
+    "name": "Shopping & Retail",
+    "description": "Mega retail malls, designer fashion flagships, traditional spice & gold souks and regional shopping promotions.",
+    "icon": "🛍️",
+    "slug": "shopping-and-retail",
+    "group": "Lifestyle"
   },
   {
     "id": 20,
-    "name": "Sports",
-    "slug": "sports",
-    "silo": "Lifestyle & Entertainment",
-    "siloSlug": "lifestyle-entertainment",
-    "icon": "✨",
-    "description": "F1 Abu Dhabi GP, Dubai World Cup, golf championships, padel & fitness communities.",
-    "postCount": 0
+    "name": "Gaming & Esports",
+    "description": "Esports World Cup in Riyadh, game development hubs, streaming arenas and regional competitive leagues.",
+    "icon": "🎮",
+    "slug": "gaming-and-esports",
+    "group": "Lifestyle"
   },
   {
     "id": 21,
-    "name": "Artificial Intelligence",
-    "slug": "artificial-intelligence",
-    "silo": "Tech & Innovation",
-    "siloSlug": "tech-innovation",
-    "icon": "🤖",
-    "description": "Falcon LLM, UAE AI Ministry, enterprise GenAI adoption & cloud supercomputing.",
-    "postCount": 1
+    "name": "Sports",
+    "description": "Formula 1 Gulf circuits, FIFA football qualifiers, world tour golf tournaments, horse racing and padel.",
+    "icon": "🏎️",
+    "slug": "sports",
+    "group": "Lifestyle"
   },
   {
     "id": 22,
-    "name": "Smart Cities",
-    "slug": "smart-cities",
-    "silo": "Tech & Innovation",
-    "siloSlug": "tech-innovation",
-    "icon": "🤖",
-    "description": "Autonomous mobility, flying taxis, 5.5G connectivity, IoT grids & paperless government.",
-    "postCount": 1
+    "name": "Public Transport",
+    "description": "GCC cross-border rail networks, metropolitan metro grids, high-speed rail lines and smart transit cards.",
+    "icon": "🚆",
+    "slug": "public-transport",
+    "group": "Travel"
   },
   {
     "id": 23,
-    "name": "Gadgets & Reviews",
-    "slug": "gadgets-reviews",
-    "silo": "Tech & Innovation",
-    "siloSlug": "tech-innovation",
-    "icon": "🤖",
-    "description": "Smartphones, wearables, laptops, home automation & tech hardware in the UAE market.",
-    "postCount": 0
+    "name": "Driving & Tolls",
+    "description": "Electronic toll systems (Salik & Darb), GCC driving license reciprocity, road traffic safety and highway fines.",
+    "icon": "🚗",
+    "slug": "driving-and-tolls",
+    "group": "Travel"
   },
   {
     "id": 24,
-    "name": "Staycations & Hotels",
-    "slug": "staycations-hotels",
-    "silo": "Travel & Tourism",
-    "siloSlug": "travel-tourism",
-    "icon": "🏖️",
-    "description": "Desert glamping, private pool villas, 5-star beachfront resorts & weekend escapes.",
-    "postCount": 1
+    "name": "Aviation & Travel",
+    "description": "Emirates, Qatar Airways, Saudia, Etihad, airport expansion mega-terminals and global route networks.",
+    "icon": "✈️",
+    "slug": "aviation-and-travel",
+    "group": "Travel"
   },
   {
     "id": 25,
-    "name": "Tourist Attractions",
-    "slug": "tourist-attractions",
-    "silo": "Travel & Tourism",
-    "siloSlug": "travel-tourism",
-    "icon": "🏖️",
-    "description": "Burj Khalifa, Sheikh Zayed Grand Mosque, Museum of the Future & hidden gem itineraries.",
-    "postCount": 1
+    "name": "Automotive",
+    "description": "Electric vehicle charging corridors, luxury supercars, vehicle importation, testing and registration guides.",
+    "icon": "🚙",
+    "slug": "automotive",
+    "group": "Travel"
   },
   {
     "id": 26,
-    "name": "GCC Travel",
-    "slug": "gcc-travel",
-    "silo": "Travel & Tourism",
-    "siloSlug": "travel-tourism",
-    "icon": "🏖️",
-    "description": "Visa-free GCC tourism, AlUla, Salalah, Doha city breaks & cross-border road trips.",
-    "postCount": 0
+    "name": "Staycations & Hotels",
+    "description": "Desert sanctuary glamping, luxury private pool villas, 5-star beachfront resorts and mountain lodges.",
+    "icon": "🏨",
+    "slug": "staycations-and-hotels",
+    "group": "Travel"
   },
   {
     "id": 27,
-    "name": "Health & Wellness",
-    "slug": "health-wellness",
-    "silo": "Health & Education",
-    "siloSlug": "health-education",
-    "icon": "🎓",
-    "description": "Mandatory health insurance, private hospitals, preventive wellness, spas & clinics.",
-    "postCount": 1
+    "name": "Tourist Attractions",
+    "description": "Burj Khalifa, Hegra, Sheikh Zayed Grand Mosque, Souq Waqif, Musandam Fjords and Kuwait Towers.",
+    "icon": "🏜️",
+    "slug": "tourist-attractions",
+    "group": "Travel"
   },
   {
     "id": 28,
-    "name": "Education & Schools",
-    "slug": "education-schools",
-    "silo": "Health & Education",
-    "siloSlug": "health-education",
-    "icon": "🎓",
-    "description": "KHDA inspection ratings, British/IB curriculum guides, tuition fees & universities.",
-    "postCount": 1
+    "name": "GCC Travel",
+    "description": "Cross-border Gulf road trips, inter-city weekend getaways, scenic flights and regional cultural itineraries.",
+    "icon": "🌍",
+    "slug": "gcc-travel",
+    "group": "Travel"
   }
 ];
+
+// 2. GULF BUREAU AUTHORS
 const authorsData = [
   {
-    "id": "tariq-al-mansoori",
-    "name": "Tariq Al-Mansoori",
-    "role": "Senior Gulf Economics & Transit Editor",
-    "title": "Senior Editor & Transport Analyst",
-    "bureau": "Dubai Media City Bureau",
-    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80",
-    "bio": "Over 14 years covering GCC real estate, urban planning, RTA transport infrastructure, and financial policy across the Emirates and Saudi Arabia.",
-    "articlesCount": 42,
-    "specialties": [
-      "Real Estate",
-      "Salik & Tolls",
-      "Public Transport",
-      "Smart Cities"
-    ]
-  },
-  {
-    "id": "fatima-al-blooshi",
-    "name": "Fatima Al-Blooshi",
-    "role": "Legal & Residency Bureau Chief",
-    "title": "Legal Affairs & Immigration Specialist",
-    "bureau": "Abu Dhabi ADGM Bureau",
+    "id": "fatima-al-nuaimi",
+    "name": "Fatima Al-Nuaimi",
     "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80",
-    "bio": "Specializes in UAE labor laws, Golden Visa frameworks, MOHRE worker rights, and commercial regulatory compliance across the GCC.",
-    "articlesCount": 38,
-    "specialties": [
-      "Visas & Immigration",
-      "Labor Law",
-      "Free Zones",
-      "Retail"
-    ]
+    "bio": "Specializing in regional immigration integration, multilateral trade corridors, and comparative labor regulations across the six GCC member states.",
+    "bureau": "Gulf Cooperation Affairs Bureau, Riyadh & Dubai",
+    "role": "GCC Immigration & Public Policy Analyst",
+    "title": "Senior Policy Fellow & Border Affairs Editor"
   },
   {
-    "id": "khalid-al-falasi",
-    "name": "Khalid Al-Falasi",
-    "role": "Technology & Business Columnist",
-    "title": "Enterprise Tech & AI Strategist",
-    "bureau": "Dubai Silicon Oasis Bureau",
+    "id": "eng-tariq-al-hashimi",
+    "name": "Eng. Tariq Al-Hashimi",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
-    "bio": "Focuses on Sovereign AI compute, Falcon LLM deployments, startup incubators, venture capital rounds, and regional tech policy.",
-    "articlesCount": 29,
-    "specialties": [
-      "Artificial Intelligence",
-      "Business & Startups",
-      "Education",
-      "Heritage"
-    ]
+    "bio": "Civil engineer and urban transit consultant with 16 years advising on railway logistics, airport master plans, and smart mobility corridors in the Arabian Peninsula.",
+    "bureau": "Abu Dhabi & Muscat Infrastructure Desk",
+    "role": "Senior Gulf Transit & Infrastructure Specialist",
+    "title": "Chief Mobility & Infrastructure Columnist"
   },
   {
-    "id": "reem-al-ghamdi",
-    "name": "Reem Al-Ghamdi",
-    "role": "Lifestyle, Hospitality & Wellness Lead",
-    "title": "Culinary & Travel Journalist",
-    "bureau": "Riyadh KAFD / Dubai Bureau",
+    "id": "zaid-al-basha",
+    "name": "Zaid Al-Basha",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80",
+    "bio": "Covering regional tech startups, sovereign venture capital funds, enterprise generative AI, and cross-Gulf angel syndicates.",
+    "bureau": "Dubai DIFC & Riyadh KAFD Bureau",
+    "role": "Venture Partner & Tech Columnist",
+    "title": "Venture Ecosystems & Deep Tech Lead"
+  },
+  {
+    "id": "dr-layla-mansour",
+    "name": "Dr. Layla Mansour",
     "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80",
-    "bio": "Guides affluent travelers and expats through GCC luxury desert resorts, Michelin dining scenes, healthcare standards, and lifestyle trends.",
-    "articlesCount": 35,
-    "specialties": [
-      "Food & Dining",
-      "Staycations",
-      "Health & Wellness",
-      "Wealth Planning"
-    ]
+    "bio": "Doctor of Sustainable Urbanism, researching zero-carbon desert master plans, cognitive sensor grids, and pneumatic district logistics across the GCC.",
+    "bureau": "Doha Education City & Riyadh Bureau",
+    "role": "Urban Systems Architect & Sustainability Fellow",
+    "title": "Head of Sustainable Megaprojects & Smart Cities"
+  },
+  {
+    "id": "marcus-vance",
+    "name": "Marcus Vance, CFA",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80",
+    "bio": "Chartered Financial Analyst advising ultra-high-net-worth families, family offices, and expatriate executives on cross-border tax compliance, trusts, and global asset diversification.",
+    "bureau": "DIFC Dubai & Bahrain Financial Harbour",
+    "role": "Senior Cross-Border Wealth Advisor",
+    "title": "Gulf Private Wealth & Macroeconomics Editor"
   }
 ];
+
+// 3. VERIFIED 800+ WORD GCC JOURNALISM ARTICLES
 const articlesData = [
   {
     "id": 1,
-    "slug": "dubai-real-estate-market-outlook-2026-prime-areas-roi",
-    "title": "Dubai Real Estate Outlook 2026: Prime Areas, Rental Yields & Property Investment Trends",
-    "category": "Real Estate & Property",
-    "silo": "Business & Finance",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "54.8k",
-    "readTime": "7 min read",
-    "date": "Nov 16, 2026",
-    "authorId": "tariq-al-mansoori",
-    "imageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Comprehensive analysis of Dubai's property market in 2026, exploring high-yield freehold communities, luxury waterfront developments, and off-plan investment metrics.",
+    "countryFlag": "🌍",
+    "group": "Expat Life",
+    "title": "New Unified GCC Tourist Visa Rollout: Complete Guide to the Grand Tours Visa Across All 6 Gulf Nations",
     "toc": [
       {
-        "id": "market-overview",
-        "title": "1. 2026 Market Capitalization & Growth Drivers"
+        "id": "vision-catalyst",
+        "title": "1. The Vision 2030 & Unified Gulf Tourism Catalyst"
       },
       {
-        "id": "top-investment-districts",
-        "title": "2. Top Performing Freehold Districts (ROI & Yields)"
+        "id": "eligibility-framework",
+        "title": "2. Eligibility Framework & Applicant Categories"
       },
       {
-        "id": "offplan-vs-ready",
-        "title": "3. Off-Plan vs. Secondary Market Opportunities"
+        "id": "six-destinations",
+        "title": "3. Single Visa, Six Sovereign Destinations: Strategic Itineraries"
       },
       {
-        "id": "golden-visa-link",
-        "title": "4. AED 2 Million Threshold for Property Golden Visa"
-      },
-      {
-        "id": "regulatory-safeguards",
-        "title": "5. DLD & RERA Escrow Account Protections"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Dubai’s real estate ecosystem enters 2026 with historic transaction volumes, fueled by sustained global capital inflows, progressive residency reforms, and unprecedented infrastructure expansions. Both seasoned institutional funds and individual expatriate buyers continue to leverage Dubai's competitive yields compared to London, Singapore, or New York.\n      </p>\n\n      <h2 id=\"market-overview\">1. 2026 Market Capitalization & Growth Drivers</h2>\n      <p>\n        The emirate’s real estate market achieved double-digit appreciation across prime residential enclaves over the trailing four quarters. Core drivers include Dubai's tax-free personal capital environment, exceptional civic safety, and rapid population expansion toward the Dubai 2040 Urban Master Plan target.\n      </p>\n\n      <h2 id=\"top-investment-districts\">2. Top Performing Freehold Districts (ROI & Yields)</h2>\n      <p>\n        Rental yields in established communities remain robust:\n      </p>\n      <ul>\n        <li><strong>Dubai Marina & JBR:</strong> 6.8% to 7.4% gross rental yield with peak short-term holiday home demand.</li>\n        <li><strong>Business Bay & Downtown Dubai:</strong> 6.5% to 7.2% yield driven by multinational corporate headquarters and executive tenants.</li>\n        <li><strong>Dubai Hills Estate & Arabian Ranches:</strong> High family occupancy stability with 22% annual capital appreciation in luxury villa clusters.</li>\n        <li><strong>Dubai Creek Harbour:</strong> Elevated investor appetite ahead of the upcoming Dubai Metro Blue Line stations.</li>\n      </ul>\n\n      <h2 id=\"offplan-vs-ready\">3. Off-Plan vs. Secondary Market Opportunities</h2>\n      <p>\n        Developers have introduced flexible 60/40 and 70/30 post-handover payment structures. Investors seeking rapid capital gains prioritize beachfront and golf-course developments, while buy-to-let purchasers target ready mid-market apartments in JVC and Al Furjan.\n      </p>\n\n      <h2 id=\"golden-visa-link\">4. AED 2 Million Threshold for Property Golden Visa</h2>\n      <p>\n        Under revised UAE immigration regulations, property investors acquiring real estate valued at AED 2,000,000 or greater qualify for a renewable 10-year Golden Visa. This eligibility holds regardless of whether the property is purchased outright, mortgaged through a local UAE bank, or secured via approved off-plan installments.\n      </p>\n\n      <h2 id=\"regulatory-safeguards\">5. DLD & RERA Escrow Account Protections</h2>\n      <p>\n        The Dubai Land Department (DLD) enforces strict project milestones before developer funds can be disbursed from regulated escrow accounts. The Rest app enables instantaneous title deed validation and rental valuation checks.\n      </p>\n    "
-  },
-  {
-    "id": 2,
-    "slug": "how-to-launch-a-free-zone-business-in-uae",
-    "title": "How to Set Up a Free Zone Business in the UAE: 2026 Step-by-Step Investor Guide",
-    "category": "Business & Startups",
-    "silo": "Business & Finance",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "41.6k",
-    "readTime": "6 min read",
-    "date": "Nov 15, 2026",
-    "authorId": "khalid-al-falasi",
-    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "A complete roadmap to company formation in Dubai and Abu Dhabi free zones, covering license types, capital requirements, 0% corporate tax exemptions, and visa quotas.",
-    "toc": [
-      {
-        "id": "freezone-benefits",
-        "title": "1. Strategic Advantages of UAE Free Zones"
-      },
-      {
-        "id": "choosing-hub",
-        "title": "2. Selecting the Right Free Zone Authority"
-      },
-      {
-        "id": "licensing-types",
-        "title": "3. Commercial, Service & Freelance Licenses"
-      },
-      {
-        "id": "costs-capital",
-        "title": "4. Cost Breakdown & Bank Account Setup"
-      },
-      {
-        "id": "tax-compliance",
-        "title": "5. Corporate Tax Qualifying Free Zone Person (QFZP)"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        With over 45 specialized free zones operating across the United Arab Emirates, entrepreneurs and international conglomerates can launch incorporated entities with 100% foreign ownership, zero customs tariffs on re-exports, and streamlined investor residency.\n      </p>\n\n      <h2 id=\"freezone-benefits\">1. Strategic Advantages of UAE Free Zones</h2>\n      <p>\n        Free zones offer custom ecosystems designed for global commerce:\n      </p>\n      <ul>\n        <li>100% foreign corporate ownership without a local national sponsor</li>\n        <li>100% repatriation of capital and operational profits</li>\n        <li>Zero personal income taxes and exemption from import/export tariffs within bonded zones</li>\n        <li>Direct integration with state-of-the-art logistics ports (DP World, JAFZA, KIZAD)</li>\n      </ul>\n\n      <h2 id=\"choosing-hub\">2. Selecting the Right Free Zone Authority</h2>\n      <p>\n        Aligning your business model with the appropriate jurisdiction determines licensing fees and banking agility:\n      </p>\n      <ul>\n        <li><strong>DMCC (Dubai Multi Commodities Centre):</strong> Ideal for global trade, commodities, fintech, and crypto ventures.</li>\n        <li><strong>DIFC & ADGM:</strong> Premier financial centers operating under independent English Common Law judicial frameworks.</li>\n        <li><strong>DTEC & Dubai Internet City:</strong> Tailored for deep tech, SaaS startups, AI engineering, and venture-backed accelerators.</li>\n        <li><strong>Meydan & IFZA:</strong> Cost-effective packages for solo entrepreneurs, e-commerce, and creative consultancies.</li>\n      </ul>\n\n      <h2 id=\"licensing-types\">3. Commercial, Service & Freelance Licenses</h2>\n      <p>\n        Entrepreneurs select from Commercial (trading/import-export), Professional/Service (consulting, tech development), and Industrial categories. In addition, freelance talent permits allow solo contractors to sponsor family members affordably.\n      </p>\n\n      <h2 id=\"costs-capital\">4. Cost Breakdown & Bank Account Setup</h2>\n      <p>\n        Initial formation fees range from AED 12,000 for single-visa virtual packages to AED 35,000+ for multi-visa flexi-desk configurations. Digital corporate onboarding through Wio Bank, Mashreq NeoBiz, and Emirates NBD simplifies corporate account clearance.\n      </p>\n\n      <h2 id=\"tax-compliance\">5. Corporate Tax Qualifying Free Zone Person (QFZP)</h2>\n      <p>\n        Under Federal Decree-Law No. 47 of 2022 on Corporate Tax, free zone entities maintaining adequate economic substance and deriving qualifying income from transactions with foreign entities enjoy 0% corporate tax rates on eligible earnings.\n      </p>\n    "
-  },
-  {
-    "id": 3,
-    "slug": "uae-corporate-tax-and-wealth-management-guide",
-    "title": "Personal Finance & Corporate Tax in the UAE: Complete Expat Wealth Playbook",
-    "category": "Personal Finance & Wealth",
-    "silo": "Business & Finance",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "36.2k",
-    "readTime": "5 min read",
-    "date": "Nov 14, 2026",
-    "authorId": "reem-al-ghamdi",
-    "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Master UAE personal banking, tax-efficient savings accounts, corporate tax compliance, and overseas asset repatriation for high-net-worth expat residents.",
-    "toc": [
-      {
-        "id": "personal-tax-status",
-        "title": "1. 0% Personal Income Tax & Wealth Holding Advantages"
-      },
-      {
-        "id": "corporate-tax-rules",
-        "title": "2. The 9% Corporate Tax Threshold & Reliefs"
-      },
-      {
-        "id": "banking-saving",
-        "title": "3. High-Yield Expat Accounts & Sukuk Investments"
-      },
-      {
-        "id": "estate-planning",
-        "title": "4. DIFC Wills & Non-Muslim Inheritance Laws"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        The UAE continues to be recognized as one of the world's most attractive destinations for private wealth preservation. By understanding the interaction between personal tax exemptions, the 9% corporate tax threshold, and DIFC foundation structures, residents can protect multi-generational family capital.\n      </p>\n\n      <h2 id=\"personal-tax-status\">1. 0% Personal Income Tax & Wealth Holding Advantages</h2>\n      <p>\n        Individual salaries, investment dividends, capital gains on equities, and real estate appreciation remain completely free from personal taxation in the United Arab Emirates. There are no wealth taxes or gift duties levied on resident individuals.\n      </p>\n\n      <h2 id=\"corporate-tax-rules\">2. The 9% Corporate Tax Threshold & Reliefs</h2>\n      <p>\n        Mainland businesses and non-qualifying free zone entities earning net taxable profits exceeding AED 375,000 are subject to a competitive 9% corporate tax rate. Profits up to AED 375,000 are taxed at 0%, providing substantial relief for early-stage SMEs.\n      </p>\n\n      <h2 id=\"banking-saving\">3. High-Yield Expat Accounts & Sukuk Investments</h2>\n      <p>\n        Leading UAE institutions offer tiered AED and USD fixed-term deposits yielding 4.5% to 5.25%. Furthermore, retail investor access to sovereign green Sukuk and National Bonds provides capital-protected yields pegged to regional economic strength.\n      </p>\n\n      <h2 id=\"estate-planning\">4. DIFC Wills & Non-Muslim Inheritance Laws</h2>\n      <p>\n        Under Federal Personal Status Law and the DIFC Wills Service Centre, expatriate property and asset owners can execute binding common-law wills, guaranteeing that family estates pass directly to designated heirs without probate delays.\n      </p>\n    "
-  },
-  {
-    "id": 4,
-    "slug": "uae-golden-visa-2026-complete-eligibility-application-guide",
-    "title": "UAE Golden Visa 2026: Complete Eligibility, Real Estate Criteria & Application Steps",
-    "category": "Visas & Immigration",
-    "silo": "Expat Life & Legal",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "68.9k",
-    "readTime": "6 min read",
-    "date": "Nov 17, 2026",
-    "authorId": "fatima-al-blooshi",
-    "imageUrl": "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Everything you need to know about qualifying for the 10-year UAE Golden Visa via property ownership, executive employment, specialized talent, or entrepreneurship.",
-    "toc": [
-      {
-        "id": "golden-visa-overview",
-        "title": "1. What is the 10-Year Golden Visa?"
-      },
-      {
-        "id": "property-investor-path",
-        "title": "2. Real Estate Investor Pathway (AED 2M)"
-      },
-      {
-        "id": "executive-specialist-path",
-        "title": "3. Skilled Professionals & Executive Salary Route"
-      },
-      {
-        "id": "application-process",
-        "title": "4. Step-by-Step ICP & GDRFA Application Process"
-      },
-      {
-        "id": "family-perks",
-        "title": "5. Sponsoring Dependents, Parents & Domestic Staff"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        The UAE Golden Visa grants long-term, self-sponsored residency for 10 years to investors, entrepreneurs, scientists, outstanding students, and skilled professionals. Visa holders can live, work, and study in the UAE without requiring a traditional national employer sponsor.\n      </p>\n\n      <h2 id=\"golden-visa-overview\">1. What is the 10-Year Golden Visa?</h2>\n      <p>\n        Introduced to attract and retain premier international talent and long-term capital, the Golden Visa provides security of tenure, the freedom to remain outside the UAE for more than six months without visa invalidation, and comprehensive family sponsorship privileges.\n      </p>\n\n      <h2 id=\"property-investor-path\">2. Real Estate Investor Pathway (AED 2M)</h2>\n      <p>\n        Applicants purchasing one or more properties with a cumulative purchase value of at least AED 2,000,000 qualify for the 10-year residency:\n      </p>\n      <ul>\n        <li>Off-plan properties purchased from approved UAE developers qualify upon reaching valuation milestones.</li>\n        <li>Properties financed through local licensed banks qualify, with no minimum down-payment restriction as long as the purchase deed confirms the AED 2M threshold.</li>\n      </ul>\n\n      <h2 id=\"executive-specialist-path\">3. Skilled Professionals & Executive Salary Route</h2>\n      <p>\n        Professionals classified under MOHRE Occupational Level 1 or 2 can secure the Golden Visa if they satisfy three requirements:\n      </p>\n      <ul>\n        <li>Valid employment contract in the UAE</li>\n        <li>Monthly gross salary of at least AED 30,000 (verified by bank statements and salary certificate)</li>\n        <li>Attested Bachelor's degree or higher educational credential</li>\n      </ul>\n\n      <h2 id=\"application-process\">4. Step-by-Step ICP & GDRFA Application Process</h2>\n      <p>\n        Applications are submitted digitally via the ICP Smart Services portal or the GDRFA Dubai mobile app. Following preliminary nomination approval, applicants complete a standard medical fitness screening and receive their digital and physical Emirates ID.\n      </p>\n\n      <h2 id=\"family-perks\">5. Sponsoring Dependents, Parents & Domestic Staff</h2>\n      <p>\n        Golden Visa holders can sponsor spouses and children of any age, as well as dependent parents and domestic helpers, ensuring whole-family peace of mind.\n      </p>\n    "
-  },
-  {
-    "id": 5,
-    "slug": "uae-labour-law-gratuity-end-of-service-notice-period",
-    "title": "UAE Labour Law Updates: Gratuity Calculation, Notice Periods & Employment Contracts",
-    "category": "Labor Law & Employment",
-    "silo": "Expat Life & Legal",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "47.3k",
-    "readTime": "5 min read",
-    "date": "Nov 13, 2026",
-    "authorId": "fatima-al-blooshi",
-    "imageUrl": "https://images.unsplash.com/photo-1450133064473-71024230f91b?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "An in-depth guide to MOHRE employment regulations, the voluntary pension gratuity scheme, termination guidelines, and employee rights across mainland UAE.",
-    "toc": [
-      {
-        "id": "employment-contracts",
-        "title": "1. Fixed-Term Contracts Under Federal Decree Law"
-      },
-      {
-        "id": "gratuity-calc",
-        "title": "2. How End-of-Service Gratuity is Calculated"
-      },
-      {
-        "id": "saving-scheme",
-        "title": "3. UAE Alternative Voluntary End-of-Service Savings Scheme"
-      },
-      {
-        "id": "notice-periods",
-        "title": "4. Notice Periods, Resignations & Non-Compete Clauses"
-      },
-      {
-        "id": "filing-disputes",
-        "title": "5. MOHRE Labor Dispute Resolution Channels"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Federal Decree-Law No. 33 of 2021 regarding the Regulation of Labour Relations governs private sector employment in the UAE. Understanding the precise legal guidelines on end-of-service gratuity and notice rights prevents costly contract disputes.\n      </p>\n\n      <h2 id=\"employment-contracts\">1. Fixed-Term Contracts Under Federal Decree Law</h2>\n      <p>\n        All private-sector workers in the UAE are employed under definite (fixed-term) contracts. Contracts may be renewed mutually without any legal cap on cumulative tenure.\n      </p>\n\n      <h2 id=\"gratuity-calc\">2. How End-of-Service Gratuity is Calculated</h2>\n      <p>\n        Full-time employees completing at least one continuous year of service receive severance pay calculated on their final basic salary:\n      </p>\n      <ul>\n        <li><strong>First 5 Years of Service:</strong> 21 days' basic wage for each year worked.</li>\n        <li><strong>Beyond 5 Years of Service:</strong> 30 days' basic wage for each additional year worked.</li>\n        <li>Maximum gratuity entitlement cannot exceed two years' total gross salary.</li>\n      </ul>\n\n      <h2 id=\"saving-scheme\">3. UAE Alternative Voluntary End-of-Service Savings Scheme</h2>\n      <p>\n        Employers can now enroll staff in the UAE Savings Scheme, depositing monthly contributions into capital-protected or Sharia-compliant investment funds overseen by the Securities and Commodities Authority (SCA).\n      </p>\n\n      <h2 id=\"notice-periods\">4. Notice Periods, Resignations & Non-Compete Clauses</h2>\n      <p>\n        Statutory notice periods range from 30 to 90 days as defined in the contract. Employees resigning within their notice period are entitled to full pro-rata gratuity with no deductions.\n      </p>\n\n      <h2 id=\"filing-disputes\">5. MOHRE Labor Dispute Resolution Channels</h2>\n      <p>\n        Employees can lodge formal grievances directly via the MOHRE hotline (600 590000) or mobile app. Claims under AED 50,000 can be ruled on expeditiously by MOHRE directly without referral to the Court of First Instance.\n      </p>\n    "
-  },
-  {
-    "id": 6,
-    "slug": "relocating-to-dubai-cost-of-living-checklist",
-    "title": "Relocating to Dubai in 2026: Essential Expat Setup, EJARI & Cost of Living Checklist",
-    "category": "Relocation & Setup",
-    "silo": "Expat Life & Legal",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "52.1k",
-    "readTime": "6 min read",
-    "date": "Nov 11, 2026",
-    "authorId": "reem-al-ghamdi",
-    "imageUrl": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Planning your move to the UAE? Here is your definitive checklist for finding accommodation, registering EJARI, opening bank accounts, and budgeting monthly expenses.",
-    "toc": [
-      {
-        "id": "arrival-checklist",
-        "title": "1. The First 30 Days: Emirates ID & Medical Fitness"
-      },
-      {
-        "id": "housing-ejari",
-        "title": "2. Renting an Apartment & Registering EJARI"
-      },
-      {
-        "id": "utilities-setup",
-        "title": "3. Connecting DEWA, Du, and Etisalat"
-      },
-      {
-        "id": "budget-estimates",
-        "title": "4. Realistic Monthly Cost of Living Breakdown"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Relocating to Dubai offers world-class infrastructure, year-round sunshine, and career opportunities. Having a clear operational plan for housing deposits, utility connections, and banking setup ensures a seamless transition.\n      </p>\n\n      <h2 id=\"arrival-checklist\">1. The First 30 Days: Emirates ID & Medical Fitness</h2>\n      <p>\n        Upon landing on an entry permit, complete your biometric fingerprinting and blood screening at a certified DHA medical fitness center to finalize your digital residency and receive your physical Emirates ID card.\n      </p>\n\n      <h2 id=\"housing-ejari\">2. Renting an Apartment & Registering EJARI</h2>\n      <p>\n        Rent in Dubai is commonly paid via 1 to 4 bank cheques. Always register your tenancy contract on the official EJARI portal through the Dubai REST app. An active EJARI certificate is required to connect water, electricity, and telecommunications.\n      </p>\n\n      <h2 id=\"utilities-setup\">3. Connecting DEWA, Du, and Etisalat</h2>\n      <p>\n        DEWA (Dubai Electricity and Water Authority) integrates automatically with EJARI registration, activating power within 24 hours upon security deposit payment (AED 2,000 for apartments, AED 4,000 for villas). High-speed fiber home broadband is available via e& (Etisalat) or du.\n      </p>\n\n      <h2 id=\"budget-estimates\">4. Realistic Monthly Cost of Living Breakdown</h2>\n      <p>\n        Monthly expenses for a professional single or couple typically range:\n      </p>\n      <ul>\n        <li><strong>1-Bedroom Rent (Central areas):</strong> AED 6,500 – AED 9,500</li>\n        <li><strong>DEWA, Cooling & Internet:</strong> AED 1,100 – AED 1,600</li>\n        <li><strong>Groceries & Dining:</strong> AED 2,500 – AED 4,000</li>\n        <li><strong>Metro & Ride-Hailing:</strong> AED 800 – AED 1,500</li>\n      </ul>\n    "
-  },
-  {
-    "id": 7,
-    "slug": "dubai-salik-toll-gates-dynamic-pricing-guide",
-    "title": "Dubai Salik Toll Gates: New Dynamic Pricing, Gate Locations & Smart Recharge Guide",
-    "category": "Driving & Tolls",
-    "silo": "Transport & Mobility",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "61.4k",
-    "readTime": "5 min read",
-    "date": "Nov 16, 2026",
-    "authorId": "tariq-al-mansoori",
-    "imageUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Learn how Dubai's variable Salik toll pricing functions during peak hours, where the newest gates are situated, and how to automate toll tag recharges.",
-    "toc": [
-      {
-        "id": "salik-network",
-        "title": "1. The Expanded Salik Toll Network in Dubai"
-      },
-      {
-        "id": "dynamic-pricing-model",
-        "title": "2. Variable Peak vs. Off-Peak Toll Tariffs"
-      },
-      {
-        "id": "new-gate-locations",
-        "title": "3. Business Bay & Al Safa South Toll Gates"
-      },
-      {
-        "id": "tag-installation-recharge",
-        "title": "4. Tag Purchase, Smart App & Auto-Recharge"
-      },
-      {
-        "id": "violations-fines",
-        "title": "5. Avoiding Insufficient Balance Fines"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Dubai’s Roads and Transport Authority (RTA) and Salik PJSC operate an automated, barrier-free radio frequency identification (RFID) toll system across the emirate’s major transit corridors, ensuring smooth vehicular flow along Sheikh Zayed Road, Al Khail Road, and connected arterial highways.\n      </p>\n\n      <h2 id=\"salik-network\">1. The Expanded Salik Toll Network in Dubai</h2>\n      <p>\n        The toll system operates without toll booths. Overhead sensor gantries automatically read windshield RFID tags as vehicles pass at highway speeds, automatically deducting the toll fee from the motorist's digital prepaid account.\n      </p>\n\n      <h2 id=\"dynamic-pricing-model\">2. Variable Peak vs. Off-Peak Toll Tariffs</h2>\n      <p>\n        To balance corridor congestion, dynamic pricing applies variable toll tariffs:\n      </p>\n      <ul>\n        <li><strong>Peak Hours (Morning & Evening Commutes):</strong> AED 6 per gantry crossing.</li>\n        <li><strong>Off-Peak Daytime Hours:</strong> Standard AED 4 per crossing.</li>\n        <li><strong>Sundays & Late Night (10 PM to 6 AM):</strong> Reduced rate or toll-free crossing on designated bridges.</li>\n      </ul>\n\n      <h2 id=\"new-gate-locations\">3. Business Bay & Al Safa South Toll Gates</h2>\n      <p>\n        The strategic Business Bay Crossing gate on Al Khail Road and the Al Safa South gantry on Sheikh Zayed Road help redirect inter-emirate traffic toward Al Khail and Mohammed Bin Zayed Road (E311), cutting rush hour bottlenecks by 15%.\n      </p>\n\n      <h2 id=\"tag-installation-recharge\">4. Tag Purchase, Smart App & Auto-Recharge</h2>\n      <p>\n        New Salik tags can be purchased at petrol stations (ENOC, EPPCO, ADNOC) or ordered online through the Salik Smart App. Motorists can link credit cards for auto-recharge whenever their balance drops below AED 20.\n      </p>\n\n      <h2 id=\"violations-fines\">5. Avoiding Insufficient Balance Fines</h2>\n      <p>\n        Passing through a Salik gate with insufficient balance grants a 5-day grace period to top up without penalty. After 5 days, an AED 50 violation fee is incurred per crossing.\n      </p>\n    "
-  },
-  {
-    "id": 8,
-    "slug": "dubai-metro-blue-line-route-stations-timeline",
-    "title": "Dubai Metro Blue Line: Full Route Map, Stations, Interchanges & Travel Timings",
-    "category": "Public Transport",
-    "silo": "Transport & Mobility",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "58.0k",
-    "readTime": "6 min read",
-    "date": "Nov 14, 2026",
-    "authorId": "fatima-al-blooshi",
-    "imageUrl": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "A complete overview of the 30-kilometer Dubai Metro Blue Line connecting Dubai Creek Harbour, Academic City, and Mirdif with the existing Red and Green networks.",
-    "toc": [
-      {
-        "id": "blue-line-specs",
-        "title": "1. Blue Line Route Overview & 30km Alignment"
-      },
-      {
-        "id": "station-interchanges",
-        "title": "2. Key Stations & Underground River Crossings"
-      },
-      {
-        "id": "connection-red-green",
-        "title": "3. Direct Interchanges at Centrepoint & Creek"
+        "id": "fee-structure",
+        "title": "4. Digital Application Portals, Biometrics & Fee Structure"
       },
       {
         "id": "economic-impact",
-        "title": "4. Impact on Property Values Along the Line"
+        "title": "5. Aviation Synergies & Cross-Border Economic Impact"
+      },
+      {
+        "id": "concluding-summary",
+        "title": "6. Concluding Summary: A Defining Leap for Arabian Mobility"
       }
     ],
-    "content": "\n      <p class=\"lead\">\n        The Dubai Metro Blue Line represents the largest urban transit expansion since the network’s launch in 2009. Spanning 30 kilometers with 14 stations (including 9 elevated and 5 underground hubs), the line seamlessly connects Dubai Creek Harbour, Dubai Silicon Oasis, and International City.\n      </p>\n\n      <h2 id=\"blue-line-specs\">1. Blue Line Route Overview & 30km Alignment</h2>\n      <p>\n        Constructed at an investment of AED 18 billion, the Blue Line is split into two main branches: a southern route serving Academic City and DSO, and a northern route serving Ras Al Khor, Dubai Festival City, and Mirdif City Centre.\n      </p>\n\n      <h2 id=\"station-interchanges\">2. Key Stations & Underground River Crossings</h2>\n      <p>\n        A standout engineering feat of the Blue Line is a 1.3-kilometer bridge spanning Dubai Creek, linking Dubai Creek Harbour to Ras Al Khor. Underground stations feature cutting-edge architectural finishes and direct pedestrian air-conditioned skybridges into adjacent mixed-use master developments.\n      </p>\n\n      <h2 id=\"connection-red-green\">3. Direct Interchanges at Centrepoint & Creek</h2>\n      <p>\n        Commuters can transfer effortlessly between lines:\n      </p>\n      <ul>\n        <li><strong>Centrepoint Station (Rashidiya):</strong> Major interchange connecting the Red Line and Blue Line.</li>\n        <li><strong>Creek Station:</strong> Direct interchange connecting the Green Line and Blue Line.</li>\n      </ul>\n\n      <h2 id=\"economic-impact\">4. Impact on Property Values Along the Line</h2>\n      <p>\n        Real estate developments located within 800 meters of planned Blue Line stations have recorded an average 18% to 25% premium in capital appreciation and sustained tenant inquiries ahead of operations.\n      </p>\n    "
+    "category": "Visas & Immigration",
+    "excerpt": "The historic GCC Grand Tours unified tourist visa now enables international travelers and Gulf residents to explore Saudi Arabia, the UAE, Qatar, Bahrain, Oman, and Kuwait on a single permit. Here is everything you need to know about eligibility, fees, border transit, and regional itineraries.",
+    "readTime": "8 min read",
+    "slug": "new-unified-gcc-tourist-visa-rollout",
+    "authorId": "fatima-al-nuaimi",
+    "country": "GCC Unified",
+    "date": "Nov 18, 2026",
+    "views": "68.4k",
+    "content": "<p class=\"lead text-lg font-medium text-slate-700 leading-relaxed mb-6\">\nThe historic launch of the unified GCC tourist visa—officially branded as the <strong>GCC Grand Tours Visa</strong>—represents the most momentous integration of immigration and territorial mobility across the Arabian Peninsula since the founding of the Gulf Cooperation Council in 1981. Functioning as the Arabian Gulf's direct equivalent to the European Union’s Schengen visa regime, this visionary initiative empowers international visitors, business travelers, and expatriate residents to traverse all six member states—the United Arab Emirates, the Kingdom of Saudi Arabia, the State of Qatar, the Kingdom of Bahrain, the Sultanate of Oman, and the State of Kuwait—under a standardized digital entry authorization.\n</p>\n\n<h2 id=\"vision-catalyst\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">1. The Vision 2030 & Unified Gulf Tourism Catalyst</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nFor decades, navigating the Arabian Peninsula required tourists to secure distinct visas for each sovereign territory, navigating fragmented consular websites, differing document standards, non-aligned validity windows, and cumulative processing fees. A traveler eager to experience the Louvre Abu Dhabi, attend the Saudi Cup in Riyadh, take in the futuristic waterfront of Lusail in Doha, and explore the ancient frankincense wadis of Salalah faced a labyrinthine administrative gauntlet.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe unified visa eliminates these frictions under the overarching <em>GCC Tourism Strategy 2030</em>. Spearheaded by ministerial councils across Riyadh, Abu Dhabi, and Doha, the strategic mandate aims to elevate the Gulf’s combined tourism economy to contribute over 10 percent of aggregate regional GDP by 2030. Member states have recognized that tourism is no longer a zero-sum competition between regional capitals, but rather a collective economic multiplier. By facilitating friction-free border transits, the Gulf Cooperation Council projects over 128.7 million annual visitor arrivals across the bloc, positioning the Arabian Peninsula alongside Mediterranean Europe and Southeast Asia as a primary global multi-destination travel corridor.\n</p>\n\n<h3 class=\"text-xl font-bold text-slate-800 mt-6 mb-3\">Unifying Immigration Protocols Under a Centralized Digital Gate</h3>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nAchieving this milestone required the deployment of an interconnected security and immigration architecture. The unified clearance system integrates border control databases across all six interior ministries, standardizing watchlists, biometric data repositories, and facial-recognition gates. When an international applicant submits their dossier through the unified GCC digital portal, algorithms perform automated background cross-checks with Interpol and regional security apparatuses simultaneously, issuing a cryptographic digital permit that is instantly recognized at over 40 international airports, 15 maritime ports, and 12 land border crossings.\n</p>\n\n<h2 id=\"eligibility-framework\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">2. Eligibility Framework & Applicant Categories</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe GCC Grand Tours Visa structure establishes transparent criteria divided into two primary applicant classifications, ensuring wide accessibility while safeguarding regulatory oversight:\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>Tier 1: Citizens of Visa-Waiver & E-Visa Qualified Nations:</strong> Passport holders from more than 65 countries—including the United Kingdom, the European Union, the United States, Canada, Australia, Japan, South Korea, Singapore, and China—qualify for expedited instant digital issuance upon submitting passport copies and travel health insurance.</li>\n  <li><strong>Tier 2: Universal Global Applicants:</strong> Travelers from all remaining international jurisdictions can apply via standard digital screening, requiring verified hotel reservations, proof of return passage from any GCC international gateway, and minimum bank balance documentation demonstrating financial solvency during their stay.</li>\n  <li><strong>Expatriate Resident Privilege:</strong> Legally documented foreign residents of any GCC country holding professional, managerial, investor, or specialized employment visas with at least three months of residency validity can obtain the multi-nation permit under simplified, nominal-cost procedures, unlocking unprecedented regional weekend tourism.</li>\n</ul>\n\n<h3 class=\"text-xl font-bold text-slate-800 mt-6 mb-3\">Passport Validity & Comprehensive Medical Insurance Mandates</h3>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nAll applicants must possess a passport valid for at least six months beyond their scheduled departure date from the GCC bloc. Additionally, the unified visa introduces a single multi-territory emergency health coverage policy. Underwritten by a syndicate of premier regional insurers, this standardized policy guarantees emergency inpatient medical care across government and accredited private healthcare facilities throughout all six member states, dispensing with the need for separate country-specific travel insurance riders.\n</p>\n\n<h2 id=\"six-destinations\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">3. Single Visa, Six Sovereign Destinations: Strategic Itineraries</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe practical reality of the Grand Tours Visa unlocks extraordinary trans-Gulf itineraries that were previously cumbersome to orchestrate. Tour operators across Europe, Asia, and the Americas have introduced 14-day and 21-day panoramic expeditions that weave through disparate geographical and cultural landscapes:\n</p>\n\n<h3 class=\"text-xl font-bold text-slate-800 mt-6 mb-3\">The Desert, Culture & Metropolis Grand Circuit</h3>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nTravelers can touch down at Dubai International Airport (DXB), spend four nights experiencing the architectural marvels and Michelin-starred culinary landscape of Dubai and Abu Dhabi, and proceed via luxury intercity transit or high-speed aviation to Doha for world-class cultural collections at the Museum of Islamic Art and Katara Cultural Village. From Qatar, visitors can journey overland across the King Fahd Causeway into the Kingdom of Bahrain to discover Dilmun civilization archaeological mounds and the historic Pearling Path in Muharraq.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nFrom Manama, an effortless regional flight or rail connection whisks visitors to Riyadh to explore the ancient mud-brick citadel of At-Turaif in Diriyah before continuing onward to the awe-inspiring sandstone tombs of Hegra in AlUla. The journey culminates with a descent through the jagged peaks of the Hajar Mountains into the Sultanate of Oman, experiencing the dramatic fjords of Musandam and the grand architecture of Muscat, before flying home from either Kuwait International or Muscat International Airport without having paid multiple immigration surcharges.\n</p>\n\n<h2 id=\"fee-structure\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">4. Digital Application Portals, Biometrics & Fee Structure</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nIn keeping with the Gulf’s commitment to paperless, AI-powered governance, the GCC Grand Tours Visa is administered through a centralized mobile application and web portal accessible in eight international languages. The digital platform provides real-time tracking, biometric verification, and dynamic updates on border crossing waiting times:\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>30-Day Single Entry Permit:</strong> Priced at approximately USD 100 (AED 367 / SAR 375), allowing continuous travel through member nations within a 30-day window from initial border entry.</li>\n  <li><strong>90-Day Multiple-Entry Grand Tours Pass:</strong> Priced at approximately USD 200 (AED 735 / SAR 750), permitting unlimited re-entries across all external and internal GCC borders within an active 90-day window, tailored for remote executives, global nomads, and extended holidaymakers.</li>\n  <li><strong>Processing Turnaround:</strong> Standard electronic applications are cleared within 24 to 72 hours, with express automated processing available in under two hours for eligible digital passport holders.</li>\n</ul>\n\n<h2 id=\"economic-impact\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">5. Aviation Synergies & Cross-Border Economic Impact</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe unified visa acts as a transformative catalyst for the Gulf’s legendary aviation giants. Emirates, Qatar Airways, Saudia, Etihad Airways, flydubai, Air Arabia, and Gulf Air have initiated interline code-share agreements and open-jaw regional booking packages. Under these alliances, long-haul travelers can arrive via Riyadh and depart via Dubai or Doha on an integrated ticket without facing punitive one-way fare premiums.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe commercial windfall radiates far beyond flag carriers. Regional car rental agencies have harmonized cross-border insurance documentation, enabling road-trippers to pick up an SUV in Abu Dhabi, drive through Saudi Arabia’s Eastern Province to Bahrain, and drop the vehicle off in Doha without impoundment risks or customs bond complications. Cross-border hospitality groups—including Jumeirah, Rotana, and emerging Saudi luxury operators like Red Sea Global—have rolled out multi-city loyalty passes offering unified point redemption from Kuwait City down to Salalah.\n</p>\n\n<h2 id=\"concluding-summary\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">6. Concluding Summary: A Defining Leap for Arabian Mobility</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe rollout of the unified GCC Grand Tours tourist visa marks a historic coming-of-age for the Arabian Gulf as a unified geopolitical and cultural destination. By dismantling historical bureaucratic barriers, the six Gulf Cooperation Council member states have forged a cohesive tourism ecosystem that respects sovereign borders while celebrating shared heritage, hospitality, and boundless future ambitions.\n</p>\n<p class=\"text-slate-700 leading-relaxed\">\nWhether for international leisure travelers seeking the world's most thrilling contrast between ultra-modern skyscrapers and ancient desert heritage, or for millions of resident expatriates eager to discover their neighboring Gulf communities, the Grand Tours Visa sets an exemplary global standard for contemporary regional integration. It signals clearly to the international community that the Khaleej is open, interconnected, and welcoming the world with one united voice.\n</p>",
+    "imageUrl": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&auto=format&fit=crop&q=80"
   },
   {
-    "id": 9,
-    "slug": "ev-charging-stations-and-electric-vehicle-incentives-uae",
-    "title": "Electric Vehicles in the UAE: EV Green Charger Network, DEWA Tariffs & Registration",
-    "category": "Automotive",
-    "silo": "Transport & Mobility",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "33.9k",
-    "readTime": "5 min read",
-    "date": "Nov 12, 2026",
-    "authorId": "tariq-al-mansoori",
-    "imageUrl": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "The definitive UAE EV buyer guide: exploring free public charging incentives, home wall-box installation, green loans, and driving range in desert climates.",
+    "id": 2,
+    "countryFlag": "🚆",
+    "group": "Travel",
+    "title": "Cross-Border Rail Networks in the Khaleej: How the GCC Railway and High-Speed Links are Transforming Regional Transit",
     "toc": [
       {
-        "id": "ev-infrastructure",
-        "title": "1. UAE’s 1,000+ Fast EV Green Charger Network"
+        "id": "genesis-corridor",
+        "title": "1. Genesis of the 2,177-Kilometer GCC Railway Project"
       },
       {
-        "id": "dewa-tariffs",
-        "title": "2. DEWA Public Charging Tariffs & EV Card"
+        "id": "national-networks",
+        "title": "2. National Networks: Etihad Rail, SAR & Hafeet Rail Integration"
       },
       {
-        "id": "home-charging",
-        "title": "3. Installing Home AC Wall Chargers in Villas & Towers"
+        "id": "freight-logistics",
+        "title": "3. Heavy Industrial Freight & Food Security Transformation"
       },
       {
-        "id": "green-incentives",
-        "title": "4. Bank Interest Discounts & Green Registration Perks"
+        "id": "passenger-transit",
+        "title": "4. High-Speed Intercity Passenger Experience & Travel Times"
+      },
+      {
+        "id": "engineering-desert",
+        "title": "5. Engineering in Extreme Climates: Sand Mitigation & ERTMS"
+      },
+      {
+        "id": "concluding-summary",
+        "title": "6. Concluding Summary: The Iron Spine of Gulf Integration"
       }
     ],
-    "content": "\n      <p class=\"lead\">\n        The United Arab Emirates is accelerating clean energy mobility under the UAE Net Zero 2050 strategic initiative. With widespread superchargers along all inter-emirate highways and dedicated municipal perks, transitioning to an electric vehicle has never been more practical.\n      </p>\n\n      <h2 id=\"ev-infrastructure\">1. UAE’s 1,000+ Fast EV Green Charger Network</h2>\n      <p>\n        From ADNOC On-the-Go stations along the E11 to DEWA charging bays at malls, over 1,000 charging points ensure zero range anxiety when driving between Abu Dhabi, Dubai, Sharjah, and Ras Al Khaimah.\n      </p>\n\n      <h2 id=\"dewa-tariffs\">2. DEWA Public Charging Tariffs & EV Card</h2>\n      <p>\n        Registered EV owners in Dubai pay an economical 29 fils per kilowatt-hour (plus VAT) at all public DEWA chargers. Fast DC chargers deliver 10% to 80% battery replenishment in under 25 minutes.\n      </p>\n\n      <h2 id=\"home-charging\">3. Installing Home AC Wall Chargers in Villas & Towers</h2>\n      <p>\n        Residential villa owners can easily install 11kW or 22kW smart home wall-boxes. High-rise towers increasingly offer designated shared charging bays managed through mobile RFID apps.\n      </p>\n\n      <h2 id=\"green-incentives\">4. Bank Interest Discounts & Green Registration Perks</h2>\n      <p>\n        Leading banks like Emirates NBD and FAB provide preferential auto loan interest discounts of up to 50 basis points on electric vehicle purchases, coupled with complimentary Salik registration tags.\n      </p>\n    "
+    "category": "Public Transport",
+    "excerpt": "Spanning 2,177 kilometers across Kuwait, Saudi Arabia, Bahrain, Qatar, the UAE, and Oman, the monumental GCC Railway project is uniting the Arabian Peninsula. Explore network alignments, passenger speeds, freight economic impacts, and environmental transformations.",
+    "readTime": "8 min read",
+    "slug": "cross-border-rail-networks-in-the-khaleej",
+    "authorId": "eng-tariq-al-hashimi",
+    "country": "GCC Unified",
+    "date": "Nov 18, 2026",
+    "views": "52.3k",
+    "content": "<p class=\"lead text-lg font-medium text-slate-700 leading-relaxed mb-6\">\nAcross the sun-drenched expanses of the Arabian desert, one of the most ambitious engineering undertakings in modern civil history is reshaping regional geography: the <strong>GCC Railway Corridor</strong>. Spanning 2,177 kilometers of continuous, standard-gauge steel track from Kuwait City in the north to the Sultanate of Oman in the southeast, this multimodal megaproject is creating an unbroken overland conduit that binds six sovereign nations into a singular economic, industrial, and passenger transit powerhouse.\n</p>\n\n<h2 id=\"genesis-corridor\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">1. Genesis of the 2,177-Kilometer GCC Railway Project</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nConceived under the auspices of the Gulf Cooperation Council Secretariat and ratified by the supreme council of Gulf monarchs and heads of state, the GCC Railway project was mandated to address two acute regional vulnerabilities: over-dependence on maritime choke points (such as the Strait of Hormuz) and extreme highway congestion caused by long-haul diesel freight trucks.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe unified alignment traces an elegant coastal and inland arc: commencing at Kuwait City, entering Saudi Arabia through the Eastern Province hub of Dammam, branching across the proposed King Hamad Causeway to connect the island Kingdom of Bahrain, traversing the Salwa border into the State of Qatar, linking directly to the United Arab Emirates through Abu Dhabi, Dubai, and Sharjah, and terminating at the deepwater Indian Ocean transshipment ports of Sohar and Muscat in Oman. By creating an overland alternative that bypasses congested maritime lanes, the GCC railway guarantees perpetual supply chain resilience for essential food imports, medical supplies, and industrial feedstock.\n</p>\n\n<h3 class=\"text-xl font-bold text-slate-800 mt-6 mb-3\">Dual-Mode Infrastructure: 200 km/h Passenger Trains and Heavy Haul Freight</h3>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nUnlike purely industrial rail lines, the GCC network is engineered from the ground up as a dual-purpose system. Heavy haul freight trains powered by high-horsepower, desert-hardened diesel-electric locomotives pull up to 100 wagons carrying over 11,000 tons of containerized cargo per trip. Simultaneously, passenger services utilize state-of-the-art aerodynamic diesel and electrified trainsets capable of commercial operating speeds up to 200 kilometers per hour, dramatically cutting travel times between Gulf metropolitan centers.\n</p>\n\n<h2 id=\"national-networks\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">2. National Networks: Etihad Rail, SAR & Hafeet Rail Integration</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe success of the GCC unified network relies on the synchronized execution of domestic master rail plans by national operators:\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>UAE (Etihad Rail):</strong> The UAE’s national railway has completed its nationwide freight network, linking 11 industrial cities and major sea ports from Ghuweifat on the Saudi border to Fujairah on the Indian Ocean coast. Its dedicated passenger train stations in Abu Dhabi, Dubai, Sharjah, and Al Ain are rapidly advancing toward commercial launch.</li>\n  <li><strong>Saudi Arabia (Saudi Arabia Railways - SAR):</strong> SAR operates the extensive 2,750 km North-South Railway and the 450 km Haramain High-Speed Rail connecting Makkah and Madinah. SAR is expanding trackage from Dammam to the Kuwaiti and Bahraini border corridors, integrating industrial hubs like Jubail and Ras Al Khair.</li>\n  <li><strong>Oman & UAE Joint Venture (Hafeet Rail):</strong> Formed through an unprecedented USD 3 billion bilateral partnership between Etihad Rail and Oman Rail, Hafeet Rail links the UAE national network to Oman's Port of Sohar, reducing passenger travel time between Abu Dhabi and Sohar to just 100 minutes.</li>\n  <li><strong>Bahrain & Qatar Causeway Links:</strong> The King Hamad Causeway project introduces a four-lane vehicular highway alongside a double-track railway corridor between Bahrain and Saudi Arabia, with engineering studies under review for a high-speed link onward to Doha.</li>\n</ul>\n\n<h2 id=\"freight-logistics\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">3. Heavy Industrial Freight & Food Security Transformation</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe macroeconomic impact of the freight corridor is profound. A single freight train journey removes up to 300 heavy semi-trucks from regional highways like the Sheikh Zayed Road (E11) and the Riyadh-Dammam Highway. Across the GCC, this operational shift replaces over 2.8 million annual truck trips, mitigating highway pavement deterioration, eliminating severe traffic bottlenecks at border customs posts, and slashing regional road freight carbon emissions by more than 75 percent per ton-kilometer.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nFor industrial conglomerates in petrochemicals (SABIC, Borouge), aluminum (EGA, ALBA), and steel, the railway provides direct rail-to-ship intermodal transfers at Jebel Ali Port, Khalifa Port, King Abdulaziz Port in Dammam, and Sohar. Cold-chain perishable food transit times between Oman’s fertile agricultural valleys and supermarkets in Dubai and Riyadh are reduced from days to a matter of hours, safeguarding regional food security against international supply chain shocks.\n</p>\n\n<h2 id=\"passenger-transit\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">4. High-Speed Intercity Passenger Experience & Travel Times</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nFor Gulf citizens and expatriate commuters, the GCC Railway heralds a golden age of civilized intercity travel. Passenger carriages are configured with ergonomic business and first-class cabins, high-speed Wi-Fi, prayer rooms, family compartments, and panoramic viewing windows showcasing rolling dunes and coastal horizons.\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>Abu Dhabi to Dubai:</strong> 50 minutes (compared to 80-100 minutes by highway during peak commute hours).</li>\n  <li><strong>Abu Dhabi to Sohar (Hafeet Rail):</strong> 100 minutes, transforming weekend commerce and leisure between the UAE and Oman.</li>\n  <li><strong>Dammam to Kuwait City:</strong> Under 3 hours, offering a competitive alternative to regional short-haul flights without airport baggage wait times.</li>\n  <li><strong>Manama to Dammam:</strong> Just 35 minutes via the King Hamad railway bridge, enabling daily cross-border professional commuting.</li>\n</ul>\n\n<h2 id=\"engineering-desert\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">5. Engineering in Extreme Climates: Sand Mitigation & ERTMS</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nConstructing heavy rail infrastructure in one of the planet's harshest environments necessitated breakthrough engineering solutions. The railway traverses shifting desert dunes where ambient surface temperatures exceed 55 degrees Celsius. Specialized track designs incorporate ballastless slab tracks in high-risk shifting sand zones, aerodynamic embankment geometries that deflect airborne sands over the tracks, and automated track-sweeping maintenance units.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nTo ensure interoperability across six distinct sovereign nations, the entire GCC Railway conforms strictly to European Rail Traffic Management System (ERTMS) Level 2 signaling and European Train Control System (ETCS) standards. This unified electronic nervous system coordinates GPS satellite positioning, trackside transponders, and digital radio communications, enabling seamless train handovers across national boundaries without halting for manual locomotive driver changes or border equipment incompatibilities.\n</p>\n\n<h2 id=\"concluding-summary\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">6. Concluding Summary: The Iron Spine of Gulf Integration</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe GCC Railway network is far more than a civil infrastructure project; it is the physical manifestation of Gulf unity and economic modernization. In much the same manner that transcontinental railways unified North America and Western Europe during their industrial ascents, the iron tracks spanning Kuwait, Saudi Arabia, Bahrain, Qatar, the UAE, and Oman are welding together trade, industry, and human connection across the Arabian Peninsula.\n</p>\n<p class=\"text-slate-700 leading-relaxed\">\nAs national networks converge into this singular trans-Gulf artery, the Khaleej cements its role as the premier logistical crossroads bridging Asia, Africa, and Europe. For generations to come, the GCC Railway will stand as a testament to visionary regional collaboration, driving sustainable decarbonized growth and binding Gulf communities closer than ever before.\n</p>",
+    "imageUrl": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1200&auto=format&fit=crop&q=80"
   },
   {
-    "id": 10,
-    "slug": "best-michelin-star-restaurants-dubai-abu-dhabi",
-    "title": "Michelin Guide UAE 2026: Top Fine Dining & Culinary Hotspots in Dubai & Abu Dhabi",
-    "category": "Food & Dining",
-    "silo": "Lifestyle & Entertainment",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "43.1k",
-    "readTime": "5 min read",
-    "date": "Nov 15, 2026",
-    "authorId": "reem-al-ghamdi",
-    "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Discover the UAE's awarded two-star and three-star culinary institutions, celebrity chef tasting tables, and emerging homegrown Emirati gastronomy destinations.",
+    "id": 3,
+    "countryFlag": "💼",
+    "group": "Business",
+    "title": "Emerging Tech Hubs in Riyadh, Doha, and Dubai: The Rise of the Silicon Valley of the Khaleej",
     "toc": [
       {
-        "id": "michelin-uae-expansion",
-        "title": "1. The Evolution of UAE Fine Dining"
+        "id": "post-oil-transition",
+        "title": "1. The Post-Hydrocarbon Knowledge Economy Mandate"
       },
       {
-        "id": "two-star-icons",
-        "title": "2. Two-Star Michelin Icons: Trèsind Studio & Il Ristorante"
+        "id": "riyadh-leap",
+        "title": "2. Riyadh's Hyper-Growth: KAFD, LEAP & The Garage"
       },
       {
-        "id": "one-star-hotspots",
-        "title": "3. One-Star Gems & Sommelier Excellence"
+        "id": "dubai-playbook",
+        "title": "3. Dubai's Tested Innovation Playbook: DIFC, Hub71 & VARA"
       },
       {
-        "id": "emirati-gastronomy",
-        "title": "4. Contemporary Emirati Cuisine & Green Stars"
+        "id": "doha-specialization",
+        "title": "4. Doha's Deep-Tech Specialization: QSTP & Web Summit Qatar"
+      },
+      {
+        "id": "venture-capital",
+        "title": "5. Sovereign Venture Capital Syndication & Unicorn Generation"
+      },
+      {
+        "id": "concluding-summary",
+        "title": "6. Concluding Summary: Sovereign Tech Leadership on the World Stage"
       }
     ],
-    "content": "\n      <p class=\"lead\">\n        The Michelin Guide’s continued recognition of Dubai and Abu Dhabi has cemented the UAE as an undisputed global culinary capital. From theatrical multi-course tasting menus to zero-waste sustainable gastronomy, the dining scene caters to the most discerning palates.\n      </p>\n\n      <h2 id=\"michelin-uae-expansion\">1. The Evolution of UAE Fine Dining</h2>\n      <p>\n        With over 100 featured restaurants across Dubai and the capital, Michelin inspectors celebrate both international master chefs and visionary local concepts blending Gulf heritage with French, Japanese, and Nordic techniques.\n      </p>\n\n      <h2 id=\"two-star-icons\">2. Two-Star Michelin Icons: Trèsind Studio & Il Ristorante</h2>\n      <p>\n        Chef Himanshu Saini’s <strong>Trèsind Studio</strong> at St. Regis Gardens continues to captivate guests with an intimate 20-seat Indian culinary journey, while <strong>Il Ristorante – Niko Romito</strong> at the Bulgari Resort delivers pristine Italian simplicity and elegance.\n      </p>\n\n      <h2 id=\"one-star-hotspots\">3. One-Star Gems & Sommelier Excellence</h2>\n      <p>\n        Notable one-star awarded venues include <strong>Ossiano</strong> at Atlantis The Palm for submarine fine dining, <strong>Talea by Antonio Guida</strong> at Emirates Palace Mandarin Oriental Abu Dhabi, and <strong>Hakkasan</strong> for contemporary Cantonese mastery.\n      </p>\n\n      <h2 id=\"emirati-gastronomy\">4. Contemporary Emirati Cuisine & Green Stars</h2>\n      <p>\n        The Michelin Green Star recognizes restaurants committed to ethical farming and local sourcing. Concepts utilizing desert micro-farms, camel milk burrata, and Dibba Bay oysters demonstrate the richness of local Gulf ingredients.\n      </p>\n    "
+    "category": "Business & Startups",
+    "excerpt": "From the venture capital explosion in Riyadh's KAFD to Dubai's fintech sandboxes and Doha's applied AI research parks, the GCC is rapidly emerging as a global innovation powerhouse. Discover funding trends, sovereign AI initiatives, and founder incentives.",
+    "readTime": "9 min read",
+    "slug": "emerging-tech-hubs-in-riyadh-doha-and-dubai",
+    "authorId": "zaid-al-basha",
+    "country": "GCC Regional",
+    "date": "Nov 18, 2026",
+    "views": "47.1k",
+    "content": "<p class=\"lead text-lg font-medium text-slate-700 leading-relaxed mb-6\">\nA decisive tectonic transformation is sweeping across the business centers of the Arabian Gulf. Where international headlines once focused solely on crude oil quotas and mega-infrastructure contracts, global venture capitalists, AI computer scientists, and ambitious founders are now gathering in Riyadh, Dubai, and Doha. Driven by forward-looking sovereign wealth funds, zero-income-tax personal balance sheets, and state-backed incubators, the Gulf Cooperation Council is cementing its position as the world's most dynamic new technology frontier: the <strong>Silicon Valley of the Khaleej</strong>.\n</p>\n\n<h2 id=\"post-oil-transition\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">1. The Post-Hydrocarbon Knowledge Economy Mandate</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nFor the Gulf's forward-looking leadership, economic diversification is no longer an aspirational slogan—it is a race against demographic and technological realities. Saudi Arabia’s Vision 2030, the Dubai Economic Agenda (D33), and Qatar National Vision 2030 all converge on a shared objective: building self-sustaining, high-value knowledge ecosystems powered by software, sovereign artificial intelligence, financial technologies, and advanced cloud infrastructure.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nUnlike legacy technology clusters in the United States and Europe that developed through decades of organic private-sector incubation, the Khaleej's tech revolution is distinguished by unprecedented government backing, massive sovereign balance sheets, regulatory agility, and lightning-fast procurement cycles. When Gulf governments decide to pilot autonomous aerial taxis, launch open-source large language models, or digitize commercial port logistics, regulatory sandboxes and sovereign co-investment follow within months, bypassing the bureaucratic inertia common to mature Western markets.\n</p>\n\n<h2 id=\"riyadh-leap\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">2. Riyadh's Hyper-Growth: KAFD, LEAP & The Garage</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nNowhere is this velocity more palpable than in Riyadh. In less than half a decade, the Saudi capital has transformed into the GCC’s venture capital heavyweight, accounting for over 50 percent of total venture dollars deployed across the Middle East and North Africa (MENA).\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nCentral to this surge is the <strong>King Abdullah Financial District (KAFD)</strong>, a gleaming master-planned city-within-a-city home to regional headquarters of international venture funds, global consulting powerhouses, and high-growth fintechs. Bolstered by the Kingdom’s Regional Headquarters (RHQ) mandate—which requires multinational corporations seeking government contracts to establish regional executive bases in Riyadh—more than 500 global giants, including Microsoft, Google, Amazon, and PwC, have established major operational campuses in the city.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nSimultaneously, grassroots entrepreneurial incubators like <em>The Garage</em>—a converted 28,000-square-meter warehouse complex that formerly served as a municipal parking depot—provide startup founders with non-dilutive equity grants, direct access to sovereign data centers, subsidized housing, and immediate customer introductions with government ministries. Riyadh's flagship technology conference, <strong>LEAP</strong>, now attracts over 215,000 global participants annually, surpassing longstanding international expos in attendance and recorded transaction volumes.\n</p>\n\n<h2 id=\"dubai-playbook\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">3. Dubai's Tested Innovation Playbook: DIFC, Hub71 & VARA</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nWhile Riyadh commands sheer scale and domestic market depth, Dubai remains the undisputed international commercial crossroads and lifestyle magnet for global technology talent. Operating under English Common Law, the <strong>Dubai International Financial Centre (DIFC) Innovation Hub</strong> houses over 1,000 fintech, insurtech, and Web3 enterprises, supported by an independent judicial system, an agile financial regulator (DFSA), and a dedicated USD 100 million venture fund.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nIn neighboring Abu Dhabi, <strong>Hub71</strong> has built an elite startup cluster within Abu Dhabi Global Market (ADGM), backed by sovereign investor Mubadala. Hub71 offers comprehensive incentive packages covering 100 percent of office space, subsidized health insurance, and Golden Visa sponsorships for founders and their engineering teams.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nDubai’s pioneering establishment of the <strong>Virtual Assets Regulatory Authority (VARA)</strong> created the world’s first bespoke regulatory framework for digital assets, cryptocurrency exchanges, and blockchain infrastructure. While Western regulators relied on punitive enforcement measures, VARA provided institutional clarity, attracting major international platforms like Binance, OKX, and Bybit to establish global operational headquarters in the emirate.\n</p>\n\n<h2 id=\"doha-specialization\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">4. Doha's Deep-Tech Specialization: QSTP & Web Summit Qatar</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe State of Qatar has carved out a sophisticated and highly focused niche centered on applied scientific research, sports analytics, and institutional AI. Headquartered within Education City alongside satellite campuses of Carnegie Mellon, Texas A&M, and Georgetown, the <strong>Qatar Science & Technology Park (QSTP)</strong> operates as a premier deep-tech incubator and technology free zone.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nBacked by the multi-hundred-billion-dollar Qatar Investment Authority (QIA), Doha has spearheaded breakthrough investments in generative AI datacenters, autonomous aviation, and precision medicine. The city’s successful hosting of <strong>Web Summit Qatar</strong>—the first Middle Eastern edition of the world’s premier technology gathering—drew over 15,000 investors, enterprise buyers, and founders, cementing Qatar’s role as the intellectual bridge linking South Asian tech hubs with Western capital.\n</p>\n\n<h2 id=\"venture-capital\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">5. Sovereign Venture Capital Syndication & Unicorn Generation</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe financial fuel powering the Khaleej’s tech explosion originates from the world's most liquid institutional pools: the Public Investment Fund (PIF) of Saudi Arabia, Mubadala and ADQ in Abu Dhabi, and the Qatar Investment Authority. Through fund-of-funds vehicles like Jada and SVC in Saudi Arabia, hundreds of millions of dollars have been injected into regional venture capital firms including STV, BECO Capital, Shorooq Partners, and Raed Ventures.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThis capitalization cycle has generated a growing crop of regional unicorns and market champions:\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>Fintech & Buy-Now-Pay-Later:</strong> Tabby and Tamara, both achieving multi-billion-dollar valuations while serving tens of millions of consumers across the GCC.</li>\n  <li><strong>Cloud Kitchens & Quick-Commerce:</strong> Jahez, Hungerstation, and Kitopi scaling cross-border food tech and robotic fulfillment kitchens.</li>\n  <li><strong>Sovereign AI Models:</strong> Technology Innovation Institute’s (TII) open-source Falcon LLM in Abu Dhabi and Saudi Arabia's ALAM AI model, proving that the Gulf can engineer sovereign frontier AI models competing directly with Silicon Valley benchmarks.</li>\n</ul>\n\n<h2 id=\"concluding-summary\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">6. Concluding Summary: Sovereign Tech Leadership on the World Stage</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe emergence of tech hubs across Riyadh, Dubai, and Doha is not a temporary speculative cycle; it is a permanent structural re-alignment of global talent and venture capital. In an era where Silicon Valley faces prohibitive living costs, high corporate taxation, and regulatory friction, the Arabian Peninsula offers a compelling counter-model: safety, zero personal taxes, world-class digital infrastructure, and visionary governments ready to co-invest directly in the future.\n</p>\n<p class=\"text-slate-700 leading-relaxed\">\nAs these three Gulf hubs continue to collaborate through shared markets, unified venture syndicates, and harmonized cross-border digital regulations, the Khaleej is rapidly transforming from a consumer of global technology into one of humanity's foremost architects of digital innovation.\n</p>",
+    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80"
   },
   {
-    "id": 11,
-    "slug": "dubai-shopping-festival-and-luxury-retail-calendar",
-    "title": "Dubai Shopping Festival & Luxury Retail Calendar: Gold, Fashion & Malls Guide",
-    "category": "Shopping & Retail",
-    "silo": "Lifestyle & Entertainment",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "39.5k",
-    "readTime": "5 min read",
-    "date": "Nov 13, 2026",
-    "authorId": "fatima-al-blooshi",
-    "imageUrl": "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498e?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Your insider guide to shopping festivals, VAT refund counters, premier gold souks, and exclusive haute couture experiences across the Emirates.",
+    "id": 4,
+    "countryFlag": "🌆",
+    "group": "Tech",
+    "title": "Smart Cities and Sustainable Megaprojects Across the Gulf: From NEOM and Masdar to Lusail and Silk City",
     "toc": [
       {
-        "id": "dsf-dates-events",
-        "title": "1. Dubai Shopping Festival (DSF) Schedule"
+        "id": "urban-renaissance",
+        "title": "1. The Post-Oil Urban Renaissance Across the GCC"
       },
       {
-        "id": "luxury-avenues",
-        "title": "2. Fashion Avenue Dubai Mall & The Galleria Abu Dhabi"
+        "id": "neom-topography",
+        "title": "2. Saudi Arabia’s NEOM: Revolutionizing Urban Topography"
       },
       {
-        "id": "gold-souk-tips",
-        "title": "3. Deira Old Gold Souk vs. Modern Gold Parks"
+        "id": "masdar-dubai",
+        "title": "3. UAE’s Masdar City & Dubai 2040 Urban Master Plan"
       },
       {
-        "id": "tourist-vat-refund",
-        "title": "4. Planet Tax-Free VAT Refund Validation"
+        "id": "lusail-qatar",
+        "title": "4. Lusail City in Qatar: Waterfront Sensor-Driven Urbanism"
+      },
+      {
+        "id": "silk-city-oman",
+        "title": "5. Kuwait’s Silk City & Oman’s Sultan Haitham City"
+      },
+      {
+        "id": "concluding-summary",
+        "title": "6. Concluding Summary: The Arabian Peninsula as Humanity's Living Laboratory"
       }
     ],
-    "content": "\n      <p class=\"lead\">\n        Retail in the UAE is an experience that combines architecture, entertainment, and luxury commerce. From the flagship boutiques of Dubai Mall to historic gold markets and seasonal promotional galas, shoppers enjoy world-class retail.\n      </p>\n\n      <h2 id=\"dsf-dates-events\">1. Dubai Shopping Festival (DSF) Schedule</h2>\n      <p>\n        Running across December and January, DSF features up to 75% discounts across thousands of retail outlets, drone light shows over Bluewaters Island, daily gold raffles, and outdoor pop-up markets.\n      </p>\n\n      <h2 id=\"luxury-avenues\">2. Fashion Avenue Dubai Mall & The Galleria Abu Dhabi</h2>\n      <p>\n        Fashion Avenue stands as the world’s foremost luxury retail sanctuary, housing private VIP client lounges for Chanel, Hermès, Louis Vuitton, and Cartier. On Al Maryah Island, The Galleria Abu Dhabi mirrors this sophistication for capital residents.\n      </p>\n\n      <h2 id=\"gold-souk-tips\">3. Deira Old Gold Souk vs. Modern Gold Parks</h2>\n      <p>\n        Buying gold in the UAE offers guaranteed purity monitored by Dubai Central Laboratories (Bareeq certification). Shoppers negotiate fabrication charges (making charges) while bullion prices update dynamically every hour.\n      </p>\n\n      <h2 id=\"tourist-vat-refund\">4. Planet Tax-Free VAT Refund Validation</h2>\n      <p>\n        Tourists can recover 85% of paid VAT (minus minor administrative fees) via digital Planet self-service kiosks at Dubai International (DXB) and Zayed International Airport (AUH) before boarding.\n      </p>\n    "
-  },
-  {
-    "id": 12,
-    "slug": "arts-culture-heritage-districts-sharjah-al-fahidi",
-    "title": "Exploring Khaleej Heritage: Historical Districts, Museums & Art Biennales Across the UAE",
-    "category": "Arts Culture & Heritage",
-    "silo": "Lifestyle & Entertainment",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "29.7k",
-    "readTime": "5 min read",
-    "date": "Nov 10, 2026",
-    "authorId": "khalid-al-falasi",
-    "imageUrl": "https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Step into traditional Arabian courtyards, contemporary art galleries in Alserkal Avenue, and world-class exhibits at the Louvre Abu Dhabi.",
-    "toc": [
-      {
-        "id": "historic-al-fahidi",
-        "title": "1. Al Fahidi Historical Neighbourhood & Wind Towers"
-      },
-      {
-        "id": "saadiyat-cultural-district",
-        "title": "2. Saadiyat Cultural District & Louvre Abu Dhabi"
-      },
-      {
-        "id": "sharjah-biennale",
-        "title": "3. Sharjah Art Foundation & Heritage Heart"
-      },
-      {
-        "id": "alserkal-avenue",
-        "title": "4. Alserkal Avenue: Industrial Creative Hub"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Beyond gleaming skyscrapers lies a deeply rooted cultural landscape. The UAE’s commitment to preserving its maritime heritage and nurturing contemporary arts is embodied in restored historical districts, prestigious biennales, and landmark international museums.\n      </p>\n\n      <h2 id=\"historic-al-fahidi\">1. Al Fahidi Historical Neighbourhood & Wind Towers</h2>\n      <p>\n        Dating to the late 19th century, Al Fahidi showcases traditional coral stone and gypsum buildings topped by wind towers (Barjeel). Today, the district houses coffee museums, calligraphy galleries, and charming courtyard tea houses along Dubai Creek.\n      </p>\n\n      <h2 id=\"saadiyat-cultural-district\">2. Saadiyat Cultural District & Louvre Abu Dhabi</h2>\n      <p>\n        Jean Nouvel's floating dome at the <strong>Louvre Abu Dhabi</strong> creates a captivating \"rain of light.\" The Saadiyat Cultural District is further enriched by the Zayed National Museum and the Guggenheim Abu Dhabi.\n      </p>\n\n      <h2 id=\"sharjah-biennale\">3. Sharjah Art Foundation & Heritage Heart</h2>\n      <p>\n        Recognized by UNESCO as the cultural capital of the Arab world, Sharjah hosts the world-renowned Sharjah Biennial, transforming restored heritage houses into avant-garde art installations.\n      </p>\n\n      <h2 id=\"alserkal-avenue\">4. Alserkal Avenue: Industrial Creative Hub</h2>\n      <p>\n        Located in Al Quoz, Alserkal Avenue converted industrial warehouses into a community of contemporary art galleries, indie cinema (Cinema Akil), artisanal perfumeries, and design studios.\n      </p>\n    "
-  },
-  {
-    "id": 13,
-    "slug": "uae-sovereign-ai-falcon-llm-and-ai-strategy",
-    "title": "The UAE's Sovereign AI Revolution: Falcon LLM, MGX & Global Tech Infrastructure",
-    "category": "Artificial Intelligence",
-    "silo": "Tech & Innovation",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "57.4k",
-    "readTime": "7 min read",
-    "date": "Nov 17, 2026",
-    "authorId": "khalid-al-falasi",
-    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "How the UAE is positioning itself as a premier global AI powerhouse through open-source foundation models, sovereign compute data centers, and billion-dollar investments.",
-    "toc": [
-      {
-        "id": "ai-vision-uae",
-        "title": "1. UAE National Strategy for Artificial Intelligence 2031"
-      },
-      {
-        "id": "falcon-foundation-models",
-        "title": "2. The Rise of Falcon: Open-Source LLM Benchmark Leader"
-      },
-      {
-        "id": "mgx-global-compute",
-        "title": "3. MGX & Sovereign AI Infrastructure Investments"
-      },
-      {
-        "id": "enterprise-adoption",
-        "title": "4. Government & Enterprise AI Applications in Dubai"
-      },
-      {
-        "id": "ai-talent-ecosystem",
-        "title": "5. Mohamed bin Zayed University of AI (MBZUAI)"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        The United Arab Emirates is making bold strides to become an international nerve center for Artificial Intelligence. Supported by national policy initiatives, sovereign compute clusters, and the Technology Innovation Institute’s (TII) Falcon models, the nation is setting benchmarks for generative AI.\n      </p>\n\n      <h2 id=\"ai-vision-uae\">1. UAE National Strategy for Artificial Intelligence 2031</h2>\n      <p>\n        Appointing the world’s first Minister of State for Artificial Intelligence in 2017 signaled the UAE’s commitment. The 2031 strategy focuses on integrating AI across healthcare, logistics, renewable energy, and public administration.\n      </p>\n\n      <h2 id=\"falcon-foundation-models\">2. The Rise of Falcon: Open-Source LLM Benchmark Leader</h2>\n      <p>\n        Developed in Abu Dhabi by the Technology Innovation Institute (TII), the Falcon family of Large Language Models (including Falcon 40B, 180B, and Falcon 2) has achieved top rankings on global Hugging Face leaderboards, providing open-source models for worldwide developers.\n      </p>\n\n      <h2 id=\"mgx-global-compute\">3. MGX & Sovereign AI Infrastructure Investments</h2>\n      <p>\n        Backed by Mubadala and G42, MGX deploys billions into leading-edge semiconductor fabrications, hyperscale green data centers, and advanced compute clusters, ensuring the Gulf maintains sovereign AI computational independence.\n      </p>\n\n      <h2 id=\"enterprise-adoption\">4. Government & Enterprise AI Applications in Dubai</h2>\n      <p>\n        From automated immigration smart gates utilizing facial recognition to predictive traffic control and AI legal clerks, UAE government services operate at the cutting edge of digital efficiency.\n      </p>\n\n      <h2 id=\"ai-talent-ecosystem\">5. Mohamed bin Zayed University of AI (MBZUAI)</h2>\n      <p>\n        As the world’s first graduate-level, research-based AI university, MBZUAI attracts top computer science scholars and machine learning PhDs to conduct fundamental research in computer vision, NLP, and robotics.\n      </p>\n    "
-  },
-  {
-    "id": 14,
-    "slug": "smart-dubai-autonomous-flying-taxis-and-iot-cities",
-    "title": "Smart Cities GCC: Autonomous Flying Taxis, 5.5G Networks & AI Urban Planning",
     "category": "Smart Cities",
-    "silo": "Tech & Innovation",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "44.2k",
-    "readTime": "6 min read",
-    "date": "Nov 14, 2026",
-    "authorId": "tariq-al-mansoori",
-    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Inside the roll-out of electric vertical takeoff (eVTOL) vertiports in Dubai, predictive municipal infrastructure, and connected digital government services.",
-    "toc": [
-      {
-        "id": "evtol-vertiports",
-        "title": "1. Aerial Taxi Vertiports: DXB to Palm Jumeirah in 10 Minutes"
-      },
-      {
-        "id": "telecom-5g-advanced",
-        "title": "2. Commercial 5.5G Rollout by e& and du"
-      },
-      {
-        "id": "paperless-governance",
-        "title": "3. 100% Paperless Government Operations"
-      },
-      {
-        "id": "digital-twins",
-        "title": "4. City-Wide Digital Twin Simulations"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Urban centers across the GCC are rapidly testing next-generation transportation and connected utilities. In Dubai, electric vertical takeoff and landing (eVTOL) aircraft, 5.5G gigabit cellular networks, and digital twin simulations are transforming everyday municipal reality.\n      </p>\n\n      <h2 id=\"evtol-vertiports\">1. Aerial Taxi Vertiports: DXB to Palm Jumeirah in 10 Minutes</h2>\n      <p>\n        In partnership with Joby Aviation and Skyports, Dubai's RTA is establishing commercial vertiports at Dubai International Airport (DXB), Palm Jumeirah, Downtown Dubai, and Dubai Marina. The zero-emission eVTOL aircraft carry four passengers at speeds up to 320 km/h.\n      </p>\n\n      <h2 id=\"telecom-5g-advanced\">2. Commercial 5.5G Rollout by e& and du</h2>\n      <p>\n        The UAE ranks #1 globally for median mobile download speeds. The activation of 5G-Advanced (5.5G) delivers 10 Gbps downlink speeds, powering ultra-reliable low latency communications (URLLC) for autonomous vehicles and smart robotics.\n      </p>\n\n      <h2 id=\"paperless-governance\">3. 100% Paperless Government Operations</h2>\n      <p>\n        Dubai Digital Authority eliminated over 336 million sheets of paper annually by digitizing internal transactions and citizen services across the Dubai Now and TAMM unified platforms.\n      </p>\n\n      <h2 id=\"digital-twins\">4. City-Wide Digital Twin Simulations</h2>\n      <p>\n        Municipalities utilize real-time 3D digital twins of Dubai and Riyadh to model flood prevention, optimize solar panel irradiance, and simulate traffic diversions before breaking ground on new projects.\n      </p>\n    "
+    "excerpt": "The Arabian Peninsula is constructing the world's most audacious urban laboratory. Discover how NEOM, Masdar City, Lusail Smart City, and Silk City are pioneering zero-carbon district cooling, cognitive IoT grids, and autonomous transit.",
+    "readTime": "9 min read",
+    "slug": "smart-cities-and-sustainable-megaprojects-across-the-gulf",
+    "authorId": "dr-layla-mansour",
+    "country": "GCC Regional",
+    "date": "Nov 18, 2026",
+    "views": "59.2k",
+    "content": "<p class=\"lead text-lg font-medium text-slate-700 leading-relaxed mb-6\">\nAcross the arid coasts and ancient valleys of the Arabian Peninsula, the traditional concept of the 20th-century metropolis is being fundamentally rewritten. Unconstrained by legacy Victorian underground grids or aging zoning regulations, the sovereign nations of the Gulf Cooperation Council are investing trillions of dollars into developing next-generation cognitive urban centers. From <strong>NEOM</strong> in Saudi Arabia and <strong>Masdar City</strong> in the UAE to <strong>Lusail</strong> in Qatar and <strong>Sultan Haitham City</strong> in Oman, the Gulf has become humanity’s preeminent living laboratory for sustainable, zero-emission, AI-orchestrated urban life.\n</p>\n\n<h2 id=\"urban-renaissance\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">1. The Post-Oil Urban Renaissance Across the GCC</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nFor decades, rapid urban growth across Gulf capitals was driven by automobile-centric planning: vast multi-lane arterial highways, sprawling villa suburbs, and enclosed, air-conditioned shopping malls designed to shield residents from fierce summer desert heat. While this model delivered rapid prosperity, it imposed heavy environmental costs in power consumption, carbon footprints, and urban heat island effects.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nToday's GCC smart city revolution represents a radical clean-slate departure. Guided by sovereign net-zero emissions pledges—Saudi Arabia and Bahrain by 2060, the UAE and Oman by 2050, and Qatar by 2030—urban architects are combining time-tested passive Arabic vernacular cooling techniques (such as wind towers and shaded <em>sikkas</em>) with cutting-edge technologies: digital twins, automated pneumatic waste management, centralized seawater district cooling, and 100 percent renewable energy grids.\n</p>\n\n<h2 id=\"neom-topography\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">2. Saudi Arabia’s NEOM: Revolutionizing Urban Topography</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nAt the vanguard of this transformation stands <strong>NEOM</strong>, the USD 500 billion cognitive region under construction in northwestern Saudi Arabia along the Red Sea coast. Powered entirely by clean solar and wind energy and producing green hydrogen at industrial scale, NEOM comprises distinct specialized regional zones:\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>THE LINE:</strong> A revolutionary cognitive city stretching 170 kilometers long, 200 meters wide, and 500 meters high. Designed with zero cars, zero streets, and zero carbon emissions, THE LINE operates on the concept of 'Zero Gravity Urbanism'—layering residential apartments, public parks, schools, and workplaces vertically, ensuring all daily civic amenities are reachable within a five-minute walk. An ultra-high-speed transit spine beneath the structure transports residents from end to end in just 20 minutes.</li>\n  <li><strong>Oxagon:</strong> A reimagined floating industrial port city integrating automated robotic manufacturing, next-generation port logistics, and circular economy research centers.</li>\n  <li><strong>Trojena:</strong> A year-round mountain tourism and winter sports destination set in the Sarawat mountains, slated to host the 2029 Asian Winter Games through sustainable sub-zero snowmaking and alpine architecture.</li>\n</ul>\n\n<h2 id=\"masdar-dubai\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">3. UAE’s Masdar City & Dubai 2040 Urban Master Plan</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nIn the United Arab Emirates, sustainable urban planning has evolved through progressive iterations. Abu Dhabi’s <strong>Masdar City</strong>, launched over a decade ago as the world's first planned zero-carbon ecocity, now stands as a mature commercial hub hosting the International Renewable Energy Agency (IRENA) headquarters and hundreds of green technology startups. Masdar’s buildings achieve a minimum 40 percent reduction in energy and water consumption compared to standard urban baselines through thermal insulation, passive solar orientation, and pedestrian-level shade canopies.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nMeanwhile, the <strong>Dubai 2040 Urban Master Plan</strong> focuses on retrofitting and densifying the metropolis around public transit nodes. The plan mandates that 60 percent of Dubai's total land area be preserved as natural reserves and public parks, ensuring that 55 percent of all residents live within 800 meters of a mass transit station. Through partnerships with electric aviation innovators like Joby Aviation, Dubai is rolling out vertiport networks for electric vertical takeoff and landing (eVTOL) flying taxis, scheduled for commercial commuter passenger service across four key terminals by 2026.\n</p>\n\n<h2 id=\"lusail-qatar\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">4. Lusail City in Qatar: Waterfront Sensor-Driven Urbanism</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nNorth of Doha, <strong>Lusail City</strong> spans 38 square kilometers along the Arabian Gulf waterfront. Designed to accommodate 450,000 residents and daily commuters, Lusail exemplifies the power of citywide IoT sensor integration:\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>Pneumatic Waste Collection:</strong> Traditional diesel garbage trucks are entirely eliminated; household and commercial refuse is vacuumed through underground pneumatic tubes at speeds exceeding 70 km/h to central sorting facilities.</li>\n  <li><strong>District Cooling Architecture:</strong> Lusail operates one of the world's largest district cooling grids, pumping chilled water through subterranean insulated pipes to air-condition towers, reducing electrical grid load by 65,000 tons of CO2 per year compared to individual rooftop AC units.</li>\n  <li><strong>Integrated Light Rail Transit (LRT):</strong> A fully electric 28-station tramway connects residential marinas with commercial districts, reducing personal vehicular dependency across the waterfront.</li>\n</ul>\n\n<h2 id=\"silk-city-oman\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">5. Kuwait’s Silk City & Oman’s Sultan Haitham City</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe smart city mandate extends across the Northern and Southern Gulf corridors. In Kuwait, the USD 130 billion <strong>Silk City (Madinat Al-Hareer)</strong> project, linked to Kuwait City by the 36-kilometer Sheikh Jaber Al-Ahmad Al-Sabah Causeway, is designed as a free-trade crossroads connecting Central Asia and Europe with Gulf capital markets.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nIn Oman, the newly launched <strong>Sultan Haitham City</strong> outside Muscat covers 14.8 million square meters, designed as a modern smart oasis for 100,000 inhabitants. Incorporating 2.9 million square meters of green public space, natural wadi flood-mitigation parks, solar microgrids, and electric vehicle charging hubs, the city blends timeless Omani low-rise architectural beauty with 21st-century environmental resilience.\n</p>\n\n<h2 id=\"concluding-summary\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">6. Concluding Summary: The Arabian Peninsula as Humanity's Living Laboratory</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe megaprojects rising across Saudi Arabia, the UAE, Qatar, Kuwait, and Oman are not vanity exercises in architectural extravagance; they represent necessary, scientifically backed prototypes for the future of human habitation in an increasingly warm and resource-constrained world.\n</p>\n<p class=\"text-slate-700 leading-relaxed\">\nIf urban planners can prove that hundreds of thousands of people can live in absolute comfort, prosperity, and zero-carbon equilibrium in the heart of the Arabian desert, those exact same urban models can be adapted across cities worldwide. Through massive sovereign capital allocation, bold technical courage, and holistic environmental integration, the Khaleej is showing humanity how the cities of tomorrow will be built.\n</p>",
+    "imageUrl": "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?w=1200&auto=format&fit=crop&q=80"
   },
   {
-    "id": 15,
-    "slug": "luxury-desert-resorts-staycations-uae-oman-saudi",
-    "title": "Top Luxury Desert Resorts & Wellness Staycations Across UAE, Oman & Saudi Arabia",
-    "category": "Staycations & Hotels",
-    "silo": "Travel & Tourism",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "51.3k",
-    "readTime": "6 min read",
-    "date": "Nov 16, 2026",
-    "authorId": "reem-al-ghamdi",
-    "imageUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "Escape to tranquil desert dunes, Bedouin-inspired private pool pavilions, and star-gazing sanctuaries from Bab Al Shams to AlUla.",
+    "id": 5,
+    "countryFlag": "💰",
+    "group": "Business",
+    "title": "Expat Wealth Management and Personal Finance in the Gulf: Cross-Border Tax Strategies and Investment Portfolios",
     "toc": [
       {
-        "id": "desert-escapes-uae",
-        "title": "1. UAE Icons: Bab Al Shams, Al Maha & Qasr Al Sarab"
+        "id": "tax-advantage",
+        "title": "1. The GCC Tax Advantage: Reality vs. Home-Country Liabilities"
       },
       {
-        "id": "alula-saudi-wonder",
-        "title": "2. Banyan Tree & Habitas in AlUla, Saudi Arabia"
+        "id": "corporate-tax-landscape",
+        "title": "2. Navigating Corporate Tax & Personal Holding Companies (SPVs)"
       },
       {
-        "id": "oman-mountain-retreats",
-        "title": "3. Jebel Akhdar & Six Senses Zighy Bay in Oman"
+        "id": "estate-planning",
+        "title": "3. Cross-Border Estate Planning, Common Law Trusts & Wills"
       },
       {
-        "id": "best-time-booking",
-        "title": "4. Optimal Seasons, Wildlife Safaris & Spa Packages"
+        "id": "portfolio-allocation",
+        "title": "4. Strategic Portfolio Allocation for Dollar-Pegged GCC Expats"
+      },
+      {
+        "id": "gratuity-reforms",
+        "title": "5. End-of-Service Gratuity Reforms & Voluntary Pension Schemes"
+      },
+      {
+        "id": "concluding-summary",
+        "title": "6. Concluding Summary: Preserving and Multiplying Wealth in the Khaleej"
       }
     ],
-    "content": "\n      <p class=\"lead\">\n        When the winter months arrive in the Arabian Peninsula, residents and global voyagers head toward the desert. The region's luxury desert resorts offer serene privacy, falconry displays, and wellness spas set against red sand dunes.\n      </p>\n\n      <h2 id=\"desert-escapes-uae\">1. UAE Icons: Bab Al Shams, Al Maha & Qasr Al Sarab</h2>\n      <p>\n        In Dubai, <strong>Al Maha, A Luxury Collection Desert Resort & Spa</strong> is nestled within the Dubai Desert Conservation Reserve, where Arabian oryx graze beside private temperature-controlled pools. In the Liwa Desert, <strong>Qasr Al Sarab by Anantara</strong> resembles a majestic sand castle fortress.\n      </p>\n\n      <h2 id=\"alula-saudi-wonder\">2. Banyan Tree & Habitas in AlUla, Saudi Arabia</h2>\n      <p>\n        Saudi Arabia's ancient oasis city of AlUla hosts striking eco-luxury tented resorts. Nestled in the Ashar Valley, guests admire Nabataean tombs at Hegra by day and stargaze under desert night skies.\n      </p>\n\n      <h2 id=\"oman-mountain-retreats\">3. Jebel Akhdar & Six Senses Zighy Bay in Oman</h2>\n      <p>\n        For dramatic mountain vistas, Oman's <strong>Alila Jabal Akhdar</strong> sits 2,000 meters above sea level, while <strong>Six Senses Zighy Bay</strong> in Musandam features paragliding arrivals into coastal stone villas.\n      </p>\n\n      <h2 id=\"best-time-booking\">4. Optimal Seasons, Wildlife Safaris & Spa Packages</h2>\n      <p>\n        The peak staycation season spans October through April, when daytime temperatures hover between 22°C and 28°C. Early reservations are recommended for holiday long weekends.\n      </p>\n    "
-  },
-  {
-    "id": 16,
-    "slug": "top-tourist-attractions-uae-hidden-gems-landmarks",
-    "title": "15 Iconic Landmarks & Hidden Gems to Visit in the Emirates: Complete Traveler's Itinerary",
-    "category": "Tourist Attractions",
-    "silo": "Travel & Tourism",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "48.7k",
-    "readTime": "6 min read",
-    "date": "Nov 12, 2026",
-    "authorId": "fatima-al-blooshi",
-    "imageUrl": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "From the architectural marvel of the Museum of the Future to the mountain peaks of Jebel Jais and pristine mangroves in Abu Dhabi.",
-    "toc": [
-      {
-        "id": "futuristic-marvels",
-        "title": "1. Architectural Marvels: Burj Khalifa & Museum of the Future"
-      },
-      {
-        "id": "spiritual-grandeur",
-        "title": "2. Sheikh Zayed Grand Mosque in Abu Dhabi"
-      },
-      {
-        "id": "adventure-mountain",
-        "title": "3. Jebel Jais Zipline & Hatta Dam Kayaking"
-      },
-      {
-        "id": "nature-mangroves",
-        "title": "4. Jubail Mangrove Park & Sir Bani Yas Wildlife Reserve"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        The United Arab Emirates offers a vibrant spectrum of sights, from the soaring heights of modern skyscrapers to tranquil natural mangrove reserves and rugged Hajar mountain valleys across the seven emirates.\n      </p>\n\n      <h2 id=\"futuristic-marvels\">1. Architectural Marvels: Burj Khalifa & Museum of the Future</h2>\n      <p>\n        No trip to Dubai is complete without ascending At The Top at the <strong>Burj Khalifa</strong> (828 meters). Nearby, the toroid-shaped <strong>Museum of the Future</strong>, adorned with Arabic calligraphy poetry penned by HH Sheikh Mohammed bin Rashid Al Maktoum, explores humanity in 2071.\n      </p>\n\n      <h2 id=\"spiritual-grandeur\">2. Sheikh Zayed Grand Mosque in Abu Dhabi</h2>\n      <p>\n        Capable of welcoming over 40,000 worshippers, the <strong>Sheikh Zayed Grand Mosque</strong> features 82 white marble domes, reflective pools, gold-leaf chandeliers, and the world's largest hand-knotted carpet.\n      </p>\n\n      <h2 id=\"adventure-mountain\">3. Jebel Jais Zipline & Hatta Dam Kayaking</h2>\n      <p>\n        In Ras Al Khaimah, thrill-seekers ride the Jebel Jais Flight—the world's longest zipline—traveling at speeds up to 160 km/h across rugged peaks. In Dubai’s mountain enclave of Hatta, turquoise waters invite leisurely kayaking.\n      </p>\n\n      <h2 id=\"nature-mangroves\">4. Jubail Mangrove Park & Sir Bani Yas Wildlife Reserve</h2>\n      <p>\n        Stroll along winding boardwalks at Abu Dhabi's <strong>Jubail Mangrove Park</strong> to spot herons, gazelles, and marine life, or take a safari across Sir Bani Yas Island to see free-roaming cheetahs, giraffes, and Arabian oryx.\n      </p>\n    "
-  },
-  {
-    "id": 17,
-    "slug": "khda-school-ratings-curriculums-dubai-education-guide",
-    "title": "Dubai School Admissions: KHDA Ratings, British vs IB Curriculums & Fee Structures",
-    "category": "Education & Schools",
-    "silo": "Health & Education",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "37.8k",
-    "readTime": "6 min read",
-    "date": "Nov 15, 2026",
-    "authorId": "khalid-al-falasi",
-    "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "A parent's comprehensive roadmap to navigating private schooling in Dubai, interpreting KHDA inspection metrics, debenture fees, and enrollment deadlines.",
-    "toc": [
-      {
-        "id": "khda-rating-system",
-        "title": "1. The KHDA DSIB Rating Framework (Outstanding to Weak)"
-      },
-      {
-        "id": "curriculum-options",
-        "title": "2. British Curriculum vs. International Baccalaureate (IB) vs. CBSE"
-      },
-      {
-        "id": "tuition-costs",
-        "title": "3. Tuition Fees, Sibling Discounts & Education Debentures"
-      },
-      {
-        "id": "admissions-calendar",
-        "title": "4. Application Deadlines & Assessment Day Preparation"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Choosing the right school is a paramount priority for expatriate families relocating to the UAE. The Knowledge and Human Development Authority (KHDA) enforces rigorous annual inspections across Dubai's private schools, providing parents with clear transparency on academic quality.\n      </p>\n\n      <h2 id=\"khda-rating-system\">1. The KHDA DSIB Rating Framework (Outstanding to Weak)</h2>\n      <p>\n        The Dubai Schools Inspection Bureau (DSIB) evaluates schools across six categories: Outstanding, Very Good, Good, Acceptable, Weak, and Very Weak. KHDA regulations tie allowable annual tuition fee increases directly to a school’s performance rating and the Education Cost Index (ECI).\n      </p>\n\n      <h2 id=\"curriculum-options\">2. British Curriculum vs. International Baccalaureate (IB) vs. CBSE</h2>\n      <p>\n        Over 17 curriculums operate in the emirate:\n      </p>\n      <ul>\n        <li><strong>British (National Curriculum for England):</strong> Leads through GCSEs and A-Levels, ideal for families planning UK university pathways (e.g., Dubai College, JESS).</li>\n        <li><strong>International Baccalaureate (IB):</strong> Inquiry-led Primary Years (PYP) to IB Diploma, popular for global portability (e.g., DAA, NLCS).</li>\n        <li><strong>Indian (CBSE/ICSE):</strong> Known for academic rigor in STEM and mathematics (e.g., GEMS Modern Academy).</li>\n      </ul>\n\n      <h2 id=\"tuition-costs\">3. Tuition Fees, Sibling Discounts & Education Debentures</h2>\n      <p>\n        Annual fees range from AED 20,000 for established community schools to AED 100,000+ for elite private academies. Many leading schools offer sibling discounts of 5% to 15% and flexible fee payment plans through corporate partnerships.\n      </p>\n\n      <h2 id=\"admissions-calendar\">4. Application Deadlines & Assessment Day Preparation</h2>\n      <p>\n        Registration for the September academic intake opens as early as the previous October. Early applications and submission of previous school reports ensure seats before waitlists close.\n      </p>\n    "
-  },
-  {
-    "id": 18,
-    "slug": "uae-mandatory-health-insurance-coverage-and-wellness",
-    "title": "UAE Mandatory Health Insurance: Golden Visa Health Coverage, Telehealth & Wellness Standards",
-    "category": "Health & Wellness",
-    "silo": "Health & Education",
-    "country": "UAE",
-    "countryFlag": "🇦🇪",
-    "views": "34.6k",
-    "readTime": "5 min read",
-    "date": "Nov 11, 2026",
-    "authorId": "reem-al-ghamdi",
-    "imageUrl": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&auto=format&fit=crop&q=80",
-    "excerpt": "An essential breakdown of mandatory employer health insurance policies, pre-existing condition regulations, and high-tier medical networks in the GCC.",
-    "toc": [
-      {
-        "id": "insurance-mandates",
-        "title": "1. Federal Mandatory Insurance for All UAE Residents"
-      },
-      {
-        "id": "coverage-levels",
-        "title": "2. Basic (EBP) vs. Comprehensive Premium Health Networks"
-      },
-      {
-        "id": "golden-visa-plans",
-        "title": "3. Health Insurance for Golden Visa & Green Visa Holders"
-      },
-      {
-        "id": "telehealth-wellness",
-        "title": "4. 24/7 Digital Telehealth & Preventive Wellness Benefits"
-      }
-    ],
-    "content": "\n      <p class=\"lead\">\n        Health insurance is mandatory for all residents across the United Arab Emirates. With world-class medical cities in Dubai and Abu Dhabi, knowing your policy tier, annual claims limits, and network hospital access ensures total medical peace of mind.\n      </p>\n\n      <h2 id=\"insurance-mandates\">1. Federal Mandatory Insurance for All UAE Residents</h2>\n      <p>\n        In Dubai (DHA regulations) and Abu Dhabi (DOH regulations), employers and sponsors are legally required to provide valid health coverage for their employees. Under federal guidelines, mandatory health insurance now applies nationwide to all private sector employees and domestic workers.\n      </p>\n\n      <h2 id=\"coverage-levels\">2. Basic (EBP) vs. Comprehensive Premium Health Networks</h2>\n      <p>\n        The Essential Benefits Plan (EBP) provides entry-level coverage with an annual limit of AED 150,000, 20% co-insurance on consultations, and generic medication coverage. Comprehensive corporate policies unlock VIP private hospital suites at Mediclinic, American Hospital Dubai, and Cleveland Clinic Abu Dhabi.\n      </p>\n\n      <h2 id=\"golden-visa-plans\">3. Health Insurance for Golden Visa & Green Visa Holders</h2>\n      <p>\n        Because Golden Visa holders are self-sponsored, they select individual long-term insurance policies. Local insurers like Daman, Sukoon, and AXA provide specialized Golden Visa packages featuring global portability and direct billing across 3,000+ medical centers.\n      </p>\n\n      <h2 id=\"telehealth-wellness\">4. 24/7 Digital Telehealth & Preventive Wellness Benefits</h2>\n      <p>\n        Modern UAE health policies include round-the-clock video consultations with board-certified physicians, home delivery of prescription medications via licensed pharmacy apps, and complimentary annual wellness screenings.\n      </p>\n    "
+    "category": "Personal Finance & Wealth",
+    "excerpt": "Managing personal wealth as an expat in the GCC requires mastering cross-border tax treaties, offshore trusts, real estate yields, and global portfolio allocations. Explore strategies to preserve and multiply capital under zero personal income tax regimes.",
+    "readTime": "9 min read",
+    "slug": "expat-wealth-management-and-personal-finance-in-the-gulf",
+    "authorId": "marcus-vance",
+    "country": "GCC Regional",
+    "date": "Nov 18, 2026",
+    "views": "61.5k",
+    "content": "<p class=\"lead text-lg font-medium text-slate-700 leading-relaxed mb-6\">\nFor high-earning expatriates, entrepreneurs, and global executives relocating to the Gulf Cooperation Council, the financial incentives are legendary: zero personal income tax, zero tax on capital gains, zero inheritance taxes, and salaries denominated in stable currencies pegged directly to the United States Dollar. However, transforming a lucrative Gulf compensation package into multigenerational, legally protected wealth demands far more than parking cash in a standard local savings account. In an increasingly complex global regulatory climate shaped by the Common Reporting Standard (CRS) and home-country tax claims, master-level <strong>cross-border wealth management</strong> is an indispensable requirement.\n</p>\n\n<h2 id=\"tax-advantage\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">1. The GCC Tax Advantage: Reality vs. Home-Country Liabilities</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nWhile domestic tax authorities in the UAE, Saudi Arabia, Qatar, Bahrain, Kuwait, and Oman do not levy personal income taxes on employment earnings or personal investment portfolios, an expatriate's ultimate tax liability is fundamentally governed by their passport, citizenship, and historical tax domicile.\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>United States Citizens & Green Card Holders:</strong> The U.S. taxes on global citizenship rather than residency. American expats must file annual IRS returns (Form 1040) and Report of Foreign Bank and Financial Accounts (FBAR/FinCEN Form 114). Key mechanisms include the Foreign Earned Income Exclusion (FEIE), allowing qualifying expats to exclude up to approximately USD 126,500 of foreign earnings, alongside Foreign Housing Deductions.</li>\n  <li><strong>United Kingdom Nationals:</strong> Severing British tax ties requires strictly navigating the Statutory Residence Test (SRT). Expats must monitor allowable UK visit days (often restricted to fewer than 90 days per tax year) and address 'temporary non-residence' rules to avoid clawback taxes on capital gains realized during their Gulf tenure upon returning to the UK within five years.</li>\n  <li><strong>European, Canadian & Australian Expats:</strong> Most OECD nations utilize residency-based taxation. Expatriates must formalize clean deemed-disposition exit declarations (such as Canada’s departure tax or Australia’s deemed capital gains disposal) to prevent tax authorities from claiming continuous tax residency.</li>\n  <li><strong>Indian Expatriates:</strong> Navigating Non-Resident Indian (NRI) status requires spending at least 182 days outside India (or 120 days for certain high-income earners). Strategic deployment under the Double Tax Avoidance Agreement (DTAA) protects Gulf-earned savings from Indian domestic levies.</li>\n</ul>\n\n<h2 id=\"corporate-tax-landscape\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">2. Navigating Corporate Tax & Personal Holding Companies (SPVs)</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe implementation of corporate income tax across the region—most notably the UAE’s Federal Decree-Law No. 47 of 2022 introducing a 9 percent corporate tax, alongside longstanding corporate taxes in Saudi Arabia (20 percent on foreign corporate profits / 2.5 percent Zakat on Saudi nationals) and Qatar (10 percent)—has fundamentally altered business structuring for expat founders and family offices.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nTo ring-fence personal assets from operational commercial risks, sophisticated investors utilize Special Purpose Vehicles (SPVs) and personal holding companies incorporated in elite financial centers like the <strong>Abu Dhabi Global Market (ADGM)</strong>, <strong>Dubai International Financial Centre (DIFC)</strong>, and <strong>Qatar Financial Centre (QFC)</strong>. These entities benefit from 0 percent corporate tax on qualifying investment holding income and offer total separation between corporate operations and personal assets.\n</p>\n\n<h2 id=\"estate-planning\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">3. Cross-Border Estate Planning, Common Law Trusts & Wills</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nOne of the most perilous oversights among foreign nationals residing in the GCC is failing to establish formalized estate planning. In the absence of a registered non-Muslim will or offshore trust, domestic courts in the Arabian Peninsula may apply Sharia-compliant default inheritance distribution formulas, which dictate rigid proportional allocations among heirs and can result in the immediate temporary freezing of all joint bank accounts, real estate deeds, and company shares upon the demise of an account holder.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nTo safeguard family estates, expatriates must register formal wills through the <strong>DIFC Wills Service Centre</strong> or the <strong>Abu Dhabi Judicial Department (ADJD)</strong>. These registries legally enforce common-law testamentary freedom, ensuring that assets are bequeathed strictly in accordance with the individual’s wishes. For high-net-worth families with complex global assets, establishing ADGM or DIFC Foundations offers perpetual asset protection, succession privacy, and immunity from foreign probate disputes.\n</p>\n\n<h2 id=\"portfolio-allocation\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">4. Strategic Portfolio Allocation for Dollar-Pegged GCC Expats</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nBecause the UAE Dirham (AED), Saudi Riyal (SAR), Qatari Riyal (QAR), and Bahraini Dinar (BHD) are strictly pegged to the U.S. Dollar, expatriates in the Gulf possess a distinct structural advantage: zero foreign-exchange currency risk when investing directly into dollar-denominated global securities.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nWealth managers recommend a diversified portfolio architecture tailored to the Gulf lifecycle:\n</p>\n<ul class=\"list-disc pl-6 space-y-2 text-slate-700 mb-6\">\n  <li><strong>Core Equity Holdings:</strong> Utilizing low-cost, Irish-domiciled UCITS ETFs (e.g., S&P 500 and MSCI World tracking funds) through international custody brokerages (Interactive Brokers, Saxo Bank, Swissquote). Crucially for non-U.S. citizens, Irish-domiciled funds mitigate U.S. withholding taxes on dividends from 30 percent down to 15 percent and eliminate the catastrophic 40 percent U.S. Estate Tax on assets exceeding USD 60,000.</li>\n  <li><strong>Regional Real Estate:</strong> Allocating capital to prime freehold residential and commercial properties in Dubai, Abu Dhabi, or Riyadh, where gross rental yields consistently outperform global cities (6.5% to 8.2% in Dubai versus 2.5% to 3.8% in London or New York).</li>\n  <li><strong>Fixed Income & Sovereign Sukuk:</strong> Capturing high-yield Gulf sovereign debt issuances (Saudi Aramco, UAE Federal Sukuk, Qatar Sovereign Bonds), offering investment-grade security with premium yield spreads.</li>\n</ul>\n\n<h2 id=\"gratuity-reforms\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">5. End-of-Service Gratuity Reforms & Voluntary Pension Schemes</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nHistorically, Gulf employment relied on the statutory End-of-Service Gratuity (EOSG)—a lump-sum severance payment calculated based on final basic salary and completed years of service. However, relying on an unfunded corporate liability carried counterparty default risks if an employer faced insolvency during economic downturns.\n</p>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nRecognizing this weakness, progressive governments have introduced modern occupational pension savings schemes. The pioneering <strong>Dubai Workplace Savings Scheme (DEWS)</strong>, alongside the UAE’s federal Alternative End-of-Service Benefits Scheme, allows employers to deposit mandatory monthly gratuity contributions into ring-fenced, professionally managed investment funds administered by global trust providers (such as Equiom and Mercer). Employees can select risk-rated portfolios (conservative cash, Sharia-compliant sukuk, balanced growth, or global equities) and contribute voluntary supplementary salary deductions, mirroring Western 401(k) and SIPP architectures.\n</p>\n\n<h2 id=\"concluding-summary\" class=\"text-2xl font-black text-slate-900 mt-8 mb-4\">6. Concluding Summary: Preserving and Multiplying Wealth in the Khaleej</h2>\n<p class=\"text-slate-700 leading-relaxed mb-4\">\nThe Arabian Gulf provides expatriate professionals with one of the most lucrative wealth-generation environments on earth. However, the difference between merely enjoying high short-term cash flow and achieving lasting financial independence lies entirely in proactive cross-border structuring.\n</p>\n<p class=\"text-slate-700 leading-relaxed\">\nBy respecting home-country tax compliance, establishing registered DIFC/ADGM wills and foundations, deploying dollar-pegged earnings into tax-efficient global index funds, and leveraging emerging occupational workplace pension schemes, expatriates can ensure their years in the Khaleej create an enduring financial legacy for generations to come.\n</p>",
+    "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&auto=format&fit=crop&q=80"
   }
 ];
 
@@ -1227,49 +532,25 @@ function cleanUrlBar() {
   } catch (e) {}
 }
 
-// Category Badge Color Helper
-function getCategoryBadge(categoryOrSilo) {
-  const styles = {
-    "Business & Finance": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-300",
-    "Real Estate & Property": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-300",
-    "Business & Startups": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-300",
-    "Personal Finance & Wealth": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-300",
-    "Crypto & Web3": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-300",
-    "Markets & Economy": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-300",
+// Crisp Light Mode Category Badge Helper
+function getCategoryBadge(categoryName) {
+  const cat = categoriesData.find(c => c.name.toLowerCase() === (categoryName || '').toLowerCase());
+  const group = cat ? cat.group : "Business";
 
-    "Expat Life & Legal": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border-indigo-300",
-    "Visas & Immigration": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border-indigo-300",
-    "Labor Law & Employment": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border-indigo-300",
-    "Relocation & Setup": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border-indigo-300",
-    "Living Guides": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border-indigo-300",
-
-    "Transport & Mobility": "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border-blue-300",
-    "Driving & Tolls": "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border-blue-300",
-    "Public Transport": "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border-blue-300",
-    "Aviation & Travel": "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border-blue-300",
-    "Automotive": "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border-blue-300",
-
-    "Tech & Innovation": "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300 border-teal-300",
-    "Artificial Intelligence": "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300 border-teal-300",
-    "Smart Cities": "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300 border-teal-300",
-    "Gadgets & Reviews": "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300 border-teal-300",
-
-    "Lifestyle & Entertainment": "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border-amber-300",
-    "Food & Dining": "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border-amber-300",
-    "Shopping & Retail": "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border-amber-300",
-    "Arts Culture & Heritage": "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border-amber-300",
-    "Luxury Living": "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border-amber-300",
-
-    "Travel & Tourism": "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border-rose-300",
-    "Staycations & Hotels": "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border-rose-300",
-    "Tourist Attractions": "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border-rose-300",
-    "GCC Travel": "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border-rose-300",
-
-    "Health & Education": "bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300 border-purple-300",
-    "Health & Wellness": "bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300 border-purple-300",
-    "Education & Schools": "bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300 border-purple-300"
-  };
-  return styles[categoryOrSilo] || "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-300";
+  switch (group) {
+    case "Business":
+      return "bg-emerald-50 text-emerald-800 border-emerald-200";
+    case "Expat Life":
+      return "bg-indigo-50 text-indigo-800 border-indigo-200";
+    case "Tech":
+      return "bg-teal-50 text-teal-800 border-teal-200";
+    case "Lifestyle":
+      return "bg-purple-50 text-purple-800 border-purple-200";
+    case "Travel":
+      return "bg-amber-50 text-amber-800 border-amber-200";
+    default:
+      return "bg-slate-50 text-slate-800 border-slate-200";
+  }
 }
 
 function getAuthor(authorId) {
@@ -1295,143 +576,110 @@ function goToArticle(idOrSlug) {
   }
 }
 
-// Theme handling
-function initTheme() {
-  const saved = localStorage.getItem("kf_theme");
-  if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-}
-
-function toggleTheme() {
-  const isDark = document.documentElement.classList.toggle("dark");
-  localStorage.setItem("kf_theme", isDark ? "dark" : "light");
-}
-
-function toggleMobileMenu() {
-  const drawer = document.getElementById("mobile-nav-drawer");
-  if (drawer) {
-    drawer.classList.toggle("hidden");
-  }
-}
-
-// Bookmark handling
+// Bookmark Toggle
 function toggleBookmark(articleId) {
-  const id = Number(articleId);
-  const index = savedBookmarks.indexOf(id);
-  if (index > -1) {
-    savedBookmarks.splice(index, 1);
+  const index = savedBookmarks.indexOf(articleId);
+  if (index === -1) {
+    savedBookmarks.push(articleId);
   } else {
-    savedBookmarks.push(id);
+    savedBookmarks.splice(index, 1);
   }
   localStorage.setItem("kf_bookmarks", JSON.stringify(savedBookmarks));
 
-  if (document.getElementById("hero-featured-grid")) {
-    renderHero();
-    renderFeedArticles();
+  if (typeof event !== 'undefined' && event && event.currentTarget) {
+    const svg = event.currentTarget.querySelector("svg");
+    if (svg) {
+      if (savedBookmarks.includes(articleId)) {
+        svg.classList.add("text-amber-500", "fill-current");
+      } else {
+        svg.classList.remove("text-amber-500", "fill-current");
+      }
+    }
   }
 }
 
-// =========================================================
-// HOMEPAGE SECTIONS RENDERING
-// =========================================================
+// ==========================================
+// HOMEPAGE RENDERING MODULES (Light Mode)
+// ==========================================
 
-// Hero Featured Section (Article 1, 4, 13)
+// 1. Magazine Hero Section (8-col Grand Card + 4-col 2-stack cards)
 function renderHero() {
-  const heroContainer = document.getElementById("hero-featured-grid");
-  if (!heroContainer) return;
+  const container = document.getElementById("hero-featured-grid");
+  if (!container || !articlesData.length) return;
 
-  const heroMain = articlesData[0]; // Real Estate 2026
-  const heroSub = [articlesData[3], articlesData[12]]; // Golden Visa 2026, Falcon AI
+  const heroMain = articlesData[0]; // GCC Grand Tours Visa
+  const heroSub = [articlesData[2], articlesData[1]]; // Emerging Tech Hubs, GCC Rail Network
   const mainAuthor = getAuthor(heroMain.authorId);
-  const isMainBookmarked = savedBookmarks.includes(heroMain.id);
 
   let html = `
     <!-- Major Spotlight Card (8 Cols) -->
-    <div class="lg:col-span-8 group relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 shadow-xl cursor-pointer" onclick="goToArticle('${heroMain.slug}')">
-      <div class="relative h-[420px] sm:h-[480px] lg:h-[510px] w-full overflow-hidden">
+    <div class="lg:col-span-8 group relative rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="goToArticle('${heroMain.slug}')">
+      <div class="relative h-[360px] sm:h-[420px] lg:h-[450px] w-full overflow-hidden kf-img-wrap">
         <img 
           src="${heroMain.imageUrl}" 
           alt="${heroMain.title}" 
-          class="w-full h-full object-cover filter brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-500" 
+          class="w-full h-full object-cover kf-img-zoom" 
           loading="eager"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent flex flex-col justify-end p-6 sm:p-8 lg:p-10">
-          <div class="flex flex-wrap items-center gap-3 mb-3">
-            <span class="px-3 py-1 text-xs font-bold uppercase rounded-full border ${getCategoryBadge(heroMain.category)}">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-6 sm:p-8">
+          <div class="flex flex-wrap items-center gap-2.5 mb-3">
+            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-emerald-600 text-white shadow-sm">
+              ★ Spotlight Report
+            </span>
+            <span class="px-2.5 py-0.5 text-xs font-semibold uppercase rounded-full bg-white/20 text-white backdrop-blur-sm border border-white/30">
               ${heroMain.category}
             </span>
-            <span class="text-xs text-slate-300 font-mono">${heroMain.readTime}</span>
+            <span class="text-xs text-slate-200 font-mono">${heroMain.readTime}</span>
           </div>
 
-          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight mb-3 group-hover:text-emerald-300 transition-colors">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-display leading-tight mb-3 group-hover:text-emerald-300 transition-colors">
             ${heroMain.title}
-          </h1>
+          </h2>
 
-          <p class="text-sm sm:text-base text-slate-200 line-clamp-2 sm:line-clamp-3 mb-6 max-w-3xl leading-relaxed font-sans">
+          <p class="text-xs sm:text-sm text-slate-200 font-sans line-clamp-2 max-w-2xl mb-4 leading-relaxed">
             ${heroMain.excerpt}
           </p>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/20">
-            <div class="flex items-center space-x-3">
-              <img src="${mainAuthor.avatar}" alt="${mainAuthor.name}" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
-              <div>
-                <p class="text-sm font-bold text-white">${mainAuthor.name}</p>
-                <p class="text-xs text-slate-300">${heroMain.date} • ${heroMain.views} views</p>
-              </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/20 text-xs text-slate-300">
+            <div class="flex items-center gap-2">
+              <img src="${mainAuthor.avatar}" alt="${mainAuthor.name}" class="w-7 h-7 rounded-full object-cover border border-white" />
+              <span class="font-bold text-white">${mainAuthor.name}</span>
+              <span class="hidden sm:inline font-mono text-slate-400">• ${mainAuthor.role}</span>
             </div>
-            <button 
-              onclick="event.stopPropagation(); toggleBookmark(${heroMain.id})" 
-              class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"
-              title="Bookmark"
-            >
-              <svg class="w-5 h-5 ${isMainBookmarked ? 'text-amber-400 fill-current' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-              </svg>
-            </button>
+            <span class="font-mono text-emerald-400 font-bold">${heroMain.views} views</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Secondary Featured Cards (4 Cols, Stacked) -->
-    <div class="lg:col-span-4 flex flex-col gap-6">
+    <!-- Right Column: 2 Secondary Spotlight Cards (4 Cols) -->
+    <div class="lg:col-span-4 flex flex-col gap-5 justify-between">
       ${heroSub.map(sub => {
         const subAuthor = getAuthor(sub.authorId);
-        const isSubBookmarked = savedBookmarks.includes(sub.id);
         return `
-          <div class="flex-1 group relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 shadow-lg cursor-pointer flex flex-col justify-end" onclick="goToArticle('${sub.slug}')">
-            <div class="relative h-[240px] sm:h-[250px] lg:h-full w-full overflow-hidden">
+          <div class="flex-1 group relative rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-end" onclick="goToArticle('${sub.slug}')">
+            <div class="relative h-[200px] sm:h-[212px] w-full overflow-hidden kf-img-wrap">
               <img 
                 src="${sub.imageUrl}" 
                 alt="${sub.title}" 
-                class="w-full h-full object-cover filter brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-500" 
+                class="w-full h-full object-cover kf-img-zoom" 
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent flex flex-col justify-end p-5 sm:p-6">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-5">
                 <div class="flex items-center gap-2 mb-2">
-                  <span class="px-2.5 py-0.5 text-xs font-bold uppercase rounded-full border ${getCategoryBadge(sub.category)}">
+                  <span class="px-2 py-0.5 text-[11px] font-bold uppercase rounded-md bg-white/20 text-white backdrop-blur-sm border border-white/30">
                     ${sub.category}
                   </span>
                   <span class="text-xs text-slate-300 font-mono">${sub.readTime}</span>
                 </div>
 
-                <h2 class="text-base sm:text-lg font-extrabold text-white leading-snug mb-2 group-hover:text-emerald-300 transition-colors line-clamp-2">
+                <h3 class="text-base sm:text-lg font-bold text-white leading-snug mb-1 group-hover:text-emerald-300 transition-colors line-clamp-2">
                   ${sub.title}
-                </h2>
+                </h3>
 
-                <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/20">
-                  <span class="text-xs text-slate-300">${subAuthor.name} • ${sub.date}</span>
-                  <button 
-                    onclick="event.stopPropagation(); toggleBookmark(${sub.id})" 
-                    class="p-1.5 rounded-lg text-slate-300 hover:text-white"
-                  >
-                    <svg class="w-4 h-4 ${isSubBookmarked ? 'text-amber-400 fill-current' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-                    </svg>
-                  </button>
+                <div class="flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-white/10">
+                  <span>${subAuthor.name}</span>
+                  <span class="font-mono text-emerald-400 font-semibold">${sub.views}</span>
                 </div>
               </div>
             </div>
@@ -1441,221 +689,232 @@ function renderHero() {
     </div>
   `;
 
-  heroContainer.innerHTML = html;
+  container.innerHTML = html;
 }
 
-// Silo 1: Business & Finance Grid
-function renderBusinessSection() {
-  const container = document.getElementById("business-section-grid");
+// 2. "Trending in Khaleej Business" Grid
+function renderTrendingBusiness() {
+  const container = document.getElementById("trending-business-grid");
   if (!container) return;
 
-  const items = articlesData.filter(a => a.silo === "Business & Finance").slice(0, 3);
-  container.innerHTML = items.map(item => `
-    <div class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="goToArticle('${item.slug}')">
-      <div class="relative h-48 w-full overflow-hidden">
-        <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-        <div class="absolute top-3 left-3">
-          <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full border shadow-sm ${getCategoryBadge(item.category)}">
-            ${item.category}
-          </span>
-        </div>
-      </div>
-      <div class="p-5 flex-1 flex flex-col justify-between">
-        <div>
-          <span class="text-[11px] text-slate-400 font-mono block mb-1">${item.date} • ${item.readTime}</span>
-          <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors line-clamp-2 leading-snug">
-            ${item.title}
-          </h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-2 leading-relaxed">
-            ${item.excerpt}
-          </p>
-        </div>
-        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold">
-          <span class="text-slate-400">${item.views} reads</span>
-          <span class="text-emerald-600 dark:text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">Read Insights &rarr;</span>
-        </div>
-      </div>
-    </div>
-  `).join("");
-}
+  const items = articlesData.filter(a => a.group === "Business" || a.category.includes("Finance") || a.category.includes("Startups") || a.category.includes("Wealth"));
+  const displayItems = items.length ? items : articlesData.slice(0, 3);
 
-// Silo 2: Expat Essentials & Legal Grid
-function renderExpatSection() {
-  const container = document.getElementById("expat-section-grid");
-  if (!container) return;
-
-  const items = articlesData.filter(a => a.silo === "Expat Life & Legal").slice(0, 3);
-  container.innerHTML = items.map(item => `
-    <div class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="goToArticle('${item.slug}')">
-      <div class="relative h-48 w-full overflow-hidden">
-        <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-        <div class="absolute top-3 left-3">
-          <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full border shadow-sm ${getCategoryBadge(item.category)}">
-            ${item.category}
-          </span>
-        </div>
-      </div>
-      <div class="p-5 flex-1 flex flex-col justify-between">
-        <div>
-          <span class="text-[11px] text-slate-400 font-mono block mb-1">${item.date} • ${item.readTime}</span>
-          <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">
-            ${item.title}
-          </h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-2 leading-relaxed">
-            ${item.excerpt}
-          </p>
-        </div>
-        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold">
-          <span class="text-slate-400">${item.views} reads</span>
-          <span class="text-indigo-600 dark:text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">Legal Guide &rarr;</span>
-        </div>
-      </div>
-    </div>
-  `).join("");
-}
-
-// Silo 3: Transport & Mobility Grid
-function renderTransportSection() {
-  const container = document.getElementById("transport-section-grid");
-  if (!container) return;
-
-  const items = articlesData.filter(a => a.silo === "Transport & Mobility").slice(0, 3);
-  container.innerHTML = items.map(item => `
-    <div class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" onclick="goToArticle('${item.slug}')">
-      <div class="relative h-48 w-full overflow-hidden">
-        <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-        <div class="absolute top-3 left-3">
-          <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full border shadow-sm ${getCategoryBadge(item.category)}">
-            ${item.category}
-          </span>
-        </div>
-      </div>
-      <div class="p-5 flex-1 flex flex-col justify-between">
-        <div>
-          <span class="text-[11px] text-slate-400 font-mono block mb-1">${item.date} • ${item.readTime}</span>
-          <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
-            ${item.title}
-          </h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-2 leading-relaxed">
-            ${item.excerpt}
-          </p>
-        </div>
-        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold">
-          <span class="text-slate-400">${item.views} reads</span>
-          <span class="text-blue-600 dark:text-blue-400 font-bold group-hover:translate-x-1 transition-transform">Transit Guide &rarr;</span>
-        </div>
-      </div>
-    </div>
-  `).join("");
-}
-
-// Silo 4: Tech & Innovation Highlight
-function renderTechSection() {
-  const container = document.getElementById("tech-section-grid");
-  if (!container) return;
-
-  const items = articlesData.filter(a => a.silo === "Tech & Innovation").slice(0, 2);
-  container.innerHTML = items.map(item => `
-    <div class="group rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-6 shadow-md hover:shadow-xl transition-all cursor-pointer flex flex-col sm:flex-row gap-5" onclick="goToArticle('${item.slug}')">
-      <div class="relative w-full sm:w-48 h-40 rounded-xl overflow-hidden flex-shrink-0">
-        <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-      </div>
-      <div class="flex-1 flex flex-col justify-between py-1">
-        <div>
-          <div class="flex items-center gap-2 mb-2">
-            <span class="px-2 py-0.5 text-[10px] font-bold uppercase rounded-full border ${getCategoryBadge(item.category)}">
+  container.innerHTML = displayItems.map(item => {
+    const author = getAuthor(item.authorId);
+    return `
+      <div class="kf-card group cursor-pointer flex flex-col overflow-hidden bg-white" onclick="goToArticle('${item.slug}')">
+        <div class="relative h-48 w-full overflow-hidden kf-img-wrap">
+          <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover kf-img-zoom" loading="lazy" />
+          <div class="absolute top-3 left-3">
+            <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-lg border ${getCategoryBadge(item.category)} bg-white/95 shadow-sm">
               ${item.category}
             </span>
-            <span class="text-[11px] text-slate-400 font-mono">${item.readTime}</span>
           </div>
-          <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-teal-500 transition-colors line-clamp-2 leading-snug">
-            ${item.title}
-          </h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-2 leading-relaxed">
-            ${item.excerpt}
-          </p>
         </div>
-        <div class="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-          <span class="text-slate-400">${item.views} reads</span>
-          <span class="font-bold text-teal-600 dark:text-teal-400">Deep Dive &rarr;</span>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-2">
+              <span>${item.date}</span>
+              <span>•</span>
+              <span>${item.readTime}</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900 group-hover:text-emerald-600 transition-colors leading-snug mb-2 line-clamp-2">
+              ${item.title}
+            </h3>
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+              ${item.excerpt}
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100 text-xs">
+            <span class="font-bold text-slate-800">${author.name}</span>
+            <span class="font-mono text-emerald-700 font-semibold">${item.views} views</span>
+          </div>
         </div>
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
-// Silo 5: Lifestyle & Entertainment
-function renderLifestyleSection() {
-  const container = document.getElementById("lifestyle-section-grid");
+// 3. "Tech & Innovation" Showcase
+function renderTechShowcase() {
+  const container = document.getElementById("tech-showcase-container");
   if (!container) return;
 
-  const items = articlesData.filter(a => a.silo === "Lifestyle & Entertainment").slice(0, 3);
-  container.innerHTML = items.map(item => `
-    <div class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700" onclick="goToArticle('${item.slug}')">
-      <img src="${item.imageUrl}" alt="${item.title}" class="w-20 h-20 rounded-xl object-cover flex-shrink-0" loading="lazy" />
-      <div class="flex-1">
-        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">${item.category}</span>
-        <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-600 transition-colors line-clamp-2 leading-snug mt-0.5">
-          ${item.title}
-        </h4>
-        <div class="flex items-center gap-2 text-[11px] text-slate-400 font-mono mt-1">
-          <span>${item.date}</span>
-          <span>•</span>
-          <span>${item.readTime}</span>
+  const techArticles = articlesData.filter(a => a.group === "Tech" || a.category.includes("Cities") || a.category.includes("Intelligence") || a.category.includes("Startups"));
+  const primary = techArticles[0] || articlesData[3];
+  const secondary = techArticles[1] || articlesData[2];
+
+  container.innerHTML = `
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Feature 1 -->
+      <div class="kf-card group cursor-pointer overflow-hidden flex flex-col" onclick="goToArticle('${primary.slug}')">
+        <div class="relative h-56 w-full overflow-hidden kf-img-wrap">
+          <img src="${primary.imageUrl}" alt="${primary.title}" class="w-full h-full object-cover kf-img-zoom" />
+          <div class="absolute top-3 left-3">
+            <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-lg border ${getCategoryBadge(primary.category)} bg-white/95 shadow-sm">
+              ${primary.category}
+            </span>
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-2">
+              <span>${primary.date}</span>
+              <span>•</span>
+              <span>${primary.readTime}</span>
+            </div>
+            <h3 class="font-display font-bold text-lg text-slate-900 group-hover:text-emerald-600 transition-colors leading-snug mb-2">
+              ${primary.title}
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              ${primary.excerpt}
+            </p>
+          </div>
+          <div class="flex items-center justify-between text-xs pt-3 border-t border-slate-100">
+            <span class="font-bold text-slate-800">${getAuthor(primary.authorId).name}</span>
+            <span class="text-emerald-700 font-bold hover:underline flex items-center gap-1">Read Deep Dive &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="kf-card group cursor-pointer overflow-hidden flex flex-col" onclick="goToArticle('${secondary.slug}')">
+        <div class="relative h-56 w-full overflow-hidden kf-img-wrap">
+          <img src="${secondary.imageUrl}" alt="${secondary.title}" class="w-full h-full object-cover kf-img-zoom" />
+          <div class="absolute top-3 left-3">
+            <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-lg border ${getCategoryBadge(secondary.category)} bg-white/95 shadow-sm">
+              ${secondary.category}
+            </span>
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-2">
+              <span>${secondary.date}</span>
+              <span>•</span>
+              <span>${secondary.readTime}</span>
+            </div>
+            <h3 class="font-display font-bold text-lg text-slate-900 group-hover:text-emerald-600 transition-colors leading-snug mb-2">
+              ${secondary.title}
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              ${secondary.excerpt}
+            </p>
+          </div>
+          <div class="flex items-center justify-between text-xs pt-3 border-t border-slate-100">
+            <span class="font-bold text-slate-800">${getAuthor(secondary.authorId).name}</span>
+            <span class="text-emerald-700 font-bold hover:underline flex items-center gap-1">Read Deep Dive &rarr;</span>
+          </div>
         </div>
       </div>
     </div>
-  `).join("");
+  `;
 }
 
-// Silo 6: Travel & Health
-function renderTravelSection() {
-  const container = document.getElementById("travel-section-grid");
+// 4. "Expat Essentials" Sidebar
+function renderExpatSidebar() {
+  const container = document.getElementById("expat-essentials-sidebar");
   if (!container) return;
 
-  const items = articlesData.filter(a => a.silo === "Travel & Tourism" || a.silo === "Health & Education").slice(0, 3);
-  container.innerHTML = items.map(item => `
-    <div class="group flex items-start gap-4 p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700" onclick="goToArticle('${item.slug}')">
-      <img src="${item.imageUrl}" alt="${item.title}" class="w-20 h-20 rounded-xl object-cover flex-shrink-0" loading="lazy" />
-      <div class="flex-1">
-        <span class="text-[10px] font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">${item.category}</span>
-        <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-rose-600 transition-colors line-clamp-2 leading-snug mt-0.5">
-          ${item.title}
-        </h4>
-        <div class="flex items-center gap-2 text-[11px] text-slate-400 font-mono mt-1">
-          <span>${item.date}</span>
-          <span>•</span>
-          <span>${item.readTime}</span>
+  const visaArticle = articlesData.find(a => a.category === "Visas & Immigration") || articlesData[0];
+
+  container.innerHTML = `
+    <!-- 1. Spotlight Permit Card -->
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm mb-6">
+      <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-700 mb-2">
+        <span>📜</span> Expat Policy Spotlight
+      </div>
+      <h4 class="font-display font-bold text-sm text-slate-900 leading-snug mb-2 hover:text-emerald-600 transition-colors cursor-pointer" onclick="goToArticle('${visaArticle.slug}')">
+        ${visaArticle.title}
+      </h4>
+      <p class="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+        ${visaArticle.excerpt}
+      </p>
+      <a href="${visaArticle.slug}" class="block text-center py-2 px-3 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-colors shadow-sm">
+        Complete Visa Guide &rarr;
+      </a>
+    </div>
+
+    <!-- 2. Essential Expat Category Navigation -->
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm mb-6">
+      <h4 class="font-display font-bold text-xs uppercase tracking-wider text-slate-900 mb-3 border-b border-slate-100 pb-2">
+        Expat Life Hubs
+      </h4>
+      <div class="space-y-2">
+        <a href="category/visas-and-immigration" class="flex items-center justify-between text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 p-2 rounded-xl transition-colors">
+          <span class="flex items-center gap-2"><span>📜</span> Visas &amp; Immigration</span>
+          <span class="text-[10px] text-slate-400 font-mono">&rarr;</span>
+        </a>
+        <a href="category/labor-law-and-employment" class="flex items-center justify-between text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 p-2 rounded-xl transition-colors">
+          <span class="flex items-center gap-2"><span>⚖️</span> Labor Law &amp; MOHRE</span>
+          <span class="text-[10px] text-slate-400 font-mono">&rarr;</span>
+        </a>
+        <a href="category/relocation-and-setup" class="flex items-center justify-between text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 p-2 rounded-xl transition-colors">
+          <span class="flex items-center gap-2"><span>📦</span> Relocation &amp; Setup</span>
+          <span class="text-[10px] text-slate-400 font-mono">&rarr;</span>
+        </a>
+        <a href="category/living-guides" class="flex items-center justify-between text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 p-2 rounded-xl transition-colors">
+          <span class="flex items-center gap-2"><span>🧭</span> Living Guides</span>
+          <span class="text-[10px] text-slate-400 font-mono">&rarr;</span>
+        </a>
+        <a href="category/health-and-wellness" class="flex items-center justify-between text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 p-2 rounded-xl transition-colors">
+          <span class="flex items-center gap-2"><span>🏥</span> Health &amp; Wellness</span>
+          <span class="text-[10px] text-slate-400 font-mono">&rarr;</span>
+        </a>
+        <a href="category/education-and-schools" class="flex items-center justify-between text-xs text-slate-700 hover:text-emerald-700 hover:bg-slate-50 p-2 rounded-xl transition-colors">
+          <span class="flex items-center gap-2"><span>🎓</span> Education &amp; Schools</span>
+          <span class="text-[10px] text-slate-400 font-mono">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. Regional Currency & Exchange Reference -->
+    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+      <h4 class="font-display font-bold text-xs uppercase tracking-wider text-slate-900 mb-3">
+        GCC Pegged Exchange Reference
+      </h4>
+      <div class="space-y-2 text-xs font-mono">
+        <div class="flex items-center justify-between pb-1.5 border-b border-slate-200">
+          <span class="text-slate-600">🇦🇪 1 USD =</span>
+          <span class="font-bold text-slate-900">3.6725 AED</span>
+        </div>
+        <div class="flex items-center justify-between pb-1.5 border-b border-slate-200">
+          <span class="text-slate-600">🇸🇦 1 USD =</span>
+          <span class="font-bold text-slate-900">3.7500 SAR</span>
+        </div>
+        <div class="flex items-center justify-between pb-1.5 border-b border-slate-200">
+          <span class="text-slate-600">🇶🇦 1 USD =</span>
+          <span class="font-bold text-slate-900">3.6400 QAR</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-600">🇰🇼 1 USD =</span>
+          <span class="font-bold text-slate-900">0.3075 KWD</span>
         </div>
       </div>
     </div>
-  `).join("");
+  `;
 }
 
-// Popular Sidebar Topics
+// 5. Popular Topics Pills
 function renderPopularTopics() {
-  const container = document.getElementById("featured-topics-container");
+  const container = document.getElementById("popular-topics-container");
   if (!container) return;
 
   const topics = [
-    { name: "Golden Visa", query: "Golden Visa" },
-    { name: "Dubai Real Estate", query: "Real Estate" },
-    { name: "Salik Dynamic Tolls", query: "Salik" },
-    { name: "Metro Blue Line", query: "Blue Line" },
-    { name: "Falcon LLM AI", query: "Falcon" },
-    { name: "Free Zone Business", query: "Free Zone" },
-    { name: "Labour Law Gratuity", query: "Labour" },
-    { name: "Michelin Dining UAE", query: "Michelin" },
-    { name: "Desert Staycations", query: "Desert" },
-    { name: "KHDA School Ratings", query: "KHDA" },
-    { name: "EV Green Chargers", query: "Electric" },
-    { name: "Expat Health Insurance", query: "Health" }
+    { name: "GCC Grand Tours Visa", query: "Visa" },
+    { name: "GCC Railway & Transit", query: "Rail" },
+    { name: "Riyadh & Dubai Startups", query: "Tech" },
+    { name: "NEOM & Masdar Smart Cities", query: "Smart" },
+    { name: "Expat Wealth & Taxes", query: "Wealth" },
+    { name: "Hafeet Rail UAE-Oman", query: "Hafeet" },
+    { name: "Sovereign AI & Falcon", query: "AI" }
   ];
 
   container.innerHTML = topics.map(t => `
     <button 
       onclick="filterByTopic('${t.query}')" 
-      class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 hover:bg-emerald-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 hover:text-emerald-700 dark:text-slate-300 transition-colors"
+      class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 transition-colors border border-slate-200"
     >
       #${t.name}
     </button>
@@ -1663,10 +922,6 @@ function renderPopularTopics() {
 }
 
 function filterByTopic(query) {
-  if (window.location.pathname.includes("article") || !document.getElementById("hero-featured-grid")) {
-    window.location.href = `${getBasePath()}?search=${encodeURIComponent(query)}`;
-    return;
-  }
   const searchInput = document.getElementById("search-input");
   if (searchInput) searchInput.value = query;
   searchQuery = query;
@@ -1678,7 +933,7 @@ function filterByTopic(query) {
   if (feedSection) feedSection.scrollIntoView({ behavior: "smooth" });
 }
 
-// Main Feed Filtering
+// 6. Main Feed Filtering & Rendering
 function getFilteredArticles() {
   let list = articlesData;
 
@@ -1686,7 +941,7 @@ function getFilteredArticles() {
     const cat = currentCategory.toLowerCase();
     list = list.filter(a => 
       a.category.toLowerCase() === cat || 
-      a.silo.toLowerCase() === cat ||
+      a.group.toLowerCase() === cat ||
       (a.tags && a.tags.some(t => t.toLowerCase() === cat))
     );
   }
@@ -1697,8 +952,7 @@ function getFilteredArticles() {
       a.title.toLowerCase().includes(q) || 
       a.excerpt.toLowerCase().includes(q) || 
       a.category.toLowerCase().includes(q) ||
-      a.silo.toLowerCase().includes(q) ||
-      (a.tags && a.tags.some(t => t.toLowerCase().includes(q)))
+      a.group.toLowerCase().includes(q)
     );
   }
 
@@ -1708,219 +962,110 @@ function getFilteredArticles() {
 function renderFeedArticles() {
   const container = document.getElementById("articles-feed-container");
   const countLabel = document.getElementById("feed-articles-count");
-  const loadMoreBtn = document.getElementById("load-more-btn");
   if (!container) return;
 
-  const filtered = getFilteredArticles();
-  
+  const list = getFilteredArticles();
   if (countLabel) {
-    countLabel.textContent = `Showing ${Math.min(visibleArticleCount, filtered.length)} of ${filtered.length} Guides`;
+    countLabel.textContent = `Showing ${Math.min(visibleArticleCount, list.length)} of ${list.length} Articles`;
   }
 
-  const articlesToDisplay = filtered.slice(0, visibleArticleCount);
+  if (!list.length) {
+    container.innerHTML = `
+      <div class="col-span-full py-16 text-center bg-white rounded-2xl border border-slate-200 p-8">
+        <div class="text-4xl mb-3">🔍</div>
+        <h3 class="font-display font-bold text-lg text-slate-900 mb-1">No matching articles found</h3>
+        <p class="text-xs text-slate-500 max-w-sm mx-auto mb-4">Try refining your search keyword or selecting a different category from the menu.</p>
+        <button onclick="resetFilters()" class="px-4 py-2 text-xs font-bold text-white bg-emerald-600 rounded-xl hover:bg-emerald-700 transition-colors">
+          Clear Filters
+        </button>
+      </div>
+    `;
+    return;
+  }
 
-  if (currentView === "grid") {
-    container.className = "grid grid-cols-1 md:grid-cols-2 gap-6";
-    container.innerHTML = articlesToDisplay.map(article => `
-      <article 
-        class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-md flex flex-col cursor-pointer transition-all hover:shadow-xl"
-        onclick="goToArticle('${article.slug}')"
-      >
-        <div class="relative h-48 w-full overflow-hidden">
-          <img src="${article.imageUrl}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-          <div class="absolute top-3 left-3 flex items-center gap-1.5">
-            <span class="px-2.5 py-1 text-xs font-bold uppercase rounded-full shadow-sm backdrop-blur-md border ${getCategoryBadge(article.category)}">
-              ${article.category}
+  const paged = list.slice(0, visibleArticleCount);
+
+  container.innerHTML = paged.map(item => {
+    const author = getAuthor(item.authorId);
+    return `
+      <div class="kf-card group cursor-pointer flex flex-col overflow-hidden bg-white" onclick="goToArticle('${item.slug}')">
+        <div class="relative h-48 w-full overflow-hidden kf-img-wrap">
+          <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover kf-img-zoom" loading="lazy" />
+          <div class="absolute top-3 left-3">
+            <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-lg border ${getCategoryBadge(item.category)} bg-white/95 shadow-sm">
+              ${item.category}
             </span>
           </div>
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-              <span>${article.date}</span>
+            <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-2">
+              <span>${item.date}</span>
               <span>•</span>
-              <span>${article.readTime}</span>
+              <span>${item.readTime}</span>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors line-clamp-2 mb-2 leading-snug">
-              ${article.title}
+            <h3 class="font-display font-bold text-base text-slate-900 group-hover:text-emerald-600 transition-colors leading-snug mb-2 line-clamp-2">
+              ${item.title}
             </h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mb-4 leading-relaxed font-sans">
-              ${article.excerpt}
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+              ${item.excerpt}
             </p>
           </div>
-          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-            <span class="text-slate-500">${article.views} reads</span>
-            <span class="text-xs font-bold text-emerald-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-              Read Guide &rarr;
-            </span>
+          <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100 text-xs">
+            <span class="font-bold text-slate-800">${author.name}</span>
+            <span class="font-mono text-emerald-700 font-semibold">${item.views} views</span>
           </div>
-        </div>
-      </article>
-    `).join("");
-  } else {
-    container.className = "flex flex-col gap-4";
-    container.innerHTML = articlesToDisplay.map(article => `
-      <article 
-        class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-md flex flex-col sm:flex-row gap-5 cursor-pointer transition-all hover:shadow-lg"
-        onclick="goToArticle('${article.slug}')"
-      >
-        <div class="relative w-full sm:w-52 h-40 sm:h-auto rounded-xl overflow-hidden flex-shrink-0">
-          <img src="${article.imageUrl}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-        </div>
-        <div class="flex-1 flex flex-col justify-between py-1">
-          <div>
-            <span class="text-xs font-mono text-slate-400 block mb-1">${article.date} • ${article.readTime}</span>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors line-clamp-2 mb-2">
-              ${article.title}
-            </h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mb-3 font-sans">
-              ${article.excerpt}
-            </p>
-          </div>
-          <div class="flex items-center justify-between text-xs text-slate-500">
-            <span class="font-bold text-emerald-600 uppercase text-[11px]">${article.category}</span>
-            <span class="font-bold text-emerald-600">Full Guide &rarr;</span>
-          </div>
-        </div>
-      </article>
-    `).join("");
-  }
-
-  if (loadMoreBtn) {
-    loadMoreBtn.style.display = visibleArticleCount >= filtered.length ? "none" : "inline-flex";
-  }
-}
-
-// Sidebar Trending
-function renderTrendingNow() {
-  const container = document.getElementById("trending-articles-list");
-  if (!container) return;
-
-  const trending = [articlesData[3], articlesData[0], articlesData[6], articlesData[12], articlesData[7]];
-  container.innerHTML = trending.map((article, idx) => {
-    const rankStr = String(idx + 1).padStart(2, "0");
-    return `
-      <div 
-        class="group flex items-start gap-4 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors cursor-pointer border-b border-slate-100 dark:border-slate-800/60 last:border-b-0"
-        onclick="goToArticle('${article.slug}')"
-      >
-        <span class="font-display text-2xl font-black text-emerald-600/40 group-hover:text-emerald-600 transition-colors">
-          ${rankStr}
-        </span>
-        <div class="flex-1">
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
-              ${article.category}
-            </span>
-            <span class="text-[11px] text-slate-400">• ${article.views} reads</span>
-          </div>
-          <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 transition-colors line-clamp-2 leading-snug">
-            ${article.title}
-          </h4>
         </div>
       </div>
     `;
   }).join("");
 }
 
-// Category filter
-function setCategory(category) {
-  currentCategory = category;
-  visibleArticleCount = 6;
-
-  const navLinks = document.querySelectorAll(".nav-category-btn");
-  navLinks.forEach(link => {
-    const cat = link.getAttribute("data-category");
-    if (cat === category) {
-      link.classList.add("bg-emerald-600", "text-white");
-      link.classList.remove("bg-slate-100", "dark:bg-slate-800", "text-slate-700", "dark:text-slate-300");
-    } else {
-      link.classList.remove("bg-emerald-600", "text-white");
-      link.classList.add("bg-slate-100", "dark:bg-slate-800", "text-slate-700", "dark:text-slate-300");
-    }
-  });
-
-  const filterLabel = document.getElementById("active-filter-label");
-  if (filterLabel) {
-    filterLabel.textContent = category === "All" ? "Latest UAE & GCC Guides" : `${category} Guides`;
-  }
-
-  renderFeedArticles();
-
-  const feedSection = document.getElementById("main-feed-section");
-  if (feedSection && window.scrollY > 400) {
-    feedSection.scrollIntoView({ behavior: "smooth" });
-  }
-}
-
 function resetFilters() {
   currentCategory = "All";
   searchQuery = "";
+  const s = document.getElementById("search-input");
+  if (s) s.value = "";
   visibleArticleCount = 6;
-  const searchInput = document.getElementById("search-input");
-  if (searchInput) searchInput.value = "";
-  setCategory("All");
-}
-
-function setViewMode(mode) {
-  currentView = mode;
-  const btnGrid = document.getElementById("view-mode-grid");
-  const btnList = document.getElementById("view-mode-list");
-
-  if (mode === "grid") {
-    if (btnGrid) btnGrid.className = "p-1.5 rounded-lg bg-emerald-600 text-white";
-    if (btnList) btnList.className = "p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300";
-  } else {
-    if (btnGrid) btnGrid.className = "p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300";
-    if (btnList) btnList.className = "p-1.5 rounded-lg bg-emerald-600 text-white";
-  }
   renderFeedArticles();
 }
 
-function loadMoreArticles() {
-  visibleArticleCount += 6;
-  renderFeedArticles();
-}
-
-// ARTICLE SINGLE PAGE LOGIC
+// 7. ARTICLE PAGE RENDERING
 function initArticlePage() {
-  let article = null;
-  const pathParts = window.location.pathname.split("/").filter(Boolean);
-  const pathSlug = pathParts[pathParts.length - 1];
+  const container = document.getElementById("article-main-container");
+  if (!container) return;
 
   const params = new URLSearchParams(window.location.search);
   const paramSlug = params.get("slug");
-  const paramId = parseInt(params.get("id"));
+  const paramId = params.get("id");
 
-  if (pathSlug && pathSlug !== "article" && pathSlug !== "article.html") {
+  // Extract from path
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  let pathSlug = pathParts[pathParts.length - 1];
+  if (pathSlug && pathSlug.endsWith(".html")) {
+    pathSlug = pathSlug.replace(".html", "");
+  }
+
+  let article = null;
+  if (pathSlug && pathSlug !== "article" && pathSlug !== "khaleejflow") {
     article = articlesData.find(a => a.slug && a.slug.toLowerCase() === pathSlug.toLowerCase());
   }
   if (!article && paramSlug) {
     article = articlesData.find(a => a.slug && a.slug.toLowerCase() === paramSlug.toLowerCase());
   }
   if (!article && paramId) {
-    article = articlesData.find(a => a.id === paramId);
+    article = articlesData.find(a => a.id == paramId);
   }
   if (!article) {
     article = articlesData[0];
   }
 
-  // Update URL to clean slug if on article.html
-  if (window.location.pathname.endsWith("article.html") || window.location.pathname.endsWith("article")) {
-    if (window.history && window.history.replaceState && article.slug) {
-      const basePath = getBasePath();
-      window.history.replaceState(null, article.title, `${basePath}${article.slug}`);
-    }
-  }
-
+  // Update document title
   document.title = `${article.title} — KhaleejFlow`;
-
-  // Render Article Content
-  const container = document.getElementById("article-main-container");
-  if (!container) return;
 
   const author = getAuthor(article.authorId);
   const isBookmarked = savedBookmarks.includes(article.id);
+  const catObj = categoriesData.find(c => c.name.toLowerCase() === article.category.toLowerCase()) || categoriesData[0];
 
   container.innerHTML = `
     <div class="space-y-6">
@@ -1928,53 +1073,51 @@ function initArticlePage() {
       <nav class="flex items-center gap-2 text-xs text-slate-500 font-mono">
         <a href="./" class="hover:text-emerald-600">Home</a>
         <span>/</span>
-        <a href="category?cat=${encodeURIComponent(article.silo)}" class="hover:text-emerald-600">${article.silo}</a>
-        <span>/</span>
-        <a href="category?cat=${encodeURIComponent(article.category)}" class="text-emerald-600 font-bold">${article.category}</a>
+        <a href="category/${catObj.slug}" class="text-emerald-700 font-bold hover:underline">${article.category}</a>
       </nav>
 
-      <!-- Badge & Read Time -->
+      <!-- Badge, Read Time, Views -->
       <div class="flex items-center gap-3">
         <span class="px-3 py-1 text-xs font-bold uppercase rounded-full border ${getCategoryBadge(article.category)}">
           ${article.category}
         </span>
-        <span class="text-xs font-mono text-slate-400">${article.readTime}</span>
-        <span class="text-xs font-mono text-slate-400">• ${article.views} views</span>
+        <span class="text-xs font-mono text-slate-500">${article.readTime}</span>
+        <span class="text-xs font-mono text-slate-500">• ${article.views} views</span>
       </div>
 
       <!-- Title -->
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white font-display leading-tight">
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 font-display leading-tight">
         ${article.title}
       </h1>
 
       <!-- Author Bar -->
-      <div class="flex items-center justify-between py-4 border-y border-slate-100 dark:border-slate-800">
+      <div class="flex items-center justify-between py-4 border-y border-slate-200">
         <div class="flex items-center gap-3">
           <img src="${author.avatar}" alt="${author.name}" class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500" />
           <div>
-            <div class="font-bold text-sm text-slate-900 dark:text-white">${author.name}</div>
-            <div class="text-xs text-slate-400 font-mono">${author.title} • ${article.date}</div>
+            <div class="font-bold text-sm text-slate-900">${author.name}</div>
+            <div class="text-xs text-slate-500 font-mono">${author.title} • ${article.date}</div>
           </div>
         </div>
-        <button onclick="toggleBookmark(${article.id})" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-          <svg class="w-5 h-5 ${isBookmarked ? 'text-amber-400 fill-current' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+        <button onclick="toggleBookmark(${article.id})" class="p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors">
+          <svg class="w-5 h-5 ${isBookmarked ? 'text-amber-500 fill-current' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
         </button>
       </div>
 
       <!-- Featured Image -->
-      <div class="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg">
+      <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
         <img src="${article.imageUrl}" alt="${article.title}" class="w-full max-h-[500px] object-cover" />
       </div>
 
       <!-- Table of Contents -->
       ${article.toc && article.toc.length ? `
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Table of Contents</h3>
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <h3 class="font-display font-bold text-sm text-slate-900 mb-3 uppercase tracking-wider">Table of Contents</h3>
           <ul class="space-y-2 text-xs font-medium">
             ${article.toc.map(item => `
               <li>
-                <a href="#${item.id}" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-2">
-                  <span class="text-emerald-500">→</span> ${item.title}
+                <a href="#${item.id}" class="text-slate-700 hover:text-emerald-700 transition-colors flex items-center gap-2">
+                  <span class="text-emerald-600 font-bold">&rarr;</span> ${item.title}
                 </a>
               </li>
             `).join("")}
@@ -1982,40 +1125,124 @@ function initArticlePage() {
         </div>
       ` : ''}
 
-      <!-- Article Body -->
-      <div class="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed font-sans text-base">
+      <!-- Article Body (800+ Words Verified) -->
+      <div class="prose max-w-none text-slate-800 leading-relaxed font-sans text-base">
         ${article.content}
       </div>
 
       <!-- Author Bio Box -->
-      <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-10">
+      <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-10">
         <img src="${author.avatar}" alt="${author.name}" class="w-16 h-16 rounded-2xl object-cover border-2 border-emerald-500 flex-shrink-0" />
         <div>
-          <h4 class="font-bold text-slate-900 dark:text-white text-base">${author.name}</h4>
-          <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mb-1">${author.bureau}</p>
-          <p class="text-xs text-slate-600 dark:text-slate-300">${author.bio}</p>
+          <h4 class="font-bold text-slate-900 text-base">${author.name}</h4>
+          <p class="text-xs text-slate-500 font-mono mb-1">${author.bureau}</p>
+          <p class="text-xs text-slate-600">${author.bio}</p>
         </div>
       </div>
     </div>
   `;
 }
 
+// 8. CATEGORY PAGE RENDERING
+function initCategoryPage() {
+  const container = document.getElementById("category-articles-grid");
+  const titleEl = document.getElementById("category-title");
+  const descEl = document.getElementById("category-description");
+  const iconEl = document.getElementById("category-icon");
+  if (!container) return;
+
+  const params = new URLSearchParams(window.location.search);
+  let catParam = params.get("cat") || params.get("category");
+
+  // Check URL pathname for category slug
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const catIndex = pathParts.indexOf("category");
+  if (catIndex !== -1 && pathParts[catIndex + 1]) {
+    catParam = pathParts[catIndex + 1];
+  }
+
+  // Find matching category by slug or name
+  let matchedCat = null;
+  if (catParam) {
+    matchedCat = categoriesData.find(c => 
+      c.slug.toLowerCase() === catParam.toLowerCase() || 
+      c.name.toLowerCase() === catParam.toLowerCase()
+    );
+  }
+
+  if (!matchedCat) {
+    matchedCat = categoriesData[5]; // Default to Visas & Immigration
+  }
+
+  if (titleEl) titleEl.textContent = matchedCat.name;
+  if (descEl) descEl.textContent = matchedCat.description;
+  if (iconEl) iconEl.textContent = matchedCat.icon;
+  document.title = `${matchedCat.name} — KhaleejFlow Category Guides`;
+
+  // Find articles matching this category or group
+  const matchingArticles = articlesData.filter(a => 
+    a.category.toLowerCase() === matchedCat.name.toLowerCase() ||
+    a.group.toLowerCase() === matchedCat.group.toLowerCase()
+  );
+
+  const displayList = matchingArticles.length ? matchingArticles : articlesData;
+
+  container.innerHTML = displayList.map(item => {
+    const author = getAuthor(item.authorId);
+    return `
+      <div class="kf-card group cursor-pointer flex flex-col overflow-hidden bg-white" onclick="goToArticle('${item.slug}')">
+        <div class="relative h-48 w-full overflow-hidden kf-img-wrap">
+          <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover kf-img-zoom" loading="lazy" />
+          <div class="absolute top-3 left-3">
+            <span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-lg border ${getCategoryBadge(item.category)} bg-white/95 shadow-sm">
+              ${item.category}
+            </span>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-2">
+              <span>${item.date}</span>
+              <span>•</span>
+              <span>${item.readTime}</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900 group-hover:text-emerald-600 transition-colors leading-snug mb-2 line-clamp-2">
+              ${item.title}
+            </h3>
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+              ${item.excerpt}
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100 text-xs">
+            <span class="font-bold text-slate-800">${author.name}</span>
+            <span class="font-mono text-emerald-700 font-semibold">${item.views} views</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
 // DOM READY INITIALIZATION
 document.addEventListener("DOMContentLoaded", () => {
   cleanUrlBar();
-  initTheme();
+
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileDrawer = document.getElementById("mobile-menu-drawer");
+  if (mobileBtn && mobileDrawer) {
+    mobileBtn.addEventListener("click", () => {
+      mobileDrawer.classList.toggle("hidden");
+    });
+  }
 
   // If on Homepage
   if (document.getElementById("hero-featured-grid")) {
     renderHero();
-    renderBusinessSection();
-    renderExpatSection();
-    renderTransportSection();
-    renderTechSection();
-    renderLifestyleSection();
-    renderTravelSection();
+    renderTrendingBusiness();
+    renderTechShowcase();
+    renderExpatSidebar();
     renderPopularTopics();
-    renderTrendingNow();
     renderFeedArticles();
 
     const searchInput = document.getElementById("search-input");
@@ -2028,10 +1255,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const params = new URLSearchParams(window.location.search);
-    const cat = params.get("category") || params.get("cat");
     const q = params.get("search");
-    if (cat) setCategory(cat);
     if (q) filterByTopic(q);
+  }
+
+  // If on Category page
+  if (document.getElementById("category-articles-grid")) {
+    initCategoryPage();
   }
 
   // If on Article page or clean article slug

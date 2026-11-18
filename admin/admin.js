@@ -20,11 +20,22 @@ const state = {
 // 1. DATABASE & PERSISTENCE LAYER (cmsDB)
 // ==========================================
 const cmsDB = {
-  KEY: 'kf_cms_database_v4',
+  KEY: 'kf_cms_database_v6',
 
   async init() {
     let stored = localStorage.getItem(this.KEY);
-    if (!stored) {
+    let needsRefresh = false;
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (!parsed.categories || parsed.categories.length !== 28) {
+          needsRefresh = true;
+        }
+      } catch (e) {
+        needsRefresh = true;
+      }
+    }
+    if (!stored || needsRefresh) {
       try {
         const res = await fetch('data/cms_database.json');
         if (res.ok) {
@@ -2539,87 +2550,80 @@ function renderCategories(container) {
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <!-- Left: Add New Category Form (4 Cols) -->
-        <div class="lg:col-span-4 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
-          <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white pb-2 border-b border-slate-100 dark:border-slate-800">
-            Add New Category
+        <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <h3 class="font-display font-bold text-sm text-slate-900 pb-2 border-b border-slate-100">
+            Add Primary Category Taxonomy
           </h3>
+          <p class="text-[11px] text-slate-500">KhaleejFlow operates on 28 flat sovereign categories with clean SEO slugs.</p>
           <form onsubmit="handleSaveCategory(event)" class="space-y-3 text-xs">
             <div>
-              <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Category Name *</label>
-              <input type="text" id="cat-name-input" required placeholder="e.g. Saudi Arabia" oninput="document.getElementById('cat-slug-input').value = slugify(this.value)" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" />
+              <label class="block font-bold text-slate-700 mb-1">Category Name *</label>
+              <input type="text" id="cat-name-input" required placeholder="e.g. GCC Travel" oninput="document.getElementById('cat-slug-input').value = slugify(this.value)" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-900" />
             </div>
             <div>
-              <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Slug</label>
-              <input type="text" id="cat-slug-input" required placeholder="saudi-arabia" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono" />
+              <label class="block font-bold text-slate-700 mb-1">Clean URL Slug *</label>
+              <input type="text" id="cat-slug-input" required placeholder="gcc-travel" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 font-mono" />
             </div>
             <div>
-              <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Parent Category</label>
-              <select id="cat-parent-input" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
-                <option value="">None (Top Level Hub)</option>
-                <optgroup label="7 Parent Silos">
-                  <option value="Business & Finance">Business & Finance</option>
-                  <option value="Expat Life & Legal">Expat Life & Legal</option>
-                  <option value="Transport & Mobility">Transport & Mobility</option>
-                  <option value="Lifestyle & Entertainment">Lifestyle & Entertainment</option>
-                  <option value="Tech & Innovation">Tech & Innovation</option>
-                  <option value="Travel & Tourism">Travel & Tourism</option>
-                  <option value="Health & Education">Health & Education</option>
-                </optgroup>
-                <optgroup label="Subcategories">
-                  ${categories.map(c => `<option value="${c.name}">${c.name} (${c.parentSilo || 'General'})</option>`).join('')}
-                </optgroup>
+              <label class="block font-bold text-slate-700 mb-1">Editorial Grouping</label>
+              <select id="cat-group-input" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 font-medium">
+                <option value="Business">Business</option>
+                <option value="Expat Life">Expat Life</option>
+                <option value="Tech">Tech</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Travel">Travel</option>
               </select>
             </div>
             <div>
-              <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Description</label>
-              <textarea id="cat-desc-input" rows="3" placeholder="Brief hub overview..." class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"></textarea>
+              <label class="block font-bold text-slate-700 mb-1">Description</label>
+              <textarea id="cat-desc-input" rows="3" placeholder="Brief taxonomy overview..." class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-900"></textarea>
             </div>
             <div>
-              <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">SEO Title Tag</label>
-              <input type="text" id="cat-seo-title" placeholder="SEO title for search engines" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" />
+              <label class="block font-bold text-slate-700 mb-1">SEO Title Tag</label>
+              <input type="text" id="cat-seo-title" placeholder="SEO title for search engines" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-900" />
             </div>
             <button type="submit" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-colors">
-              Add Category
+              Add Flat Category
             </button>
           </form>
         </div>
 
         <!-- Right: Categories Table (8 Cols) -->
-        <div class="lg:col-span-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
+        <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs">
-              <thead class="bg-slate-50 dark:bg-slate-800/60 text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800">
+              <thead class="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200">
                 <tr>
-                  <th class="py-3 px-4">Name</th>
-                  <th class="py-3 px-4">Parent Silo</th>
+                  <th class="py-3 px-4">Taxonomy Name</th>
+                  <th class="py-3 px-4">Grouping</th>
+                  <th class="py-3 px-4">Clean Slug</th>
                   <th class="py-3 px-4">Description</th>
-                  <th class="py-3 px-4">Slug</th>
-                  <th class="py-3 px-4">Count</th>
+                  <th class="py-3 px-4">Articles</th>
                   <th class="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-slate-800/80">
+              <tbody class="divide-y divide-slate-100">
                 ${categories.map(cat => {
                   const count = posts.filter(p => p.category === cat.name || (p.categories || []).includes(cat.name)).length;
                   return `
-                    <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40">
+                    <tr class="hover:bg-slate-50/80">
                       <td class="py-3 px-4">
-                        <strong class="font-bold text-slate-900 dark:text-white">${escapeHtml(cat.name)}</strong>
+                        <strong class="font-bold text-slate-900">${cat.icon ? cat.icon + ' ' : ''}${escapeHtml(cat.name)}</strong>
                       </td>
                       <td class="py-3 px-4">
-                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-                          ${escapeHtml(cat.parentSilo || cat.silo || 'General')}
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          ${escapeHtml(cat.group || 'Taxonomy')}
                         </span>
+                      </td>
+                      <td class="py-3 px-4 font-mono text-emerald-700">
+                        /category/${escapeHtml(cat.slug)}
                       </td>
                       <td class="py-3 px-4 text-slate-500 max-w-xs truncate">
                         ${escapeHtml(cat.description || '—')}
                       </td>
-                      <td class="py-3 px-4 font-mono text-slate-400">
-                        /${escapeHtml(cat.slug)}/
-                      </td>
                       <td class="py-3 px-4">
-                        <span class="px-2 py-0.5 rounded-full font-mono font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px]">
-                          ${count} posts
+                        <span class="px-2 py-0.5 rounded-full font-mono font-bold bg-slate-100 text-slate-700 text-[10px]">
+                          ${count} articles
                         </span>
                       </td>
                       <td class="py-3 px-4 text-right space-x-2">
@@ -2641,7 +2645,7 @@ function handleSaveCategory(e) {
   e.preventDefault();
   const name = document.getElementById('cat-name-input').value.trim();
   const slug = document.getElementById('cat-slug-input').value.trim();
-  const parentId = document.getElementById('cat-parent-input').value;
+  const group = document.getElementById('cat-group-input').value;
   const description = document.getElementById('cat-desc-input').value.trim();
   const seoTitle = document.getElementById('cat-seo-title').value.trim();
 
@@ -2649,12 +2653,12 @@ function handleSaveCategory(e) {
     id: slug,
     name: name,
     slug: slug,
-    parentId: parentId || null,
+    group: group,
     description: description,
     seoTitle: seoTitle || `${name} Guides | Khaleej Flow`
   });
 
-  showToast("Category added successfully!", "success");
+  showToast("Flat category added successfully!", "success");
   cmsRouter.renderCurrent();
 }
 

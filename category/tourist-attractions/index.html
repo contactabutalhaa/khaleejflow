@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Dynamic Base Routing for Clean URLs -->
+  <script>
+    (function() {
+      var isGh = window.location.pathname.indexOf('/khaleejflow/') !== -1;
+      var base = document.createElement('base');
+      base.href = isGh ? '/khaleejflow/' : '/';
+      document.head.appendChild(base);
+    })();
+  </script>
+  <title>Category Guides — KhaleejFlow Sovereign Taxonomies</title>
+  <meta name="description" content="Browse verified guides, utilities, transit hubs, and news across 28 flat primary categories on KhaleejFlow." />
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            khaleej: {
+              emerald: '#059669',
+              emeraldDark: '#047857',
+              emeraldLight: '#10b981',
+              navy: '#0f172a',
+              gold: '#d97706',
+              goldLight: '#f59e0b',
+              cream: '#fcfbf7'
+            }
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet (Crisp Modern Light Mode) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- 1. TOP LIVE TELEMETRY & MARKETS -->
+  <div class="bg-slate-900 text-xs font-mono py-2 px-4 sm:px-6 lg:px-8 text-slate-300 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center divide-x divide-slate-700 gap-0">
+        <span class="inline-flex items-center gap-1.5 pr-4 font-bold text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-gulf"></span>LIVE GCC
+        </span>
+        <span class="px-3 hidden sm:inline">🇦🇪 Dubai <strong class="text-white">28°C</strong></span>
+        <span class="px-3 hidden md:inline">🇸🇦 Riyadh <strong class="text-white">26°C</strong></span>
+        <span class="px-3 hidden lg:inline">🇶🇦 Doha <strong class="text-white">27°C</strong></span>
+        <span class="px-3 hidden lg:inline">🇰🇼 Kuwait <strong class="text-white">30°C</strong></span>
+        <span class="px-3 hidden xl:inline">🇧🇭 Manama <strong class="text-white">27°C</strong></span>
+        <span class="px-3 hidden xl:inline">🇴🇲 Muscat <strong class="text-white">29°C</strong></span>
+      </div>
+      <div class="hidden xl:flex items-center gap-4 text-[11px]">
+        <span>Brent <strong class="text-emerald-400">$82.40 ▲</strong></span>
+        <span class="text-slate-600">|</span>
+        <span>Tadawul <strong class="text-emerald-400">+0.62%</strong></span>
+        <span class="text-slate-600">|</span>
+        <span>DFM <strong class="text-emerald-400">+0.48%</strong></span>
+        <span class="text-slate-600">|</span>
+        <span>AED/USD <strong class="text-white">3.6725</strong></span>
+        <span class="text-slate-600">|</span>
+        <span>SAR/USD <strong class="text-white">3.7500</strong></span>
+        <span class="text-slate-600">|</span>
+        <span>Gold <strong class="text-amber-400">AED 299/g</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. BREAKING NEWS TICKER -->
+  <div class="bg-emerald-700 text-white overflow-hidden py-1.5 shadow-inner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
+      <div class="flex-shrink-0 flex items-center gap-2 pr-3 border-r border-emerald-500">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span class="text-[11px] font-black uppercase tracking-widest text-white font-display">Breaking</span>
+      </div>
+      <div class="overflow-hidden whitespace-nowrap flex-1">
+        <div class="khaleej-ticker text-xs text-emerald-50 font-medium">
+          <span class="mx-8">🌍 Unified GCC Grand Tours Tourist Visa launches across all 6 member nations</span>
+          <span class="text-emerald-300 mx-2">◆</span>
+          <span class="mx-8">🚆 2,177km Trans-Gulf Railway breaks ground connecting Kuwait, Saudi Arabia, Bahrain, Qatar, UAE &amp; Oman</span>
+          <span class="text-emerald-300 mx-2">◆</span>
+          <span class="mx-8">🤖 Riyadh LEAP &amp; Dubai AI Campus mobilize $100B sovereign generative AI infrastructure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. MAIN BRAND HEADER -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 gap-3">
+        <!-- Logo -->
+        <a href="./" class="flex items-center gap-2.5 group flex-shrink-0">
+          <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 p-0.5 shadow-md shadow-emerald-700/20 group-hover:shadow-emerald-600/40 transition-all">
+            <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
+                <path d="M7 6V26" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+                <path d="M7 16L19 6C23 10 23 16 19 20L7 16Z" fill="#059669" opacity="0.95"/>
+                <path d="M14 18L24 26" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="23" cy="9" r="2.5" fill="#f59e0b"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-0.5">
+              <span class="font-display text-2xl font-black tracking-tight text-slate-900 leading-none">Khaleej</span>
+              <span class="font-display text-2xl font-black tracking-tight text-emerald-600 leading-none">Flow</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 ml-0.5 mb-1 flex-shrink-0"></span>
+            </div>
+            <span class="text-[8px] font-bold uppercase tracking-[0.2em] text-slate-500 font-display block -mt-0.5">
+              GULF MEDIA &amp; INSIGHTS
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Bar -->
+        <nav class="hidden xl:flex items-center h-full">
+          <ul class="flex items-center h-full font-display text-[13px] font-semibold text-slate-700 space-x-1">
+            <li class="h-full flex items-center">
+              <a href="./" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap text-emerald-700 font-bold">Home</a>
+            </li>
+            <li class="h-full flex items-center">
+              <a href="category/business-and-startups" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap">Business</a>
+            </li>
+            <li class="h-full flex items-center">
+              <a href="category/visas-and-immigration" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap">Expat Life</a>
+            </li>
+            <li class="h-full flex items-center">
+              <a href="category/artificial-intelligence" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap">Tech</a>
+            </li>
+            <li class="h-full flex items-center">
+              <a href="category/luxury-living" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap">Lifestyle</a>
+            </li>
+            <li class="h-full flex items-center">
+              <a href="category/public-transport" class="px-3 py-2 hover:text-emerald-700 transition-colors whitespace-nowrap">Travel</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center gap-2.5">
+          <a href="./#main-feed-section" class="p-2 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" title="Search Guides">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </a>
+          <a href="admin" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors">
+            <span>⚡ CMS</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CATEGORY HUB CONTAINER -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs font-mono text-slate-500 mb-6">
+      <a href="./" class="hover:text-emerald-700 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-400">Category Hub</span>
+      <span>/</span>
+      <span id="category-breadcrumb" class="text-emerald-700 font-bold">Taxonomy</span>
+    </nav>
+
+    <!-- Category Hero Header (Crisp Light Mode Banner) -->
+    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-teal-50 text-slate-900 p-8 sm:p-12 mb-10 shadow-sm border border-emerald-100">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 mb-3">
+          <span id="category-icon" class="text-2xl">📜</span>
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200">
+            KhaleejFlow Primary Taxonomy
+          </span>
+        </div>
+        <h1 id="category-title" class="text-3xl sm:text-4xl lg:text-5xl font-black mt-2 mb-4 font-display tracking-tight text-slate-900">
+          Visas &amp; Immigration
+        </h1>
+        <p id="category-description" class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+          Verified guides, official updates, and practical resources published by our journalists.
+        </p>
+
+        <!-- Quick Filter Pills for Other Top Categories -->
+        <div class="flex flex-wrap gap-2 pt-2 text-xs font-semibold">
+          <a href="category/business-and-startups" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition-all">💼 Business &amp; Startups</a>
+          <a href="category/visas-and-immigration" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white border border-emerald-600 shadow-xs transition-all">📜 Visas &amp; Immigration</a>
+          <a href="category/real-estate-and-property" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition-all">🏢 Real Estate</a>
+          <a href="category/artificial-intelligence" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition-all">🤖 AI</a>
+          <a href="category/public-transport" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition-all">🚆 Transit</a>
+          <a href="category/personal-finance-and-wealth" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition-all">💰 Wealth</a>
+          <a href="category/gcc-travel" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition-all">🌍 GCC Travel</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Articles Grid -->
+    <div class="space-y-6">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+        <div>
+          <h2 class="font-display font-extrabold text-xl text-slate-900">
+            Published Intelligence &amp; Guides
+          </h2>
+          <p class="text-xs text-slate-500 font-sans mt-0.5">Verified dispatches from GCC bureaus</p>
+        </div>
+        <a href="./" class="text-xs font-bold text-emerald-700 hover:underline flex items-center gap-1 font-display">
+          <span>&larr; Back to Homepage</span>
+        </a>
+      </div>
+
+      <div id="category-articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by app.js initCategoryPage() -->
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-20 border-t border-slate-200 bg-white text-slate-600 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="pb-12 border-b border-slate-200 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-4 space-y-4">
+          <a href="./" class="flex items-center gap-2.5 group">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 p-0.5 shadow-md shadow-emerald-700/20">
+              <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+                <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
+                  <path d="M7 6V26" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M7 16L19 6C23 10 23 16 19 20L7 16Z" fill="#059669" opacity="0.95"/>
+                  <path d="M14 18L24 26" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="23" cy="9" r="2.5" fill="#f59e0b"/>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-baseline gap-0.5">
+                <span class="font-display text-2xl font-black tracking-tight text-slate-900 leading-none">Khaleej</span>
+                <span class="font-display text-2xl font-black tracking-tight text-emerald-600 leading-none">Flow</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 ml-0.5 mb-1"></span>
+              </div>
+              <span class="text-[8.5px] font-bold uppercase tracking-[0.2em] text-slate-500 font-display block -mt-0.5">
+                GULF MEDIA &amp; INSIGHTS
+              </span>
+            </div>
+          </a>
+          <p class="text-xs leading-relaxed text-slate-600 max-w-sm font-sans">
+            KhaleejFlow covers verified reports across 28 flat taxonomies across Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman.
+          </p>
+        </div>
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900">Popular Taxonomies</h4>
+          <ul class="space-y-2 text-xs font-medium">
+            <li><a href="category/visas-and-immigration" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>📜</span> Visas &amp; Immigration</a></li>
+            <li><a href="category/real-estate-and-property" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🏢</span> Real Estate &amp; Property</a></li>
+            <li><a href="category/aviation-and-travel" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>✈️</span> Aviation &amp; Travel</a></li>
+            <li><a href="category/artificial-intelligence" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🤖</span> Artificial Intelligence</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900">GCC Growth &amp; Living</h4>
+          <ul class="space-y-2 text-xs font-medium">
+            <li><a href="category/gcc-travel" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🌍</span> GCC Travel</a></li>
+            <li><a href="category/smart-cities" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>🏙️</span> Smart Cities</a></li>
+            <li><a href="category/personal-finance-and-wealth" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>💰</span> Personal Finance</a></li>
+            <li><a href="category/labor-law-and-employment" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5"><span>⚖️</span> Labor Law</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-display text-xs font-black uppercase tracking-wider text-slate-900">Essential Links</h4>
+          <ul class="space-y-2 text-xs font-medium">
+            <li><a href="contact" class="hover:text-emerald-700 transition-colors">📩 Contact Us</a></li>
+            <li><a href="disclaimer" class="hover:text-emerald-700 transition-colors">⚖️ Disclaimer</a></li>
+            <li><a href="privacy-policy" class="hover:text-emerald-700 transition-colors">🔒 Privacy Policy</a></li>
+            <li><a href="write-for-us" class="hover:text-emerald-700 transition-colors">✍️ Write For Us</a></li>
+            <li><a href="admin" class="hover:text-emerald-700 font-bold text-slate-800">⚡ Admin CMS</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-sans gap-4">
+        <div>&copy; 2026 KhaleejFlow Media Network. All rights reserved.</div>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-emerald-700 font-bold hover:underline">Back to Top &uarr;</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
