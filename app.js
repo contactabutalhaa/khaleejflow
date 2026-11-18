@@ -822,8 +822,45 @@ function getAuthor(authorId) {
   return authorsData.find(a => a.id === authorId) || authorsData[0];
 }
 
-function goToArticle(id) {
-  window.location.href = `article.html?id=${id}`;
+// Base Path Helper (Supports localhost root as well as GitHub Pages repository subfolder)
+function getBasePath() {
+  const p = window.location.pathname;
+  if (p.includes("/khaleejflow/")) {
+    return "/khaleejflow/";
+  }
+  return "/";
+}
+
+// Clean extensionless URL bar cleaner (removes index.html & .html from address bar)
+function cleanUrlBar() {
+  if (typeof window === "undefined" || !window.history || !window.history.replaceState) return;
+  const p = window.location.pathname;
+  if (p.endsWith("/index.html")) {
+    const clean = p.replace(/\/index\.html$/, "/") || "/";
+    window.history.replaceState(null, "", clean + window.location.search + window.location.hash);
+  } else if (p.endsWith(".html")) {
+    const clean = p.replace(/\.html$/, "");
+    window.history.replaceState(null, "", clean + window.location.search + window.location.hash);
+  }
+}
+
+// Navigate to article using title slug URL
+function goToArticle(idOrSlug) {
+  let article = null;
+  if (typeof idOrSlug === "number" || /^\d+$/.test(idOrSlug)) {
+    article = articlesData.find(a => a.id == idOrSlug);
+  } else {
+    article = articlesData.find(a => a.slug === idOrSlug);
+  }
+  if (article && article.slug) {
+    const base = getBasePath();
+    window.location.href = `${base}${article.slug}`;
+  } else if (article) {
+    const base = getBasePath();
+    window.location.href = `${base}article?id=${article.id}`;
+  } else {
+    window.location.href = "./";
+  }
 }
 
 // Theme
@@ -1643,15 +1680,49 @@ function loadMoreArticles() {
   renderFeedArticles();
 }
 
-// --- ARTICLE.HTML DEDICATED PAGE INITIALIZATION ---
+// --- ARTICLE DEDICATED PAGE INITIALIZATION ---
 function initArticlePage() {
   initTheme();
+  cleanUrlBar();
   updateBookmarkCountUI();
 
   const urlParams = new URLSearchParams(window.location.search);
-  const articleId = parseInt(urlParams.get("id")) || 1;
+  const paramSlug = urlParams.get("slug");
+  const paramId = parseInt(urlParams.get("id"));
 
-  const article = articlesData.find(a => a.id === articleId) || articlesData[0];
+  // Check URL pathname for slug (e.g. /how-to-send-money-home-using-mypay-card-and-lulu-money)
+  const pathSegments = window.location.pathname.split("/").filter(Boolean);
+  let pathSlug = "";
+  if (pathSegments.length > 0) {
+    const last = pathSegments[pathSegments.length - 1].replace(/\.html$/, "");
+    if (last !== "article" && last !== "index" && last !== "khaleejflow") {
+      pathSlug = last;
+    }
+  }
+
+  let article = null;
+  if (pathSlug) {
+    article = articlesData.find(a => a.slug && a.slug.toLowerCase() === pathSlug.toLowerCase());
+  }
+  if (!article && paramSlug) {
+    article = articlesData.find(a => a.slug && a.slug.toLowerCase() === paramSlug.toLowerCase());
+  }
+  if (!article && paramId) {
+    article = articlesData.find(a => a.id === paramId);
+  }
+  if (!article) {
+    article = articlesData[0];
+  }
+
+  // Update browser URL to clean title slug URL
+  if (window.history && window.history.replaceState && article.slug) {
+    const base = getBasePath();
+    const cleanUrl = `${base}${article.slug}`;
+    if (!window.location.pathname.endsWith(`/${article.slug}`) && window.location.pathname !== cleanUrl) {
+      window.history.replaceState(null, "", cleanUrl);
+    }
+  }
+
   const author = getAuthor(article.authorId);
   const isBookmarked = savedBookmarks.includes(article.id);
 
@@ -1663,9 +1734,9 @@ function initArticlePage() {
     titleContainer.innerHTML = `
       <!-- Breadcrumbs -->
       <nav class="flex items-center space-x-2 text-xs text-slate-500 font-medium mb-4">
-        <a href="index.html" class="hover:text-emerald-600 transition-colors">Home</a>
+        <a href="./" class="hover:text-emerald-600 transition-colors">Home</a>
         <span>/</span>
-        <button onclick="window.location.href='index.html'" class="hover:text-emerald-600 transition-colors">${article.category}</button>
+        <button onclick="window.location.href='./'" class="hover:text-emerald-600 transition-colors">${article.category}</button>
         <span>/</span>
         <span class="text-slate-400 truncate max-w-xs">${article.title}</span>
       </nav>
@@ -1842,19 +1913,6 @@ function initArticlePage() {
   const sidebarContainer = document.getElementById("article-sidebar");
   if (sidebarContainer) {
     sidebarContainer.innerHTML = `
-      <!-- Share Tools -->
-      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm">
-        <h4 class="font-display text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Share This Guide</h4>
-        <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
-          <button onclick="shareToWhatsApp('${article.title}')" class="p-2.5 rounded-xl bg-emerald-500 text-white flex items-center justify-center gap-1.5 hover:bg-emerald-600 transition-colors">
-            <span>WhatsApp</span>
-          </button>
-          <button onclick="shareArticle('${article.title}')" class="p-2.5 rounded-xl bg-slate-900 text-white flex items-center justify-center gap-1.5 hover:bg-slate-800 transition-colors">
-            <span>Copy Link</span>
-          </button>
-        </div>
-      </div>
-
       <!-- Trending in the UAE -->
       <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
         <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800">
@@ -1915,11 +1973,16 @@ function shareToWhatsApp(title) {
 
 // Global DOM Loaded
 document.addEventListener("DOMContentLoaded", () => {
+  cleanUrlBar();
   initTheme();
   initSearch();
   updateBookmarkCountUI();
 
-  if (window.location.pathname.includes("article.html") || document.getElementById("article-title-header")) {
+  const isArticle = document.getElementById("article-title-header") ||
+    window.location.pathname.includes("article") ||
+    articlesData.some(a => a.slug && (window.location.pathname.endsWith(`/${a.slug}`) || window.location.pathname.endsWith(`/${a.slug}/`)));
+
+  if (isArticle) {
     initArticlePage();
     return;
   }

@@ -297,6 +297,25 @@ try {
             }
 
             $filePath = Join-Path $root $localPath
+            
+            # Resolve extensionless clean URLs (e.g. /cities -> cities.html, /how-to-... -> article.html)
+            if (!(Test-Path $filePath -PathType Leaf)) {
+                if (Test-Path "$filePath.html" -PathType Leaf) {
+                    $filePath = "$filePath.html"
+                } elseif (Test-Path (Join-Path $filePath "index.html") -PathType Leaf) {
+                    $filePath = Join-Path $filePath "index.html"
+                } else {
+                    $matchedArticle = $false
+                    if ($db -and $db.posts) {
+                        $foundPost = $db.posts | Where-Object { $_.slug -and $_.slug.ToLower() -eq $localPath.ToLower() }
+                        if ($foundPost) { $matchedArticle = $true }
+                    }
+                    if ($matchedArticle -or (Test-Path (Join-Path $root "$localPath\index.html"))) {
+                        $filePath = Join-Path $root "article.html"
+                    }
+                }
+            }
+
             $fullPath = [System.IO.Path]::GetFullPath($filePath)
             if (!$fullPath.StartsWith($root, [System.StringComparison]::OrdinalIgnoreCase)) {
                 $err = [System.Text.Encoding]::UTF8.GetBytes("403 Forbidden")

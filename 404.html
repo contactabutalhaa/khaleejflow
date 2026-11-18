@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Dynamic Base Routing for Clean URLs -->
+  <script>
+    (function() {
+      var isGh = window.location.pathname.indexOf('/khaleejflow/') !== -1;
+      var base = document.createElement('base');
+      base.href = isGh ? '/khaleejflow/' : '/';
+      document.head.appendChild(base);
+    })();
+  </script>
+  <title>Page Not Found — KhaleejFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // SPA Fallback Router: If path matches an article slug, redirect to article view
+    (function() {
+      var p = window.location.pathname;
+      var parts = p.split('/').filter(Boolean);
+      if (parts.length > 0) {
+        var last = parts[parts.length - 1].replace(/\.html$/, '');
+        if (last && last !== '404') {
+          var isGh = p.indexOf('/khaleejflow/') !== -1;
+          var root = isGh ? '/khaleejflow/' : '/';
+          window.location.replace(root + 'article.html?slug=' + encodeURIComponent(last));
+        }
+      }
+    })();
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col items-center justify-center p-6 text-center antialiased">
+  <div class="max-w-md bg-white p-8 rounded-3xl shadow-xl border border-slate-200">
+    <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4 font-bold font-display">
+      404
+    </div>
+    <h1 class="text-2xl font-black font-display text-slate-900 mb-2">Page Not Found</h1>
+    <p class="text-xs text-slate-500 mb-6">The page or guide you are looking for may have been moved or updated.</p>
+    <a href="./" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-md">
+      <span>Return Home</span>
+      <span>&rarr;</span>
+    </a>
+  </div>
+</body>
+</html>

@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Dynamic Base Routing for Clean URLs -->
+  <script>
+    (function() {
+      var isGh = window.location.pathname.indexOf('/khaleejflow/') !== -1;
+      var base = document.createElement('base');
+      base.href = isGh ? '/khaleejflow/' : '/';
+      document.head.appendChild(base);
+    })();
+  </script>
   <title>Cities & Emirates Guides — KhaleejFlow</title>
   <meta name="description" content="Explore in-depth city and neighborhood guides across the United Arab Emirates: Dubai, Abu Dhabi, Sharjah, Ajman, and all seven Emirates." />
 
@@ -72,20 +81,6 @@
         <span class="text-slate-600">|</span>
         <span>Gold <strong class="text-amber-400">AED 299/g</strong></span>
       </div>
-      <!-- Right: GST Time, CMS Portal & Theme Switcher -->
-      <div class="flex items-center gap-2.5 font-sans">
-        <span class="text-[11px] text-slate-400 font-mono hidden sm:inline">GST (UTC+4)</span>
-        <a href="admin.html" class="flex items-center gap-1 py-1 px-2 rounded-lg bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 hover:text-white border border-emerald-800/60 transition-colors" title="Editorial CMS & Admin Dashboard">
-          <span class="text-[10px]">⚙️</span>
-          <span class="text-[11px] font-bold">CMS Portal</span>
-        </a>
-        <button onclick="toggleTheme()" class="flex items-center gap-1.5 py-1 px-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors" title="Toggle Dark/Light Mode">
-          <span class="theme-toggle-icon">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-          </span>
-          <span class="text-[11px] font-medium hidden sm:inline">Theme</span>
-        </button>
-      </div>
     </div>
   </div>
 
@@ -118,7 +113,7 @@
       <div class="flex items-center justify-between h-16 gap-3">
 
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2.5 group flex-shrink-0">
+        <a href="./" class="flex items-center gap-2.5 group flex-shrink-0">
           <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-0.5 shadow-md shadow-emerald-600/20 group-hover:shadow-emerald-500/40 transition-all">
             <div class="w-full h-full bg-white dark:bg-slate-950 rounded-[10px] flex items-center justify-center">
               <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
@@ -152,41 +147,41 @@
 
             <!-- 1. Home -->
             <li class="h-full flex items-center">
-              <a href="index.html" class="nav-category-btn px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-bold">
+              <a href="./" class="nav-category-btn px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-bold">
                 Home
               </a>
             </li>
 
             <!-- 2. Cities (Link + Dropdown) -->
             <li class="relative group h-full flex items-center">
-              <a href="cities.html" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
+              <a href="cities" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
                 <span>Cities</span>
                 <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
               </a>
               <div class="nav-dropdown absolute top-full left-0 w-60 bg-white dark:bg-slate-900 shadow-xl shadow-slate-900/10 dark:shadow-black/40 rounded-xl border border-slate-100 dark:border-slate-800 py-2.5 z-50">
                 <div class="px-3.5 pb-2 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">United Arab Emirates</span>
-                  <a href="cities.html" class="text-[10px] text-emerald-600 hover:underline">All Cities &rarr;</a>
+                  <a href="cities" class="text-[10px] text-emerald-600 hover:underline">All Cities &rarr;</a>
                 </div>
-                <a href="category.html?cat=Abu+Dhabi" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Abu+Dhabi" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   Abu Dhabi
                 </a>
-                <a href="category.html?cat=Ajman" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Ajman" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   Ajman
                 </a>
-                <a href="category.html?cat=Dubai" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Dubai" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   Dubai
                 </a>
-                <a href="category.html?cat=Sharjah" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Sharjah" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   Sharjah
                 </a>
-                <a href="cities.html" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="cities" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   Fujairah
                 </a>
-                <a href="cities.html" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="cities" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   Ras Al Khaimah
                 </a>
-                <a href="cities.html" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="cities" class="block px-3.5 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   Umm Al Quwain
                 </a>
               </div>
@@ -194,37 +189,37 @@
 
             <!-- 3. Transportation (Link + Dropdown) -->
             <li class="relative group h-full flex items-center">
-              <a href="transportation.html" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
+              <a href="transportation" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
                 <span>Transportation</span>
                 <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
               </a>
               <div class="nav-dropdown absolute top-full left-0 w-64 bg-white dark:bg-slate-900 shadow-xl shadow-slate-900/10 dark:shadow-black/40 rounded-xl border border-slate-100 dark:border-slate-800 py-2.5 z-50">
                 <div class="px-3.5 pb-2 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Transit &amp; Commuting</span>
-                  <a href="transportation.html" class="text-[10px] text-blue-600 hover:underline">Transit Hub &rarr;</a>
+                  <a href="transportation" class="text-[10px] text-blue-600 hover:underline">Transit Hub &rarr;</a>
                 </div>
-                <a href="category.html?cat=Bus+Stations" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Bus+Stations" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-600 flex items-center justify-center text-xs">🚌</span>
                   <div>
                     <div class="font-bold">Bus Station</div>
                     <div class="text-[10px] text-slate-400 font-normal">Al Ain, Al Satwa, Intercity Routes</div>
                   </div>
                 </a>
-                <a href="category.html?cat=Metro+Stations" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Metro+Stations" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center text-xs">🚆</span>
                   <div>
                     <div class="font-bold">Metro Station</div>
                     <div class="text-[10px] text-slate-400 font-normal">Union, BurJuman, Al Ras</div>
                   </div>
                 </a>
-                <a href="transportation.html" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="transportation" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-600 flex items-center justify-center text-xs">🅿️</span>
                   <div>
                     <div class="font-bold">Parking Guide</div>
                     <div class="text-[10px] text-slate-400 font-normal">SMS Parking 5188, Malls, Airport</div>
                   </div>
                 </a>
-                <a href="transportation.html" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="transportation" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 flex items-center justify-center text-xs">💳</span>
                   <div>
                     <div class="font-bold">Travel &amp; NOL</div>
@@ -236,23 +231,23 @@
 
             <!-- 4. Business (Link + Dropdown) -->
             <li class="relative group h-full flex items-center">
-              <a href="business.html" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
+              <a href="business" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
                 <span>Business</span>
                 <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
               </a>
               <div class="nav-dropdown absolute top-full left-0 w-60 bg-white dark:bg-slate-900 shadow-xl shadow-slate-900/10 dark:shadow-black/40 rounded-xl border border-slate-100 dark:border-slate-800 py-2.5 z-50">
                 <div class="px-3.5 pb-2 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Commercial &amp; Property</span>
-                  <a href="business.html" class="text-[10px] text-amber-600 hover:underline">Business Hub &rarr;</a>
+                  <a href="business" class="text-[10px] text-amber-600 hover:underline">Business Hub &rarr;</a>
                 </div>
-                <a href="category.html?cat=Real+Estate" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Real+Estate" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-600 flex items-center justify-center text-xs">🏢</span>
                   <div>
                     <div class="font-bold">Real Estate</div>
                     <div class="text-[10px] text-slate-400 font-normal">Saadiyat, JLT, Business Bay</div>
                   </div>
                 </a>
-                <a href="business.html" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="business" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 flex items-center justify-center text-xs">📈</span>
                   <div>
                     <div class="font-bold">Property Investment</div>
@@ -264,30 +259,30 @@
 
             <!-- 5. Finance (Link + Dropdown) -->
             <li class="relative group h-full flex items-center">
-              <a href="finance.html" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
+              <a href="finance" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
                 <span>Finance</span>
                 <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
               </a>
               <div class="nav-dropdown absolute top-full left-0 w-64 bg-white dark:bg-slate-900 shadow-xl shadow-slate-900/10 dark:shadow-black/40 rounded-xl border border-slate-100 dark:border-slate-800 py-2.5 z-50">
                 <div class="px-3.5 pb-2 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Payroll, Cards &amp; Banking</span>
-                  <a href="finance.html" class="text-[10px] text-emerald-600 hover:underline">Finance Hub &rarr;</a>
+                  <a href="finance" class="text-[10px] text-emerald-600 hover:underline">Finance Hub &rarr;</a>
                 </div>
-                <a href="category.html?cat=Finance" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Finance" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 flex items-center justify-center text-xs">💳</span>
                   <div>
                     <div class="font-bold">Salary Cards &amp; WPS</div>
                     <div class="text-[10px] text-slate-400 font-normal">MyPay Card, FAB Ratibi, Payit</div>
                   </div>
                 </a>
-                <a href="finance.html" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="finance" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center text-xs">🔍</span>
                   <div>
                     <div class="font-bold">Online Balance Enquiry</div>
                     <div class="text-[10px] text-slate-400 font-normal">Instant Bank &amp; Card Checks</div>
                   </div>
                 </a>
-                <a href="finance.html" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="finance" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-600 flex items-center justify-center text-xs">💸</span>
                   <div>
                     <div class="font-bold">LuLu Money Transfer</div>
@@ -299,30 +294,30 @@
 
             <!-- 6. Lifestyle (Link + Dropdown) -->
             <li class="relative group h-full flex items-center">
-              <a href="lifestyle.html" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
+              <a href="lifestyle" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
                 <span>Lifestyle</span>
                 <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
               </a>
               <div class="nav-dropdown absolute top-full left-0 w-64 bg-white dark:bg-slate-900 shadow-xl shadow-slate-900/10 dark:shadow-black/40 rounded-xl border border-slate-100 dark:border-slate-800 py-2.5 z-50">
                 <div class="px-3.5 pb-2 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Daily Living &amp; Services</span>
-                  <a href="lifestyle.html" class="text-[10px] text-purple-600 hover:underline">Lifestyle Hub &rarr;</a>
+                  <a href="lifestyle" class="text-[10px] text-purple-600 hover:underline">Lifestyle Hub &rarr;</a>
                 </div>
-                <a href="category.html?cat=Automotive" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-rose-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Automotive" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-rose-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-rose-100 dark:bg-rose-900/40 text-rose-600 flex items-center justify-center text-xs">🚗</span>
                   <div>
                     <div class="font-bold">Automotive</div>
                     <div class="text-[10px] text-slate-400 font-normal">Traffic Fines, Licence, VIN Check</div>
                   </div>
                 </a>
-                <a href="category.html?cat=Technology" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="category?cat=Technology" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center text-xs">📱</span>
                   <div>
                     <div class="font-bold">Tech &amp; Telecom</div>
                     <div class="text-[10px] text-slate-400 font-normal">Etisalat 53GB, du Packages</div>
                   </div>
                 </a>
-                <a href="lifestyle.html" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-purple-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="lifestyle" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-purple-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-600 flex items-center justify-center text-xs">🎓</span>
                   <div>
                     <div class="font-bold">Education &amp; Careers</div>
@@ -334,37 +329,37 @@
 
             <!-- 7. Essential Tools (Link + Dropdown) -->
             <li class="relative group h-full flex items-center">
-              <a href="essential-tools.html" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
+              <a href="essential-tools" class="px-3 py-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors whitespace-nowrap flex items-center gap-1">
                 <span>Essential Tools</span>
                 <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
               </a>
               <div class="nav-dropdown absolute top-full right-0 w-64 bg-white dark:bg-slate-900 shadow-xl shadow-slate-900/10 dark:shadow-black/40 rounded-xl border border-slate-100 dark:border-slate-800 py-2.5 z-50">
                 <div class="px-3.5 pb-2 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Quick Utility Lookups</span>
-                  <a href="essential-tools.html" class="text-[10px] text-amber-500 hover:underline">All Tools &rarr;</a>
+                  <a href="essential-tools" class="text-[10px] text-amber-500 hover:underline">All Tools &rarr;</a>
                 </div>
-                <a href="essential-tools.html#gold-rates" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="essential-tools#gold-rates" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-600 flex items-center justify-center text-xs">🪙</span>
                   <div>
                     <div class="font-bold">UAE Gold Rates</div>
                     <div class="text-[10px] text-slate-400 font-normal">Daily 24K, 22K &amp; Forex Trends</div>
                   </div>
                 </a>
-                <a href="essential-tools.html#prayer-times" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="essential-tools#prayer-times" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 flex items-center justify-center text-xs">🕌</span>
                   <div>
                     <div class="font-bold">UAE Prayer Times</div>
                     <div class="text-[10px] text-slate-400 font-normal">Salah Timings Dubai, Sharjah, Abu Dhabi</div>
                   </div>
                 </a>
-                <a href="essential-tools.html#postal-codes" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="essential-tools#postal-codes" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center text-xs">📮</span>
                   <div>
                     <div class="font-bold">UAE Postal Codes</div>
                     <div class="text-[10px] text-slate-400 font-normal">Dubai Zip Code &amp; Sharjah Codes</div>
                   </div>
                 </a>
-                <a href="essential-tools.html#traffic-fines" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-rose-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                <a href="essential-tools#traffic-fines" class="flex items-center gap-2 px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:text-rose-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
                   <span class="w-6 h-6 rounded-lg bg-rose-100 dark:bg-rose-900/40 text-rose-600 flex items-center justify-center text-xs">🚔</span>
                   <div>
                     <div class="font-bold">Traffic Fine Check</div>
@@ -413,7 +408,7 @@
   <aside id="mobile-menu-drawer" class="fixed top-0 left-0 bottom-0 w-80 max-w-[88vw] bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col overflow-y-auto">
     <!-- Drawer Header -->
     <div class="flex items-center justify-between px-5 py-4 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-r from-emerald-600 to-teal-600">
-      <a href="index.html" class="flex items-center gap-2">
+      <a href="./" class="flex items-center gap-2">
         <div class="w-8 h-8 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center">
           <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none"><path d="M7 6V26" stroke="white" stroke-width="3" stroke-linecap="round"/><path d="M7 16L19 6C23 10 23 16 19 20L7 16Z" fill="white" opacity="0.8"/></svg>
         </div>
@@ -432,79 +427,79 @@
     </div>
     <!-- Drawer nav items -->
     <nav class="flex-1 overflow-y-auto px-5 py-4 font-display text-sm font-semibold space-y-0.5">
-      <a href="index.html" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-black flex items-center gap-2">
+      <a href="./" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-black flex items-center gap-2">
         <span class="text-base">🏠</span> Home
       </a>
       
       <!-- Cities -->
       <div class="pt-3 pb-1 flex items-center justify-between px-3">
         <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Cities</span>
-        <a href="cities.html" class="text-[10px] text-emerald-600 font-bold hover:underline">Hub &rarr;</a>
+        <a href="cities" class="text-[10px] text-emerald-600 font-bold hover:underline">Hub &rarr;</a>
       </div>
-      <a href="category.html?cat=Abu+Dhabi" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
+      <a href="category?cat=Abu+Dhabi" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
         Abu Dhabi
       </a>
-      <a href="category.html?cat=Ajman" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
+      <a href="category?cat=Ajman" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
         Ajman
       </a>
-      <a href="category.html?cat=Dubai" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
+      <a href="category?cat=Dubai" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
         Dubai
       </a>
-      <a href="category.html?cat=Sharjah" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
+      <a href="category?cat=Sharjah" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
         Sharjah
       </a>
-      <a href="cities.html" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
+      <a href="cities" class="block w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs">
         All 7 Emirates &rarr;
       </a>
 
       <!-- Transportation -->
       <div class="pt-3 pb-1 flex items-center justify-between px-3">
         <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Transportation</span>
-        <a href="transportation.html" class="text-[10px] text-blue-600 font-bold hover:underline">Hub &rarr;</a>
+        <a href="transportation" class="text-[10px] text-blue-600 font-bold hover:underline">Hub &rarr;</a>
       </div>
-      <a href="category.html?cat=Bus+Stations" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="category?cat=Bus+Stations" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>🚌</span> Bus Stations
       </a>
-      <a href="category.html?cat=Metro+Stations" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="category?cat=Metro+Stations" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>🚆</span> Metro Stations
       </a>
-      <a href="transportation.html" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="transportation" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>🅿️</span> Parking Guides
       </a>
 
       <!-- Business -->
       <div class="pt-3 pb-1 flex items-center justify-between px-3">
         <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Business</span>
-        <a href="business.html" class="text-[10px] text-amber-600 font-bold hover:underline">Hub &rarr;</a>
+        <a href="business" class="text-[10px] text-amber-600 font-bold hover:underline">Hub &rarr;</a>
       </div>
-      <a href="category.html?cat=Real+Estate" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="category?cat=Real+Estate" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>🏢</span> Real Estate
       </a>
-      <a href="business.html" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="business" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>📈</span> Property Investment
       </a>
 
       <!-- Finance -->
       <div class="pt-3 pb-1 flex items-center justify-between px-3">
         <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Finance</span>
-        <a href="finance.html" class="text-[10px] text-emerald-600 font-bold hover:underline">Hub &rarr;</a>
+        <a href="finance" class="text-[10px] text-emerald-600 font-bold hover:underline">Hub &rarr;</a>
       </div>
-      <a href="category.html?cat=Finance" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="category?cat=Finance" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>💳</span> Salary Cards &amp; WPS
       </a>
-      <a href="finance.html" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="finance" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>🔍</span> Balance Enquiry
       </a>
 
       <!-- Lifestyle -->
       <div class="pt-3 pb-1 flex items-center justify-between px-3">
         <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">Lifestyle</span>
-        <a href="lifestyle.html" class="text-[10px] text-purple-600 font-bold hover:underline">Hub &rarr;</a>
+        <a href="lifestyle" class="text-[10px] text-purple-600 font-bold hover:underline">Hub &rarr;</a>
       </div>
-      <a href="category.html?cat=Automotive" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="category?cat=Automotive" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>🚗</span> Automotive &amp; Fines
       </a>
-      <a href="category.html?cat=Technology" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
+      <a href="category?cat=Technology" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 text-xs">
         <span>📱</span> Technology &amp; Telecom
       </a>
 
@@ -512,10 +507,10 @@
       <div class="pt-4 pb-1 border-t border-slate-100 dark:border-slate-800">
         <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 px-3">Company &amp; Legal</span>
       </div>
-      <a href="contact.html" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">📩 Contact Us</a>
-      <a href="disclaimer.html" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">⚖️ Disclaimer</a>
-      <a href="privacy-policy.html" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">🔒 Privacy Policy</a>
-      <a href="write-for-us.html" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">✍️ Write For Us</a>
+      <a href="contact" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">📩 Contact Us</a>
+      <a href="disclaimer" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">⚖️ Disclaimer</a>
+      <a href="privacy-policy" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">🔒 Privacy Policy</a>
+      <a href="write-for-us" class="block w-full text-left px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600">✍️ Write For Us</a>
     </nav>
     <div class="px-5 py-4 border-t border-slate-100 dark:border-slate-800">
       <p class="text-xs text-slate-400 font-display">KhaleejFlow Media © 2026</p>
@@ -617,7 +612,7 @@
     
     <!-- Breadcrumb -->
     <nav class="flex items-center space-x-2 text-xs font-mono text-slate-500 mb-6">
-      <a href="index.html" class="hover:text-emerald-600 transition-colors">Home</a>
+      <a href="./" class="hover:text-emerald-600 transition-colors">Home</a>
       <span>/</span>
       <span class="text-slate-400">Cities</span>
     </nav>
@@ -658,7 +653,7 @@
             </h2>
             <p id="article-count-label" class="text-xs text-slate-500 font-sans mt-0.5">Verified area reports</p>
           </div>
-          <a href="index.html" class="text-xs font-bold text-emerald-600 hover:underline flex items-center gap-1 font-display">
+          <a href="./" class="text-xs font-bold text-emerald-600 hover:underline flex items-center gap-1 font-display">
             <span>&larr; Back to Home</span>
           </a>
         </div>
@@ -702,7 +697,7 @@
       <!-- Top Brand & About Row -->
       <div class="pb-12 border-b border-slate-100 dark:border-slate-800/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-5 space-y-4">
-          <a href="index.html" class="flex items-center gap-2.5 group">
+          <a href="./" class="flex items-center gap-2.5 group">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-0.5 shadow-md shadow-emerald-600/20">
               <div class="w-full h-full bg-white dark:bg-slate-950 rounded-[10px] flex items-center justify-center">
                 <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
@@ -740,11 +735,11 @@
               Essential Pages
             </h4>
             <ul class="space-y-2 text-xs font-medium">
-              <li><a href="contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>📩</span> Contact Us</a></li>
-              <li><a href="disclaimer.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>⚖️</span> Disclaimer</a></li>
-              <li><a href="privacy-policy.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🔒</span> Privacy Policy</a></li>
-              <li><a href="write-for-us.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>✍️</span> Write For Us</a></li>
-              <li><a href="admin.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>⚡</span> Admin CMS</a></li>
+              <li><a href="contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>📩</span> Contact Us</a></li>
+              <li><a href="disclaimer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>⚖️</span> Disclaimer</a></li>
+              <li><a href="privacy-policy" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>🔒</span> Privacy Policy</a></li>
+              <li><a href="write-for-us" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>✍️</span> Write For Us</a></li>
+              <li><a href="admin" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"><span>⚡</span> Admin CMS</a></li>
             </ul>
           </div>
           <div>
@@ -752,10 +747,10 @@
               Quick Nav
             </h4>
             <ul class="space-y-2 text-xs font-medium">
-              <li><a href="index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home Feed</a></li>
-              <li><a href="cities.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Cities &amp; Emirates</a></li>
-              <li><a href="transportation.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Public Transit</a></li>
-              <li><a href="finance.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Finance &amp; Salary</a></li>
+              <li><a href="./" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home Feed</a></li>
+              <li><a href="cities" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Cities &amp; Emirates</a></li>
+              <li><a href="transportation" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Public Transit</a></li>
+              <li><a href="finance" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Finance &amp; Salary</a></li>
             </ul>
           </div>
           <div>
@@ -763,10 +758,10 @@
               Follow &amp; Connect
             </h4>
             <div class="flex items-center space-x-2.5 mb-3">
-              <a href="contact.html" class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors" title="Contact Bureau">
+              <a href="contact" class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors" title="Contact Bureau">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               </a>
-              <a href="write-for-us.html" class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors" title="Editorial Submissions">
+              <a href="write-for-us" class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors" title="Editorial Submissions">
                 <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
               </a>
             </div>
