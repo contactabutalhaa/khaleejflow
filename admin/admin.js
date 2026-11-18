@@ -20,7 +20,7 @@ const state = {
 // 1. DATABASE & PERSISTENCE LAYER (cmsDB)
 // ==========================================
 const cmsDB = {
-  KEY: 'kf_cms_database_v2',
+  KEY: 'kf_cms_database_v4',
 
   async init() {
     let stored = localStorage.getItem(this.KEY);
@@ -2556,7 +2556,18 @@ function renderCategories(container) {
               <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Parent Category</label>
               <select id="cat-parent-input" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
                 <option value="">None (Top Level Hub)</option>
-                ${categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}
+                <optgroup label="7 Parent Silos">
+                  <option value="Business & Finance">Business & Finance</option>
+                  <option value="Expat Life & Legal">Expat Life & Legal</option>
+                  <option value="Transport & Mobility">Transport & Mobility</option>
+                  <option value="Lifestyle & Entertainment">Lifestyle & Entertainment</option>
+                  <option value="Tech & Innovation">Tech & Innovation</option>
+                  <option value="Travel & Tourism">Travel & Tourism</option>
+                  <option value="Health & Education">Health & Education</option>
+                </optgroup>
+                <optgroup label="Subcategories">
+                  ${categories.map(c => `<option value="${c.name}">${c.name} (${c.parentSilo || 'General'})</option>`).join('')}
+                </optgroup>
               </select>
             </div>
             <div>
@@ -2580,6 +2591,7 @@ function renderCategories(container) {
               <thead class="bg-slate-50 dark:bg-slate-800/60 text-slate-500 font-semibold border-b border-slate-100 dark:border-slate-800">
                 <tr>
                   <th class="py-3 px-4">Name</th>
+                  <th class="py-3 px-4">Parent Silo</th>
                   <th class="py-3 px-4">Description</th>
                   <th class="py-3 px-4">Slug</th>
                   <th class="py-3 px-4">Count</th>
@@ -2593,6 +2605,11 @@ function renderCategories(container) {
                     <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40">
                       <td class="py-3 px-4">
                         <strong class="font-bold text-slate-900 dark:text-white">${escapeHtml(cat.name)}</strong>
+                      </td>
+                      <td class="py-3 px-4">
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                          ${escapeHtml(cat.parentSilo || cat.silo || 'General')}
+                        </span>
                       </td>
                       <td class="py-3 px-4 text-slate-500 max-w-xs truncate">
                         ${escapeHtml(cat.description || '—')}
