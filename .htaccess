@@ -28,6 +28,12 @@ DirectoryIndex index.html index.php default.php
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L]
+
+  # Clean Article routing: if no matching file or directory and no file extension, serve article.html in-place
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
+  RewriteRule ^(.*)$ /article.html [L]
 </IfModule>
 
 # 3. Prevent caching during deployment updates so changes reflect immediately

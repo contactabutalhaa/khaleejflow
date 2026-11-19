@@ -2254,7 +2254,7 @@ function renderDashboard(container) {
                       <td class="py-3 px-4 text-right space-x-2">
                         <button onclick="openQuickEditModal(${post.id})" class="text-blue-600 hover:text-blue-800 font-bold">Quick Edit</button>
                         <button onclick="cmsRouter.navigate('post-edit', 'id=${post.id}')" class="text-emerald-600 hover:text-emerald-800 font-bold">Edit</button>
-                        <a href="article.html?id=${post.id}" target="_blank" class="text-slate-400 hover:text-slate-600 font-medium">View</a>
+                        <a href="/${escapeHtml(post.slug)}" target="_blank" class="text-slate-400 hover:text-slate-600 font-medium">View</a>
                       </td>
                     </tr>
                   `;
@@ -2501,7 +2501,7 @@ function renderPostsList(container) {
                         <span class="text-slate-300">|</span>
                         <button onclick="handleDeleteSinglePost(${post.id})" class="text-rose-600 hover:underline font-medium text-[11px]">Delete</button>
                         <span class="text-slate-300">|</span>
-                        <a href="article.html?id=${post.id}" target="_blank" class="text-slate-500 hover:underline font-medium text-[11px]">Preview</a>
+                        <a href="/${escapeHtml(post.slug)}" target="_blank" class="text-slate-500 hover:underline font-medium text-[11px]">Preview</a>
                       </div>
                     </td>
                     <td class="py-3 px-4 text-slate-700 dark:text-slate-300 whitespace-nowrap">
@@ -3731,6 +3731,7 @@ function savePostFromEditor(publishNow = false, isAutoSave = false) {
     content: content,
     excerpt: excerpt,
     featuredImage: featuredImage,
+    imageUrl: featuredImage || 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&auto=format&fit=crop&q=80',
     imageAlt: imageAlt,
     category: primaryCategory,
     categories: selectedCategories.length ? selectedCategories : [primaryCategory],
@@ -3739,6 +3740,9 @@ function savePostFromEditor(publishNow = false, isAutoSave = false) {
     author: authorObj.name,
     status: status,
     template: template,
+    readTime: `${Math.max(1, Math.round((rawEdText || '').split(/\s+/).filter(Boolean).length / 200))} min read`,
+    views: '1',
+    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
     publishedAt: status === 'published' ? (new Date().toISOString().substring(0, 10)) : (status === 'scheduled' ? scheduledDate : null),
     relatedPosts: related,
     seo: {
@@ -3768,7 +3772,7 @@ function savePostFromEditor(publishNow = false, isAutoSave = false) {
   }
 
   if (!isAutoSave) {
-    showToast(publishNow ? "Article published live!" : "Article draft saved successfully!", "success");
+    showToast(publishNow ? `Article published live! View at /${slug}` : "Article draft saved successfully!", "success");
     cmsRouter.navigate('posts');
   }
 }

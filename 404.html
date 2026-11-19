@@ -19,16 +19,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css" />
   <script>
-    // SPA Fallback Router: If path matches an article slug, redirect to article view
+    // SPA Clean URL Router: Render article view in-place without changing URL in address bar
     (function() {
       var p = window.location.pathname;
       var parts = p.split('/').filter(Boolean);
       if (parts.length > 0) {
         var last = parts[parts.length - 1].replace(/\.html$/, '');
-        if (last && last !== '404') {
+        if (last && last !== '404' && last !== 'admin') {
           var isGh = p.indexOf('/khaleejflow/') !== -1;
           var root = isGh ? '/khaleejflow/' : '/';
-          window.location.replace(root + 'article.html?slug=' + encodeURIComponent(last));
+          fetch(root + 'article.html')
+            .then(function(res) { return res.text(); })
+            .then(function(html) {
+              document.open();
+              document.write(html);
+              document.close();
+            })
+            .catch(function() {
+              window.location.replace(root + 'article.html?slug=' + encodeURIComponent(last));
+            });
         }
       }
     })();
