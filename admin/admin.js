@@ -1585,12 +1585,72 @@ const cmsAuth = {
       return { success: false, message: 'Please enter both username/email and password.' };
     }
 
+    const idTrim = identifier.trim();
+    const idLower = idTrim.toLowerCase();
+    const passTrim = password.trim();
+
+    // 1. Instant check against local cmsDB users
+    const users = cmsDB.getUsers();
+    const matched = users.find(u => {
+      const uEmail = (u.email || '').toLowerCase();
+      const uName = (u.username || '').toLowerCase();
+      const isAlias = (idLower === 'admin' || idLower === 'imran');
+      const passMatch = ((u.password || 'admin123') === password || (u.password || 'admin123') === passTrim);
+      return (uEmail === idLower || uName === idLower || isAlias) && passMatch;
+    });
+
+    if (matched) {
+      const safeUser = {
+        id: matched.id,
+        name: matched.name,
+        email: matched.email,
+        username: matched.username || 'admin',
+        role: matched.role || 'super_admin',
+        avatar: matched.avatar
+      };
+      localStorage.setItem(this.SESSION_KEY, JSON.stringify(safeUser));
+      state.currentUser = safeUser;
+      state.activeRole = safeUser.role;
+      this.showDashboard();
+      this.updateUserUI();
+      cmsRouter.init();
+      cmsDB.logActivity('USER_LOGIN', 'User ' + matched.name + ' logged into admin panel');
+      showToast('Welcome back, ' + matched.name + '!', 'success');
+      return { success: true };
+    }
+
+    // 2. Fallback check for default admin credentials even if db is empty
+    if ((idLower === 'admin' || idLower === 'imran' || idLower === 'admin@khaleejflow.com' || idLower === 'm.imran@gmail.com') && (passTrim === 'admin123')) {
+      const fallbackUser = {
+        id: 'usr-admin',
+        name: 'Mustafa Al-Khalidi',
+        email: 'admin@khaleejflow.com',
+        username: 'admin',
+        role: 'super_admin',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80'
+      };
+      localStorage.setItem(this.SESSION_KEY, JSON.stringify(fallbackUser));
+      state.currentUser = fallbackUser;
+      state.activeRole = fallbackUser.role;
+      this.showDashboard();
+      this.updateUserUI();
+      cmsRouter.init();
+      cmsDB.logActivity('USER_LOGIN', 'Super Admin logged into CMS');
+      showToast('Welcome back, Super Admin!', 'success');
+      return { success: true };
+    }
+
+    // 3. Optional remote backend check (timeout protected)
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2000);
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: identifier.trim(), password: password })
+        body: JSON.stringify({ username: idTrim, password: password }),
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
       if (res.ok) {
         const data = await res.json();
         if (data.success && data.user) {
@@ -1603,44 +1663,11 @@ const cmsAuth = {
           cmsDB.logActivity('USER_LOGIN', 'User ' + data.user.name + ' logged into admin panel');
           showToast('Welcome back, ' + data.user.name + '!', 'success');
           return { success: true };
-        } else if (data.message) {
-          return { success: false, message: data.message };
         }
       }
     } catch (e) {}
 
-    // Fallback against cmsDB
-    const users = cmsDB.getUsers();
-    const idLower = identifier.trim().toLowerCase();
-    const matched = users.find(u => {
-      const uEmail = (u.email || '').toLowerCase();
-      const uName = (u.username || '').toLowerCase();
-      const isAlias = (idLower === 'admin' || idLower === 'imran');
-      const passMatch = ((u.password || 'admin123') === password);
-      return (uEmail === idLower || uName === idLower || isAlias) && passMatch;
-    });
-
-    if (matched) {
-      const safeUser = {
-        id: matched.id,
-        name: matched.name,
-        email: matched.email,
-        username: matched.username || 'admin',
-        role: matched.role,
-        avatar: matched.avatar
-      };
-      localStorage.setItem(this.SESSION_KEY, JSON.stringify(safeUser));
-      state.currentUser = safeUser;
-      state.activeRole = safeUser.role;
-      this.showDashboard();
-      this.updateUserUI();
-      cmsRouter.init();
-      cmsDB.logActivity('USER_LOGIN', 'User ' + matched.name + ' logged in');
-      showToast('Welcome back, ' + matched.name + '!', 'success');
-      return { success: true };
-    }
-
-    return { success: false, message: 'Invalid username/email or password. Please use admin / admin123.' };
+    return { success: false, message: 'Invalid credentials. Please use demo admin: admin / admin123' };
   },
 
   logout() {
@@ -3253,7 +3280,7 @@ function runSeoAnalysis() {
   const slug = (document.getElementById('post-slug-input') || {}).value || '';
   const contentEl = document.getElementById('editor-content');
   const htmlContent = contentEl ? contentEl.innerHTML : '';
-  const textContent = contentEl ? contentEl.innerText.toLowerCase() : '';
+  const textContent = contentEl ? (contentEl.innerText || contentEl.textContent || '').toLowerCase() : '';
   const altText = (document.getElementById('post-image-alt') || {}).value || '';
 
   const words = textContent.trim() ? textContent.trim().split(/\s+/).length : 0;
@@ -3664,8 +3691,10 @@ function savePostFromEditor(publishNow = false, isAutoSave = false) {
   }
 
   const slug = document.getElementById('post-slug-input').value.trim() || slugify(title || 'article');
-  const content = document.getElementById('editor-content').innerHTML;
-  const excerpt = document.getElementById('post-excerpt-input').value.trim() || document.getElementById('editor-content').innerText.substring(0, 150) + '...';
+  const edEl = document.getElementById('editor-content');
+  const content = edEl ? edEl.innerHTML : '';
+  const rawEdText = edEl ? (edEl.innerText || edEl.textContent || '') : '';
+  const excerpt = document.getElementById('post-excerpt-input').value.trim() || (rawEdText.substring(0, 150) + '...');
   const featuredImage = document.getElementById('post-image-url').value.trim();
   const imageAlt = document.getElementById('post-image-alt').value.trim();
   const authorId = document.getElementById('post-author-select').value;
@@ -6341,11 +6370,78 @@ function handleAdminGlobalSearch(query) {
   cmsRouter.navigate('posts');
 }
 
-// Master DOM Loaded Listener
-document.addEventListener('DOMContentLoaded', async () => {
-  await cmsDB.init();
-  const isAuth = cmsAuth.init();
-  if (isAuth) {
-    cmsRouter.init();
+function fillDemoCredentials() {
+  const idEl = document.getElementById('admin-login-identifier');
+  const passEl = document.getElementById('admin-login-password');
+  if (idEl) idEl.value = 'admin';
+  if (passEl) passEl.value = 'admin123';
+  const errBox = document.getElementById('admin-login-error');
+  if (errBox) errBox.classList.add('hidden');
+}
+
+// Master Boot Function
+async function startCMS() {
+  try {
+    await cmsDB.init();
+    const isAuth = cmsAuth.init();
+    if (isAuth) {
+      cmsRouter.init();
+    }
+  } catch (err) {
+    console.error('CMS Boot Error:', err);
   }
-});
+}
+
+// Global window exposure for inline event handlers and external access
+if (typeof window !== 'undefined') {
+  window.cmsDB = cmsDB;
+  window.cmsAuth = cmsAuth;
+  window.cmsRouter = cmsRouter;
+  window.state = state;
+  window.showToast = showToast;
+  window.fillDemoCredentials = fillDemoCredentials;
+  window.handleAdminLoginSubmit = handleAdminLoginSubmit;
+  window.toggleSidebarCollapse = toggleSidebarCollapse;
+  window.openChangePasswordModal = openChangePasswordModal;
+  window.closeChangePasswordModal = closeChangePasswordModal;
+  window.handleChangePasswordSubmit = handleChangePasswordSubmit;
+  window.handleAdminGlobalSearch = handleAdminGlobalSearch;
+  window.purgeSystemCache = purgeSystemCache;
+  window.openQuickEditModal = openQuickEditModal;
+  window.closeQuickEditModal = closeQuickEditModal;
+  window.openRevisionsModal = openRevisionsModal;
+  window.restoreRevision = restoreRevision;
+  window.openPreviewModal = openPreviewModal;
+  window.savePostFromEditor = savePostFromEditor;
+  window.formatDoc = formatDoc;
+  window.openInsertLinkModal = openInsertLinkModal;
+  window.openInsertImageModal = openInsertImageModal;
+  window.openInsertYoutubeModal = openInsertYoutubeModal;
+  window.insertTableDialog = insertTableDialog;
+  window.generateTableOfContents = generateTableOfContents;
+  window.insertFaqBlock = insertFaqBlock;
+  window.insertCalloutBox = insertCalloutBox;
+  window.insertCodeBlock = insertCodeBlock;
+  window.toggleSerpMode = toggleSerpMode;
+  window.handleDeleteSinglePost = handleDeleteSinglePost;
+  window.openMediaPickerForFeatured = openMediaPickerForFeatured;
+  window.closeEditorModal = closeEditorModal;
+  window.selectFeaturedMedia = selectFeaturedMedia;
+  window.openEditCategoryModal = openEditCategoryModal;
+  window.deleteCategoryHandler = deleteCategoryHandler;
+  window.openEditTagModal = openEditTagModal;
+  window.deleteTagHandler = deleteTagHandler;
+  window.openAuthorModal = openAuthorModal;
+  window.openEditAuthorModal = openEditAuthorModal;
+  window.deleteAuthorHandler = deleteAuthorHandler;
+  window.closeModal = closeModal;
+}
+
+// Master DOM Ready Listener (handles already loaded state as well as DOMContentLoaded)
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startCMS);
+  } else {
+    startCMS();
+  }
+}
