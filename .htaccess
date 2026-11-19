@@ -1,0 +1,55 @@
+# ----------------------------------------------------------------------
+# KhaleejFlow Apache / LiteSpeed Configuration for Hostinger
+# ----------------------------------------------------------------------
+
+# 1. Prioritize index.html over index.php or default.php
+DirectoryIndex index.html index.php default.php
+
+# 2. Enable URL Rewriting for Clean URLs
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect /index.html to root /
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # Redirect URLs ending in .html to extensionless clean URLs
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP/ [NC]
+  RewriteRule ^/?(.*)\.html$ /$1 [R=301,L]
+
+  # Check if directory with index.html exists
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
+
+  # Serve .html file if it exists (e.g. /contact -> /contact.html, /admin -> /admin.html)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# 3. Prevent caching during deployment updates so changes reflect immediately
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|htm|json|js|css)$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+  </FilesMatch>
+</IfModule>
+
+# 4. Turn off LiteSpeed static cache during live site verification
+<IfModule LiteSpeed>
+  CacheLookup off
+</IfModule>
+
+# 5. Set correct MIME types
+<IfModule mod_mime.c>
+  AddType text/html .html
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType application/json .json
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+</IfModule>
