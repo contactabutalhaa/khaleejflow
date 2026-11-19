@@ -10,12 +10,16 @@ DirectoryIndex index.html index.php default.php
   RewriteEngine On
   RewriteBase /
 
+  # Enforce trailing slash on /admin directory so relative asset links always resolve
+  RewriteRule ^admin$ /admin/ [R=301,L]
+
   # Redirect /index.html to root /
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
   RewriteRule ^index\.html$ / [R=301,L]
 
-  # Redirect URLs ending in .html to extensionless clean URLs
+  # Redirect URLs ending in .html to extensionless clean URLs (excluding admin.html to allow direct access)
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP/ [NC]
+  RewriteCond %{REQUEST_URI} !^/admin\.html
   RewriteRule ^/?(.*)\.html$ /$1 [R=301,L]
 
   # Check if directory with index.html exists
