@@ -545,13 +545,27 @@
   "users": [
     {
       "id": 1,
-      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
-      "lastLogin": "2026-11-18 18:30 GST",
+      "username": "admin",
       "name": "Mustafa Al-Khalidi",
-      "status": "active",
+      "email": "admin@khaleejflow.com",
       "role": "super_admin",
-      "createdAt": "2026-01-10 08:00 GST",
-      "email": "admin@khaleejflow.com"
+      "password": "admin123",
+      "status": "active",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
+      "lastLogin": "2026-11-19 11:30 GST",
+      "createdAt": "2026-01-10 08:00 GST"
+    },
+    {
+      "id": 2,
+      "username": "imran",
+      "name": "M. Imran",
+      "email": "m.imran@gmail.com",
+      "role": "super_admin",
+      "password": "admin123",
+      "status": "active",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
+      "lastLogin": "2026-11-19 11:30 GST",
+      "createdAt": "2026-01-10 08:00 GST"
     }
   ],
   "tags": [
@@ -607,7 +621,118 @@
     "siteUrl": "https://contactabutalhaa.github.io/khaleejflow",
     "defaultMetaDesc": "KhaleejFlow delivers verified guides on GCC unified tourist visas, cross-border railway networks, tech startups in Riyadh and Dubai, smart city megaprojects, and expat wealth management.",
     "defaultTitle": "KhaleejFlow — Gulf Media, Policy, Transit & Wealth Journal",
-    "contactEmail": "editor@khaleejflow.com"
+    "contactEmail": "editor@khaleejflow.com",
+    "tagline": "The Gulf's Premier Journal for Policy, Transit, Innovation & Finance",
+    "adminEmail": "editor@khaleejflow.com",
+    "defaultSeoTitle": "KhaleejFlow — Gulf Media, Policy, Transit & Wealth Journal",
+    "defaultMetaDescription": "KhaleejFlow delivers verified guides on GCC unified tourist visas, cross-border railway networks, tech startups in Riyadh and Dubai, smart city megaprojects, and expat wealth management.",
+    "defaultOgImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&auto=format&fit=crop&q=80",
+    "organizationAddress": "Boutique Villa 04, Dubai Media City, PO Box 502840, Dubai, UAE",
+    "contactPhone": "+971 4 429 8800",
+    "timezone": "Asia/Dubai (GST, UTC+4)",
+    "headerMenu": [
+      {
+        "id": "hm-1",
+        "name": "Business & Startups",
+        "url": "/category/business-and-startups",
+        "target": "_self"
+      },
+      {
+        "id": "hm-2",
+        "name": "Visas & Immigration",
+        "url": "/category/visas-and-immigration",
+        "target": "_self"
+      },
+      {
+        "id": "hm-3",
+        "name": "Real Estate & Property",
+        "url": "/category/real-estate-and-property",
+        "target": "_self"
+      },
+      {
+        "id": "hm-4",
+        "name": "Artificial Intelligence",
+        "url": "/category/artificial-intelligence",
+        "target": "_self"
+      },
+      {
+        "id": "hm-5",
+        "name": "GCC Travel",
+        "url": "/category/gcc-travel",
+        "target": "_self"
+      },
+      {
+        "id": "hm-6",
+        "name": "Aviation & Travel",
+        "url": "/category/aviation-and-travel",
+        "target": "_self"
+      }
+    ],
+    "footerMenu": [
+      {
+        "title": "Taxonomies",
+        "links": [
+          {
+            "label": "Visas & Immigration",
+            "url": "/category/visas-and-immigration"
+          },
+          {
+            "label": "Real Estate & Property",
+            "url": "/category/real-estate-and-property"
+          },
+          {
+            "label": "Aviation & Travel",
+            "url": "/category/aviation-and-travel"
+          },
+          {
+            "label": "Artificial Intelligence",
+            "url": "/category/artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "title": "Regional Insights",
+        "links": [
+          {
+            "label": "Business & Startups",
+            "url": "/category/business-and-startups"
+          },
+          {
+            "label": "Crypto & Web3",
+            "url": "/category/crypto-and-web3"
+          },
+          {
+            "label": "Transit & Mobility",
+            "url": "/category/public-transport"
+          },
+          {
+            "label": "Luxury Living",
+            "url": "/category/luxury-living"
+          }
+        ]
+      },
+      {
+        "title": "Corporate Bureau",
+        "links": [
+          {
+            "label": "About Editorial Bureau",
+            "url": "/#about"
+          },
+          {
+            "label": "Ethics & Editorial Policy",
+            "url": "/#ethics"
+          },
+          {
+            "label": "Careers & Correspondents",
+            "url": "/#careers"
+          },
+          {
+            "label": "Sitemap Index",
+            "url": "/sitemap.xml"
+          }
+        ]
+      }
+    ]
   },
   "authors": [
     {
