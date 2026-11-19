@@ -3,15 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Dynamic Base Routing for Clean URLs -->
-  <script>
-    (function() {
-      var isGh = window.location.pathname.indexOf('/khaleejflow/') !== -1;
-      var base = document.createElement('base');
-      base.href = isGh ? '/khaleejflow/' : '/';
-      document.head.appendChild(base);
-    })();
-  </script>
+  <!-- Base tag removed to prevent hash links from redirecting to homepage -->
   <title>Khaleej Flow — Advanced Blog CMS &amp; Admin Dashboard</title>
   <meta name="robots" content="noindex, nofollow" />
 

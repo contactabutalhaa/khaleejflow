@@ -1752,6 +1752,34 @@ const cmsRouter = {
 
   init() {
     window.addEventListener('hashchange', () => this.handleHash());
+
+    // Capture-phase link interceptor to prevent any navigation redirect to homepage
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href*="#"], [data-view]');
+      if (!link) return;
+      if (link.getAttribute('target') === '_blank') return;
+      const rawHref = link.getAttribute('href') || '';
+      if (rawHref.includes('index.html') && !rawHref.startsWith('#')) return;
+
+      const dataView = link.getAttribute('data-view');
+      if (rawHref.startsWith('#') || dataView) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        let targetView = dataView;
+        let params = '';
+        if (rawHref.startsWith('#')) {
+          const clean = rawHref.replace(/^#\/?/, '');
+          const parts = clean.split('?');
+          targetView = targetView || parts[0];
+          params = parts[1] || '';
+        }
+        if (targetView) {
+          this.navigate(targetView, params);
+        }
+      }
+    }, true);
+
     this.handleHash();
   },
 
@@ -1770,12 +1798,23 @@ const cmsRouter = {
       this.updateSidebarUI(view === 'post-edit' ? 'posts' : view);
       this.renderCurrent();
     } else {
-      window.location.hash = '#dashboard';
+      state.currentView = 'dashboard';
+      state.editingPostId = null;
+      this.updateSidebarUI('dashboard');
+      this.renderCurrent();
     }
   },
 
   navigate(view, params = '') {
-    window.location.hash = '#' + view + (params ? '?' + params : '');
+    const targetHash = '#' + view + (params ? '?' + params : '');
+    if (window.location.hash !== targetHash) {
+      try {
+        history.pushState(null, '', targetHash);
+      } catch (e) {
+        window.location.hash = targetHash;
+      }
+    }
+    this.handleHash();
   },
 
   updateSidebarUI(activeView) {

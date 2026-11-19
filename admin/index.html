@@ -3,15 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Dynamic Base Routing for Clean URLs -->
-  <script>
-    (function() {
-      var isGh = window.location.pathname.indexOf('/khaleejflow/') !== -1;
-      var base = document.createElement('base');
-      base.href = isGh ? '/khaleejflow/' : '/';
-      document.head.appendChild(base);
-    })();
-  </script>
+  <!-- Base tag removed to prevent hash links from redirecting to homepage -->
   <title>Khaleej Flow — Advanced Blog CMS &amp; Admin Dashboard</title>
   <meta name="robots" content="noindex, nofollow" />
 
@@ -47,7 +39,7 @@
   </script>
 
   <!-- Admin Custom Stylesheet -->
-  <link rel="stylesheet" href="admin/admin.css" />
+  <link rel="stylesheet" href="admin.css" /><link rel="stylesheet" href="admin/admin.css" onerror="this.remove()" />
 </head>
 <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col antialiased selection:bg-emerald-600 selection:text-white">
 
@@ -449,6 +441,6 @@
   <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
 
   <!-- Admin Application Script -->
-  <script src="admin/admin.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>
