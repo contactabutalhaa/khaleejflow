@@ -1884,6 +1884,23 @@ function initArticlePage() {
   if (!article && paramId) {
     article = articlesData.find(a => a.id == paramId);
   }
+  // If still not found, check localStorage directly in case it was just published from admin
+  if (!article) {
+    try {
+      const freshRaw = localStorage.getItem('kf_cms_database_v6');
+      if (freshRaw) {
+        const freshDb = JSON.parse(freshRaw);
+        if (freshDb && freshDb.posts) {
+          const targetSlug = (pathSlug || paramSlug || '').toLowerCase();
+          article = freshDb.posts.find(a => a.slug && a.slug.toLowerCase() === targetSlug) ||
+                    freshDb.posts.find(a => paramId && String(a.id) === String(paramId));
+          if (article) {
+            articlesData.unshift(article);
+          }
+        }
+      }
+    } catch (e) {}
+  }
   if (!article) {
     article = articlesData[0];
   }

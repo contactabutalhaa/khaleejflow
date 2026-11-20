@@ -221,3 +221,9 @@ code, pre, .font-mono {
     display: none !important;
   }
 }
+
+/* Lock typography in content editor so pasted fonts never override theme typography */
+#editor-content,
+#editor-content * {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}

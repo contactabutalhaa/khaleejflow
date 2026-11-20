@@ -8,37 +8,38 @@ DirectoryIndex index.html index.php default.php
 # 2. Enable URL Rewriting for Clean URLs
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
 
-  # Enforce trailing slash on /admin directory so relative asset links always resolve
-  RewriteRule ^admin$ /admin/ [R=301,L]
+  # Trailing slash enforcement for /admin directory so relative asset links always resolve
+  RewriteRule ^admin$ admin/ [R=301,L]
 
-  # Redirect /index.html to root /
+  # Redirect /index.html to root
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
-  RewriteRule ^index\.html$ / [R=301,L]
+  RewriteRule ^index\.html$ ./ [R=301,L]
 
   # Redirect URLs ending in .html to extensionless clean URLs (excluding admin.html to allow direct access)
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP/ [NC]
   RewriteCond %{REQUEST_URI} !^/admin\.html
-  RewriteRule ^/?(.*)\.html$ /$1 [R=301,L]
+  RewriteRule ^/?(.*)\.html$ $1 [R=301,L]
 
-  # Check if directory with index.html exists
+  # Stop rewrite processing if target is an existing physical file or directory
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^(.*)$ $1/index.html [L]
+  RewriteRule ^ - [L]
 
-  # Serve .html file if it exists (e.g. /contact -> /contact.html, /admin -> /admin.html)
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # Extensionless clean URLs for existing static HTML files (e.g. /contact -> contact.html, /business -> business.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]
   RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  RewriteRule ^([^/]+)/?$ $1.html [L]
 
   # Clean Article routing: if no matching file or directory and no file extension, serve article.html in-place
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
-  RewriteRule ^(.*)$ /article.html [L]
+  RewriteRule ^(.*)$ article.html [L]
 </IfModule>
+
+# Custom error document fallback
+ErrorDocument 404 /404.html
 
 # 3. Prevent caching during deployment updates so changes reflect immediately
 <IfModule mod_headers.c>

@@ -1106,7 +1106,7 @@ const cmsDB = {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        if (!parsed.categories || parsed.categories.length !== 28 || !parsed.users || !parsed.users.some(u => u.password)) {
+        if (!parsed.categories || parsed.categories.length === 0 || !parsed.users || !parsed.users.some(u => u.password)) {
           needsRefresh = true;
         }
       } catch (e) {
@@ -1230,23 +1230,36 @@ const cmsDB = {
 
   // Categories CRUD
   getCategories() {
-    return this.getAll().categories || [];
+    const db = this.getAll();
+    let cats = db.categories || [];
+    if (!cats || cats.length === 0) {
+      cats = JSON.parse(JSON.stringify(SEED_DATABASE.categories || []));
+      db.categories = cats;
+      this.saveAll(db);
+    }
+    return cats;
   },
 
   getCategoryById(id) {
-    return this.getCategories().find(c => c.id == id || c.slug == id);
+    const target = String(id || '').toLowerCase();
+    return this.getCategories().find(c => String(c.id).toLowerCase() === target || String(c.slug).toLowerCase() === target);
   },
 
   saveCategory(cat) {
     const db = this.getAll();
     let cats = db.categories || [];
-    const idx = cats.findIndex(c => c.id === cat.id || c.slug === cat.slug);
+    const targetId = String(cat.id || '').toLowerCase();
+    const targetSlug = String(cat.slug || '').toLowerCase();
+    const oldSlug = String(cat.oldSlug || '').toLowerCase();
+    const idx = cats.findIndex(c => String(c.id).toLowerCase() === targetId || (oldSlug && String(c.slug).toLowerCase() === oldSlug) || String(c.slug).toLowerCase() === targetSlug);
     if (idx !== -1) {
       cats[idx] = { ...cats[idx], ...cat };
+      delete cats[idx].oldSlug;
       this.logActivity('UPDATE_CATEGORY', 'Updated category: "' + cat.name + '"');
     } else {
       if (!cat.id) cat.id = cat.slug || ('cat-' + Date.now());
       cat.count = cat.count || 0;
+      delete cat.oldSlug;
       cats.push(cat);
       this.logActivity('CREATE_CATEGORY', 'Created category: "' + cat.name + '"');
     }
@@ -1257,7 +1270,8 @@ const cmsDB = {
 
   deleteCategory(catId) {
     const db = this.getAll();
-    db.categories = (db.categories || []).filter(c => c.id !== catId && c.slug !== catId);
+    const target = String(catId || '').toLowerCase();
+    db.categories = (db.categories || []).filter(c => String(c.id).toLowerCase() !== target && String(c.slug).toLowerCase() !== target);
     this.logActivity('DELETE_CATEGORY', 'Removed category: ' + catId);
     this.saveAll(db);
   },
@@ -1270,7 +1284,9 @@ const cmsDB = {
   saveTag(tag) {
     const db = this.getAll();
     let tags = db.tags || [];
-    const idx = tags.findIndex(t => t.id === tag.id || t.slug === tag.slug);
+    const targetId = String(tag.id || '').toLowerCase();
+    const targetSlug = String(tag.slug || '').toLowerCase();
+    const idx = tags.findIndex(t => String(t.id).toLowerCase() === targetId || String(t.slug).toLowerCase() === targetSlug);
     if (idx !== -1) {
       tags[idx] = { ...tags[idx], ...tag };
       this.logActivity('UPDATE_TAG', 'Updated tag: "' + tag.name + '"');
@@ -1287,24 +1303,34 @@ const cmsDB = {
 
   deleteTag(tagId) {
     const db = this.getAll();
-    db.tags = (db.tags || []).filter(t => t.id !== tagId && t.slug !== tagId);
+    const target = String(tagId || '').toLowerCase();
+    db.tags = (db.tags || []).filter(t => String(t.id).toLowerCase() !== target && String(t.slug).toLowerCase() !== target);
     this.logActivity('DELETE_TAG', 'Removed tag: ' + tagId);
     this.saveAll(db);
   },
 
   // Authors CRUD
   getAuthors() {
-    return this.getAll().authors || [];
+    const db = this.getAll();
+    let authors = db.authors || [];
+    if (!authors || authors.length === 0) {
+      authors = JSON.parse(JSON.stringify(SEED_DATABASE.authors || []));
+      db.authors = authors;
+      this.saveAll(db);
+    }
+    return authors;
   },
 
   getAuthorById(id) {
-    return this.getAuthors().find(a => a.id == id);
+    const target = String(id || '').toLowerCase();
+    return this.getAuthors().find(a => String(a.id).toLowerCase() === target || (a.name && a.name.toLowerCase() === target));
   },
 
   saveAuthor(author) {
     const db = this.getAll();
     let authors = db.authors || [];
-    const idx = authors.findIndex(a => a.id === author.id);
+    const targetId = String(author.id || '').toLowerCase();
+    const idx = authors.findIndex(a => String(a.id).toLowerCase() === targetId || (a.name && a.name.toLowerCase() === targetId));
     if (idx !== -1) {
       authors[idx] = { ...authors[idx], ...author };
       this.logActivity('UPDATE_AUTHOR', 'Updated author profile: "' + author.name + '"');
@@ -1321,7 +1347,8 @@ const cmsDB = {
 
   deleteAuthor(authorId) {
     const db = this.getAll();
-    db.authors = (db.authors || []).filter(a => a.id !== authorId);
+    const target = String(authorId || '').toLowerCase();
+    db.authors = (db.authors || []).filter(a => String(a.id).toLowerCase() !== target);
     this.logActivity('DELETE_AUTHOR', 'Removed author profile: ' + authorId);
     this.saveAll(db);
   },
@@ -2869,7 +2896,7 @@ function initPostEditor(container, postId) {
 
             <!-- Editable WYSIWYG Surface -->
             <div class="p-6">
-              <div id="editor-content" contenteditable="true" oninput="handleEditorContentChange()" placeholder="Write your verified Gulf story here..." class="focus:outline-none">
+              <div id="editor-content" contenteditable="true" oninput="handleEditorContentChange()" onpaste="handleEditorPaste(event)" placeholder="Write your verified Gulf story here..." class="focus:outline-none">
                 ${post.content || ''}
               </div>
             </div>
@@ -3086,17 +3113,30 @@ function initPostEditor(container, postId) {
               Featured Image
             </h3>
             <div class="space-y-3 text-xs">
-              <div class="relative h-40 w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200 dark:border-slate-700">
-                <img id="featured-image-preview" src="${escapeHtml(post.featuredImage || '')}" alt="Featured preview" class="w-full h-full object-cover" />
+              <div class="relative h-44 w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                <img id="featured-image-preview" src="${escapeHtml(post.featuredImage || '')}" alt="Featured preview" class="w-full h-full object-cover ${post.featuredImage ? '' : 'hidden'}" />
+                <div id="featured-image-placeholder" class="text-center p-4 ${post.featuredImage ? 'hidden' : ''}">
+                  <div class="text-3xl mb-1">🖼️</div>
+                  <span class="text-slate-400 text-xs">No image selected</span>
+                </div>
               </div>
+
+              <!-- Real File Upload Button -->
+              <input type="file" id="featured-image-file-input" accept="image/*" class="hidden" onchange="handleFeaturedImageFileUpload(event)" />
+              <button type="button" onclick="document.getElementById('featured-image-file-input').click()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm shadow-emerald-600/20 transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                <span>Upload Image from Device</span>
+              </button>
+
               <div>
-                <input type="text" id="post-image-url" value="${escapeHtml(post.featuredImage || '')}" oninput="document.getElementById('featured-image-preview').src = this.value" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" />
+                <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Image URL (or upload from device above)</label>
+                <input type="text" id="post-image-url" value="${escapeHtml(post.featuredImage || '')}" oninput="updateFeaturedImagePreview(this.value)" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" />
               </div>
               <div>
                 <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Image Alt Text (SEO)</label>
                 <input type="text" id="post-image-alt" value="${escapeHtml(post.imageAlt || '')}" placeholder="Descriptive alt text for Google Images" oninput="runSeoAnalysis()" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" />
               </div>
-              <button type="button" onclick="openMediaPickerForFeatured()" class="w-full py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 hover:bg-slate-100 font-bold text-slate-700 text-xs">
+              <button type="button" onclick="openMediaPickerForFeatured()" class="w-full py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 hover:bg-slate-100 font-bold text-slate-700 text-xs transition-colors">
                 Select from Media Library
               </button>
             </div>
@@ -3113,16 +3153,35 @@ function initPostEditor(container, postId) {
           <!-- Categories Box -->
           <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3">
             <div class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">Categories</h3>
-              <button type="button" onclick="cmsRouter.navigate('categories')" class="text-[10px] text-emerald-600 font-bold hover:underline">+ New</button>
+              <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white">
+                Categories <span class="text-xs font-mono font-normal text-slate-400">(${categories.length} Available)</span>
+              </h3>
+              <button type="button" onclick="cmsRouter.navigate('categories')" class="text-[10px] text-emerald-600 font-bold hover:underline">+ Manage</button>
             </div>
-            <div class="max-h-48 overflow-y-auto space-y-1.5 text-xs pr-1">
-              ${categories.map(c => `
-                <label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer">
-                  <input type="checkbox" name="post-categories" value="${c.name}" ${(post.categories || [post.category]).includes(c.name) ? 'checked' : ''} class="rounded text-emerald-600 focus:ring-emerald-500" />
-                  <span class="text-slate-800 dark:text-slate-200 font-medium">${c.name}</span>
-                </label>
-              `).join('')}
+
+            <!-- Primary Category Dropdown -->
+            <div>
+              <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1 text-[11px]">Primary Category *</label>
+              <select id="post-primary-category" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-sans text-xs">
+                ${categories.map(c => `
+                  <option value="${escapeHtml(c.name)}" ${(post.category === c.name || (post.categories && post.categories[0] === c.name)) ? 'selected' : ''}>
+                    ${c.icon ? c.icon + ' ' : ''}${escapeHtml(c.name)} (${c.group || 'Taxonomy'})
+                  </option>
+                `).join('')}
+              </select>
+            </div>
+
+            <!-- All 28 Flat Categories Checklist -->
+            <div>
+              <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1 text-[11px]">Taxonomies (Select all that apply)</label>
+              <div class="max-h-60 overflow-y-auto space-y-1 text-xs pr-1 border border-slate-100 dark:border-slate-800 rounded-xl p-2 bg-slate-50/50 dark:bg-slate-800/40">
+                ${categories.map(c => `
+                  <label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+                    <input type="checkbox" name="post-categories" value="${escapeHtml(c.name)}" ${(post.categories || [post.category]).includes(c.name) ? 'checked' : ''} class="rounded text-emerald-600 focus:ring-emerald-500" />
+                    <span class="text-slate-800 dark:text-slate-200 font-medium">${c.icon ? c.icon + ' ' : ''}${escapeHtml(c.name)}</span>
+                  </label>
+                `).join('')}
+              </div>
             </div>
           </div>
 
@@ -3200,6 +3259,127 @@ function handleEditorContentChange() {
   if (timeEl) timeEl.textContent = `${readMins} min read`;
 
   runSeoAnalysis();
+}
+
+function handleEditorPaste(e) {
+  e.preventDefault();
+  const clipboardData = e.clipboardData || window.clipboardData;
+  if (!clipboardData) return;
+
+  const html = clipboardData.getData('text/html');
+  const text = clipboardData.getData('text/plain');
+
+  if (html) {
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+
+      // Strip Word / Docs junk
+      doc.querySelectorAll('style, link, meta, xml, o\\:p, script').forEach(el => el.remove());
+
+      // Strip foreign font styles and preserve semantic structure
+      const allElements = doc.body.querySelectorAll('*');
+      allElements.forEach(el => {
+        el.removeAttribute('class');
+        if (el.hasAttribute('style')) {
+          const style = el.style;
+          style.removeProperty('font-family');
+          style.removeProperty('font-size');
+          style.removeProperty('line-height');
+          style.removeProperty('color');
+          style.removeProperty('background-color');
+          style.removeProperty('background');
+          style.removeProperty('font');
+          style.removeProperty('letter-spacing');
+          style.removeProperty('word-spacing');
+          if (!el.getAttribute('style') || el.getAttribute('style').trim() === '') {
+            el.removeAttribute('style');
+          }
+        }
+        if (el.tagName.toLowerCase() === 'span' && !el.hasAttributes()) {
+          el.replaceWith(...el.childNodes);
+        }
+        if (el.tagName.toLowerCase() === 'font') {
+          el.replaceWith(...el.childNodes);
+        }
+      });
+
+      const cleanedHtml = doc.body.innerHTML;
+      if (cleanedHtml && cleanedHtml.trim()) {
+        document.execCommand('insertHTML', false, cleanedHtml);
+        handleEditorContentChange();
+        return;
+      }
+    } catch (err) {
+      console.warn('Paste sanitization error, fallback to text:', err);
+    }
+  }
+
+  if (text) {
+    document.execCommand('insertText', false, text);
+    handleEditorContentChange();
+  }
+}
+
+function handleFeaturedImageFileUpload(e) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    const base64Url = evt.target.result;
+    const urlInput = document.getElementById('post-image-url');
+    const previewImg = document.getElementById('featured-image-preview');
+    const placeholder = document.getElementById('featured-image-placeholder');
+    const altInput = document.getElementById('post-image-alt');
+
+    if (urlInput) urlInput.value = base64Url;
+    if (previewImg) {
+      previewImg.src = base64Url;
+      previewImg.classList.remove('hidden');
+    }
+    if (placeholder) placeholder.classList.add('hidden');
+    if (altInput && !altInput.value.trim()) {
+      altInput.value = file.name.replace(/\.[^/.]+$/, "").replace(/[-_]+/g, ' ');
+    }
+
+    const mediaItem = {
+      id: 'med-' + Date.now(),
+      filename: file.name,
+      url: base64Url,
+      title: file.name.replace(/\.[^/.]+$/, ""),
+      alt: file.name.replace(/\.[^/.]+$/, "").replace(/[-_]+/g, ' '),
+      caption: 'Featured image upload for article',
+      description: 'Uploaded directly from article publishing page',
+      fileSize: Math.round(file.size / 1024) + ' KB',
+      dimensions: 'Custom Upload',
+      mimeType: file.type || 'image/jpeg',
+      uploadedAt: new Date().toISOString().substring(0, 10),
+      webpConverted: true,
+      webpSavings: '35%'
+    };
+    cmsDB.saveMedia(mediaItem);
+
+    showToast("Image uploaded and set as featured image!", "success");
+    runSeoAnalysis();
+  };
+  reader.readAsDataURL(file);
+}
+
+function updateFeaturedImagePreview(url) {
+  const previewImg = document.getElementById('featured-image-preview');
+  const placeholder = document.getElementById('featured-image-placeholder');
+  if (previewImg) {
+    if (url && url.trim()) {
+      previewImg.src = url;
+      previewImg.classList.remove('hidden');
+      if (placeholder) placeholder.classList.add('hidden');
+    } else {
+      previewImg.src = '';
+      previewImg.classList.add('hidden');
+      if (placeholder) placeholder.classList.remove('hidden');
+    }
+  }
 }
 
 function handleTitleChange(val) {
@@ -3706,7 +3886,11 @@ function savePostFromEditor(publishNow = false, isAutoSave = false) {
   if (publishNow) status = 'published';
 
   const selectedCategories = Array.from(document.querySelectorAll('input[name="post-categories"]:checked')).map(cb => cb.value);
-  const primaryCategory = selectedCategories[0] || 'General';
+  const primaryCatSelect = document.getElementById('post-primary-category');
+  const primaryCategory = (primaryCatSelect && primaryCatSelect.value) || selectedCategories[0] || 'General';
+  if (!selectedCategories.includes(primaryCategory)) {
+    selectedCategories.unshift(primaryCategory);
+  }
 
   const tagsString = document.getElementById('post-tags-input').value;
   const tags = tagsString.split(',').map(t => t.trim()).filter(Boolean);
@@ -6439,7 +6623,85 @@ if (typeof window !== 'undefined') {
   window.openEditAuthorModal = openEditAuthorModal;
   window.deleteAuthorHandler = deleteAuthorHandler;
   window.closeModal = closeModal;
-}
+
+  // Complete inline handler exposure for all views, actions, modals, and uploads
+  window.handleQuickDraft = handleQuickDraft;
+  window.setPostsStatusFilter = setPostsStatusFilter;
+  window.applyBulkAction = applyBulkAction;
+  window.handleCategoryFilterChange = handleCategoryFilterChange;
+  window.handleAuthorFilterChange = handleAuthorFilterChange;
+  window.handleSeoFilterChange = handleSeoFilterChange;
+  window.handlePostsSearch = handlePostsSearch;
+  window.toggleSelectAllPosts = toggleSelectAllPosts;
+  window.changePostsPage = changePostsPage;
+  window.handleSaveQuickEdit = handleSaveQuickEdit;
+  window.handleTitleChange = handleTitleChange;
+  window.handleEditorContentChange = handleEditorContentChange;
+  window.handleEditorPaste = handleEditorPaste;
+  window.runSeoAnalysis = runSeoAnalysis;
+  window.handleSeoTitleInput = handleSeoTitleInput;
+  window.handleSeoDescInput = handleSeoDescInput;
+  window.handleStatusChange = handleStatusChange;
+  window.handleFeaturedImageFileUpload = handleFeaturedImageFileUpload;
+  window.updateFeaturedImagePreview = updateFeaturedImagePreview;
+  window.handleSaveCategory = handleSaveCategory;
+  window.handleUpdateCategory = handleUpdateCategory;
+  window.handleSaveTag = handleSaveTag;
+  window.handleUpdateTag = handleUpdateTag;
+  window.handleSaveAuthorForm = handleSaveAuthorForm;
+  window.handleUpdateAuthor = handleUpdateAuthor;
+  window.handleFileUpload = handleFileUpload;
+  window.handleFileDrop = handleFileDrop;
+  window.handleMediaSearch = handleMediaSearch;
+  window.openMediaDetailModal = openMediaDetailModal;
+  window.deleteMediaHandler = deleteMediaHandler;
+  window.copyToClipboard = copyToClipboard;
+  window.saveMediaMetadata = saveMediaMetadata;
+  window.openAddCommentModal = openAddCommentModal;
+  window.updateCommentStatus = updateCommentStatus;
+  window.replyCommentHandler = replyCommentHandler;
+  window.deleteCommentHandler = deleteCommentHandler;
+  window.handleSaveNewComment = handleSaveNewComment;
+  window.openQuickSeoModal = openQuickSeoModal;
+  window.handleSaveQuickSeo = handleSaveQuickSeo;
+  window.runTechnicalAudit = runTechnicalAudit;
+  window.handleSaveRobotsTxt = handleSaveRobotsTxt;
+  window.scanDuplicateTitles = scanDuplicateTitles;
+  window.scanForBrokenLinks = scanForBrokenLinks;
+  window.handleSaveRedirect = handleSaveRedirect;
+  window.toggleRedirectStatus = toggleRedirectStatus;
+  window.openEditRedirectModal = openEditRedirectModal;
+  window.deleteRedirectHandler = deleteRedirectHandler;
+  window.handleUpdateRedirect = handleUpdateRedirect;
+  window.regenerateSitemapsHandler = regenerateSitemapsHandler;
+  window.pingSearchEngines = pingSearchEngines;
+  window.downloadSitemapXml = downloadSitemapXml;
+  window.copyXmlPreviewHandler = copyXmlPreviewHandler;
+  window.openEditOrgSchemaModal = openEditOrgSchemaModal;
+  window.copyOrgSchemaHandler = copyOrgSchemaHandler;
+  window.handleSaveOrgSchema = handleSaveOrgSchema;
+  window.openUserModal = openUserModal;
+  window.openEditUserModal = openEditUserModal;
+  window.deleteUserHandler = deleteUserHandler;
+  window.handleSaveUserForm = handleSaveUserForm;
+  window.handleUpdateUser = handleUpdateUser;
+  window.changeAnalyticsTimeframe = changeAnalyticsTimeframe;
+  window.openAddMenuItemModal = openAddMenuItemModal;
+  window.saveHeaderMenuConfig = saveHeaderMenuConfig;
+  window.moveMenuItem = moveMenuItem;
+  window.openEditMenuItemModal = openEditMenuItemModal;
+  window.deleteMenuItem = deleteMenuItem;
+  window.handleAddMenuItem = handleAddMenuItem;
+  window.handleEditMenuItem = handleEditMenuItem;
+  window.handleSaveGlobalSettings = handleSaveGlobalSettings;
+  window.downloadDatabaseBackup = downloadDatabaseBackup;
+  window.handleImportDatabase = handleImportDatabase;
+  window.resetToFactoryDefaults = resetToFactoryDefaults;
+  window.handleSettingsPasswordChange = handleSettingsPasswordChange;
+  window.exportLogsToCsv = exportLogsToCsv;
+  window.clearActivityLogsHandler = clearActivityLogsHandler;
+  window.handleFilterLogs = handleFilterLogs;
+  window.handleSearchLogs = handleSearchLogs;}
 
 // Master DOM Ready Listener (handles already loaded state as well as DOMContentLoaded)
 if (typeof document !== 'undefined') {

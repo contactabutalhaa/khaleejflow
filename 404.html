@@ -19,7 +19,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css" />
   <script>
-    // SPA Clean URL Router: Render article view in-place without changing URL in address bar
+    // SPA Clean URL Router: Render article view without broken document.write
     (function() {
       var p = window.location.pathname;
       var parts = p.split('/').filter(Boolean);
@@ -28,16 +28,7 @@
         if (last && last !== '404' && last !== 'admin') {
           var isGh = p.indexOf('/khaleejflow/') !== -1;
           var root = isGh ? '/khaleejflow/' : '/';
-          fetch(root + 'article.html')
-            .then(function(res) { return res.text(); })
-            .then(function(html) {
-              document.open();
-              document.write(html);
-              document.close();
-            })
-            .catch(function() {
-              window.location.replace(root + 'article.html?slug=' + encodeURIComponent(last));
-            });
+          window.location.replace(root + 'article.html?slug=' + encodeURIComponent(last));
         }
       }
     })();
